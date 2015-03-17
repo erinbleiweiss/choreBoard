@@ -7,18 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		809E45A31AAAB204001C8D9C /* StrikeThroughText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809E45A21AAAB204001C8D9C /* StrikeThroughText.swift */; };
 		80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D89BB41AA768CD00583941 /* AppDelegate.swift */; };
 		80D89BB71AA768CD00583941 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D89BB61AA768CD00583941 /* ViewController.swift */; };
 		80D89BBA1AA768CD00583941 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80D89BB81AA768CD00583941 /* Main.storyboard */; };
 		80D89BBC1AA768CD00583941 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80D89BBB1AA768CD00583941 /* Images.xcassets */; };
 		80D89BBF1AA768CD00583941 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D89BBD1AA768CD00583941 /* LaunchScreen.xib */; };
-		80D89BD51AA76A3600583941 /* choreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D89BD41AA76A3600583941 /* choreItem.swift */; };
-		80D89BD71AA7756C00583941 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D89BD61AA7756C00583941 /* TableViewCell.swift */; };
+		80E2A0A91AB7FA3B008A169D /* ChoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2A0A61AB7FA3B008A169D /* ChoreDetailViewController.swift */; };
+		80E2A0AA1AB7FA3B008A169D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2A0A71AB7FA3B008A169D /* SecondViewController.swift */; };
+		80E2A0AB1AB7FA3B008A169D /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2A0A81AB7FA3B008A169D /* ThirdViewController.swift */; };
+		80E2A0AD1AB7FA5A008A169D /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2A0AC1AB7FA5A008A169D /* PageItemController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		809E45A21AAAB204001C8D9C /* StrikeThroughText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrikeThroughText.swift; sourceTree = "<group>"; };
 		80D89BAF1AA768CD00583941 /* choreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = choreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D89BB31AA768CD00583941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80D89BB41AA768CD00583941 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -28,8 +28,10 @@
 		80D89BBE1AA768CD00583941 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		80D89BC91AA768CD00583941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80D89BCA1AA768CD00583941 /* choreBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = choreBoardTests.swift; sourceTree = "<group>"; };
-		80D89BD41AA76A3600583941 /* choreItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = choreItem.swift; sourceTree = "<group>"; };
-		80D89BD61AA7756C00583941 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		80E2A0A61AB7FA3B008A169D /* ChoreDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreDetailViewController.swift; sourceTree = "<group>"; };
+		80E2A0A71AB7FA3B008A169D /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		80E2A0A81AB7FA3B008A169D /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		80E2A0AC1AB7FA5A008A169D /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,15 +65,14 @@
 		80D89BB11AA768CD00583941 /* choreBoard */ = {
 			isa = PBXGroup;
 			children = (
-				80D89BD61AA7756C00583941 /* TableViewCell.swift */,
-				809E45A21AAAB204001C8D9C /* StrikeThroughText.swift */,
+				80E2A0A51AB7FA2D008A169D /* Subviews */,
 				80D89BB41AA768CD00583941 /* AppDelegate.swift */,
 				80D89BB61AA768CD00583941 /* ViewController.swift */,
+				80E2A0AC1AB7FA5A008A169D /* PageItemController.swift */,
 				80D89BB81AA768CD00583941 /* Main.storyboard */,
 				80D89BBB1AA768CD00583941 /* Images.xcassets */,
 				80D89BBD1AA768CD00583941 /* LaunchScreen.xib */,
 				80D89BB21AA768CD00583941 /* Supporting Files */,
-				80D89BD41AA76A3600583941 /* choreItem.swift */,
 			);
 			path = choreBoard;
 			sourceTree = "<group>";
@@ -99,6 +100,16 @@
 				80D89BC91AA768CD00583941 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		80E2A0A51AB7FA2D008A169D /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				80E2A0A61AB7FA3B008A169D /* ChoreDetailViewController.swift */,
+				80E2A0A71AB7FA3B008A169D /* SecondViewController.swift */,
+				80E2A0A81AB7FA3B008A169D /* ThirdViewController.swift */,
+			);
+			name = Subviews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,10 +182,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				809E45A31AAAB204001C8D9C /* StrikeThroughText.swift in Sources */,
-				80D89BD51AA76A3600583941 /* choreItem.swift in Sources */,
-				80D89BD71AA7756C00583941 /* TableViewCell.swift in Sources */,
+				80E2A0A91AB7FA3B008A169D /* ChoreDetailViewController.swift in Sources */,
 				80D89BB71AA768CD00583941 /* ViewController.swift in Sources */,
+				80E2A0AA1AB7FA3B008A169D /* SecondViewController.swift in Sources */,
+				80E2A0AD1AB7FA5A008A169D /* PageItemController.swift in Sources */,
+				80E2A0AB1AB7FA3B008A169D /* ThirdViewController.swift in Sources */,
 				80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

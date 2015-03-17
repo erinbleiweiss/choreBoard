@@ -37,8 +37,9 @@ class ViewController: UIViewController, UIPageViewControllerDataSource  {
         let pageController = self.storyboard!.instantiateViewControllerWithIdentifier("PageController") as UIPageViewController
         pageController.dataSource = self
         
+        // *** Whatever index is inside of controllers[i] will be the default view (see also "Indicator" below)  -Erin ***
         if !controllers.isEmpty {
-            pageController.setViewControllers([controllers[0]], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+            pageController.setViewControllers([controllers[1]], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
         }
         
         pageViewController = pageController
@@ -71,15 +72,16 @@ class ViewController: UIViewController, UIPageViewControllerDataSource  {
         }
         return nil
     }
-    
-    //    // MARK: - Page Indicator
-    //
-    //    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-    //        return controllers.count
-    //    }
-    //
-    //    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
-    //        return 0
-    //    }
-    
+
+    // MARK: - Page Indicator
+
+    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
+        return controllers.count
+    }
+
+    // *** Return the index of default view (from createPageViewController above) -Erin ***
+    func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
+        return 1
+    }
+
 }

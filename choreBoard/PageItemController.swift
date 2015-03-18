@@ -12,7 +12,11 @@ class PageItemController: UIViewController {
     
     // MARK: - Variables
     var itemIndex: Int = 0
+
     
-    
+    // MARK: - View Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
     
 }

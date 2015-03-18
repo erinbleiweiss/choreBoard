@@ -64,6 +64,18 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
         choreTableView.endUpdates()
     }
     
+    func didSwipeCell(ChoreItem: choreItem) {
+        let index = (choreItems as NSArray).indexOfObject(ChoreItem)
+        if index == NSNotFound { return }
+        
+        let vc: AnyObject! = storyboard!.instantiateViewControllerWithIdentifier("ViewController0") as PageItemController
+        
+        if let pageViewController = parentViewController as? UIPageViewController {
+            pageViewController.setViewControllers([vc], direction: .Reverse, animated: true, completion: nil)
+        }
+        
+    }
+    
     
     // MARK: - Table view delegate
     

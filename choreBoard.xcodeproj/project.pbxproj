@@ -73,8 +73,8 @@
 			children = (
 				80D89BB41AA768CD00583941 /* AppDelegate.swift */,
 				80E2A0A51AB7FA2D008A169D /* Subviews */,
-				80D89BB61AA768CD00583941 /* ViewController.swift */,
 				80E2A0B41AB801E5008A169D /* Chore List */,
+				80D89BB61AA768CD00583941 /* ViewController.swift */,
 				80E2A0AC1AB7FA5A008A169D /* PageItemController.swift */,
 				80D89BB81AA768CD00583941 /* Main.storyboard */,
 				80D89BBB1AA768CD00583941 /* Images.xcassets */,

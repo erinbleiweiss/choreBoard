@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPageViewControllerDataSource  {
+class ViewController: UIViewController, UIPageViewControllerDataSource {
     
     // MARK: - Variables
     private var pageViewController: UIPageViewController?
-    
+
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +23,11 @@ class ViewController: UIViewController, UIPageViewControllerDataSource  {
     
     var controllers = [PageItemController]()
     
-    
     func populateControllersArray() {
         for i in 0...2 {
             let controller = storyboard!.instantiateViewControllerWithIdentifier("ViewController\(i)") as PageItemController
             controller.itemIndex = i
+            // controller.setValue(i, forKey: "itemIndex")
             controllers.append(controller)
         }
     }
@@ -56,14 +56,23 @@ class ViewController: UIViewController, UIPageViewControllerDataSource  {
     }
     
     // MARK: - UIPageViewControllerDataSource
+    
+    // "swipe backwards (from L to R)"
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         if let controller = viewController as? PageItemController {
-            if controller.itemIndex > 0 {
+            // this "if" block prevents from swiping to index 0 (chore detail controller) from the main screen
+            // because this will be handled in tableview swipe functionality
+            if controller.itemIndex == 1{
+                return nil
+            }
+            else if controller.itemIndex > 0 {
                 return controllers[controller.itemIndex - 1]
             }
         }
         return nil
     }
+    
+    // "swipe forwards (from R to L)"
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         if let controller = viewController as? PageItemController {
             if controller.itemIndex < controllers.count - 1 {
@@ -73,15 +82,18 @@ class ViewController: UIViewController, UIPageViewControllerDataSource  {
         return nil
     }
 
+    
     // MARK: - Page Indicator
-
+    
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
         return controllers.count
     }
-
+    
     // *** Return the index of default view (from createPageViewController above) -Erin ***
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
         return 1
     }
-
+    
+    
+    
 }

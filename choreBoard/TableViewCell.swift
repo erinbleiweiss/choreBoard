@@ -13,6 +13,9 @@ import QuartzCore
 protocol TableViewCellDelegate {
     // indicates that the given item has been deleted
     func choreItemDeleted(ChoreItem: choreItem)
+    
+    // swipe to chore detail
+    func didSwipeCell(ChoreItem: choreItem)
 }
 
 class TableViewCell: UITableViewCell {
@@ -140,10 +143,11 @@ class TableViewCell: UITableViewCell {
                 }
             } else if completeOnDragRelease {
                 if ChoreItem != nil {
-                    ChoreItem!.completed = true
+                    // ChoreItem!.completed = true
+                    delegate!.didSwipeCell(ChoreItem!)
                 }
-                label.strikeThrough = true
-                itemCompleteLayer.hidden = false
+                // label.strikeThrough = true
+                // itemCompleteLayer.hidden = false
                 UIView.animateWithDuration(0.2, animations: {self.frame = originalFrame})
             } else {
                 UIView.animateWithDuration(0.2, animations: {self.frame = originalFrame})
@@ -162,5 +166,7 @@ class TableViewCell: UITableViewCell {
         }
         return false
     }
+    
+
     
 }

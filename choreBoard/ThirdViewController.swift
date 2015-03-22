@@ -8,24 +8,26 @@
 
 import UIKit
 
-class ThirdViewController: PageItemController {
+class ThirdViewController: UIViewController {
    
     // MARK: - Outlets
-    @IBOutlet weak var thirdImageView: UIImageView!
+    @IBOutlet weak var saveChoreButton: UIBarButtonItem!
+    @IBOutlet weak var newChoreTextField: UITextField!
     
     // MARK: - Variables
-    var imageName: String = "nature_pic_3" {
-        didSet {
-            if let imageView = thirdImageView {
-                imageView.image = UIImage(named: imageName)
-            }
-        }
-    }
+    var newChore: choreItem!
+
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        thirdImageView!.image = UIImage(named: imageName)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SaveChoreDetail" {
+            newChore = choreItem(text: self.newChoreTextField.text)
+            println("checkpoint 2")
+        }
     }
     
     override func didReceiveMemoryWarning() {

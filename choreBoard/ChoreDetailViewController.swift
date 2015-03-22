@@ -8,26 +8,25 @@
 
 import UIKit
 
-class ChoreDetailViewController: PageItemController {
+class ChoreDetailViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var detailImageView: UIImageView!
+    @IBOutlet weak var detailLabel: UILabel!
     
     // MARK: - Variables
-    var imageName: String = "nature_pic_1" {
-        didSet {
-            if let imageView = detailImageView {
-                imageView.image = UIImage(named: imageName)
-            }
-        }
-    }
+
+
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailImageView!.image = UIImage(named: imageName)
     }
     
+    override func viewDidAppear(animated: Bool) {
+        var theChore = currentChore.sharedInstance.getCurrentChore()
+        detailLabel.text = theChore.text
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

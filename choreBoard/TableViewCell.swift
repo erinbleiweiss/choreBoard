@@ -15,7 +15,8 @@ protocol TableViewCellDelegate {
     func choreItemDeleted(ChoreItem: choreItem)
     
     // swipe to chore detail
-    func didSwipeCell(ChoreItem: choreItem)
+    func viewChoreDetail(ChoreItem: choreItem)
+
 }
 
 class TableViewCell: UITableViewCell {
@@ -31,6 +32,7 @@ class TableViewCell: UITableViewCell {
     
     // The object that acts as delegate for this cell.
     var delegate: TableViewCellDelegate?
+    
     // The item that this cell renders.
     var ChoreItem: choreItem? {
         didSet {
@@ -144,7 +146,7 @@ class TableViewCell: UITableViewCell {
             } else if completeOnDragRelease {
                 if ChoreItem != nil {
                     // ChoreItem!.completed = true
-                    delegate!.didSwipeCell(ChoreItem!)
+                    delegate!.viewChoreDetail(ChoreItem!)
                 }
                 // label.strikeThrough = true
                 // itemCompleteLayer.hidden = false

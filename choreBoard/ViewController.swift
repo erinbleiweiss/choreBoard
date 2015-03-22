@@ -12,6 +12,8 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     
     // MARK: - Variables
     private var pageViewController: UIPageViewController?
+    var index = 0
+    var identifiers: NSArray = ["ViewController0", "ViewController1", "ViewController2"]
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -21,11 +23,11 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         setupPageControl()
     }
     
-    var controllers = [PageItemController]()
+    var controllers = [PageNavigationController]()
     
     func populateControllersArray() {
         for i in 0...2 {
-            let controller = storyboard!.instantiateViewControllerWithIdentifier("ViewController\(i)") as PageItemController
+            let controller = storyboard!.instantiateViewControllerWithIdentifier("ViewController\(i)") as PageNavigationController
             controller.itemIndex = i
             // controller.setValue(i, forKey: "itemIndex")
             controllers.append(controller)
@@ -57,15 +59,25 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     
     // MARK: - UIPageViewControllerDataSource
     
+//    // "swipe backwards (from L to R)"
+//    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+//        if let controller = viewController as? PageItemController {
+//            // this "if" block prevents from swiping to index 0 (chore detail controller) from the main screen
+//            // because this will be handled in tableview swipe functionality
+//            if controller.itemIndex == 1{
+//                return nil
+//            }
+//            else if controller.itemIndex > 0 {
+//                return controllers[controller.itemIndex - 1]
+//            }
+//        }
+//        return nil
+//    }
+
     // "swipe backwards (from L to R)"
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        if let controller = viewController as? PageItemController {
-            // this "if" block prevents from swiping to index 0 (chore detail controller) from the main screen
-            // because this will be handled in tableview swipe functionality
-            if controller.itemIndex == 1{
-                return nil
-            }
-            else if controller.itemIndex > 0 {
+        if let controller = viewController as? PageNavigationController {
+            if controller.itemIndex > 0 {
                 return controllers[controller.itemIndex - 1]
             }
         }
@@ -74,7 +86,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     
     // "swipe forwards (from R to L)"
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        if let controller = viewController as? PageItemController {
+        if let controller = viewController as? PageNavigationController {
             if controller.itemIndex < controllers.count - 1 {
                 return controllers[controller.itemIndex + 1]
             }

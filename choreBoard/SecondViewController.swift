@@ -8,17 +8,36 @@
 
 import UIKit
 
-class SecondViewController: PageItemController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate {
+class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate {
    
     // MARK: - Outlets
-    @IBOutlet weak var choreTableView: UITableView!
+    @IBOutlet var choreTableView: UITableView!
     
     // MARK: - Variables
     var choreItems = [choreItem]()
+    
+    
+    @IBAction func saveAddChoreViewController(segue:UIStoryboardSegue) {
+        let choreDetailsViewController = segue.sourceViewController as ThirdViewController
+        
+        //add the new player to the players array
+        choreItems.append(choreDetailsViewController.newChore)
+        
+        //update the tableView
+        let indexPath = NSIndexPath(forRow: choreItems.count-1, inSection: 0)
+        choreTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        
+        println("thsagas")
+        
+        //hide the detail view controller
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 
+    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         choreTableView.dataSource = self
         choreTableView.delegate = self
@@ -64,18 +83,36 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
         choreTableView.endUpdates()
     }
     
-    func didSwipeCell(ChoreItem: choreItem) {
+    func viewChoreDetail(ChoreItem: choreItem) {
         let index = (choreItems as NSArray).indexOfObject(ChoreItem)
         if index == NSNotFound { return }
         
-        let vc: AnyObject! = storyboard!.instantiateViewControllerWithIdentifier("ViewController0") as PageItemController
+        let vc: AnyObject! = storyboard!.instantiateViewControllerWithIdentifier("ViewController0") as PageNavigationController
         
-        if let pageViewController = parentViewController as? UIPageViewController {
+//        if let pageViewController = parentViewController as? UIPageViewController {
+
+        if let pageViewController = storyboard!.instantiateViewControllerWithIdentifier("PageController") as? UIPageViewController {
             pageViewController.setViewControllers([vc], direction: .Reverse, animated: true, completion: nil)
-        }
+
+            println("checkpoint")
+            
+            currentChore.sharedInstance.setCurrentChore(ChoreItem)
+            
+//        println(ChoreItem.text)
+            
+//            var pageControl: UIPageControl?
+//            pageControl = UIPageControl()
+//            pageControl?.currentPage = 0
+//            pageControl?.numberOfPages = 3
+            
+            //UIPageControl.updateCurrentPageDisplay(pageControl!)
+         
         
+            
+        }
     }
     
+
     
     // MARK: - Table view delegate
     
@@ -93,8 +130,17 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
         return cell
     }
     
+//    @IBAction func unwindToList(segue:UIStoryboardSegue){
+//        
+//        var source: ViewController = segue.sourceViewController as ViewController
+//        var item: ToDoItem = source.toDoItem!
+//        if item != nil{
+//            self.toDoItems.addObject(item)
+//            self.tableView.reloadData()
+//        }
+//        
+//    }
+//    
     
-
-
     
 }

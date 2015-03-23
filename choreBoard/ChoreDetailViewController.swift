@@ -20,11 +20,12 @@ class ChoreDetailViewController: PageItemController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        var theChore = currentChore.sharedInstance.getCurrentChore()
+        detailLabel.text = theChore.text
     }
     
     override func viewDidAppear(animated: Bool) {
         var theChore = currentChore.sharedInstance.getCurrentChore()
-        
         detailLabel.text = theChore.text
     }
 

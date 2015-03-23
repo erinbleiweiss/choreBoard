@@ -16,7 +16,6 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
     // MARK: - Variables
     var choreItems = [choreItem]()
     
-    
     @IBAction func saveAddChoreViewController(segue:UIStoryboardSegue) {
         let choreDetailsViewController = segue.sourceViewController as ThirdViewController
         
@@ -52,7 +51,6 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
         choreItems.append(choreItem(text: "Empty recycling"))
         choreItems.append(choreItem(text: "Buy eggs"))
         choreItems.append(choreItem(text: "Get the mail"))
-        
     }
     
     
@@ -85,16 +83,15 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
         let index = (choreItems as NSArray).indexOfObject(ChoreItem)
         if index == NSNotFound { return }
         
-        let vc: AnyObject! = storyboard!.instantiateViewControllerWithIdentifier("ViewController0") as PageItemController
+        let vc: AnyObject! = storyboard!.instantiateViewControllerWithIdentifier("NavController0") as PageNavigationController
         
-        if let pageViewController = parentPageViewController {
-            pageViewController.setViewControllers([vc], direction: .Reverse, animated: true, completion: nil)
 
-            println("checkpoint")
-            
+        if let pageViewController = parentPageViewController as UIPageViewController! {
+            pageViewController.setViewControllers([vc], direction: .Reverse, animated: true, completion: nil)
+        
             currentChore.sharedInstance.setCurrentChore(ChoreItem)
             
-//        println(ChoreItem.text)
+            println(ChoreItem.text)
             
 //            var pageControl: UIPageControl?
 //            pageControl = UIPageControl()
@@ -104,6 +101,7 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
             //UIPageControl.updateCurrentPageDisplay(pageControl!)
          
         }
+
         
 }
     

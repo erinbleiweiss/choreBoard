@@ -10,12 +10,12 @@ import UIKit
 
 class ChoreDetailNavigationController: PageNavigationController {
     
-        // MARK: - Outlets
+    // MARK: - Outlets
+    
+    // MARK: - Variables
         
-        // MARK: - Variables
-            
-        // MARK: - View Lifecycle
-        override func viewDidLoad() {
-            super.viewDidLoad()
-        }
+    // MARK: - View Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -58,7 +58,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mDH-DF-Bt7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="19" y="1961"/>
+            <point key="canvasLocation" x="47" y="1961"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="KBs-IP-MA1">
@@ -86,7 +86,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nCg-sJ-Szq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="667" y="1961"/>
+            <point key="canvasLocation" x="735" y="1961"/>
         </scene>
         <!--Add Chore-->
         <scene sceneID="63K-ED-kt4">
@@ -122,7 +122,52 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hHd-TE-mXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="pWK-Tu-YJd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1323" y="1961"/>
+            <point key="canvasLocation" x="1435" y="1949"/>
+        </scene>
+        <!--Chore Detail Navigation Controller-->
+        <scene sceneID="Db3-BV-LUD">
+            <objects>
+                <navigationController storyboardIdentifier="NavController0" automaticallyAdjustsScrollViewInsets="NO" id="3wb-F6-TBI" customClass="ChoreDetailNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Xm8-7j-HCt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oym-AY-nhY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="47" y="1169"/>
+        </scene>
+        <!--Second Navigation Controller-->
+        <scene sceneID="eDM-6X-eVo">
+            <objects>
+                <navigationController storyboardIdentifier="NavController1" automaticallyAdjustsScrollViewInsets="NO" id="ohs-Qh-1Ya" customClass="SecondNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3s8-lQ-mee">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u6T-mg-HVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="735" y="1169"/>
+        </scene>
+        <!--Third Navigation Controller-->
+        <scene sceneID="Xsg-Ny-Q9I">
+            <objects>
+                <navigationController storyboardIdentifier="NavController2" automaticallyAdjustsScrollViewInsets="NO" id="dD2-k9-3a9" customClass="ThirdNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="j0W-OP-eLE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BNe-qi-COD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1435" y="1169"/>
         </scene>
     </scenes>
 </document>

@@ -13,21 +13,21 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     // MARK: - Variables
     private var pageViewController: UIPageViewController?
     var index = 0
-    var identifiers: NSArray = ["ViewController0", "ViewController1", "ViewController2"]
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         populateControllersArray()
         createPageViewController()
+        setPageViewController()
         setupPageControl()
     }
     
-    var controllers = [PageNavigationController]()
+    var controllers = [PageItemController]()
     
     func populateControllersArray() {
         for i in 0...2 {
-            let controller = storyboard!.instantiateViewControllerWithIdentifier("ViewController\(i)") as PageNavigationController
+            let controller = storyboard!.instantiateViewControllerWithIdentifier("ViewController\(i)") as PageItemController
             controller.itemIndex = i
             // controller.setValue(i, forKey: "itemIndex")
             controllers.append(controller)
@@ -48,6 +48,13 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         addChildViewController(pageViewController!)
         self.view.addSubview(pageViewController!.view)
         pageViewController!.didMoveToParentViewController(self)
+    }
+    
+    private func setPageViewController(){
+        for i in 0...2{
+            let pageItemController = controllers[i] as PageItemController
+            pageItemController.parentPageViewController = pageViewController
+        }
     }
     
     private func setupPageControl() {
@@ -76,7 +83,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
 
     // "swipe backwards (from L to R)"
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        if let controller = viewController as? PageNavigationController {
+        if let controller = viewController as? PageItemController {
             if controller.itemIndex > 0 {
                 return controllers[controller.itemIndex - 1]
             }
@@ -86,14 +93,14 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     
     // "swipe forwards (from R to L)"
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
-        if let controller = viewController as? PageNavigationController {
+        if let controller = viewController as? PageItemController {
             if controller.itemIndex < controllers.count - 1 {
                 return controllers[controller.itemIndex + 1]
             }
         }
         return nil
     }
-
+    
     
     // MARK: - Page Indicator
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate {
+class SecondViewController: PageItemController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate {
    
     // MARK: - Outlets
     @IBOutlet var choreTableView: UITableView!
@@ -26,9 +26,7 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         //update the tableView
         let indexPath = NSIndexPath(forRow: choreItems.count-1, inSection: 0)
         choreTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-        
-        println("thsagas")
-        
+                
         //hide the detail view controller
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -87,11 +85,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
         let index = (choreItems as NSArray).indexOfObject(ChoreItem)
         if index == NSNotFound { return }
         
-        let vc: AnyObject! = storyboard!.instantiateViewControllerWithIdentifier("ViewController0") as PageNavigationController
+        let vc: AnyObject! = storyboard!.instantiateViewControllerWithIdentifier("ViewController0") as PageItemController
         
-//        if let pageViewController = parentViewController as? UIPageViewController {
-
-        if let pageViewController = storyboard!.instantiateViewControllerWithIdentifier("PageController") as? UIPageViewController {
+        if let pageViewController = parentPageViewController {
             pageViewController.setViewControllers([vc], direction: .Reverse, animated: true, completion: nil)
 
             println("checkpoint")
@@ -107,10 +103,9 @@ class SecondViewController: UIViewController, UITableViewDataSource, UITableView
             
             //UIPageControl.updateCurrentPageDisplay(pageControl!)
          
-        
-            
         }
-    }
+        
+}
     
 
     

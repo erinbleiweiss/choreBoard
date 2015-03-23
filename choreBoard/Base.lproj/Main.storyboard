@@ -33,7 +33,7 @@
         <!--Chore Detail View Controller-->
         <scene sceneID="U6p-pJ-R4E">
             <objects>
-                <viewController id="vdd-na-HGo" customClass="ChoreDetailViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController0" id="vdd-na-HGo" customClass="ChoreDetailViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="azY-dN-KEJ"/>
                         <viewControllerLayoutGuide type="bottom" id="JQP-EJ-Lxu"/>
@@ -63,7 +63,7 @@
         <!--Second View Controller-->
         <scene sceneID="KBs-IP-MA1">
             <objects>
-                <viewController id="qC0-sU-2Sc" customClass="SecondViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController1" id="qC0-sU-2Sc" customClass="SecondViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="s14-iN-dae"/>
                         <viewControllerLayoutGuide type="bottom" id="LcL-kO-BhT"/>
@@ -91,7 +91,7 @@
         <!--Add Chore-->
         <scene sceneID="63K-ED-kt4">
             <objects>
-                <viewController id="EGp-XD-9zB" customClass="ThirdViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController2" id="EGp-XD-9zB" customClass="ThirdViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ov8-w6-Rwv"/>
                         <viewControllerLayoutGuide type="bottom" id="uBs-1v-crw"/>
@@ -123,60 +123,6 @@
                 <exit id="pWK-Tu-YJd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1323" y="1961"/>
-        </scene>
-        <!--Third Navigation Controller-->
-        <scene sceneID="EGp-R0-4xr">
-            <objects>
-                <navigationController storyboardIdentifier="ViewController2" automaticallyAdjustsScrollViewInsets="NO" id="P3P-Hb-4Yo" customClass="ThirdNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="938-jz-CgV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="EGp-XD-9zB" kind="relationship" relationship="rootViewController" id="ibm-v0-TlV"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sWe-KG-5rA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1323" y="1173"/>
-        </scene>
-        <!--Second Navigation Controller-->
-        <scene sceneID="aas-TU-cRs">
-            <objects>
-                <navigationController storyboardIdentifier="ViewController1" automaticallyAdjustsScrollViewInsets="NO" id="vHZ-pO-vw5" customClass="SecondNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jL9-jz-KIW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="qC0-sU-2Sc" kind="relationship" relationship="rootViewController" id="aBC-gF-5oe"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m25-Rs-WWk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="667" y="1173"/>
-        </scene>
-        <!--Chore Detail Navigation Controller-->
-        <scene sceneID="X8n-bb-c2x">
-            <objects>
-                <navigationController storyboardIdentifier="ViewController0" automaticallyAdjustsScrollViewInsets="NO" id="xZy-2d-xUw" customClass="ChoreDetailNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ltf-1f-WxC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="vdd-na-HGo" kind="relationship" relationship="rootViewController" id="MgZ-zg-syg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="axS-Oq-3qA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="19" y="1173"/>
         </scene>
     </scenes>
 </document>

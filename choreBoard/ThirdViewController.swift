@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ThirdViewController: UIViewController {
+class ThirdViewController: PageItemController {
    
     // MARK: - Outlets
     @IBOutlet weak var saveChoreButton: UIBarButtonItem!

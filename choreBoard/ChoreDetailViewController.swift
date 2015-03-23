@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChoreDetailViewController: UIViewController {
+class ChoreDetailViewController: PageItemController {
     
     // MARK: - Outlets
     @IBOutlet weak var detailLabel: UILabel!

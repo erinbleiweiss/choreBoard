@@ -12,7 +12,7 @@ class PageItemController: UIViewController {
     
     // MARK: - Variables
     var itemIndex: Int = 0
-
+    var parentPageViewController: UIPageViewController!
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {

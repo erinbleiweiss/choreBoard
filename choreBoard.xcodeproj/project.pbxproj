@@ -26,6 +26,7 @@
 		807FA8791ABF6A2700BB5A8A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA8781ABF6A2700BB5A8A /* libz.dylib */; };
 		807FA87B1ABF6A2D00BB5A8A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA87A1ABF6A2D00BB5A8A /* libsqlite3.dylib */; };
 		807FA8811ABF87E600BB5A8A /* currentChore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807FA8801ABF87E600BB5A8A /* currentChore.swift */; };
+		807FA8831ABFA0B100BB5A8A /* newChore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807FA8821ABFA0B100BB5A8A /* newChore.swift */; };
 		80AF9BD31ABCE915003829F3 /* PageNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF9BD21ABCE915003829F3 /* PageNavigationController.swift */; };
 		80AF9BD51ABCE947003829F3 /* ThirdNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF9BD41ABCE947003829F3 /* ThirdNavigationController.swift */; };
 		80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D89BB41AA768CD00583941 /* AppDelegate.swift */; };
@@ -63,6 +64,7 @@
 		807FA87A1ABF6A2D00BB5A8A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		807FA87D1ABF6B3C00BB5A8A /* choreBoard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "choreBoard-Bridging-Header.h"; sourceTree = "<group>"; };
 		807FA8801ABF87E600BB5A8A /* currentChore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = currentChore.swift; sourceTree = "<group>"; };
+		807FA8821ABFA0B100BB5A8A /* newChore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newChore.swift; sourceTree = "<group>"; };
 		80AF9BD21ABCE915003829F3 /* PageNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageNavigationController.swift; sourceTree = "<group>"; };
 		80AF9BD41ABCE947003829F3 /* ThirdNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThirdNavigationController.swift; path = ../ThirdNavigationController.swift; sourceTree = "<group>"; };
 		80D89BAF1AA768CD00583941 /* choreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = choreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,6 +232,7 @@
 				80E2A0B21AB801DA008A169D /* TableViewCell.swift */,
 				80E2A0AE1AB800EF008A169D /* choreItem.swift */,
 				807FA8801ABF87E600BB5A8A /* currentChore.swift */,
+				807FA8821ABFA0B100BB5A8A /* newChore.swift */,
 				80E2A0B01AB8010F008A169D /* StrikeThroughText.swift */,
 			);
 			name = "Chore List";
@@ -313,6 +316,7 @@
 				80D89BB71AA768CD00583941 /* ViewController.swift in Sources */,
 				80E2A0AA1AB7FA3B008A169D /* SecondViewController.swift in Sources */,
 				80E2A0AD1AB7FA5A008A169D /* PageItemController.swift in Sources */,
+				807FA8831ABFA0B100BB5A8A /* newChore.swift in Sources */,
 				80E2A0AB1AB7FA3B008A169D /* ThirdViewController.swift in Sources */,
 				807FA8581ABE400C00BB5A8A /* ChoreDetailNavigationController.swift in Sources */,
 				80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */,

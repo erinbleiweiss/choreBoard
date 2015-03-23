@@ -24,6 +24,7 @@ class ChoreDetailViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         var theChore = currentChore.sharedInstance.getCurrentChore()
+        
         detailLabel.text = theChore.text
     }
 

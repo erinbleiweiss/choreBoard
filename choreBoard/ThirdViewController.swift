@@ -8,26 +8,39 @@
 
 import UIKit
 
-class ThirdViewController: PageItemController {
+class ThirdViewController: PageItemController, newChore {
    
     // MARK: - Outlets
     @IBOutlet weak var saveChoreButton: UIBarButtonItem!
     @IBOutlet weak var newChoreTextField: UITextField!
     
     // MARK: - Variables
-    var newChore: choreItem!
+    var newChoreItem: choreItem?
 
-    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "SaveChoreDetail" {
-            newChore = choreItem(text: self.newChoreTextField.text)
-            println("checkpoint 2")
+    
+    @IBAction func addChore(sender: AnyObject) {
+        newChoreItem = choreItem(text: newChoreTextField.text)
+        let vc = storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as SecondViewController
+        vc.delegate = self
+        vc.itemIndex = 1
+        vc.parentPageViewController = self.parentPageViewController
+        
+        let vc2 = storyboard!.instantiateViewControllerWithIdentifier("NavController1") as SecondNavigationController
+            vc2.itemIndex = 1
+        if let pageViewController = parentPageViewController as UIPageViewController! {
+            pageViewController.setViewControllers([vc2], direction: .Reverse, animated: true, completion: nil)
+            vc2.pushViewController(vc as UIViewController, animated: true)
         }
+
+    }
+    
+    func getNewChore() -> choreItem {
+        return newChoreItem!
     }
     
     override func didReceiveMemoryWarning() {

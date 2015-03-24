@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol newChore{
+    func getNewChore() -> choreItem
+}
+
 class SecondViewController: PageItemController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate, SwipedChore {
    
     // MARK: - Outlets
@@ -16,21 +20,7 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
     // MARK: - Variables
     var choreItems = [choreItem]()
     var swipedItem: choreItem?
-    
-    @IBAction func saveAddChoreViewController(segue:UIStoryboardSegue) {
-        let choreDetailsViewController = segue.sourceViewController as ThirdViewController
-        
-        //add the new player to the players array
-        choreItems.append(choreDetailsViewController.newChore)
-        
-        //update the tableView
-        let indexPath = NSIndexPath(forRow: choreItems.count-1, inSection: 0)
-        choreTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-                
-        //hide the detail view controller
-        dismissViewControllerAnimated(true, completion: nil)
-    }
-
+    var delegate: newChore? = nil
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -53,6 +43,10 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
         choreItems.append(choreItem(text: "Buy eggs"))
         choreItems.append(choreItem(text: "Get the mail"))
         
+        if let newChore = self.delegate?.getNewChore() {
+            choreItems.append(newChore)
+        }
+
     }
     
     
@@ -85,9 +79,11 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
         let index = (choreItems as NSArray).indexOfObject(ChoreItem)
         if index == NSNotFound { return }
         
-        let vc: AnyObject! = storyboard!.instantiateViewControllerWithIdentifier("NavController0") as ChoreDetailNavigationController
+        let vc = storyboard!.instantiateViewControllerWithIdentifier("NavController0") as ChoreDetailNavigationController
+            vc.itemIndex = 0
         
-        let vc2: ChoreDetailViewController = storyboard!.instantiateViewControllerWithIdentifier("ViewController0") as ChoreDetailViewController
+        let vc2 = storyboard!.instantiateViewControllerWithIdentifier("ViewController0") as ChoreDetailViewController
+            vc.itemIndex = 0
  
         
         swipedItem = ChoreItem
@@ -99,6 +95,7 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
             
             vc.pushViewController(vc2 as UIViewController, animated: true)
         
+            println("checkpoint")
             
 //            var pageControl: UIPageControl?
 //            pageControl = UIPageControl()
@@ -134,17 +131,6 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
         return swipedItem!
     }
     
-//    @IBAction func unwindToList(segue:UIStoryboardSegue){
-//        
-//        var source: ViewController = segue.sourceViewController as ViewController
-//        var item: ToDoItem = source.toDoItem!
-//        if item != nil{
-//            self.toDoItems.addObject(item)
-//            self.tableView.reloadData()
-//        }
-//        
-//    }
-//    
     
     
 }

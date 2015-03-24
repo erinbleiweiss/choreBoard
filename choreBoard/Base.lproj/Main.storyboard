@@ -111,16 +111,16 @@
                     <navigationItem key="navigationItem" title="Add Chore" id="b0h-EX-upt">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="xQz-1J-G0I">
                             <connections>
-                                <segue destination="pWK-Tu-YJd" kind="unwind" identifier="SaveChoreDetail" unwindAction="saveAddChoreViewController:" id="s9E-MR-9Ct"/>
+                                <action selector="addChore:" destination="EGp-XD-9zB" id="pGt-Qx-jbk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="newChoreTextField" destination="ZJ6-SV-RI0" id="n1i-Nf-4g5"/>
                         <outlet property="saveChoreButton" destination="xQz-1J-G0I" id="uU9-pi-hMA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hHd-TE-mXs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="pWK-Tu-YJd" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1435" y="1949"/>
         </scene>

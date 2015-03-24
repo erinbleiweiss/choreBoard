@@ -21,7 +21,6 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         populateControllerArrays()
         createPageViewController()
         setPageViewController()
-        // setNavPageViewController()
         setupPageControl()
     }
     
@@ -36,8 +35,6 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
             let controller = storyboard!.instantiateViewControllerWithIdentifier("ViewController\(i)") as PageItemController
             navController.childViewController = controller
             controller.itemIndex = i
-            
-            navController.childViewController = controller
             
             navControllers.append(navController)
             controllers.append(controller)
@@ -69,13 +66,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         }
     }
     
-//    private func setNavPageViewController(){
-//        for i in 0...2{
-//            let pageNavigationController = navControllers[i] as PageNavigationController
-//            pageNavigationController.childViewController = controllers[i]
-//        }
-//    }
-    
+
     private func setupPageControl() {
         let appearance = UIPageControl.appearance()
         appearance.pageIndicatorTintColor = UIColor.grayColor()
@@ -100,15 +91,6 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         return nil
     }
 
-//    // "swipe backwards (from L to R)"
-//    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-//        if let controller = viewController as? PageNavigationController {
-//            if controller.itemIndex > 0 {
-//                return navControllers[controller.itemIndex - 1]
-//            }
-//        }
-//        return nil
-//    }
     
     // "swipe forwards (from R to L)"
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {

@@ -13,7 +13,6 @@ class ThirdNavigationController: PageNavigationController {
     // MARK: - Outlets
     
     // MARK: - Variables
-    var newChore: choreItem?
     
     
     // MARK: - View Lifecycle

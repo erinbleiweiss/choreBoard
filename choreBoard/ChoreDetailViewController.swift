@@ -28,12 +28,7 @@ class ChoreDetailViewController: PageItemController {
         super.viewDidLoad()
         
         var theChore = self.delegate?.getSwipedChore()
-        //println(theChore!.text)
-        
-        println("viewdidload")
-        
-//        var theChore = currentChore.sharedInstance.getCurrentChore()
-//        detailLabel.text = theChore.text
+        detailLabel.text = theChore!.text
     }
     
     override func viewDidAppear(animated: Bool) {

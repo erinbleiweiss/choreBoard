@@ -86,13 +86,13 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
         if index == NSNotFound { return }
         
         let vc: AnyObject! = storyboard!.instantiateViewControllerWithIdentifier("NavController0") as ChoreDetailNavigationController
-        let vc2: AnyObject! = storyboard!.instantiateViewControllerWithIdentifier("ViewController0") as PageItemController
+        
+        let vc2: ChoreDetailViewController = storyboard!.instantiateViewControllerWithIdentifier("ViewController0") as ChoreDetailViewController
  
         
-        // swipedItem = ChoreItem
+        swipedItem = ChoreItem
 
-        var detailVC = ChoreDetailViewController()
-        detailVC.delegate = self
+        vc2.delegate = self
 
         if let pageViewController = parentPageViewController as UIPageViewController! {
             pageViewController.setViewControllers([vc], direction: .Reverse, animated: true, completion: nil)

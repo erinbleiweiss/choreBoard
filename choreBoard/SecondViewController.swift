@@ -8,13 +8,14 @@
 
 import UIKit
 
-class SecondViewController: PageItemController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate {
+class SecondViewController: PageItemController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate, SwipedChore {
    
     // MARK: - Outlets
     @IBOutlet var choreTableView: UITableView!
     
     // MARK: - Variables
     var choreItems = [choreItem]()
+    var swipedItem: choreItem?
     
     @IBAction func saveAddChoreViewController(segue:UIStoryboardSegue) {
         let choreDetailsViewController = segue.sourceViewController as ThirdViewController
@@ -51,6 +52,7 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
         choreItems.append(choreItem(text: "Empty recycling"))
         choreItems.append(choreItem(text: "Buy eggs"))
         choreItems.append(choreItem(text: "Get the mail"))
+        
     }
     
     
@@ -83,15 +85,20 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
         let index = (choreItems as NSArray).indexOfObject(ChoreItem)
         if index == NSNotFound { return }
         
-        let vc: AnyObject! = storyboard!.instantiateViewControllerWithIdentifier("NavController0") as PageNavigationController
+        let vc: AnyObject! = storyboard!.instantiateViewControllerWithIdentifier("NavController0") as ChoreDetailNavigationController
+        let vc2: AnyObject! = storyboard!.instantiateViewControllerWithIdentifier("ViewController0") as PageItemController
+ 
         
+        // swipedItem = ChoreItem
+
+        var detailVC = ChoreDetailViewController()
+        detailVC.delegate = self
 
         if let pageViewController = parentPageViewController as UIPageViewController! {
             pageViewController.setViewControllers([vc], direction: .Reverse, animated: true, completion: nil)
-        
-            currentChore.sharedInstance.setCurrentChore(ChoreItem)
             
-            println(ChoreItem.text)
+            vc.pushViewController(vc2 as UIViewController, animated: true)
+        
             
 //            var pageControl: UIPageControl?
 //            pageControl = UIPageControl()
@@ -121,6 +128,10 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
         cell.ChoreItem = item
         
         return cell
+    }
+    
+    func getSwipedChore() -> choreItem {
+        return swipedItem!
     }
     
 //    @IBAction func unwindToList(segue:UIStoryboardSegue){

@@ -13,43 +13,38 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     // MARK: - Variables
     private var pageViewController: UIPageViewController?
     var index = 0
+    var delegate: SwipedChore? = nil
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        populateNavControllersArray()
-        populateControllersArray()
+        populateControllerArrays()
         createPageViewController()
         setPageViewController()
-        setNavPageViewController()
+        // setNavPageViewController()
         setupPageControl()
     }
     
     var navControllers = [PageNavigationController]()
     var controllers = [PageItemController]()
     
-    private func populateNavControllersArray(){
+    private func populateControllerArrays(){
         for i in 0...2{
             let navController = storyboard!.instantiateViewControllerWithIdentifier("NavController\(i)") as PageNavigationController
             navController.itemIndex = i
-            navController.setValue(i, forKey: "itemIndex")
+            
+            let controller = storyboard!.instantiateViewControllerWithIdentifier("ViewController\(i)") as PageItemController
+            navController.childViewController = controller
+            controller.itemIndex = i
+            
+            navController.childViewController = controller
+            
             navControllers.append(navController)
+            controllers.append(controller)
         }
         
     }
     
-    func populateControllersArray() {
-        for i in 0...2 {
-            let controller = storyboard!.instantiateViewControllerWithIdentifier("ViewController\(i)") as PageItemController
-            // embed view in corresponding nav controller
-            navControllers[i].pushViewController(controller, animated: true)
-            controller.itemIndex = i
-            controller.setValue(i, forKey: "itemIndex")
-            controllers.append(controller)
-        }
-    }
-    
-
     private func createPageViewController() {
         
         let pageController = self.storyboard!.instantiateViewControllerWithIdentifier("PageController") as UIPageViewController
@@ -67,7 +62,6 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     }
     
 
-    
     private func setPageViewController(){
         for i in 0...2{
             let pageItemController = controllers[i] as PageItemController
@@ -75,12 +69,12 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         }
     }
     
-    private func setNavPageViewController(){
-        for i in 0...2{
-            let pageNavigationController = navControllers[i] as PageNavigationController
-            pageNavigationController.parentPageViewController = pageViewController
-        }
-    }
+//    private func setNavPageViewController(){
+//        for i in 0...2{
+//            let pageNavigationController = navControllers[i] as PageNavigationController
+//            pageNavigationController.childViewController = controllers[i]
+//        }
+//    }
     
     private func setupPageControl() {
         let appearance = UIPageControl.appearance()
@@ -89,32 +83,32 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         appearance.backgroundColor = UIColor.darkGrayColor()
     }
     
-    // MARK: - UIPageViewControllerDataSource
+//     MARK: - UIPageViewControllerDataSource
     
-//    // "swipe backwards (from L to R)"
-//    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-//        if let controller = viewController as? PageItemController {
-//            // this "if" block prevents from swiping to index 0 (chore detail controller) from the main screen
-//            // because this will be handled in tableview swipe functionality
-//            if controller.itemIndex == 1{
-//                return nil
-//            }
-//            else if controller.itemIndex > 0 {
-//                return controllers[controller.itemIndex - 1]
-//            }
-//        }
-//        return nil
-//    }
-
     // "swipe backwards (from L to R)"
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
-        if let controller = viewController as? PageNavigationController {
-            if controller.itemIndex > 0 {
+        if let controller = viewController as? PageItemController {
+            // this "if" block prevents from swiping to index 0 (chore detail controller) from the main screen
+            // because this will be handled in tableview swipe functionality
+            if controller.itemIndex == 1{
+                return nil
+            }
+            else if controller.itemIndex > 0 {
                 return navControllers[controller.itemIndex - 1]
             }
         }
         return nil
     }
+
+//    // "swipe backwards (from L to R)"
+//    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+//        if let controller = viewController as? PageNavigationController {
+//            if controller.itemIndex > 0 {
+//                return navControllers[controller.itemIndex - 1]
+//            }
+//        }
+//        return nil
+//    }
     
     // "swipe forwards (from R to L)"
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
@@ -131,6 +125,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
         return navControllers.count
+        
     }
     
     // *** Return the index of default view (from createPageViewController above) -Erin ***

@@ -13,33 +13,20 @@ class PageNavigationController: UINavigationController {
     // MARK: - Variables
     var itemIndex: Int = 0
     var parentPageViewController: UIPageViewController?
+    var childViewController: PageItemController?
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if childViewController != nil{
+            self.pushViewController(childViewController!, animated: true)
+        }
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        //self.pushViewController(childViewController!, animated: true)
     }
     
 }
-
-//class PageNavigationController: UINavigationController{
-//    
-//    class var sharedInstance: PageNavigationController{
-//        struct Static{
-//            static let instance : PageNavigationController = PageNavigationController()
-//        }
-//        
-//        return Static.instance
-//    }
-//    
-//    var itemIndex: Int = 0
-//    var parentPageViewController: UIPageViewController?
-//    
-//    func setParentPageViewController(vc: UIPageViewController){
-//        self.parentPageViewController = vc
-//    }
-//    
-//    func getParentPageViewController() -> UIPageViewController{
-//        return self.parentPageViewController!
-//    }
-//    
-//}

@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol SwipedChore {
+    
+    func getSwipedChore() -> choreItem
+}
+
 class ChoreDetailViewController: PageItemController {
     
     // MARK: - Outlets
     @IBOutlet weak var detailLabel: UILabel!
+    var delegate: SwipedChore? = nil
     
     // MARK: - Variables
 
@@ -20,13 +26,19 @@ class ChoreDetailViewController: PageItemController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        var theChore = currentChore.sharedInstance.getCurrentChore()
-        detailLabel.text = theChore.text
+        
+        var theChore = self.delegate?.getSwipedChore()
+        //println(theChore!.text)
+        
+        println("viewdidload")
+        
+//        var theChore = currentChore.sharedInstance.getCurrentChore()
+//        detailLabel.text = theChore.text
     }
     
     override func viewDidAppear(animated: Bool) {
-        var theChore = currentChore.sharedInstance.getCurrentChore()
-        detailLabel.text = theChore.text
+//        var theChore = currentChore.sharedInstance.getCurrentChore()
+//        detailLabel.text = theChore.text
     }
 
     override func didReceiveMemoryWarning() {

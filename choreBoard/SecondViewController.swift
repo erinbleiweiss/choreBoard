@@ -25,8 +25,8 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
+
         choreTableView.dataSource = self
         choreTableView.delegate = self
         choreTableView.registerClass(TableViewCell.self, forCellReuseIdentifier: "cell")
@@ -35,19 +35,23 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
             return
         }
         
-        choreItems.append(choreItem(text: "Do the dishes"))
-        choreItems.append(choreItem(text: "Feed the cat"))
-        choreItems.append(choreItem(text: "Sweep the floor"))
-        choreItems.append(choreItem(text: "Take out the trash"))
-        choreItems.append(choreItem(text: "Empty recycling"))
-        choreItems.append(choreItem(text: "Buy eggs"))
-        choreItems.append(choreItem(text: "Get the mail"))
+        getChoresFromParse()
+
+//        choreItems.append(choreItem(text: "Do the dishes"))
+//        choreItems.append(choreItem(text: "Feed the cat"))
+//        choreItems.append(choreItem(text: "Sweep the floor"))
+//        choreItems.append(choreItem(text: "Take out the trash"))
+//        choreItems.append(choreItem(text: "Empty recycling"))
+//        choreItems.append(choreItem(text: "Buy eggs"))
+//        choreItems.append(choreItem(text: "Get the mail"))
         
-        if let newChore = self.delegate?.getNewChore() {
-            choreItems.append(newChore)
-        }
+        
+//        if let newChore = self.delegate?.getNewChore() {
+//            choreItems.append(newChore)
+//        }
         
         println(self)
+        
 
     }
     
@@ -134,6 +138,21 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
     
     func getSwipedChore() -> choreItem {
         return swipedItem!
+    }
+    
+    func getChoresFromParse()
+    {
+        var query: PFQuery = PFQuery(className: "Chore")
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]!, error: NSError!) -> Void in
+            if !(error != nil) {
+                for(var i=0;i<objects.count;i++){
+                    var object=objects[i] as PFObject
+                    var parseChore = choreItem(text: object.objectForKey("choreName") as String)
+                    self.choreItems.append(parseChore)
+                }
+            }
+        }
     }
     
     

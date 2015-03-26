@@ -25,6 +25,14 @@ class ThirdViewController: PageItemController, newChore {
     
     @IBAction func addChore(sender: AnyObject) {
         newChoreItem = choreItem(text: newChoreTextField.text)
+        
+        var obj = PFObject(className:"Chore")
+        obj.setObject(newChoreTextField.text, forKey: "choreName")
+        obj.saveInBackgroundWithBlock ({
+            (succeeded: Bool!, err: NSError!) -> Void in
+            NSLog("Hi")
+        })
+        
         let vc = storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as SecondViewController
         
         

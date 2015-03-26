@@ -21,11 +21,12 @@ class ChoreDetailViewController: PageItemController {
     
     // MARK: - Variables
 
-
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.itemIndex = 0
         
         var theChore = self.delegate?.getSwipedChore()
         detailLabel.text = theChore!.text

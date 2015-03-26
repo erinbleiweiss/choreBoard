@@ -25,6 +25,8 @@
 		807FA8771ABF6A1F00BB5A8A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA8761ABF6A1F00BB5A8A /* SystemConfiguration.framework */; };
 		807FA8791ABF6A2700BB5A8A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA8781ABF6A2700BB5A8A /* libz.dylib */; };
 		807FA87B1ABF6A2D00BB5A8A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA87A1ABF6A2D00BB5A8A /* libsqlite3.dylib */; };
+		809490271AC36902004C364E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809490261AC36902004C364E /* LoginViewController.swift */; };
+		809490291AC38093004C364E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809490281AC38093004C364E /* RegisterViewController.swift */; };
 		80AF9BD31ABCE915003829F3 /* PageNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF9BD21ABCE915003829F3 /* PageNavigationController.swift */; };
 		80AF9BD51ABCE947003829F3 /* ThirdNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF9BD41ABCE947003829F3 /* ThirdNavigationController.swift */; };
 		80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D89BB41AA768CD00583941 /* AppDelegate.swift */; };
@@ -61,6 +63,8 @@
 		807FA8781ABF6A2700BB5A8A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		807FA87A1ABF6A2D00BB5A8A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		807FA87D1ABF6B3C00BB5A8A /* choreBoard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "choreBoard-Bridging-Header.h"; sourceTree = "<group>"; };
+		809490261AC36902004C364E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		809490281AC38093004C364E /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		80AF9BD21ABCE915003829F3 /* PageNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageNavigationController.swift; sourceTree = "<group>"; };
 		80AF9BD41ABCE947003829F3 /* ThirdNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThirdNavigationController.swift; path = ../ThirdNavigationController.swift; sourceTree = "<group>"; };
 		80D89BAF1AA768CD00583941 /* choreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = choreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				80D89BB41AA768CD00583941 /* AppDelegate.swift */,
+				809490261AC36902004C364E /* LoginViewController.swift */,
+				809490281AC38093004C364E /* RegisterViewController.swift */,
 				80E2A0A51AB7FA2D008A169D /* Subviews */,
 				807FA8561ABE3FD100BB5A8A /* Subview Navigation Controllers */,
 				80E2A0B41AB801E5008A169D /* Chore List */,
@@ -302,11 +308,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				809490271AC36902004C364E /* LoginViewController.swift in Sources */,
 				80E2A0A91AB7FA3B008A169D /* ChoreDetailViewController.swift in Sources */,
 				80E2A0AF1AB800EF008A169D /* choreItem.swift in Sources */,
 				80E2A0B11AB8010F008A169D /* StrikeThroughText.swift in Sources */,
 				80E2A0B31AB801DA008A169D /* TableViewCell.swift in Sources */,
 				807FA85A1ABE403500BB5A8A /* SecondNavigationController.swift in Sources */,
+				809490291AC38093004C364E /* RegisterViewController.swift in Sources */,
 				80D89BB71AA768CD00583941 /* ViewController.swift in Sources */,
 				80E2A0AA1AB7FA3B008A169D /* SecondViewController.swift in Sources */,
 				80E2A0AD1AB7FA5A008A169D /* PageItemController.swift in Sources */,

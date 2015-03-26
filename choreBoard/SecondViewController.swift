@@ -46,7 +46,13 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
         if let newChore = self.delegate?.getNewChore() {
             choreItems.append(newChore)
         }
+        
+        println(self)
 
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        println(self)
     }
     
     
@@ -81,6 +87,7 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
         
         let vc = storyboard!.instantiateViewControllerWithIdentifier("NavController0") as ChoreDetailNavigationController
             vc.itemIndex = 0
+            vc.parentPageViewController = self.parentPageViewController
         
         let vc2 = storyboard!.instantiateViewControllerWithIdentifier("ViewController0") as ChoreDetailViewController
             vc.itemIndex = 0
@@ -94,9 +101,7 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
             pageViewController.setViewControllers([vc], direction: .Reverse, animated: true, completion: nil)
             
             vc.pushViewController(vc2 as UIViewController, animated: true)
-        
-            println("checkpoint")
-            
+                    
 //            var pageControl: UIPageControl?
 //            pageControl = UIPageControl()
 //            pageControl?.currentPage = 0

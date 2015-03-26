@@ -26,15 +26,23 @@ class ThirdViewController: PageItemController, newChore {
     @IBAction func addChore(sender: AnyObject) {
         newChoreItem = choreItem(text: newChoreTextField.text)
         let vc = storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as SecondViewController
+        
+        
+        //var vc = SecondViewController()
+        
         vc.delegate = self
         vc.itemIndex = 1
         vc.parentPageViewController = self.parentPageViewController
         
         let vc2 = storyboard!.instantiateViewControllerWithIdentifier("NavController1") as SecondNavigationController
+        
+
+        
             vc2.itemIndex = 1
         if let pageViewController = parentPageViewController as UIPageViewController! {
             pageViewController.setViewControllers([vc2], direction: .Reverse, animated: true, completion: nil)
             vc2.pushViewController(vc as UIViewController, animated: true)
+            newChoreTextField.text = ""
         }
 
     }

@@ -22,11 +22,16 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
     var swipedItem: choreItem?
     var delegate: newChore? = nil
     
+    
+    @IBAction func settingsButton(sender: AnyObject) {
+
+    }
+    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
+        
         choreTableView.dataSource = self
         choreTableView.delegate = self
         choreTableView.registerClass(TableViewCell.self, forCellReuseIdentifier: "cell")
@@ -54,6 +59,7 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
         
 
     }
+
     
     override func viewDidAppear(animated: Bool) {
         println(self)

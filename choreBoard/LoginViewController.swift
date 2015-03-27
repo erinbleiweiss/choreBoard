@@ -36,6 +36,12 @@ class LoginViewController: UIViewController {
                 if user != nil {
                     // Yes, User Exists
                     println("login successful!")
+                    
+                    var username = user.objectForKey("username") as String
+                    
+                    let defaults = NSUserDefaults.standardUserDefaults()
+                    defaults.setObject(username, forKey: "username")
+                    
                     let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController") as UIViewController
                     self.presentViewController(pageVC, animated: true, completion: nil)
 

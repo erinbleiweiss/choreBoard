@@ -14,6 +14,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     private var pageViewController: UIPageViewController?
     var index = 0
     var delegate: SwipedChore? = nil
+    var loggedInUser: String!
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {

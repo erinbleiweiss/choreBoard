@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		80656F551AC5130200C1994C /* createGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80656F541AC5130200C1994C /* createGroupViewController.swift */; };
 		807FA8581ABE400C00BB5A8A /* ChoreDetailNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807FA8571ABE400C00BB5A8A /* ChoreDetailNavigationController.swift */; };
 		807FA85A1ABE403500BB5A8A /* SecondNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807FA8591ABE403500BB5A8A /* SecondNavigationController.swift */; };
 		807FA8611ABF69C600BB5A8A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA85C1ABF69C600BB5A8A /* Bolts.framework */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		80656F541AC5130200C1994C /* createGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createGroupViewController.swift; sourceTree = "<group>"; };
 		807FA8571ABE400C00BB5A8A /* ChoreDetailNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreDetailNavigationController.swift; sourceTree = "<group>"; };
 		807FA8591ABE403500BB5A8A /* SecondNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondNavigationController.swift; sourceTree = "<group>"; };
 		807FA85C1ABF69C600BB5A8A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -157,6 +159,8 @@
 		80D89BA61AA768CD00583941 = {
 			isa = PBXGroup;
 			children = (
+				80D89BB81AA768CD00583941 /* Main.storyboard */,
+				80656F541AC5130200C1994C /* createGroupViewController.swift */,
 				80D89BB11AA768CD00583941 /* choreBoard */,
 				80D89BC71AA768CD00583941 /* choreBoardTests */,
 				80D89BB01AA768CD00583941 /* Products */,
@@ -184,7 +188,6 @@
 				80E2A0AC1AB7FA5A008A169D /* PageItemController.swift */,
 				80AF9BD21ABCE915003829F3 /* PageNavigationController.swift */,
 				80D89BB61AA768CD00583941 /* ViewController.swift */,
-				80D89BB81AA768CD00583941 /* Main.storyboard */,
 				807FA85B1ABF69B100BB5A8A /* Frameworks */,
 				80D89BBB1AA768CD00583941 /* Images.xcassets */,
 				80D89BBD1AA768CD00583941 /* LaunchScreen.xib */,
@@ -318,6 +321,7 @@
 				80D89BB71AA768CD00583941 /* ViewController.swift in Sources */,
 				80E2A0AA1AB7FA3B008A169D /* SecondViewController.swift in Sources */,
 				80E2A0AD1AB7FA5A008A169D /* PageItemController.swift in Sources */,
+				80656F551AC5130200C1994C /* createGroupViewController.swift in Sources */,
 				80E2A0AB1AB7FA3B008A169D /* ThirdViewController.swift in Sources */,
 				807FA8581ABE400C00BB5A8A /* ChoreDetailNavigationController.swift in Sources */,
 				80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */,
@@ -335,6 +339,7 @@
 				80D89BB91AA768CD00583941 /* Base */,
 			);
 			name = Main.storyboard;
+			path = choreBoard;
 			sourceTree = "<group>";
 		};
 		80D89BBD1AA768CD00583941 /* LaunchScreen.xib */ = {

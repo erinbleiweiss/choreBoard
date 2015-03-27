@@ -20,7 +20,7 @@ protocol TableViewCellDelegate {
 }
 
 class TableViewCell: UITableViewCell {
-    
+
     var originalCenter = CGPoint()
     var deleteOnDragRelease = false
     var completeOnDragRelease = false

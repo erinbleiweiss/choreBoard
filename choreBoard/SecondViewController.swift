@@ -77,6 +77,25 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
         
         // could removeAtIndex in the loop but keep it here for when indexOfObject works
         choreItems.removeAtIndex(index)
+                
+        // choreItems.removeAtIndex(index)
+        var query = PFQuery(className:"Chore")
+        query.whereKey("choreName", equalTo:ChoreItem.text)
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [AnyObject]!, error: NSError!) -> Void in
+            if error == nil {
+                
+                for object in objects {
+                    
+                    object.deleteInBackgroundWithBlock(nil)
+                    
+                }
+            } else {
+                // Log details of the failure
+                println(error)
+            }
+        }
+        
         
         // use the UITableView to animate the removal of this row
         choreTableView.beginUpdates()

@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.enableLocalDatastore()
         
         Parse.setApplicationId("O9DkEtufcwqSuyJq0irfxCGMHOzrkkh5K2oS76gE", clientKey: "NTYdlIaWz6564dUWPMZ2oprIjASkt6LGm6pCUHJv")
-    
+        // var controller:PFQueryTableViewController = PFQueryTableViewController(className: "YOUR_PARSE_CLASS_NAME")
+
         
 //        var object = PFObject(className: "testDataClass")
 //        object.addObject("iOSBlog", forKey: "websiteUrl")

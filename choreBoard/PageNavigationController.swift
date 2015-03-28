@@ -13,15 +13,24 @@ class PageNavigationController: UINavigationController {
     // MARK: - Variables
     var itemIndex: Int = 0
     var parentPageViewController: UIPageViewController?
-    var childViewController: PageItemController?
+    var childViewController: AnyObject?
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if childViewController != nil{
-            self.pushViewController(childViewController!, animated: true)
+        if itemIndex == 1{
+            if childViewController != nil{
+                self.pushViewController(childViewController! as SWRevealViewController, animated: true)
+            }
         }
+        
+        else{
+            if childViewController != nil{
+                self.pushViewController(childViewController! as PageItemController, animated: true)
+            }
+        }
+
         
     }
     

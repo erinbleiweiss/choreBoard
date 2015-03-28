@@ -13,7 +13,7 @@ protocol SwipedChore {
     func getSwipedChore() -> choreItem
 }
 
-class ChoreDetailViewController: PageItemController {
+class ChoreDetailViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var detailLabel: UILabel!
@@ -25,8 +25,6 @@ class ChoreDetailViewController: PageItemController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.itemIndex = 0
         
         var theChore = self.delegate?.getSwipedChore()
         detailLabel.text = theChore!.text

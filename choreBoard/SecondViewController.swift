@@ -12,12 +12,15 @@ protocol newChore{
     func getNewChore() -> choreItem
 }
 
-class SecondViewController: PageItemController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate, SwipedChore {
+class SecondViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, TableViewCellDelegate, SwipedChore {
    
     // MARK: - Outlets
     @IBOutlet var choreTableView: UITableView!
     
     // MARK: - Variables
+    var loggedInUser: String!
+
+    
     var choreItems = [choreItem]()
     var swipedItem: choreItem?
     var delegate: newChore? = nil
@@ -111,34 +114,33 @@ class SecondViewController: PageItemController, UITableViewDataSource, UITableVi
     }
     
     func viewChoreDetail(ChoreItem: choreItem) {
-        let index = (choreItems as NSArray).indexOfObject(ChoreItem)
-        if index == NSNotFound { return }
-        
-        let vc = storyboard!.instantiateViewControllerWithIdentifier("NavController0") as ChoreDetailNavigationController
-            vc.itemIndex = 0
-            vc.parentPageViewController = self.parentPageViewController
-        
-        let vc2 = storyboard!.instantiateViewControllerWithIdentifier("ViewController0") as ChoreDetailViewController
-            vc.itemIndex = 0
- 
+//        let index = (choreItems as NSArray).indexOfObject(ChoreItem)
+//        if index == NSNotFound { return }
+//        
+//        let vc = storyboard!.instantiateViewControllerWithIdentifier("NavController0") as ChoreDetailNavigationController
+//            vc.itemIndex = 0
+//        
+//        let vc2 = storyboard!.instantiateViewControllerWithIdentifier("ViewController0") as ChoreDetailViewController
+//            vc.itemIndex = 0
+// 
         
         swipedItem = ChoreItem
 
-        vc2.delegate = self
+//        vc2.delegate = self
 
-        if let pageViewController = parentPageViewController as UIPageViewController! {
-            pageViewController.setViewControllers([vc], direction: .Reverse, animated: true, completion: nil)
-            
-            vc.pushViewController(vc2 as UIViewController, animated: true)
-                    
-//            var pageControl: UIPageControl?
-//            pageControl = UIPageControl()
-//            pageControl?.currentPage = 0
-//            pageControl?.numberOfPages = 3
-            
-            //UIPageControl.updateCurrentPageDisplay(pageControl!)
-         
-        }
+//        if let pageViewController = parentPageViewController as UIPageViewController! {
+//            pageViewController.setViewControllers([vc], direction: .Reverse, animated: true, completion: nil)
+//            
+//            vc.pushViewController(vc2 as UIViewController, animated: true)
+//                    
+////            var pageControl: UIPageControl?
+////            pageControl = UIPageControl()
+////            pageControl?.currentPage = 0
+////            pageControl?.numberOfPages = 3
+//            
+//            //UIPageControl.updateCurrentPageDisplay(pageControl!)
+//         
+//        }
 
         
 }

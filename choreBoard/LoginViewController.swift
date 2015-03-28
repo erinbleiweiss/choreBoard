@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
                     let defaults = NSUserDefaults.standardUserDefaults()
                     defaults.setObject(username, forKey: "username")
                     
-                    let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController") as UIViewController
+                    let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as UIViewController
                     self.presentViewController(pageVC, animated: true, completion: nil)
 
                 } else {

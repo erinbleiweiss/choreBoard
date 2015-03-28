@@ -8,11 +8,13 @@
 
 import UIKit
 
-class ThirdViewController: PageItemController, newChore {
+class ThirdViewController: UIViewController, newChore {
    
     // MARK: - Outlets
-    @IBOutlet weak var saveChoreButton: UIBarButtonItem!
+
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var newChoreTextField: UITextField!
+    @IBOutlet weak var saveChoreButton: UIButton!
     
     // MARK: - Variables
     var newChoreItem: choreItem?
@@ -20,10 +22,16 @@ class ThirdViewController: PageItemController, newChore {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if self.revealViewController() != nil {
+            settingsButton.target = self.revealViewController()
+            settingsButton.action = "rightRevealToggle:"
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
     }
     
-    
-    @IBAction func addChore(sender: AnyObject) {
+    @IBAction func addChoreAction(sender: AnyObject) {
         newChoreItem = choreItem(text: newChoreTextField.text)
         
         var obj = PFObject(className:"Chore")
@@ -33,25 +41,8 @@ class ThirdViewController: PageItemController, newChore {
             NSLog("Hi")
         })
         
-        let vc = storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as SecondViewController
         
         
-        //var vc = SecondViewController()
-        
-        vc.delegate = self
-        vc.itemIndex = 1
-        vc.parentPageViewController = self.parentPageViewController
-        
-        let vc2 = storyboard!.instantiateViewControllerWithIdentifier("NavController1") as SecondNavigationController
-        
-
-        
-            vc2.itemIndex = 1
-        if let pageViewController = parentPageViewController as UIPageViewController! {
-            pageViewController.setViewControllers([vc2], direction: .Reverse, animated: true, completion: nil)
-            vc2.pushViewController(vc as UIViewController, animated: true)
-            newChoreTextField.text = ""
-        }
 
     }
     

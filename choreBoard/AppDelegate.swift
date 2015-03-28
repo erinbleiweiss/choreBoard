@@ -19,10 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         Parse.setApplicationId("O9DkEtufcwqSuyJq0irfxCGMHOzrkkh5K2oS76gE", clientKey: "NTYdlIaWz6564dUWPMZ2oprIjASkt6LGm6pCUHJv")
         
-//        var object = PFObject(className: "testDataClass")
-//        object.addObject("iOSBlog", forKey: "websiteUrl")
-//        object.addObject("Five", forKey: "websiteRating")
-//        object.save()
+        var controller:PFQueryTableViewController = PFQueryTableViewController(className: "Chore")
         
         // Override point for customization after application launch.
         return true

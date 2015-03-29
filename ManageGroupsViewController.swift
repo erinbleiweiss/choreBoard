@@ -1,17 +1,16 @@
 //
-//  TwoViewController.swift
+//  ManageGroupsViewController.swift
 //  choreBoard
 //
-//  Created by Erin Bleiweiss on 3/27/15.
+//  Created by Erin Bleiweiss on 3/28/15.
 //  Copyright (c) 2015 Erin Bleiweiss. All rights reserved.
 //
 
 import UIKit
 
-class TwoViewController: UIViewController {
+class ManageGroupsViewController: UIViewController {
 
     @IBOutlet weak var settingsButton: UIBarButtonItem!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()

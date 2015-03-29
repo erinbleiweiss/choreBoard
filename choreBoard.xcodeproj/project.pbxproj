@@ -11,6 +11,8 @@
 		800A39D91AC602C400CA4F59 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800A39D81AC602C400CA4F59 /* MenuController.swift */; };
 		8018240F1AC637240009A7DE /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8018240E1AC637240009A7DE /* CustomTableViewCell.swift */; };
 		801824171AC6492C0009A7DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801824151AC6492C0009A7DE /* Main.storyboard */; };
+		801824191AC64A320009A7DE /* ChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801824181AC64A320009A7DE /* ChoreViewController.swift */; };
+		8064E54E1AC7381E00863ADA /* ManageGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064E54D1AC7381E00863ADA /* ManageGroupsViewController.swift */; };
 		80656F551AC5130200C1994C /* createGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80656F541AC5130200C1994C /* createGroupViewController.swift */; };
 		807FA8611ABF69C600BB5A8A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA85C1ABF69C600BB5A8A /* Bolts.framework */; };
 		807FA8621ABF69C700BB5A8A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA85D1ABF69C600BB5A8A /* Parse.framework */; };
@@ -35,11 +37,9 @@
 		80D89BBC1AA768CD00583941 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80D89BBB1AA768CD00583941 /* Images.xcassets */; };
 		80D89BBF1AA768CD00583941 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D89BBD1AA768CD00583941 /* LaunchScreen.xib */; };
 		80DCBC121AC60BD600065047 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DCBC111AC60BD600065047 /* OneViewController.swift */; };
-		80DCBC141AC60BE400065047 /* TwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DCBC131AC60BE400065047 /* TwoViewController.swift */; };
 		80DCBC161AC60BED00065047 /* ThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DCBC151AC60BED00065047 /* ThreeViewController.swift */; };
 		80E2A0A91AB7FA3B008A169D /* ChoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2A0A61AB7FA3B008A169D /* ChoreDetailViewController.swift */; };
 		80E2A0AA1AB7FA3B008A169D /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2A0A71AB7FA3B008A169D /* SecondViewController.swift */; };
-		80E2A0AB1AB7FA3B008A169D /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2A0A81AB7FA3B008A169D /* ThirdViewController.swift */; };
 		80E2A0AD1AB7FA5A008A169D /* PageItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2A0AC1AB7FA5A008A169D /* PageItemController.swift */; };
 		80E2A0AF1AB800EF008A169D /* choreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2A0AE1AB800EF008A169D /* choreItem.swift */; };
 		80E2A0B11AB8010F008A169D /* StrikeThroughText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2A0B01AB8010F008A169D /* StrikeThroughText.swift */; };
@@ -52,6 +52,8 @@
 		800A39D81AC602C400CA4F59 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuController.swift; path = choreBoard/MenuController.swift; sourceTree = "<group>"; };
 		8018240E1AC637240009A7DE /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		801824161AC6492C0009A7DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = choreBoard/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		801824181AC64A320009A7DE /* ChoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreViewController.swift; sourceTree = "<group>"; };
+		8064E54D1AC7381E00863ADA /* ManageGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageGroupsViewController.swift; sourceTree = "<group>"; };
 		80656F541AC5130200C1994C /* createGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createGroupViewController.swift; sourceTree = "<group>"; };
 		807FA85C1ABF69C600BB5A8A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		807FA85D1ABF69C600BB5A8A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -81,11 +83,9 @@
 		80D89BC91AA768CD00583941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80D89BCA1AA768CD00583941 /* choreBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = choreBoardTests.swift; sourceTree = "<group>"; };
 		80DCBC111AC60BD600065047 /* OneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
-		80DCBC131AC60BE400065047 /* TwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwoViewController.swift; sourceTree = "<group>"; };
 		80DCBC151AC60BED00065047 /* ThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeViewController.swift; sourceTree = "<group>"; };
 		80E2A0A61AB7FA3B008A169D /* ChoreDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreDetailViewController.swift; sourceTree = "<group>"; };
 		80E2A0A71AB7FA3B008A169D /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		80E2A0A81AB7FA3B008A169D /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThirdViewController.swift; path = choreBoard/ThirdViewController.swift; sourceTree = "<group>"; };
 		80E2A0AC1AB7FA5A008A169D /* PageItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageItemController.swift; sourceTree = "<group>"; };
 		80E2A0AE1AB800EF008A169D /* choreItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = choreItem.swift; sourceTree = "<group>"; };
 		80E2A0B01AB8010F008A169D /* StrikeThroughText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrikeThroughText.swift; sourceTree = "<group>"; };
@@ -165,6 +165,7 @@
 			children = (
 				801824151AC6492C0009A7DE /* Main.storyboard */,
 				800A39D41AC6020000CA4F59 /* SWRevealViewController */,
+				8064E54D1AC7381E00863ADA /* ManageGroupsViewController.swift */,
 				80656F541AC5130200C1994C /* createGroupViewController.swift */,
 				80D89BB11AA768CD00583941 /* choreBoard */,
 				80D89BC71AA768CD00583941 /* choreBoardTests */,
@@ -230,8 +231,7 @@
 			children = (
 				800A39D81AC602C400CA4F59 /* MenuController.swift */,
 				80DCBC111AC60BD600065047 /* OneViewController.swift */,
-				80DCBC131AC60BE400065047 /* TwoViewController.swift */,
-				80E2A0A81AB7FA3B008A169D /* ThirdViewController.swift */,
+				801824181AC64A320009A7DE /* ChoreViewController.swift */,
 				80DCBC151AC60BED00065047 /* ThreeViewController.swift */,
 				8018240E1AC637240009A7DE /* CustomTableViewCell.swift */,
 			);
@@ -341,10 +341,10 @@
 				800A39D91AC602C400CA4F59 /* MenuController.swift in Sources */,
 				80656F551AC5130200C1994C /* createGroupViewController.swift in Sources */,
 				800A39D71AC6023000CA4F59 /* SWRevealViewController.m in Sources */,
-				80E2A0AB1AB7FA3B008A169D /* ThirdViewController.swift in Sources */,
-				80DCBC141AC60BE400065047 /* TwoViewController.swift in Sources */,
+				801824191AC64A320009A7DE /* ChoreViewController.swift in Sources */,
 				80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */,
 				80DCBC121AC60BD600065047 /* OneViewController.swift in Sources */,
+				8064E54E1AC7381E00863ADA /* ManageGroupsViewController.swift in Sources */,
 				80AF9BD31ABCE915003829F3 /* PageNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

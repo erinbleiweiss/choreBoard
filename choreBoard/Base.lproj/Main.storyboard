@@ -188,7 +188,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="4vp-6Z-Zc5">
-                        <barButtonItem key="rightBarButtonItem" title="💩" id="3l6-EI-Ggm"/>
+                        <barButtonItem key="rightBarButtonItem" title="☰" id="3l6-EI-Ggm"/>
                     </navigationItem>
                     <connections>
                         <outlet property="settingsButton" destination="3l6-EI-Ggm" id="r2u-DY-EXi"/>
@@ -220,7 +220,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="P1I-sY-P31">
-                        <barButtonItem key="rightBarButtonItem" title="💩" id="Img-RR-928"/>
+                        <barButtonItem key="rightBarButtonItem" title="☰" id="Img-RR-928"/>
                     </navigationItem>
                     <connections>
                         <outlet property="settingsButton" destination="Img-RR-928" id="E6c-rL-AZI"/>
@@ -277,7 +277,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4DL-P5-bsi" id="h2s-ZB-tUl">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chore" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVG-tk-6Zl">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+ Chores" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OVG-tk-6Zl">
                                                     <rect key="frame" x="170" y="11" width="126" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -294,7 +294,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q4d-OL-1GS" id="Hvc-hR-nSS">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Supplies" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CE7-6w-j0Z">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+ Supplies" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CE7-6w-j0Z">
                                                     <rect key="frame" x="161" y="11" width="134" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -311,7 +311,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l4x-5c-nJa" id="ZDq-Ed-7yT">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Utilities" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBf-7A-ba5">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+ Bills" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBf-7A-ba5">
                                                     <rect key="frame" x="161" y="11" width="134" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -458,7 +458,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Chore" id="b0h-EX-upt">
-                        <barButtonItem key="rightBarButtonItem" title="💩" id="xQz-1J-G0I"/>
+                        <barButtonItem key="rightBarButtonItem" title="☰" id="xQz-1J-G0I"/>
                     </navigationItem>
                     <connections>
                         <outlet property="newChoreTextField" destination="ZJ6-SV-RI0" id="eKF-On-xds"/>
@@ -584,7 +584,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Shn-ZG-z7r">
-                        <barButtonItem key="rightBarButtonItem" title="💩" id="99R-00-Mzd"/>
+                        <barButtonItem key="rightBarButtonItem" title="☰" id="99R-00-Mzd"/>
                     </navigationItem>
                     <connections>
                         <outlet property="settingsButton" destination="99R-00-Mzd" id="CCU-9s-9PN"/>
@@ -673,6 +673,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="WUg-3H-Dz4"/>
+        <segue reference="U7r-lE-ns3"/>
     </inferredMetricsTieBreakers>
 </document>

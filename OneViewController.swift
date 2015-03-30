@@ -34,10 +34,11 @@ class OneViewController: PFQueryTableViewController {
             settingsButton.action = "rightRevealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
+        
+        self.loadObjects()
 
 //        tableView.estimatedRowHeight = 60
 //        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.reloadData()
         
     }
     

@@ -38,13 +38,15 @@ class ChoreViewController: UIViewController, newChore {
         
         newChoreItem = choreItem(text: newChoreTextField.text)
         
-        var choreObj = PFObject(className: "Chore")
+//        var choreObj = PFObject(className: "Chore")
+//        
+//        choreObj.setObject(newChoreTextField.text, forKey: "choreName")
+//        choreObj.saveInBackgroundWithBlock ({
+//            (succeeded: Bool!, err: NSError!) -> Void in
+//            NSLog("Hi")
+//        })
         
-        choreObj.setObject(newChoreTextField.text, forKey: "choreName")
-        choreObj.saveInBackgroundWithBlock ({
-            (succeeded: Bool!, err: NSError!) -> Void in
-            NSLog("Hi")
-        })
+        PFCloud.callFunctionInBackground("createNewChore", withParameters: ["choreName": newChoreTextField.text], block: nil)
 
         
         

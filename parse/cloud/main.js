@@ -5,12 +5,12 @@ Parse.Cloud.define("hello", function(request, response) {
   response.success("Hello world!");
 });
 
-Parse.Cloud.define("createNewChore", function(request, response)){
+Parse.Cloud.define("createNewChore", function(request, response){
 
 	var ChoreClass = Parse.Object.extend("Chore");
 	var chore = new ChoreClass();
 
-	var username = request.params.username;
+	// var username = request.params.username;
 	var choreName = request.params.choreName;
 
 	chore.set("choreName", choreName);
@@ -24,4 +24,4 @@ Parse.Cloud.define("createNewChore", function(request, response)){
 	  }
 	});
 
-}
+});

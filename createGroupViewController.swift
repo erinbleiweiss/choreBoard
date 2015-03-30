@@ -24,39 +24,8 @@ class createGroupViewController: UIViewController {
     }
     
     func addGroup(){
-        
-        var userObject: PFUser!
-        
-        var groupObj = PFObject(className: "Group")
-        groupObj.setObject(groupName.text, forKey:"groupName")
-        groupObj.saveInBackgroundWithBlock ({
-            (succeeded: Bool!, err: NSError!) -> Void in
-            NSLog("Group Created")
-            
-        })
-        
-        // get username from NSDefaults
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let username = defaults.stringForKey("username")
-        
-        // get _User object via username
-        var query = PFQuery(className:"_User")
-        query.whereKey("username", equalTo:username)
-        userObject = query.getFirstObject() as PFUser
+        PFCloud.callFunctionInBackground("addGroup", withParameters: ["groupName": groupName.text], block: nil)
 
-        // use object to set groupId relation
-        let groupRelation: PFRelation = userObject.relationForKey("group")
-        groupRelation.addObject(groupObj)
-        userObject.saveInBackgroundWithBlock({ (succeeded: Bool, error: NSError!) -> Void in
-            if succeeded {
-                println("added relation")
-            }
-            else {
-                println("couldn't add relation")
-            }
-        })
-        
-        
     }
     
 

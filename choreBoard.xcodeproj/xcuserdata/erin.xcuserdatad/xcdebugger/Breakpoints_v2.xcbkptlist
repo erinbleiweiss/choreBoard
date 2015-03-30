@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OneViewController.swift"
-            timestampString = "449427476.253469"
+            timestampString = "449437880.212368"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "queryForTable()"
             landmarkType = "5">
          </BreakpointContent>

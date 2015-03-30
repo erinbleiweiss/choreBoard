@@ -37,8 +37,13 @@ class OneViewController: PFQueryTableViewController {
         
         self.loadObjects()
 
-//        tableView.estimatedRowHeight = 60
-//        tableView.rowHeight = UITableViewAutomaticDimension
+        PFCloud.callFunctionInBackground("getCurrentGroupName", withParameters:[:]) {
+            (result: AnyObject!, error: NSError!) -> Void in
+            if error == nil {
+                println(result)
+            }
+        }
+    
         
     }
     

@@ -11,6 +11,8 @@ import UIKit
 class OneViewController: PFQueryTableViewController {
 
     @IBOutlet weak var settingsButton: UIBarButtonItem!
+    var groupName: String!
+    
 
     // Initialise the PFQueryTable tableview
     override init!(style: UITableViewStyle, className: String!) {
@@ -29,28 +31,33 @@ class OneViewController: PFQueryTableViewController {
     
     override func viewDidLoad() {
 
+        
         if self.revealViewController() != nil {
             settingsButton.target = self.revealViewController()
             settingsButton.action = "rightRevealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
+        groupName = PFCloud.callFunction("getCurrentGroupName", withParameters: [:]) as? String
+        
         self.loadObjects()
 
-        PFCloud.callFunctionInBackground("getCurrentGroupName", withParameters:[:]) {
-            (result: AnyObject!, error: NSError!) -> Void in
-            if error == nil {
-                println(result)
-            }
-        }
     
         
     }
     
     override func queryForTable() -> PFQuery! {
-        let query = PFQuery(className: "Chore")
-        query.orderByAscending("choreName")
         
+        if groupName != nil{
+            
+        println(groupName)
+        
+        var innerQuery = PFQuery(className: "Group")
+        innerQuery.whereKey("groupName", equalTo:groupName)
+
+        let query = PFQuery(className: "Chore")
+        query.whereKey("group", matchesQuery: innerQuery)
+        query.orderByAscending("choreName")
         
         //if network cannot find any data, go to cached (local disk data)
 //        if (self.objects.count == 0){
@@ -58,6 +65,11 @@ class OneViewController: PFQueryTableViewController {
 //        }
     
         return query
+        }
+        else{
+            let query = PFQuery(className: "Chore")
+            return query
+        }
     }
     
     //override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell

@@ -18,7 +18,7 @@ class MenuController: UITableViewController {
         PFCloud.callFunctionInBackground("getCurrentGroupName", withParameters:[:]) {
             (result: AnyObject!, error: NSError!) -> Void in
             if error == nil {
-                self.groupNameLabel.text = result as? String;
+                self.groupNameLabel.text = result as? String
             }
         }
         

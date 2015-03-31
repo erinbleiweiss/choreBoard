@@ -46,7 +46,7 @@ class ChoreViewController: UIViewController, newChore {
 //            NSLog("Hi")
 //        })
         
-        PFCloud.callFunctionInBackground("createNewChore", withParameters: ["choreName": newChoreTextField.text], block: nil)
+        PFCloud.callFunctionInBackground("addChore", withParameters: ["choreName": newChoreTextField.text], block: nil)
 
         
         

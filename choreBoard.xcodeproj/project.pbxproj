@@ -36,6 +36,11 @@
 		80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D89BB41AA768CD00583941 /* AppDelegate.swift */; };
 		80D89BBC1AA768CD00583941 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80D89BBB1AA768CD00583941 /* Images.xcassets */; };
 		80D89BBF1AA768CD00583941 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D89BBD1AA768CD00583941 /* LaunchScreen.xib */; };
+		80DA7D7E1ACA4AC7001B8999 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80DA7D7C1ACA4AC7001B8999 /* Bolts.framework */; };
+		80DA7D7F1ACA4AC7001B8999 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80DA7D7D1ACA4AC7001B8999 /* Parse.framework */; };
+		80DA7D811ACA4BFA001B8999 /* PushNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DA7D801ACA4BFA001B8999 /* PushNotificationController.swift */; };
+		80DA7D841ACA4FB7001B8999 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DA7D831ACA4FB7001B8999 /* ApiKeys.swift */; };
+		80DA7D861ACA558D001B8999 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80DA7D851ACA558D001B8999 /* ApiKeys.plist */; };
 		80DCBC121AC60BD600065047 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DCBC111AC60BD600065047 /* OneViewController.swift */; };
 		80DCBC161AC60BED00065047 /* ThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DCBC151AC60BED00065047 /* ThreeViewController.swift */; };
 		80E2A0A91AB7FA3B008A169D /* ChoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2A0A61AB7FA3B008A169D /* ChoreDetailViewController.swift */; };
@@ -82,6 +87,11 @@
 		80D89BBE1AA768CD00583941 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		80D89BC91AA768CD00583941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80D89BCA1AA768CD00583941 /* choreBoardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = choreBoardTests.swift; sourceTree = "<group>"; };
+		80DA7D7C1ACA4AC7001B8999 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = choreBoard/Bolts.framework; sourceTree = "<group>"; };
+		80DA7D7D1ACA4AC7001B8999 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = choreBoard/Parse.framework; sourceTree = "<group>"; };
+		80DA7D801ACA4BFA001B8999 /* PushNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationController.swift; sourceTree = "<group>"; };
+		80DA7D831ACA4FB7001B8999 /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
+		80DA7D851ACA558D001B8999 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		80DCBC111AC60BD600065047 /* OneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 		80DCBC151AC60BED00065047 /* ThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeViewController.swift; sourceTree = "<group>"; };
 		80E2A0A61AB7FA3B008A169D /* ChoreDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreDetailViewController.swift; sourceTree = "<group>"; };
@@ -107,8 +117,10 @@
 				807FA86D1ABF6A0200BB5A8A /* CoreLocation.framework in Frameworks */,
 				807FA86B1ABF69FC00BB5A8A /* CoreGraphics.framework in Frameworks */,
 				807FA8691ABF69F800BB5A8A /* CFNetwork.framework in Frameworks */,
+				80DA7D7F1ACA4AC7001B8999 /* Parse.framework in Frameworks */,
 				807FA8671ABF69F300BB5A8A /* AudioToolbox.framework in Frameworks */,
 				807FA8621ABF69C700BB5A8A /* Parse.framework in Frameworks */,
+				80DA7D7E1ACA4AC7001B8999 /* Bolts.framework in Frameworks */,
 				807FA8631ABF69C700BB5A8A /* ParseCrashReporting.framework in Frameworks */,
 				807FA8651ABF69C700BB5A8A /* ParseUI.framework in Frameworks */,
 				807FA8641ABF69C700BB5A8A /* ParseFacebookUtils.framework in Frameworks */,
@@ -131,6 +143,8 @@
 		807FA85B1ABF69B100BB5A8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				80DA7D7C1ACA4AC7001B8999 /* Bolts.framework */,
+				80DA7D7D1ACA4AC7001B8999 /* Parse.framework */,
 				807FA8661ABF69F300BB5A8A /* AudioToolbox.framework */,
 				807FA8761ABF6A1F00BB5A8A /* SystemConfiguration.framework */,
 				807FA8741ABF6A1700BB5A8A /* StoreKit.framework */,
@@ -163,6 +177,9 @@
 		80D89BA61AA768CD00583941 = {
 			isa = PBXGroup;
 			children = (
+				80DA7D851ACA558D001B8999 /* ApiKeys.plist */,
+				80DA7D831ACA4FB7001B8999 /* ApiKeys.swift */,
+				80DA7D801ACA4BFA001B8999 /* PushNotificationController.swift */,
 				801824151AC6492C0009A7DE /* Main.storyboard */,
 				800A39D41AC6020000CA4F59 /* SWRevealViewController */,
 				8064E54D1AC7381E00863ADA /* ManageGroupsViewController.swift */,
@@ -316,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				801824171AC6492C0009A7DE /* Main.storyboard in Resources */,
+				80DA7D861ACA558D001B8999 /* ApiKeys.plist in Resources */,
 				80D89BBF1AA768CD00583941 /* LaunchScreen.xib in Resources */,
 				80D89BBC1AA768CD00583941 /* Images.xcassets in Resources */,
 			);
@@ -335,12 +353,14 @@
 				80E2A0AF1AB800EF008A169D /* choreItem.swift in Sources */,
 				80E2A0B11AB8010F008A169D /* StrikeThroughText.swift in Sources */,
 				80E2A0B31AB801DA008A169D /* TableViewCell.swift in Sources */,
+				80DA7D811ACA4BFA001B8999 /* PushNotificationController.swift in Sources */,
 				809490291AC38093004C364E /* RegisterViewController.swift in Sources */,
 				80E2A0AA1AB7FA3B008A169D /* SecondViewController.swift in Sources */,
 				80E2A0AD1AB7FA5A008A169D /* PageItemController.swift in Sources */,
 				800A39D91AC602C400CA4F59 /* MenuController.swift in Sources */,
 				80656F551AC5130200C1994C /* createGroupViewController.swift in Sources */,
 				800A39D71AC6023000CA4F59 /* SWRevealViewController.m in Sources */,
+				80DA7D841ACA4FB7001B8999 /* ApiKeys.swift in Sources */,
 				801824191AC64A320009A7DE /* ChoreViewController.swift in Sources */,
 				80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */,
 				80DCBC121AC60BD600065047 /* OneViewController.swift in Sources */,
@@ -458,12 +478,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/choreBoard",
 				);
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = choreBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = choreBoard;
-				SWIFT_OBJC_BRIDGING_HEADER = "choreBoard-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/choreBoard-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -476,12 +497,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/choreBoard",
 				);
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = choreBoard/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = choreBoard;
-				SWIFT_OBJC_BRIDGING_HEADER = "choreBoard-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/choreBoard-Bridging-Header.h";
 			};
 			name = Release;
 		};

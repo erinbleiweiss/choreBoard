@@ -12,15 +12,21 @@ Parse.Cloud.define("addGroup", function(request, response){
 
 	var groupName = request.params.groupName;
 	newGroup.set("groupName", groupName);
-	newGroup.save();
-
-	var currentUser = Parse.User.current();
-	currentUser.set("group", newGroup);
-	currentUser.save();
+	newGroup.save(null, {
+			success: function(newGroup){
+				var currentUser = Parse.User.current();
+				currentUser.set("group", newGroup);
+				currentUser.save();
+				response.success(newGroup);
+			},
+			error: function(error){
+				response.error(error)
+			}
+	});
 
 });
 
-Parse.Cloud.define("createNewChore", function(request, response){
+Parse.Cloud.define("addChore", function(request, response){
 
 	var ChoreClass = Parse.Object.extend("Chore");
 	var chore = new ChoreClass();
@@ -30,26 +36,32 @@ Parse.Cloud.define("createNewChore", function(request, response){
 	  success: function(currentUser) {
 	  	var groupObj = currentUser.get("group");
 	    chore.set("group", groupObj);
-	  	chore.save();
+	  	chore.save(null, {
+	  		success: function(chore){
+	  			var choreName = request.params.choreName;
+	  			chore.set("choreName", choreName);
+	  			chore.save(null, {
+	  				success: function(chore){
+	  					response.success(chore);
+	  				},
+	  				error: function(error){
+	  					response.error(error);
+	  				}
+	  			});
+	  		},
+	  		error: function(error){
+	  			response.error(error)
+	  		}
+
+	  	});
 	  }
 	});
 
-	var choreName = request.params.choreName;
-	chore.set("choreName", choreName);
-
-	chore.save(null,{
-	  success:function(chore) { 
-	    response.success(chore);
-	  },
-	  error:function(error) {
-	    response.error(error);
-	  }
-	});
 
 });
 
 
-Parse.Cloud.define("getCurrentGroup", function(request, response){
+Parse.Cloud.define("getCurrentGroupOld", function(request, response){
 
 	var currentUser = Parse.User.current();
 	currentUser.fetch({
@@ -65,6 +77,31 @@ Parse.Cloud.define("getCurrentGroup", function(request, response){
 
 });
 
+Parse.Cloud.define("getCurrentGroup", function(request, response){
+
+	var currentUser = Parse.User.current();
+	currentUser.fetch({
+		success: function(currentUser){
+			var currentGroup = currentUser.get("group");	
+			var Group = Parse.Object.extend("Group");
+	    var query = new Parse.Query(Group);
+	    query.equalTo("objectId", currentGroup.id);
+	    query.find({
+	      success: function(queryGroup) {
+	        var theObject = queryGroup[0];
+	        response.success(theObject);
+	      }
+	    });
+		},
+		error: function(error) {
+			response.error(error);
+		}
+
+	});
+
+});
+
+
 Parse.Cloud.define("getCurrentGroupName", function(request, response){
 
 	var currentUser = Parse.User.current();
@@ -75,8 +112,8 @@ Parse.Cloud.define("getCurrentGroupName", function(request, response){
 	    var query = new Parse.Query(Group);
 	    query.equalTo("objectId", currentGroup.id);
 	    query.find({
-	      success: function(queryArray) {
-	        var theObject = queryArray[0];
+	      success: function(queryGroup) {
+	        var theObject = queryGroup[0];
 	        response.success(theObject.get("groupName"));
 	      }
 	    });

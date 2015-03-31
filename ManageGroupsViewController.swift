@@ -12,6 +12,8 @@ class ManageGroupsViewController: UIViewController {
 
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

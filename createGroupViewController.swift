@@ -23,6 +23,11 @@ class createGroupViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func createGroupAction(sender: AnyObject) {
+        let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as UIViewController
+        self.presentViewController(pageVC, animated: true, completion: nil)
+    }
+    
     func addGroup(){
         PFCloud.callFunctionInBackground("addGroup", withParameters: ["groupName": groupName.text], block: nil)
 

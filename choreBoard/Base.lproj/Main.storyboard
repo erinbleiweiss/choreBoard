@@ -154,7 +154,7 @@
         <!--Manage Groups View Controller-->
         <scene sceneID="HZT-Oc-Oxf">
             <objects>
-                <viewController id="Dzu-Ct-Tgt" customClass="ManageGroupsViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ManageGroups" id="Dzu-Ct-Tgt" customClass="ManageGroupsViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dtn-Xr-Zn4"/>
                         <viewControllerLayoutGuide type="bottom" id="gYY-A7-ZuJ"/>
@@ -395,6 +395,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="createGroupAction:" destination="BNr-LA-7Fk" eventType="touchUpInside" id="I5g-aq-SH1"/>
                                     <action selector="saveButton:" destination="BNr-LA-7Fk" eventType="touchUpInside" id="MVB-bg-BOe"/>
                                 </connections>
                             </button>

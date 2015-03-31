@@ -42,8 +42,22 @@ class LoginViewController: UIViewController {
                     let defaults = NSUserDefaults.standardUserDefaults()
                     defaults.setObject(username, forKey: "username")
                     
-                    let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as UIViewController
-                    self.presentViewController(pageVC, animated: true, completion: nil)
+                    
+                    let groupName = PFCloud.callFunction("getCurrentGroupName", withParameters: [:]) as? String
+
+                    // if user is in a group, present chores list
+                    if groupName != nil{
+                        let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as UIViewController
+                        self.presentViewController(pageVC, animated: true, completion: nil)
+                    }
+                    
+                    // else, present add group page
+                    else {
+                        let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ManageGroups") as UIViewController
+                        self.presentViewController(pageVC, animated: true, completion: nil)
+                    }
+                    
+
 
                 } else {
                     // No, User Doesn't Exist

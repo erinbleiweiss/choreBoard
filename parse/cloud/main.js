@@ -141,3 +141,13 @@ Parse.Cloud.define("getCurrentGroupName", function(request, response){
 });
 
 
+Parse.Cloud.define("getUserInfo", function(request, response){
+
+	var currentUser = Parse.User.current();
+
+
+});
+
+
+
+

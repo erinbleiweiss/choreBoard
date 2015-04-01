@@ -26,14 +26,25 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
         self.tableView.reloadData()
     }
     
-//    func filterContentForSearchText(searchText: String) {
-//        // Filter the array using the filter method
-//        self.filteredUsers = self.users.filter({( user: UserTemp) -> Bool in
-//            let categoryMatch = (scope == "All") || (user.category == scope)
-//            let stringMatch = user.name.rangeOfString(searchText)
+    func filterContentForSearchText(searchText: String) {
+        // Filter the array using the filter method
+        self.filteredUsers = self.users.filter({( user: UserTemp) -> Bool in
+//            let categoryMatch = (scope == "All") || (user.groupName == scope)
+            let stringMatch = user.firstName.rangeOfString(searchText)
 //            return categoryMatch && (stringMatch != nil)
-//        })
-//    }
+            return stringMatch != nil ? true : false
+        })
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
+        self.filterContentForSearchText(searchString)
+        return true
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
+        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text)
+        return true
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -49,18 +60,29 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.users.count
+        if tableView == self.searchDisplayController!.searchResultsTableView {
+            return self.filteredUsers.count
+        } else {
+            return self.users.count
+        }
     }
+    
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //ask for a reusable cell from the tableview, the tableview will create a new one if it doesn't have any
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
         
-        // Get the corresponding candy from our candies array
-        let user = self.users[indexPath.row]
+        var user : UserTemp
+        // Check to see whether the normal table or search results table is being displayed and set the Candy object from the appropriate array
+        if tableView == self.searchDisplayController!.searchResultsTableView {
+            user = filteredUsers[indexPath.row]
+        } else {
+            user = users[indexPath.row]
+        }
         
         // Configure the cell
         cell.textLabel!.text = user.firstName + " " + user.lastName
+//        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
         return cell
     }

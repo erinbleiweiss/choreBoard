@@ -15,6 +15,11 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var userInfo = PFCloud.callFunction("getUserInfo", withParameters: [:]) as NSDictionary
+        println("MARK")
+        println(userInfo)
+        println(userInfo["groupName"] as String)
 
         self.users = [UserTemp(firstName: "Erin", lastName: "Bleiweiss", username: "ebleiweiss", groupName: "My Apartment"),
             UserTemp(firstName: "Abed", lastName: "Nadir", username: "anadir", groupName: "Community"),

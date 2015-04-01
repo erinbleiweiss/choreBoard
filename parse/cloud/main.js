@@ -144,6 +144,29 @@ Parse.Cloud.define("getCurrentGroupName", function(request, response){
 Parse.Cloud.define("getUserInfo", function(request, response){
 
 	var currentUser = Parse.User.current();
+	var firstName = currentUser.get("firstName");
+	var lastName = currentUser.get("lastName");
+	var username = currentUser.get("username");
+	var groupPointer = currentUser.get("group");
+
+	var Group = Parse.Object.extend("Group");
+	var query = new Parse.Query(Group);
+	query.equalTo("objectId", groupPointer.id);
+	query.find({
+		success: function(result){
+			var groupObj = result[0];
+			var groupName = groupObj.get("groupName");
+			response.success({"firstName" : firstName,
+											"lastName" : lastName,
+											"username" : username,
+											"groupName" : groupName}
+				);
+		},
+		error: function(error){
+			response.error(error);
+		}
+
+	});
 
 
 });

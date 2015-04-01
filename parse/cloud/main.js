@@ -107,7 +107,8 @@ Parse.Cloud.define("getCurrentGroupName", function(request, response){
 	var currentUser = Parse.User.current();
 	currentUser.fetch({
 		success: function(currentUser){
-			var currentGroup = currentUser.get("group");	
+			var currentGroup = currentUser.get("group");
+			if (currentGroup != null) {
 			var Group = Parse.Object.extend("Group");
 	    var query = new Parse.Query(Group);
 	    query.equalTo("objectId", currentGroup.id);
@@ -115,8 +116,21 @@ Parse.Cloud.define("getCurrentGroupName", function(request, response){
 	      success: function(queryGroup) {
 	        var theObject = queryGroup[0];
 	        response.success(theObject.get("groupName"));
+	      },
+	      error: function(error){
+	      	response.error(error);
 	      }
-	    });
+	    }); }
+	    else{
+	    	currentUser.save({
+	    		success: function(){
+	    			response.success(null);
+	    		},
+	    		error: function(error){
+	    			response.error(error);
+	    		}
+	    	});
+	    }
 		},
 		error: function(error) {
 			response.error(error);

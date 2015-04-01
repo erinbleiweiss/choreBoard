@@ -43,14 +43,13 @@ class OneViewController: PFQueryTableViewController {
         self.loadObjects()
 
     
-        
     }
     
     override func queryForTable() -> PFQuery! {
         
         if groupName != nil{
             
-        println(groupName)
+        println("Current user is a member of group: " + groupName)
         
         var innerQuery = PFQuery(className: "Group")
         innerQuery.whereKey("groupName", equalTo:groupName)
@@ -67,23 +66,26 @@ class OneViewController: PFQueryTableViewController {
         return query
         }
         else{
+            var innerQuery = PFQuery(className: "Group")
+            innerQuery.whereKey("groupName", equalTo:"")
             let query = PFQuery(className: "Chore")
+            query.whereKey("group", matchesQuery: innerQuery)
+            query.orderByAscending("choreName")
             return query
         }
     }
     
-    //override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject) -> PFTableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as PFTableViewCell!
-        if cell == nil {
-            cell = PFTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
-        }
-        
-        // Extract values from the PFObject to display in the table cell
-        cell?.textLabel?.text = object["choreName"] as String!
-        cell?.detailTextLabel?.text = object["objectId"] as String!
-        
-        return cell
-    }
+//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath, object: PFObject) -> PFTableViewCell {
+//        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as PFTableViewCell!
+//        if cell == nil {
+//            cell = PFTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+//        }
+//        
+//        // Extract values from the PFObject to display in the table cell
+//        cell?.textLabel?.text = object["choreName"] as String!
+//        cell?.detailTextLabel?.text = object["objectId"] as String!
+//        
+//        return cell
+//    }
 
 }

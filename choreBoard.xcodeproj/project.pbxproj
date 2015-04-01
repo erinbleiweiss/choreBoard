@@ -41,6 +41,8 @@
 		80DA7D811ACA4BFA001B8999 /* PushNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DA7D801ACA4BFA001B8999 /* PushNotificationController.swift */; };
 		80DA7D841ACA4FB7001B8999 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DA7D831ACA4FB7001B8999 /* ApiKeys.swift */; };
 		80DA7D861ACA558D001B8999 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80DA7D851ACA558D001B8999 /* ApiKeys.plist */; };
+		80DA7D8A1ACB120F001B8999 /* FindRoommatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DA7D891ACB120F001B8999 /* FindRoommatesTableViewController.swift */; };
+		80DA7D8C1ACB7916001B8999 /* UserTemp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DA7D8B1ACB7916001B8999 /* UserTemp.swift */; };
 		80DCBC121AC60BD600065047 /* OneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DCBC111AC60BD600065047 /* OneViewController.swift */; };
 		80DCBC161AC60BED00065047 /* ThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DCBC151AC60BED00065047 /* ThreeViewController.swift */; };
 		80E2A0A91AB7FA3B008A169D /* ChoreDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2A0A61AB7FA3B008A169D /* ChoreDetailViewController.swift */; };
@@ -92,6 +94,8 @@
 		80DA7D801ACA4BFA001B8999 /* PushNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationController.swift; sourceTree = "<group>"; };
 		80DA7D831ACA4FB7001B8999 /* ApiKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		80DA7D851ACA558D001B8999 /* ApiKeys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
+		80DA7D891ACB120F001B8999 /* FindRoommatesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindRoommatesTableViewController.swift; sourceTree = "<group>"; };
+		80DA7D8B1ACB7916001B8999 /* UserTemp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTemp.swift; sourceTree = "<group>"; };
 		80DCBC111AC60BD600065047 /* OneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneViewController.swift; sourceTree = "<group>"; };
 		80DCBC151AC60BED00065047 /* ThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreeViewController.swift; sourceTree = "<group>"; };
 		80E2A0A61AB7FA3B008A169D /* ChoreDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreDetailViewController.swift; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 				800A39D41AC6020000CA4F59 /* SWRevealViewController */,
 				8064E54D1AC7381E00863ADA /* ManageGroupsViewController.swift */,
 				80656F541AC5130200C1994C /* createGroupViewController.swift */,
+				80DA7D891ACB120F001B8999 /* FindRoommatesTableViewController.swift */,
+				80DA7D8B1ACB7916001B8999 /* UserTemp.swift */,
 				80D89BB11AA768CD00583941 /* choreBoard */,
 				80D89BC71AA768CD00583941 /* choreBoardTests */,
 				80D89BB01AA768CD00583941 /* Products */,
@@ -358,11 +364,13 @@
 				80E2A0AA1AB7FA3B008A169D /* SecondViewController.swift in Sources */,
 				80E2A0AD1AB7FA5A008A169D /* PageItemController.swift in Sources */,
 				800A39D91AC602C400CA4F59 /* MenuController.swift in Sources */,
+				80DA7D8A1ACB120F001B8999 /* FindRoommatesTableViewController.swift in Sources */,
 				80656F551AC5130200C1994C /* createGroupViewController.swift in Sources */,
 				800A39D71AC6023000CA4F59 /* SWRevealViewController.m in Sources */,
 				80DA7D841ACA4FB7001B8999 /* ApiKeys.swift in Sources */,
 				801824191AC64A320009A7DE /* ChoreViewController.swift in Sources */,
 				80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */,
+				80DA7D8C1ACB7916001B8999 /* UserTemp.swift in Sources */,
 				80DCBC121AC60BD600065047 /* OneViewController.swift in Sources */,
 				8064E54E1AC7381E00863ADA /* ManageGroupsViewController.swift in Sources */,
 				80AF9BD31ABCE915003829F3 /* PageNavigationController.swift in Sources */,

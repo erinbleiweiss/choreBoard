@@ -22,7 +22,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+
+    
+    @IBAction func facebookLoginAction(sender: AnyObject) {
         PFFacebookUtils.logInWithPermissions(permissions, {
             (user: PFUser!, error: NSError!) -> Void in
             if let user = user {
@@ -35,10 +38,7 @@ class LoginViewController: UIViewController {
                 println("Uh oh. The user cancelled the Facebook login.")
             }
         })
-        
     }
-
-    
     
     @IBAction func loginButtonAction(sender: AnyObject) {
         if loginUsernameField.text != "" && loginPasswordField.text != "" {

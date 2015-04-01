@@ -60,6 +60,15 @@
                                     <action selector="loginButtonAction:" destination="bxx-Ja-Q9Q" eventType="touchUpInside" id="coc-iK-SPv"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ms-we-XEg">
+                                <rect key="frame" x="54" y="465" width="227" height="47"/>
+                                <state key="normal" title="Button" image="facebooklogin">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookLoginAction:" destination="bxx-Ja-Q9Q" eventType="touchUpInside" id="UrB-TJ-OsN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -71,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Rp-S9-P5w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="316" y="-363"/>
+            <point key="canvasLocation" x="258" y="-343"/>
         </scene>
         <!--Chore Detail View Controller-->
         <scene sceneID="U6p-pJ-R4E">
@@ -697,6 +706,9 @@
             <point key="canvasLocation" x="1325" y="2219"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="facebooklogin" width="724" height="152"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="WUg-3H-Dz4"/>
     </inferredMetricsTieBreakers>

@@ -159,6 +159,10 @@
 		807FA85B1ABF69B100BB5A8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				80DA80651ACCA1E9001B8999 /* FBSDKShareKit.framework */,
+				80DA80631ACCA1DE001B8999 /* FBSDKLoginKit.framework */,
+				80DA80611ACCA1D8001B8999 /* FBSDKCoreKit.framework */,
+				80DA805F1ACCA1B7001B8999 /* FacebookSDK.framework */,
 				80DA7D7C1ACA4AC7001B8999 /* Bolts.framework */,
 				80DA7D7D1ACA4AC7001B8999 /* Parse.framework */,
 				807FA8661ABF69F300BB5A8A /* AudioToolbox.framework */,
@@ -193,10 +197,6 @@
 		80D89BA61AA768CD00583941 = {
 			isa = PBXGroup;
 			children = (
-				80DA80651ACCA1E9001B8999 /* FBSDKShareKit.framework */,
-				80DA80631ACCA1DE001B8999 /* FBSDKLoginKit.framework */,
-				80DA80611ACCA1D8001B8999 /* FBSDKCoreKit.framework */,
-				80DA805F1ACCA1B7001B8999 /* FacebookSDK.framework */,
 				80DA7D851ACA558D001B8999 /* ApiKeys.plist */,
 				80DA7D831ACA4FB7001B8999 /* ApiKeys.swift */,
 				80DA7D801ACA4BFA001B8999 /* PushNotificationController.swift */,

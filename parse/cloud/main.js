@@ -1,4 +1,3 @@
-
 // Use Parse.Cloud.define to define as many cloud functions as you want.
 // For example:
 Parse.Cloud.define("hello", function(request, response) {
@@ -171,6 +170,37 @@ Parse.Cloud.define("getUserInfo", function(request, response){
 
 });
 
+Parse.Cloud.define("fillFBInfo", function (request, response){
+
+	Parse.Cloud.useMasterKey();
+
+	var user = Parse.User.current();
+	var authData = user.get("authData");
+	var facebookInfo = authData.facebook;
+	var fbtoken = facebookInfo.access_token;
+	var facebookId = facebookInfo.id;
+
+	console.log("FB User Id: " + facebookId);
+
+	var infoURL = "https://graph.facebook.com/v2.3/me?fields=first_name,last_name,gender&access_token=" + fbtoken;
+
+	Parse.Cloud.httpRequest({
+	       url: infoURL,
+	       method: "GET"
+	   }).then(function(response){
+
+	       var responseData = response.data;
+	       user.set("firstName", responseData.first_name);
+	       user.set("lastName", responseData.last_name);
+	       user.set("gender", responseData.gender);
+	       user.set("facebookId", facebookInfo.id);
+	       user.save();
+
+	       response.success("fb info updated");
+	   },function(error){
+	       response.error(error);
+	   });
 
 
+});
 

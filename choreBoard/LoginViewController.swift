@@ -31,8 +31,16 @@ class LoginViewController: UIViewController {
             if let user = user {
                 if user.isNew {
                     println("User signed up and logged in through Facebook!")
+                    self.loginAction()
+                    PFCloud.callFunctionInBackground("fillFBInfo", withParameters:[:]) {
+                        (result: AnyObject!, error: NSError!) -> Void in
+                        if error == nil {
+                        }
+                    }
+                    
                 } else {
                     println("User logged in through Facebook!")
+                    self.loginAction()
                 }
             } else {
                 println("Uh oh. The user cancelled the Facebook login.")
@@ -82,6 +90,22 @@ class LoginViewController: UIViewController {
         }
         
         
+    }
+    
+    func loginAction(){
+        let groupName = PFCloud.callFunction("getCurrentGroupName", withParameters: [:]) as? String
+        
+        // if user is in a group, present chores list
+        if groupName != nil{
+            let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as UIViewController
+            self.presentViewController(pageVC, animated: true, completion: nil)
+        }
+            
+            // else, present add group page
+        else {
+            let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ManageGroups") as UIViewController
+            self.presentViewController(pageVC, animated: true, completion: nil)
+        }
     }
     
     @IBAction func registerButtonAction(sender: AnyObject) {

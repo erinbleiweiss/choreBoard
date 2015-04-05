@@ -31,7 +31,25 @@ class OneViewController: PFQueryTableViewController {
     
     override func viewDidLoad() {
 
+        var currentUser: PFUser = PFUser.currentUser()
         
+//        println("Facebook Name")
+//        
+//        FBRequestConnection.startForMeWithCompletionHandler({connection, result, error in
+//            
+//            if error == nil {
+//                var facebookId: AnyObject? = result.objectForKey("id")
+//                println("one")
+//                println(facebookId)
+//            }
+//            else {
+//                println("two")
+//                println("error")
+//            }
+//            
+//        })
+        
+                
         if self.revealViewController() != nil {
             settingsButton.target = self.revealViewController()
             settingsButton.action = "rightRevealToggle:"

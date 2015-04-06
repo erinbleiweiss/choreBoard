@@ -204,3 +204,33 @@ Parse.Cloud.define("fillFBInfo", function (request, response){
 
 });
 
+
+
+Parse.Cloud.define("getFriends", function (request, response){
+
+	Parse.Cloud.useMasterKey();
+
+	var user = Parse.User.current();
+	var authData = user.get("authData");
+	var facebookInfo = authData.facebook;
+	var fbtoken = facebookInfo.access_token;
+	var facebookId = facebookInfo.id;
+
+	console.log("FB User Id: " + facebookId);
+
+	var infoURL = "https://graph.facebook.com/v2.3/me?fields=friends&access_token=" + fbtoken;
+
+	return Parse.Cloud.httpRequest({
+	       url: infoURL,
+	       method: "GET"
+	   }).then(function(httpResponse){
+	       var responseData = httpResponse.data;
+	       var friendsArray = responseData.friends.data;
+	       response.success(friendsArray);
+
+	   },function(error){
+	       response.error(error);
+	   });
+
+
+});

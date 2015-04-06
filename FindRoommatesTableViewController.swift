@@ -13,8 +13,26 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
     var users = [UserTemp]()
     var filteredUsers = [UserTemp]()
     
+    var friends = [FBUser]()
+    var filteredFriends = [FBUser]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+        PFCloud.callFunctionInBackground("getFriends", withParameters:[:]) {
+            (result: AnyObject!, error: NSError!) -> Void in
+            if error == nil {
+                
+                for user in result as NSArray {
+                    let name = user["name"] as String
+                    let fbId = user["id"] as String
+                    self.friends.append(FBUser(name: name, fbId: fbId))
+                }
+                
+                println(self.friends)
+            }
+        }
+        
         
         var userInfo = PFCloud.callFunction("getUserInfo", withParameters: [:]) as NSDictionary
         println("MARK")
@@ -33,9 +51,9 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
     
     func filterContentForSearchText(searchText: String) {
         // Filter the array using the filter method
-        self.filteredUsers = self.users.filter({( user: UserTemp) -> Bool in
+        self.filteredFriends = self.friends.filter({( user: FBUser) -> Bool in
 //            let categoryMatch = (scope == "All") || (user.groupName == scope)
-            let stringMatch = user.firstName.rangeOfString(searchText)
+            let stringMatch = user.name.rangeOfString(searchText)
 //            return categoryMatch && (stringMatch != nil)
             return stringMatch != nil ? true : false
         })
@@ -66,9 +84,9 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.searchDisplayController!.searchResultsTableView {
-            return self.filteredUsers.count
+            return self.filteredFriends.count
         } else {
-            return self.users.count
+            return self.friends.count
         }
     }
     
@@ -77,16 +95,16 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
         //ask for a reusable cell from the tableview, the tableview will create a new one if it doesn't have any
         let cell = self.tableView.dequeueReusableCellWithIdentifier("Cell") as UITableViewCell
         
-        var user : UserTemp
+        var user : FBUser
         // Check to see whether the normal table or search results table is being displayed and set the Candy object from the appropriate array
         if tableView == self.searchDisplayController!.searchResultsTableView {
-            user = filteredUsers[indexPath.row]
+            user = filteredFriends[indexPath.row]
         } else {
-            user = users[indexPath.row]
+            user = friends[indexPath.row]
         }
         
         // Configure the cell
-        cell.textLabel!.text = user.firstName + " " + user.lastName
+        cell.textLabel!.text = user.name
 //        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
         return cell

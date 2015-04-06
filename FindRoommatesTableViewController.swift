@@ -10,15 +10,12 @@ import UIKit
 
 class FindRoommatesTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
 
-    var users = [UserTemp]()
-    var filteredUsers = [UserTemp]()
-    
     var friends = [FBUser]()
     var filteredFriends = [FBUser]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         PFCloud.callFunctionInBackground("getFriends", withParameters:[:]) {
             (result: AnyObject!, error: NSError!) -> Void in
             if error == nil {
@@ -39,13 +36,7 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
         println(userInfo)
         println(userInfo["groupName"] as String)
 
-        self.users = [UserTemp(firstName: "Erin", lastName: "Bleiweiss", username: "ebleiweiss", groupName: "My Apartment"),
-            UserTemp(firstName: "Abed", lastName: "Nadir", username: "anadir", groupName: "Community"),
-            UserTemp(firstName: "Bruce", lastName: "Wayne", username: "notbatman", groupName: "Gotham"),
-            UserTemp(firstName: "Jeff", lastName: "Winger", username: "wingerjeff", groupName: "Notches"),
-            UserTemp(firstName: "April", lastName: "Ludgate", username: "janetsnakehole", groupName: "Pawnee"),
-            UserTemp(firstName: "Robert", lastName: "Quigley", username: "robquig", groupName: "Mobile News Apps")
-        ]
+
         self.tableView.reloadData()
     }
     
@@ -53,7 +44,7 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
         // Filter the array using the filter method
         self.filteredFriends = self.friends.filter({( user: FBUser) -> Bool in
 //            let categoryMatch = (scope == "All") || (user.groupName == scope)
-            let stringMatch = user.name.rangeOfString(searchText)
+            let stringMatch = user.name.lowercaseString.rangeOfString(searchText)
 //            return categoryMatch && (stringMatch != nil)
             return stringMatch != nil ? true : false
         })

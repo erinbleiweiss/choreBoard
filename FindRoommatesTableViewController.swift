@@ -91,7 +91,7 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
         var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
         
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
+            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         }
         
         var user : FBUser
@@ -102,11 +102,26 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
             user = friends[indexPath.row]
         }
         
+        
+
+        
         // Configure the cell
         cell!.textLabel!.text = user.name
-        cell!.detailTextLabel?.text = user.fbId
+//        cell!.detailTextLabel?.text = user.fbId
+  
+        PFCloud.callFunctionInBackground("groupNameFromFBID", withParameters:["fbId": user.fbId]) {
+            (result: AnyObject!, error: NSError!) -> Void in
+            if error == nil {
+                
+                if result != nil{
+                    cell!.detailTextLabel?.text = result as? String
 
-//        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+                }
+
+            }
+        }
+        
+
         
         return cell!
     }
@@ -114,3 +129,4 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
 
     
 }
+

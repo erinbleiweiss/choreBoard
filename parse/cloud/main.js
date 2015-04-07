@@ -235,5 +235,54 @@ Parse.Cloud.define("getFriends", function (request, response){
 	       }
 	 });
 
+});
+
+
+
+Parse.Cloud.define("groupNameFromFBID", function(request, response){
+
+	var fbId = request.params.fbId;
+
+	var User = Parse.Object.extend("_User");
+	var query = new Parse.Query(User);
+	query.equalTo("facebookId", fbId);
+	query.find({
+		success: function(queryUser){
+			var theUser = queryUser[0];
+			var groupPointer = theUser.get("group");
+			if (groupPointer != null)
+			{
+				var Group = Parse.Object.extend("Group");
+				var innerquery = new Parse.Query(Group);
+				innerquery.equalTo("objectId", groupPointer.id);
+				innerquery.find({
+					success: function(queryGroup){
+						var theGroup = queryGroup[0];
+						response.success(theGroup.get("groupName"));
+					},
+					error: function(error){
+						response.error(error);
+					}
+				});
+
+			}
+			else{
+				console.log("not in a group");
+				response.success(null);
+			}
+
+
+			
+		},
+		error: function(error){
+			response.error(error);
+		}
+
+	});
+
+
+
 
 });
+
+

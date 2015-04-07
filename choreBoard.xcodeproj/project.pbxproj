@@ -33,6 +33,7 @@
 		809490271AC36902004C364E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809490261AC36902004C364E /* LoginViewController.swift */; };
 		809490291AC38093004C364E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809490281AC38093004C364E /* RegisterViewController.swift */; };
 		80AF9BD31ABCE915003829F3 /* PageNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF9BD21ABCE915003829F3 /* PageNavigationController.swift */; };
+		80C211F81AD37EBE00DD512A /* RoommateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C211F71AD37EBE00DD512A /* RoommateTableViewCell.swift */; };
 		80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D89BB41AA768CD00583941 /* AppDelegate.swift */; };
 		80D89BBC1AA768CD00583941 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80D89BBB1AA768CD00583941 /* Images.xcassets */; };
 		80D89BBF1AA768CD00583941 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D89BBD1AA768CD00583941 /* LaunchScreen.xib */; };
@@ -87,6 +88,7 @@
 		809490261AC36902004C364E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		809490281AC38093004C364E /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		80AF9BD21ABCE915003829F3 /* PageNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageNavigationController.swift; sourceTree = "<group>"; };
+		80C211F71AD37EBE00DD512A /* RoommateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoommateTableViewCell.swift; sourceTree = "<group>"; };
 		80D89BAF1AA768CD00583941 /* choreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = choreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D89BB31AA768CD00583941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80D89BB41AA768CD00583941 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 				80DA7D891ACB120F001B8999 /* FindRoommatesTableViewController.swift */,
 				80DA7D8B1ACB7916001B8999 /* UserTemp.swift */,
 				80DA80671AD23DDD001B8999 /* FBUser.swift */,
+				80C211F71AD37EBE00DD512A /* RoommateTableViewCell.swift */,
 				80D89BB11AA768CD00583941 /* choreBoard */,
 				80D89BC71AA768CD00583941 /* choreBoardTests */,
 				80D89BB01AA768CD00583941 /* Products */,
@@ -393,6 +396,7 @@
 				80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */,
 				80DA7D8C1ACB7916001B8999 /* UserTemp.swift in Sources */,
 				80DCBC121AC60BD600065047 /* OneViewController.swift in Sources */,
+				80C211F81AD37EBE00DD512A /* RoommateTableViewCell.swift in Sources */,
 				8064E54E1AC7381E00863ADA /* ManageGroupsViewController.swift in Sources */,
 				80AF9BD31ABCE915003829F3 /* PageNavigationController.swift in Sources */,
 			);

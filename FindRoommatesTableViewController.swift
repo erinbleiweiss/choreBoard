@@ -136,14 +136,26 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
         
         println("clicked on "+filteredFriends[row].name)
         
-        PFCloud.callFunctionInBackground("addUserToMyGroup", withParameters:["fbId": clickedFriend.fbId]) {
+//        PFCloud.callFunctionInBackground("addUserToMyGroup", withParameters:["fbId": clickedFriend.fbId]) {
+//            (result: AnyObject!, error: NSError!) -> Void in
+//            if error == nil {
+//
+//                
+//                
+//            }
+//        }
+        
+        
+        PFCloud.callFunctionInBackground("joinRoommatesGroup", withParameters:["fbId": clickedFriend.fbId]) {
             (result: AnyObject!, error: NSError!) -> Void in
             if error == nil {
 
-                
-                
+
+
             }
         }
+        
+        
         
     }
 

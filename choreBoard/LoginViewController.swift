@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
     
     
     // MARK: - Variables
-    var permissions = ["public_profile"]
+    var permissions = ["public_profile", "user_friends"]
     
     override func viewDidLoad() {
         super.viewDidLoad()

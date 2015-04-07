@@ -20,19 +20,19 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
             (result: AnyObject!, error: NSError!) -> Void in
             if error == nil {
                 
-                for user in result as NSArray {
-                    let name = user["name"] as String
-                    let fbId = user["id"] as String
-                    self.friends.append(FBUser(name: name, fbId: fbId))
-                }
+//                for user in result as NSArray {
+//                    let name = user["name"] as String
+//                    let fbId = user["id"] as String
+//                    self.friends.append(FBUser(name: name, fbId: fbId))
+//                }
             }
         }
         
         
-        var userInfo = PFCloud.callFunction("getUserInfo", withParameters: [:]) as NSDictionary
-        println("MARK")
-        println(userInfo)
-        println(userInfo["groupName"] as String)
+//        var userInfo = PFCloud.callFunction("getUserInfo", withParameters: [:]) as NSDictionary
+//        println("MARK")
+//        println(userInfo)
+//        println(userInfo["groupName"] as String)
 
 
         self.tableView.reloadData()

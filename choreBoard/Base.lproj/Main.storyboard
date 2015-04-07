@@ -200,7 +200,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="179-tr-ifO" kind="presentation" id="OFU-Ux-7p0"/>
+                                    <segue destination="MBJ-vJ-cUM" kind="presentation" id="OFU-Ux-7p0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -447,7 +447,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="o9D-rN-jgR">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" id="o9D-rN-jgR">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o9D-rN-jgR" id="wCl-b3-8L9">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -459,6 +459,13 @@
                             <outlet property="delegate" destination="179-tr-ifO" id="i2B-wd-Y1I"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="p0V-Mc-P1m">
+                        <barButtonItem key="leftBarButtonItem" title="Back" style="plain" id="XhR-dd-ycq">
+                            <connections>
+                                <action selector="cancelToManageViewController:" destination="179-tr-ifO" id="lRw-vW-XBs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="b9f-72-4P9" id="ioU-6s-6TP"/>
@@ -475,7 +482,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2290" y="3917"/>
+            <point key="canvasLocation" x="2282" y="4801"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="aUa-TO-SFI">
@@ -704,6 +711,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWb-FQ-gnh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1325" y="2219"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ppb-nD-eJR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MBJ-vJ-cUM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Av1-p6-Csi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="179-tr-ifO" kind="relationship" relationship="rootViewController" id="gqc-hk-cB2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Twm-0M-FmU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2287" y="3917"/>
         </scene>
     </scenes>
     <resources>

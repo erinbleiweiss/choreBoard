@@ -10,6 +10,12 @@ import UIKit
 
 class FindRoommatesTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
 
+    @IBAction func cancelToManageViewController(sender: AnyObject) {        
+        //hide the detail view controller
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+
+    
     var friends = [FBUser]()
     var filteredFriends = [FBUser]()
 

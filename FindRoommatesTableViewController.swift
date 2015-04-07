@@ -117,6 +117,9 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
                     cell!.detailTextLabel?.text = result as? String
 
                 }
+                else{
+                    cell!.detailTextLabel?.text = ""
+                }
 
             }
         }
@@ -125,6 +128,25 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
         
         return cell!
     }
+    
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        let row = indexPath.row
+        var clickedFriend = filteredFriends[row]
+        
+        println("clicked on "+filteredFriends[row].name)
+        
+        PFCloud.callFunctionInBackground("addUserToMyGroup", withParameters:["fbId": clickedFriend.fbId]) {
+            (result: AnyObject!, error: NSError!) -> Void in
+            if error == nil {
+
+                
+                
+            }
+        }
+        
+    }
+
 
 
     

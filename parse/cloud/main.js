@@ -281,8 +281,40 @@ Parse.Cloud.define("groupNameFromFBID", function(request, response){
 	});
 
 
+});
+
+
+
+Parse.Cloud.define("addUserToMyGroup", function(request, response){
+
+	Parse.Cloud.useMasterKey()
+
+	var currentUser = Parse.User.current();
+	var currentGroup = currentUser.get("group");	
+
+	var fbId = request.params.fbId;
+
+	var User = Parse.Object.extend("_User");
+	var query = new Parse.Query(User);
+	query.equalTo("facebookId", fbId);
+	query.find({
+		success: function(queryUser){
+			var theUser = queryUser[0];
+
+			theUser.set("group", currentGroup);
+			theUser.save();
+
+			response.success();
+		},
+		error: function(error){
+			response.error(error);
+		}
+
+	});
 
 
 });
+
+
 
 

@@ -228,8 +228,6 @@ Parse.Cloud.define("getFriends", function (request, response){
 	       success: function(httpResponse){
 	       	var responseData = httpResponse.data;
 	       	console.log("getFriends response: ");
-	       	console.log(responseData);
-	       	console.log(responseData.friends.data);
 	       	response.success(responseData.friends.data);
 	       },
 	       error: function(error){

@@ -20,11 +20,11 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
             (result: AnyObject!, error: NSError!) -> Void in
             if error == nil {
                 
-//                for user in result as NSArray {
-//                    let name = user["name"] as String
-//                    let fbId = user["id"] as String
-//                    self.friends.append(FBUser(name: name, fbId: fbId))
-//                }
+                for user in result as NSArray {
+                    let name = user["name"] as String
+                    let fbId = user["id"] as String
+                    self.friends.append(FBUser(name: name, fbId: fbId))
+                }
             }
         }
         

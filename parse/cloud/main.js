@@ -346,3 +346,48 @@ Parse.Cloud.define("joinRoommatesGroup", function(request, response){
 
 
 
+Parse.Cloud.define("joinGroupRequest", function(request, response){
+
+	Parse.Cloud.useMasterKey()
+	var currentUser = Parse.User.current();
+
+	var fbId = request.params.fbId;
+
+	var User = Parse.Object.extend("_User");
+	var query = new Parse.Query(User);
+	query.equalTo("facebookId", fbId);
+	query.find({
+		success: function(queryUser){
+			var theUser = queryUser[0];
+			var roommateGroup = theUser.get("group");
+
+			var JoinGroupRequest = Parse.Object.extend("JoinGroupRequest");
+			var newRequest = new JoinGroupRequest();
+
+			newRequest.set("fromUser", currentUser);
+			newRequest.set("toGroup", roommateGroup);
+			newRequest.set("status", "pending");
+
+			newRequest.save();
+
+			response.success();
+
+		},
+		error: function(error){
+			response.error(error);
+		}
+
+
+	});
+
+
+
+
+
+});
+
+
+
+
+
+

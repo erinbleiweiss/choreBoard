@@ -10,6 +10,7 @@ import UIKit
 
 class OneViewController: PFQueryTableViewController {
 
+    
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     var groupName: String!
     
@@ -30,10 +31,18 @@ class OneViewController: PFQueryTableViewController {
     }
     
     override func viewDidLoad() {
-
+        let buttonImage = UIImage(named: "ico-to-do-list") as UIImage?
+        var customButton: UIButton = UIButton(frame: CGRectMake(0, 0, 20, 20))
+        customButton.setImage(buttonImage, forState: .Normal)
+        
+        var barButton: BBBadgeBarButtonItem = BBBadgeBarButtonItem(customUIButton: customButton)
+        barButton.badgeValue = "1"
+        barButton.shouldHideBadgeAtZero = true
+        
+        self.navigationItem.rightBarButtonItem = barButton;
+        
         if self.revealViewController() != nil {
-            settingsButton.target = self.revealViewController()
-            settingsButton.action = "rightRevealToggle:"
+            customButton.addTarget(self.revealViewController(), action: "rightRevealToggle:", forControlEvents: .TouchUpInside)
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         

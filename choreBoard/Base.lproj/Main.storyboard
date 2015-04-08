@@ -637,10 +637,10 @@
             </objects>
             <point key="canvasLocation" x="987" y="-362.99999999999994"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Chore Board Blue Navigation Controller-->
         <scene sceneID="i45-j3-sVz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="esl-YE-Fef" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="esl-YE-Fef" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tH5-5I-S7s">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -680,10 +680,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Shn-ZG-z7r">
-                        <barButtonItem key="rightBarButtonItem" title="☰" id="99R-00-Mzd"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="69G-MM-GQV"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="settingsButton" destination="99R-00-Mzd" id="CCU-9s-9PN"/>
+                        <outlet property="settingsButton" destination="69G-MM-GQV" id="R2Y-FZ-raF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="305-PV-voy" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -679,12 +679,7 @@
                             <outlet property="delegate" destination="hAt-8w-NbT" id="iU7-kK-gbO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Shn-ZG-z7r">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="69G-MM-GQV"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="settingsButton" destination="69G-MM-GQV" id="R2Y-FZ-raF"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="Shn-ZG-z7r"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="305-PV-voy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

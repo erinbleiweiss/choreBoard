@@ -35,6 +35,7 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
         }
         
         
+        
 //        var userInfo = PFCloud.callFunction("getUserInfo", withParameters: [:]) as NSDictionary
 //        println("MARK")
 //        println(userInfo)
@@ -156,14 +157,14 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
 //        }
 
         
-        PFCloud.callFunctionInBackground("joinGroupRequest", withParameters:["fbId": clickedFriend.fbId]) {
-            (result: AnyObject!, error: NSError!) -> Void in
-            if error == nil {
-                
-                
-                
-            }
-        }
+//        PFCloud.callFunctionInBackground("addToGroupRequest", withParameters:["fbId": clickedFriend.fbId]) {
+//            (result: AnyObject!, error: NSError!) -> Void in
+//            if error == nil {
+//                
+//                
+//                
+//            }
+//        }
 
         
         

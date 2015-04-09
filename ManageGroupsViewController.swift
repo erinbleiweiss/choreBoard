@@ -17,10 +17,20 @@ class ManageGroupsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         if self.revealViewController() != nil {
             settingsButton.target = self.revealViewController()
             settingsButton.action = "rightRevealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
+        PFCloud.callFunctionInBackground("getPendingRequests", withParameters:[:]) {
+            (result: AnyObject!, error: NSError!) -> Void in
+            if error == nil {
+                
+                
+                
+            }
         }
 
     }

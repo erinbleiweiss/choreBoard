@@ -376,16 +376,65 @@ Parse.Cloud.define("joinGroupRequest", function(request, response){
 		error: function(error){
 			response.error(error);
 		}
-
-
 	});
+});
+
+Parse.Cloud.define("addToGroupRequest", function(request, response){
+
+	Parse.Cloud.useMasterKey()
+	var currentUser = Parse.User.current();
+
+	var fbId = request.params.fbId;
+
+	var User = Parse.Object.extend("_User");
+	var query = new Parse.Query(User);
+	query.equalTo("facebookId", fbId);
+	query.find({
+		success: function(queryUser){
+			var theUser = queryUser[0];
+
+			var AddToGroupRequest = Parse.Object.extend("AddToGroupRequest");
+			var newRequest = new AddToGroupRequest();
+
+			newRequest.set("fromUser", currentUser);
+			newRequest.set("toUser", theUser);
+			newRequest.set("status", "pending");
+
+			newRequest.save();
+
+			response.success();
+
+		},
+		error: function(error){
+			response.error(error);
+		}
+	});
+});
 
 
+Parse.Cloud.define("getPendingRequests", function(request, response){
 
+	var currentUser = Parse.User.current();
+	var groupPointer = currentUser.get("group");
+
+	console.log(groupPointer);
+
+	var JoinGroupRequest = Parse.Object.extend("JoinGroupRequest");
+	var query = new Parse.Query(JoinGroupRequest);
+	query.equalTo("toGroup", groupPointer);
+	query.find({
+		success: function(queryRequest){
+			var theRequest = queryRequest[0];
+			console.log(queryRequest.length);
+			response.success(queryRequest.length);
+		},
+		error: function(error){
+			response.error(error);
+		}
+	})
 
 
 });
-
 
 
 

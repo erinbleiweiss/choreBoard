@@ -12,6 +12,13 @@ class MenuController: UITableViewController {
 
     @IBOutlet weak var groupNameLabel: UILabel!
     
+    @IBAction func logoutAction(sender: AnyObject) {
+        println("thasdgas")
+        PFUser.logOut()
+        let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("LoginController") as UIViewController
+        self.presentViewController(pageVC, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,13 +28,15 @@ class MenuController: UITableViewController {
                 self.groupNameLabel.text = result as? String
             }
         }
-        
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

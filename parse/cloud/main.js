@@ -16,7 +16,7 @@ Parse.Cloud.define("addGroup", function(request, response){
 				var currentUser = Parse.User.current();
 				currentUser.set("group", newGroup);
 				currentUser.save();
-				response.success(newGroup);
+				response.success();
 			},
 			error: function(error){
 				response.error(error)
@@ -99,6 +99,29 @@ Parse.Cloud.define("getCurrentGroup", function(request, response){
 	});
 
 });
+
+
+Parse.Cloud.define("getMyGroupId", function(request, response){
+
+	var currentUser = Parse.User.current();
+	var groupPointer = currentUser.get("group");
+	var Group = Parse.Object.extend("Group");
+  var query = new Parse.Query(Group);
+  query.equalTo("objectId", groupPointer.id);
+  query.find({
+  	success: function(queryGroup){
+  		var currentGroup = queryGroup[0];
+  		response.success(currentGroup.id);
+  	},
+  	error: function(error){
+  		response.error(error);
+  	}
+  });
+
+
+});
+
+
 
 
 Parse.Cloud.define("getCurrentGroupName", function(request, response){
@@ -196,7 +219,7 @@ Parse.Cloud.define("fillFBInfo", function (request, response){
 	       user.set("facebookId", facebookInfo.id);
 	       user.save();
 
-	       response.success("fb info updated");
+	       response.success();
 	   },function(error){
 	       response.error(error);
 	   });
@@ -350,6 +373,8 @@ Parse.Cloud.define("joinGroupRequest", function(request, response){
 
 	Parse.Cloud.useMasterKey()
 	var currentUser = Parse.User.current();
+	var firstName = currentUser.get("firstName");
+	var lastName = currentUser.get("lastName");
 
 	var fbId = request.params.fbId;
 
@@ -370,7 +395,21 @@ Parse.Cloud.define("joinGroupRequest", function(request, response){
 
 			newRequest.save();
 
-			response.success();
+			var pushChannel = "CH_" + roommateGroup.id;
+			Parse.Push.send({
+				channels: [pushChannel],
+				data: {
+					alert: "New group request from " + firstName + " " + lastName
+				}
+			}, {
+				success: function(){
+					console.log("Push sent!");
+					response.success();
+				},
+				error: function(error){
+					response.error(error)
+				}
+			});
 
 		},
 		error: function(error){

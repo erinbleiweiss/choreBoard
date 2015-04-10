@@ -19,8 +19,13 @@ class createGroupViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tapRecognizer)
         // Do any additional setup after loading the view.
+    }
+    
+    func dismissKeyboard(){
+        groupName.resignFirstResponder()
     }
     
     @IBAction func createGroupAction(sender: AnyObject) {
@@ -29,8 +34,21 @@ class createGroupViewController: UIViewController {
     }
     
     func addGroup(){
-        PFCloud.callFunctionInBackground("addGroup", withParameters: ["groupName": groupName.text], block: nil)
-
+        PFCloud.callFunctionInBackground("addGroup", withParameters: ["groupName": groupName.text]){
+            (result: AnyObject!, error: NSError!) -> Void in
+            
+            PFCloud.callFunctionInBackground("getMyGroupId", withParameters:[:]) {
+                (result: AnyObject!, error: NSError!) -> Void in
+                if error == nil {
+                    var groupId = result as String
+                    let currentInstallation = PFInstallation.currentInstallation()
+                    currentInstallation.addUniqueObject("CH_" + groupId, forKey: "channels")
+                    currentInstallation.saveInBackground()
+                }
+            }
+            
+            
+        }
     }
     
 

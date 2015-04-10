@@ -39,13 +39,39 @@ class LoginViewController: UIViewController {
                 if user.isNew {
                     println("User signed up and logged in through Facebook!")
                     self.loginAction()
+                    
+                    var currentUser = PFUser.currentUser()
+                    var username = currentUser.objectForKey("username") as String
+                    let currentInstallation = PFInstallation.currentInstallation()
+                    currentInstallation["username"] = username
+                    currentInstallation.saveInBackground()
+                    
                     PFCloud.callFunctionInBackground("fillFBInfo", withParameters:[:]) {
                         (result: AnyObject!, error: NSError!) -> Void in
                         if error == nil {
                         }
                     }
                     
+                    self.loginAction()
+                    
                 } else {
+                    
+                    var currentUser = PFUser.currentUser()
+                    var username = currentUser.objectForKey("username") as String
+                    let currentInstallation = PFInstallation.currentInstallation()
+                    currentInstallation["username"] = username
+                    currentInstallation.saveInBackground()
+                    
+                    PFCloud.callFunctionInBackground("getMyGroupId", withParameters:[:]) {
+                        (result: AnyObject!, error: NSError!) -> Void in
+                        if (error == nil) && (result != nil) {
+                            var groupId = result as String
+                            let currentInstallation = PFInstallation.currentInstallation()
+                            currentInstallation.addUniqueObject("CH_" + groupId, forKey: "channels")
+                            currentInstallation.saveInBackground()
+                        }
+                    }
+                    
                     println("User logged in through Facebook!")
                     self.loginAction()
                 }
@@ -65,7 +91,7 @@ class LoginViewController: UIViewController {
                     println("login successful!")
                     
                     var username = user.objectForKey("username") as String
-                    
+
                     let defaults = NSUserDefaults.standardUserDefaults()
                     defaults.setObject(username, forKey: "username")
                     

@@ -696,6 +696,7 @@
         <!--Navigation Controller-->
         <scene sceneID="g16-Xu-05v">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nCm-zv-YfT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Yz-kE-Z1o" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zlb-gv-yJU">
@@ -707,7 +708,6 @@
                         <segue destination="EGp-XD-9zB" kind="relationship" relationship="rootViewController" id="Kce-ZE-97c"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nCm-zv-YfT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="629" y="2207"/>
         </scene>
@@ -753,6 +753,6 @@
         <image name="facebooklogin" width="724" height="152"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WUg-3H-Dz4"/>
+        <segue reference="U7r-lE-ns3"/>
     </inferredMetricsTieBreakers>
 </document>

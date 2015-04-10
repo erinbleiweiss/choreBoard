@@ -22,13 +22,19 @@ class ChoreViewController: UIViewController, newChore {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tapRecognizer)
+
         if self.revealViewController() != nil {
             settingsButton.target = self.revealViewController()
             settingsButton.action = "rightRevealToggle:"
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
+    }
+    
+    func dismissKeyboard(){
+        newChoreTextField.resignFirstResponder()
     }
     
     @IBAction func addChoreAction(sender: AnyObject) {

@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBAppCall.handleDidBecomeActiveWithSession(PFFacebookUtils.session())
     }
     
-    // Following 3 function are for push notifications
+    // Following 4 functions are for push notifications
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         println("didRegisterForRemoteNotificationsWithDeviceToken")
         
@@ -79,6 +79,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         println("didReceiveRemoteNotification")
         PFPush.handlePush(userInfo)
     }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject], fetchCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+            println("received notification")
+        
+        groupNotifications.sharedInstance.addNotification(1)
+        
+        completionHandler(UIBackgroundFetchResult.NewData)
+    }
+    
+    
+    func UIColorFromRGB(rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+    
     
 
     func applicationWillResignActive(application: UIApplication) {

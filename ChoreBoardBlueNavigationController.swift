@@ -13,8 +13,6 @@ class ChoreBoardBlueNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let cbBlue = UIColor(red: 0, green: 67, blue: 112, alpha: 1)
-        
         navigationBar.tintColor = UIColorFromRGB(0x004370)
         navigationBar.barTintColor = UIColorFromRGB(0x004370)
         navigationBar.barStyle = UIBarStyle.Black

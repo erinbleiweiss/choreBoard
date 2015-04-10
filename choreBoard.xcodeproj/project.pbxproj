@@ -354,6 +354,11 @@
 					80D89BAE1AA768CD00583941 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = K4SGE5A3WA;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};

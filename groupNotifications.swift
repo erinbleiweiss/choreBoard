@@ -18,13 +18,19 @@ class groupNotifications {
         
     }
     
-    var chore: choreItem?
+    var numNotifications: Int = 0
     
-    func setCurrentChore(item: choreItem) {
-        self.chore = item
+    func addNotification(n: Int) {
+        self.numNotifications++
     }
     
-    func getCurrentChore() -> choreItem {
-        return self.chore!
+    func getNumNotifications() -> Int {
+        return self.numNotifications
     }
+    
+    func clearNotifications() {
+        self.numNotifications = 0
+    }
+    
+
 }

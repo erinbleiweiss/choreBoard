@@ -13,6 +13,8 @@ class OneViewController: PFQueryTableViewController {
     
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     var groupName: String!
+    var customButton: UIButton?
+    var barButton: BBBadgeBarButtonItem?
     
 
     // Initialise the PFQueryTable tableview
@@ -32,17 +34,16 @@ class OneViewController: PFQueryTableViewController {
     
     override func viewDidLoad() {
         let buttonImage = UIImage(named: "ico-to-do-list") as UIImage?
-        var customButton: UIButton = UIButton(frame: CGRectMake(0, 0, 20, 20))
-        customButton.setImage(buttonImage, forState: .Normal)
+        customButton = UIButton(frame: CGRectMake(0, 0, 20, 20))
+        customButton!.setImage(buttonImage, forState: .Normal)
         
-        var barButton: BBBadgeBarButtonItem = BBBadgeBarButtonItem(customUIButton: customButton)
-        barButton.badgeValue = "1"
-        barButton.shouldHideBadgeAtZero = true
+        barButton = BBBadgeBarButtonItem(customUIButton: customButton)
+        barButton!.shouldHideBadgeAtZero = true
         
         self.navigationItem.rightBarButtonItem = barButton;
         
         if self.revealViewController() != nil {
-            customButton.addTarget(self.revealViewController(), action: "rightRevealToggle:", forControlEvents: .TouchUpInside)
+            customButton!.addTarget(self.revealViewController(), action: "rightRevealToggle:", forControlEvents: .TouchUpInside)
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
@@ -52,6 +53,11 @@ class OneViewController: PFQueryTableViewController {
 
     
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        barButton!.badgeValue = String(groupNotifications.sharedInstance.getNumNotifications())
+    }
+    
     
     override func queryForTable() -> PFQuery! {
         

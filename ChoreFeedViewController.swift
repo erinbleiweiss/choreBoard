@@ -10,7 +10,7 @@ import UIKit
 
 class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var viewLaidout:Bool = false
+    var viewLaidOut:Bool = false
     var frame: CGRect = CGRectMake(0, 0, 0, 0)
     var slideshowHeight: CGFloat = 100
     
@@ -81,9 +81,13 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLayoutSubviews() {
         
-        if !viewLaidout{
+        if !viewLaidOut{
             
-            let colors = [UIColor.redColor(), UIColor.greenColor(), UIColor.yellowColor(), UIColor.magentaColor()];
+            let colors = [UIColor.redColor(), UIColor.greenColor(), UIColor.yellowColor(), UIColor.magentaColor()]
+            let snark = ["If you care about shelter, you should pay your rent else the underpass is nice.",
+                        "I’ll pee in the shower until you buy toilet paper.",
+                        "Want me to move those biology experiments you are growing in the sink to your bed, for closer study?",
+                        "Contrary to what you may believe, the government won't subsidize a landfill on our property"]
             
             for index in 0..<colors.count {
                 
@@ -97,18 +101,32 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
                 subviewText.textColor = UIColor.blackColor()
                 subviewText.backgroundColor = UIColor.clearColor()
                 subviewText.numberOfLines = 0
-                subviewText.text = "I’ll pee in the shower until you buy toilet paper."
+                subviewText.text = snark[index]
                 subview.addSubview(subviewText)
                 
                 let point = CGPointMake(subviewText.center.x + self.slideshow.frame.size.width, subviewText.center.y - self.slideshow.frame.size.height)
                 var pointObj = NSValue(CGPoint: point)
                 
-                self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 0, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
+                switch index
+                {
+                    case 0:
+                        self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 0, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
+                    case 1:
+                        self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 1, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
+                    case 2:
+                        self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 2, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
+                    case 3:
+                        self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 3, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
+                    default:
+                        break
+                }
+                
+
             }
             
             slideshow.contentSize = CGSizeMake(self.view.frame.size.width * CGFloat(colors.count), slideshowHeight)
             
-            viewLaidout = true
+            viewLaidOut = true
         }
         
     }

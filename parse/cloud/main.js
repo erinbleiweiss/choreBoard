@@ -228,9 +228,6 @@ Parse.Cloud.define("fillFBInfo", function (request, response){
 });
 
 
-
-
-
 Parse.Cloud.define("getGroupChores", function (request, response){
 
 	var user = Parse.User.current()
@@ -253,11 +250,6 @@ Parse.Cloud.define("getGroupChores", function (request, response){
 
 
 });
-
-
-
-
-
 
 
 
@@ -504,6 +496,23 @@ Parse.Cloud.define("getPendingRequests", function(request, response){
 		}
 	})
 
+
+});
+
+
+Parse.Cloud.define("getAllChores", function(request, response) {
+
+	var Chore = Parse.Object.extend("PresetChore");
+	var query = new Parse.Query(Chore);
+	query.limit(1000);
+	query.find({
+		success: function(allChores){
+			response.success(allChores);
+		},
+		error: function(error){
+			response.error(error);
+		}
+	});
 
 });
 

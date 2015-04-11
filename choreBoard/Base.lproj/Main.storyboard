@@ -642,6 +642,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add Chore" id="b0h-EX-upt"/>
                     <connections>
+                        <outlet property="choreTableView" destination="WaX-lb-dK3" id="NYd-w1-g5K"/>
                         <outlet property="manualView" destination="QZL-nr-nrF" id="uVb-zI-rci"/>
                         <outlet property="monthlyView" destination="PXn-Tb-r4Q" id="GXn-Xq-XzR"/>
                         <outlet property="searchBar" destination="wV9-tX-pDO" id="kY4-st-cFY"/>

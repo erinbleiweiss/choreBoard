@@ -16,6 +16,7 @@ class ChoreViewController: UIViewController, UISearchBarDelegate, UISearchDispla
     @IBOutlet weak var monthlyView: UIView!
     @IBOutlet weak var manualView: UIView!
     
+    @IBOutlet weak var choreTableView: UITableView!
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -30,7 +31,22 @@ class ChoreViewController: UIViewController, UISearchBarDelegate, UISearchDispla
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        // Load Chores From Parse
+        PFCloud.callFunctionInBackground("getAllChores", withParameters:[:]) {
+            (result: AnyObject!, error: NSError!) -> Void in
+            if error == nil {
+                
+                for chore in result as NSArray {
+                    let choreName = chore["name"] as String
+                    self.allChores.append(choreItem(text: choreName))
+                }
+                self.choreTableView.reloadData()
+                println("ALL CHORES")
+                println(self.allChores)
+            }
+        }
+        
         // Set up Notification Badge
         let buttonImage = UIImage(named: "ico-to-do-list") as UIImage?
         customButton = UIButton(frame: CGRectMake(0, 0, 20, 20))
@@ -122,13 +138,15 @@ class ChoreViewController: UIViewController, UISearchBarDelegate, UISearchDispla
         }
         
         var chore : choreItem
-        // Check to see whether the normal table or search results table is being displayed and set the friend object from the appropriate array
+        // Check to see whether the normal table or search results table is being displayed and set chore friend object from the appropriate array
         if tableView == self.searchDisplayController!.searchResultsTableView {
             chore = filteredChores[indexPath.row]
         } else {
             chore = filteredChores[indexPath.row]
         }
         
+        // Configure the cell
+        cell!.textLabel!.text = chore.text
         
         return cell!
     }

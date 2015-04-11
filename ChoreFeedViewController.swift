@@ -94,7 +94,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
                 frame.size = CGSizeMake(self.view.frame.size.width, slideshowHeight)
 
                 var subview = UIView(frame: frame)
-                subview.backgroundColor = colors[index]
+                subview.backgroundColor = UIColor.clearColor()
                 self.slideshow.addSubview(subview, onPage: index)
                 
                 var subviewText = UILabel(frame: CGRectMake(0, 0, slideshow.frame.width, slideshowHeight))                
@@ -106,6 +106,12 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
                 
                 let point = CGPointMake(subviewText.center.x + self.slideshow.frame.size.width, subviewText.center.y - self.slideshow.frame.size.height)
                 var pointObj = NSValue(CGPoint: point)
+                
+                let rotation = CGAffineTransformMakeRotation(-0.9)
+                let rotationObj = NSValue(CGAffineTransform: rotation)
+                
+                let rotation2 = CGAffineTransformMakeRotation(0)
+                let rotationObj2 = NSValue(CGAffineTransform: rotation)
                 
                 switch index
                 {

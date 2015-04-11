@@ -34,13 +34,6 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
             }
         }
         
-        
-        
-//        var userInfo = PFCloud.callFunction("getUserInfo", withParameters: [:]) as NSDictionary
-//        println("MARK")
-//        println(userInfo)
-//        println(userInfo["groupName"] as String)
-
 
         self.tableView.reloadData()
     }
@@ -64,13 +57,6 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
         self.filterContentForSearchText(self.searchDisplayController!.searchBar.text)
         return true
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
@@ -96,7 +82,7 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
         }
         
         var user : FBUser
-        // Check to see whether the normal table or search results table is being displayed and set the Candy object from the appropriate array
+        // Check to see whether the normal table or search results table is being displayed and set the friend object from the appropriate array
         if tableView == self.searchDisplayController!.searchResultsTableView {
             user = filteredFriends[indexPath.row]
         } else {
@@ -173,7 +159,12 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
     }
 
 
-
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    // MARK: - Table view data source
     
 }
 

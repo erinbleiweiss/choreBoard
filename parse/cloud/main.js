@@ -229,6 +229,38 @@ Parse.Cloud.define("fillFBInfo", function (request, response){
 
 
 
+
+
+Parse.Cloud.define("getGroupChores", function (request, response){
+
+	var user = Parse.User.current()
+	var groupPointer = user.get("group");
+
+	var Chore = Parse.Object.extend("Chore");
+	var query = new Parse.Query(Chore);
+	query.equalTo("group", groupPointer)
+	query.find({
+		success: function(allChores){
+			for (var i=0; i < allChores.length; i++){
+				console.log(allChores[i].get("choreName"))
+			}
+			response.success(allChores);
+		},
+		error: function(error){
+			response.error(error);
+		}
+	});
+
+
+});
+
+
+
+
+
+
+
+
 Parse.Cloud.define("getFriends", function (request, response){
 
 	Parse.Cloud.useMasterKey();

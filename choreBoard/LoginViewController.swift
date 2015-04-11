@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tapRecognizer)
     }
-    
+        
     func dismissKeyboard(){
         loginUsernameField.resignFirstResponder()
         loginPasswordField.resignFirstResponder()

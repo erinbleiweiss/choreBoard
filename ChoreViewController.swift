@@ -11,8 +11,6 @@ import UIKit
 class ChoreViewController: UIViewController, UISearchBarDelegate, UISearchDisplayDelegate {
 
     // MARK: - Outlets
-
-    @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var weeklyView: UIView!
     @IBOutlet weak var monthlyView: UIView!
@@ -22,6 +20,9 @@ class ChoreViewController: UIViewController, UISearchBarDelegate, UISearchDispla
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     // MARK: - Variables
+    var customButton: UIButton?
+    var barButton: BBBadgeBarButtonItem?
+    
     var newChoreItem: choreItem?
     var allChores = [choreItem]()
     var filteredChores = [choreItem]()
@@ -30,12 +31,26 @@ class ChoreViewController: UIViewController, UISearchBarDelegate, UISearchDispla
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Set up Notification Badge
+        let buttonImage = UIImage(named: "ico-to-do-list") as UIImage?
+        customButton = UIButton(frame: CGRectMake(0, 0, 20, 20))
+        customButton!.setImage(buttonImage, forState: .Normal)
+        
+        barButton = BBBadgeBarButtonItem(customUIButton: customButton)
+        barButton!.shouldHideBadgeAtZero = true
+        
+        // Set up Navigation Drawer
+        self.navigationItem.rightBarButtonItem = barButton;
+        
         if self.revealViewController() != nil {
-            settingsButton.target = self.revealViewController()
-            settingsButton.action = "rightRevealToggle:"
+            customButton!.addTarget(self.revealViewController(), action: "rightRevealToggle:", forControlEvents: .TouchUpInside)
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        barButton!.badgeValue = String(groupNotifications.sharedInstance.getNumNotifications())
     }
 
     @IBAction func changeFrequencyType(sender: AnyObject) {

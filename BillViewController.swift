@@ -1,14 +1,14 @@
 //
-//  ManageGroupsViewController.swift
+//  BillViewController.swift
 //  choreBoard
 //
-//  Created by Erin Bleiweiss on 3/28/15.
+//  Created by Erin Bleiweiss on 4/11/15.
 //  Copyright (c) 2015 Erin Bleiweiss. All rights reserved.
 //
 
 import UIKit
 
-class ManageGroupsViewController: UIViewController {
+class BillViewController: UIViewController {
 
     // MARK: - Variables
     var customButton: UIButton?
@@ -16,7 +16,7 @@ class ManageGroupsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Set up Notification Badge
         let buttonImage = UIImage(named: "ico-to-do-list") as UIImage?
         customButton = UIButton(frame: CGRectMake(0, 0, 20, 20))
@@ -32,17 +32,7 @@ class ManageGroupsViewController: UIViewController {
             customButton!.addTarget(self.revealViewController(), action: "rightRevealToggle:", forControlEvents: .TouchUpInside)
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-
         
-        PFCloud.callFunctionInBackground("getPendingRequests", withParameters:[:]) {
-            (result: AnyObject!, error: NSError!) -> Void in
-            if error == nil {
-                
-                
-                
-            }
-        }
-
     }
     
     override func viewDidAppear(animated: Bool) {

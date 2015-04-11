@@ -1,14 +1,14 @@
 //
-//  ManageGroupsViewController.swift
+//  SupplyViewController.swift
 //  choreBoard
 //
-//  Created by Erin Bleiweiss on 3/28/15.
+//  Created by Erin Bleiweiss on 4/11/15.
 //  Copyright (c) 2015 Erin Bleiweiss. All rights reserved.
 //
 
 import UIKit
 
-class ManageGroupsViewController: UIViewController {
+class SupplyViewController: UIViewController {
 
     // MARK: - Variables
     var customButton: UIButton?
@@ -31,16 +31,6 @@ class ManageGroupsViewController: UIViewController {
         if self.revealViewController() != nil {
             customButton!.addTarget(self.revealViewController(), action: "rightRevealToggle:", forControlEvents: .TouchUpInside)
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-
-        
-        PFCloud.callFunctionInBackground("getPendingRequests", withParameters:[:]) {
-            (result: AnyObject!, error: NSError!) -> Void in
-            if error == nil {
-                
-                
-                
-            }
         }
 
     }

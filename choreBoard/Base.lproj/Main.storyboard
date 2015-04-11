@@ -83,10 +83,10 @@
             </objects>
             <point key="canvasLocation" x="258" y="-342.99999999999994"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Chore Board Blue Navigation Controller-->
         <scene sceneID="wGh-lj-rap">
             <objects>
-                <navigationController id="tn9-5A-UlA" sceneMemberID="viewController">
+                <navigationController id="tn9-5A-UlA" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mud-lM-TBN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -97,7 +97,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qId-fU-dwb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2055" y="2238.9999999999995"/>
+            <point key="canvasLocation" x="3115" y="2218"/>
         </scene>
         <!--Manage Groups View Controller-->
         <scene sceneID="HZT-Oc-Oxf">
@@ -134,21 +134,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="4vp-6Z-Zc5">
-                        <barButtonItem key="rightBarButtonItem" title="☰" id="3l6-EI-Ggm"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="settingsButton" destination="3l6-EI-Ggm" id="r2u-DY-EXi"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="4vp-6Z-Zc5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C9M-8g-5dl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2023" y="3107"/>
+            <point key="canvasLocation" x="3115" y="3107"/>
         </scene>
-        <!--Three View Controller-->
+        <!--Supply View Controller-->
         <scene sceneID="eus-mZ-rl2">
             <objects>
-                <viewController id="Dot-es-4Hd" customClass="ThreeViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Dot-es-4Hd" customClass="SupplyViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gar-Ed-qhs"/>
                         <viewControllerLayoutGuide type="bottom" id="wIt-Tq-Dxi"/>
@@ -157,8 +152,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Three" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNH-Nz-CJO">
-                                <rect key="frame" x="114" y="327" width="102" height="49"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Supplies" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KNH-Nz-CJO">
+                                <rect key="frame" x="64" y="153" width="114" height="49"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -166,16 +161,38 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="P1I-sY-P31">
-                        <barButtonItem key="rightBarButtonItem" title="☰" id="Img-RR-928"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="settingsButton" destination="Img-RR-928" id="E6c-rL-AZI"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="P1I-sY-P31"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OyN-cO-L9y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1325" y="3107"/>
+        </scene>
+        <!--Bill View Controller-->
+        <scene sceneID="YQT-ZF-6f8">
+            <objects>
+                <viewController id="X0e-9E-T8f" customClass="BillViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Ln-n7-eyC"/>
+                        <viewControllerLayoutGuide type="bottom" id="9K1-3X-Az4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H0r-0z-FAV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bills" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w89-sD-7Nk">
+                                <rect key="frame" x="53" y="175" width="68" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4dS-GX-beL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0p1-3c-EKk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2039" y="3107"/>
         </scene>
         <!--Menu Controller-->
         <scene sceneID="e9r-yN-10y">
@@ -266,6 +283,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="UWp-ht-9eT" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="u5R-rb-EiB"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Y18-K1-vkF">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -375,7 +395,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wo4-Sb-Ax7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1727" y="3916.9999999999995"/>
+            <point key="canvasLocation" x="2823" y="3916"/>
         </scene>
         <!--Find Roommates Table View Controller-->
         <scene sceneID="mBn-wg-yhU">
@@ -443,7 +463,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2282" y="4800"/>
+            <point key="canvasLocation" x="2566" y="4800"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="aUa-TO-SFI">
@@ -620,16 +640,13 @@
                             <constraint firstItem="PXn-Tb-r4Q" firstAttribute="leading" secondItem="dHl-1l-4LY" secondAttribute="leading" id="zMt-t9-mB9"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Chore" id="b0h-EX-upt">
-                        <barButtonItem key="rightBarButtonItem" title="☰" id="xQz-1J-G0I"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Add Chore" id="b0h-EX-upt"/>
                     <connections>
                         <outlet property="manualView" destination="QZL-nr-nrF" id="uVb-zI-rci"/>
                         <outlet property="monthlyView" destination="PXn-Tb-r4Q" id="GXn-Xq-XzR"/>
                         <outlet property="searchBar" destination="wV9-tX-pDO" id="kY4-st-cFY"/>
                         <outlet property="searchDisplayController" destination="Qps-CH-Oe8" id="Tgb-WK-ilV"/>
                         <outlet property="segmentedControl" destination="J7F-cQ-IWf" id="gsv-3e-2dm"/>
-                        <outlet property="settingsButton" destination="xQz-1J-G0I" id="BN6-Wf-8g5"/>
                         <outlet property="weeklyView" destination="dHl-1l-4LY" id="eTQ-5K-JYg"/>
                     </connections>
                 </viewController>
@@ -765,40 +782,10 @@
             </objects>
             <point key="canvasLocation" x="-75" y="2198.9999999999995"/>
         </scene>
-        <!--One View Controller-->
-        <scene sceneID="uzh-gl-TTu">
-            <objects>
-                <tableViewController id="hAt-8w-NbT" customClass="OneViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="TgA-8V-Djb">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="8BV-8c-Kei">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8BV-8c-Kei" id="dra-Z2-d6k">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <accessibility key="accessibilityConfiguration" hint="" label="">
-                                    <bool key="isElement" value="NO"/>
-                                </accessibility>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="hAt-8w-NbT" id="fjp-Se-iut"/>
-                            <outlet property="delegate" destination="hAt-8w-NbT" id="iU7-kK-gbO"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="Shn-ZG-z7r"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="305-PV-voy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-777" y="2345"/>
-        </scene>
-        <!--Navigation Controller-->
+        <!--Chore Board Blue Navigation Controller-->
         <scene sceneID="g16-Xu-05v">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Yz-kE-Z1o" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Yz-kE-Z1o" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zlb-gv-yJU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -813,10 +800,10 @@
             </objects>
             <point key="canvasLocation" x="629" y="2207"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Chore Board Blue Navigation Controller-->
         <scene sceneID="sUc-I4-iNr">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mMU-Kv-MB5" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mMU-Kv-MB5" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="UqP-fO-C2H">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -848,7 +835,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Twm-0M-FmU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2287" y="3916.9999999999995"/>
+            <point key="canvasLocation" x="3383" y="3916"/>
         </scene>
         <!--WeeklyP Icker View Controller-->
         <scene sceneID="zlA-JO-hgV">
@@ -903,11 +890,29 @@
             </objects>
             <point key="canvasLocation" x="623" y="4247.5"/>
         </scene>
+        <!--Chore Board Blue Navigation Controller-->
+        <scene sceneID="nDt-fG-dmd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UWp-ht-9eT" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SN5-CM-lmE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="X0e-9E-T8f" kind="relationship" relationship="rootViewController" id="mjz-7a-nxo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aX6-Gw-4MD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2039" y="2218"/>
+        </scene>
     </scenes>
     <resources>
         <image name="facebooklogin" width="724" height="152"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="U7r-lE-ns3"/>
+        <segue reference="WUg-3H-Dz4"/>
     </inferredMetricsTieBreakers>
 </document>

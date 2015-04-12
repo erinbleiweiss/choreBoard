@@ -116,7 +116,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEf-C9-upM">
-                                <rect key="frame" x="62" y="160" width="228" height="46"/>
+                                <rect key="frame" x="50" y="158" width="228" height="46"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="28"/>
                                 <state key="normal" title="Create New Group">
                                     <color key="titleColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -126,14 +126,8 @@
                                     <segue destination="BNr-LA-7Fk" kind="presentation" id="POh-L9-S2o"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="OR" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p8N-ef-WPa">
-                                <rect key="frame" x="128" y="254" width="97" height="30"/>
-                                <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2c-8v-igX">
-                                <rect key="frame" x="58" y="317" width="237" height="45"/>
+                                <rect key="frame" x="50" y="301" width="237" height="45"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="28"/>
                                 <state key="normal" title="Find My Roommates">
                                     <color key="titleColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -143,6 +137,12 @@
                                     <segue destination="MBJ-vJ-cUM" kind="presentation" id="OFU-Ux-7p0"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="OR" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p8N-ef-WPa">
+                                <rect key="frame" x="116" y="243" width="97" height="30"/>
+                                <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -223,7 +223,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Group Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Owu-Sf-7Xl">
-                                                    <rect key="frame" x="15" y="5" width="295" height="33"/>
+                                                    <rect key="frame" x="8" y="5" width="295" height="33"/>
                                                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="28"/>
                                                     <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -949,6 +949,6 @@
         <image name="facebooklogin" width="724" height="152"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="U7r-lE-ns3"/>
+        <segue reference="WUg-3H-Dz4"/>
     </inferredMetricsTieBreakers>
 </document>

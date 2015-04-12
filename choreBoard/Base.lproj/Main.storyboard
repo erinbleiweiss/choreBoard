@@ -614,7 +614,7 @@
                                     <segment title="Monthly"/>
                                     <segment title="Manual"/>
                                 </segments>
-                                <color key="tintColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="changeFrequencyType:" destination="EGp-XD-9zB" eventType="valueChanged" id="U59-Jh-57l"/>
                                 </connections>
@@ -949,6 +949,6 @@
         <image name="facebooklogin" width="724" height="152"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WUg-3H-Dz4"/>
+        <segue reference="U7r-lE-ns3"/>
     </inferredMetricsTieBreakers>
 </document>

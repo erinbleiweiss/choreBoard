@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		599F2DE11ADACA55007EF367 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 599F2DE01ADACA55007EF367 /* add.png */; };
 		599F2DE31ADAD07A007EF367 /* add1.png in Resources */ = {isa = PBXBuildFile; fileRef = 599F2DE21ADAD07A007EF367 /* add1.png */; };
 		599F2DE51ADAD199007EF367 /* add2.png in Resources */ = {isa = PBXBuildFile; fileRef = 599F2DE41ADAD199007EF367 /* add2.png */; };
 		800A39D71AC6023000CA4F59 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 800A39D61AC6023000CA4F59 /* SWRevealViewController.m */; };
@@ -67,7 +66,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		599F2DE01ADACA55007EF367 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add.png; path = ../../../Desktop/add.png; sourceTree = "<group>"; };
 		599F2DE21ADAD07A007EF367 /* add1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add1.png; path = ../../../Pictures/add1.png; sourceTree = "<group>"; };
 		599F2DE41ADAD199007EF367 /* add2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add2.png; path = ../../../Pictures/add2.png; sourceTree = "<group>"; };
 		800A39D51AC6023000CA4F59 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
@@ -307,7 +305,6 @@
 				80D89BBB1AA768CD00583941 /* Images.xcassets */,
 				599F2DE41ADAD199007EF367 /* add2.png */,
 				599F2DE21ADAD07A007EF367 /* add1.png */,
-				599F2DE01ADACA55007EF367 /* add.png */,
 				80D89BBD1AA768CD00583941 /* LaunchScreen.xib */,
 				80D89BB21AA768CD00583941 /* Supporting Files */,
 				80D89BC71AA768CD00583941 /* choreBoardTests */,
@@ -427,7 +424,6 @@
 				80DA7D861ACA558D001B8999 /* ApiKeys.plist in Resources */,
 				599F2DE51ADAD199007EF367 /* add2.png in Resources */,
 				80D89BBF1AA768CD00583941 /* LaunchScreen.xib in Resources */,
-				599F2DE11ADACA55007EF367 /* add.png in Resources */,
 				80D89BBC1AA768CD00583941 /* Images.xcassets in Resources */,
 				599F2DE31ADAD07A007EF367 /* add1.png in Resources */,
 			);

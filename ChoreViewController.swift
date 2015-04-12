@@ -41,9 +41,6 @@ class ChoreViewController: UIViewController, UISearchBarDelegate, UISearchDispla
                     let choreName = chore["name"] as String
                     self.allChores.append(choreItem(text: choreName))
                 }
-                self.choreTableView.reloadData()
-                println("ALL CHORES")
-                println(self.allChores)
             }
         }
         
@@ -98,8 +95,11 @@ class ChoreViewController: UIViewController, UISearchBarDelegate, UISearchDispla
     }
     
     func filterContentForSearchText(searchText: String) {
+        // First array value is user's input (custom value)
+        self.filteredChores = [choreItem(text: searchText)]
+        
         // Filter the array using the filter method
-        self.filteredChores = self.allChores.filter({( chore: choreItem) -> Bool in
+        self.filteredChores += self.allChores.filter({( chore: choreItem) -> Bool in
             let stringMatch = chore.text.lowercaseString.rangeOfString(searchText.lowercaseString)
             return stringMatch != nil ? true : false
         })
@@ -113,6 +113,20 @@ class ChoreViewController: UIViewController, UISearchBarDelegate, UISearchDispla
     func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
         self.filterContentForSearchText(self.searchDisplayController!.searchBar.text)
         return true
+    }
+    
+    func searchDisplayController(controller: UISearchDisplayController,
+        didShowSearchResultsTableView tableView: UITableView){
+            
+        var frame: CGRect = self.choreTableView.frame
+        var cFrame: CGRect = controller.searchBar.frame
+        var newFrame: CGRect = CGRectMake(frame.origin.x,
+//            frame.origin.y + cFrame.size.height,
+            0,
+            frame.size.width,
+            frame.size.height - cFrame.size.height)
+        tableView.frame = newFrame
+            
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

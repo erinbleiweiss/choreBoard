@@ -616,12 +616,14 @@
                         <constraints>
                             <constraint firstItem="dHl-1l-4LY" firstAttribute="top" secondItem="J7F-cQ-IWf" secondAttribute="bottom" constant="8" id="177-kr-dCD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hDl-95-T5j" secondAttribute="trailing" constant="15" id="1XW-YB-x7f"/>
+                            <constraint firstAttribute="trailing" secondItem="wV9-tX-pDO" secondAttribute="trailing" id="3V0-uW-h2w"/>
                             <constraint firstItem="dHl-1l-4LY" firstAttribute="bottom" secondItem="QZL-nr-nrF" secondAttribute="bottom" id="5is-us-HSZ"/>
                             <constraint firstItem="J7F-cQ-IWf" firstAttribute="top" secondItem="Joy-xA-m5g" secondAttribute="top" constant="296" id="8Py-7I-o9f"/>
                             <constraint firstAttribute="centerX" secondItem="J7F-cQ-IWf" secondAttribute="centerX" id="8pL-e8-YGd"/>
                             <constraint firstItem="uBs-1v-crw" firstAttribute="top" secondItem="hDl-95-T5j" secondAttribute="bottom" constant="8" symbolic="YES" id="A7y-qQ-bRm"/>
                             <constraint firstItem="QZL-nr-nrF" firstAttribute="leading" secondItem="dHl-1l-4LY" secondAttribute="leading" id="Bj7-Rw-KlC"/>
                             <constraint firstItem="QZL-nr-nrF" firstAttribute="top" secondItem="J7F-cQ-IWf" secondAttribute="bottom" constant="8" symbolic="YES" id="CoV-m0-3uB"/>
+                            <constraint firstItem="wV9-tX-pDO" firstAttribute="top" secondItem="ov8-w6-Rwv" secondAttribute="bottom" id="DxJ-jV-99u"/>
                             <constraint firstItem="PXn-Tb-r4Q" firstAttribute="top" secondItem="J7F-cQ-IWf" secondAttribute="bottom" constant="8" symbolic="YES" id="GYd-2B-Hgl"/>
                             <constraint firstAttribute="centerX" secondItem="wV9-tX-pDO" secondAttribute="centerX" id="JQS-Eo-CTI"/>
                             <constraint firstItem="J7F-cQ-IWf" firstAttribute="centerX" secondItem="PXn-Tb-r4Q" secondAttribute="centerX" id="MAm-tN-uow"/>
@@ -629,6 +631,7 @@
                             <constraint firstAttribute="trailing" secondItem="WaX-lb-dK3" secondAttribute="trailing" id="PJM-0S-7Eg"/>
                             <constraint firstAttribute="trailing" secondItem="dHl-1l-4LY" secondAttribute="trailing" id="PdT-CY-FSJ"/>
                             <constraint firstAttribute="centerX" secondItem="WaX-lb-dK3" secondAttribute="centerX" id="Xs5-mP-lT3"/>
+                            <constraint firstItem="wV9-tX-pDO" firstAttribute="leading" secondItem="Joy-xA-m5g" secondAttribute="leading" id="aQh-9W-und"/>
                             <constraint firstAttribute="trailing" secondItem="wV9-tX-pDO" secondAttribute="trailing" id="bLi-kO-Tlo"/>
                             <constraint firstItem="wV9-tX-pDO" firstAttribute="top" secondItem="ov8-w6-Rwv" secondAttribute="bottom" id="lmH-4V-4hd"/>
                             <constraint firstItem="dHl-1l-4LY" firstAttribute="leading" secondItem="Joy-xA-m5g" secondAttribute="leading" id="m7J-nr-Q93"/>
@@ -642,7 +645,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add Chore" id="b0h-EX-upt"/>
                     <connections>
-                        <outlet property="choreTableView" destination="WaX-lb-dK3" id="NYd-w1-g5K"/>
+                        <outlet property="choreTableView" destination="WaX-lb-dK3" id="LW0-oJ-9Oe"/>
                         <outlet property="manualView" destination="QZL-nr-nrF" id="uVb-zI-rci"/>
                         <outlet property="monthlyView" destination="PXn-Tb-r4Q" id="GXn-Xq-XzR"/>
                         <outlet property="searchBar" destination="wV9-tX-pDO" id="kY4-st-cFY"/>
@@ -914,6 +917,6 @@
         <image name="facebooklogin" width="724" height="152"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WUg-3H-Dz4"/>
+        <segue reference="U7r-lE-ns3"/>
     </inferredMetricsTieBreakers>
 </document>

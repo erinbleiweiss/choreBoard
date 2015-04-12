@@ -24,6 +24,10 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         let tapRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tapRecognizer)
+        
+    loginUsernameField.textColor = UIColor(red: (232/255.0), green: (126/255.0), blue: (4/255.0), alpha: 1.0)
+        
+    loginPasswordField.textColor = UIColor(red: (232/255.0), green: (126/255.0), blue: (4/255.0), alpha: 1.0)
     }
         
     func dismissKeyboard(){

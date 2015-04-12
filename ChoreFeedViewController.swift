@@ -46,7 +46,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
         // Set up Top Slideshow
-        slideshow.backgroundColor = UIColor.grayColor()
+        slideshow.backgroundColor = UIColor.orangeColor()
         slideshow.frame = CGRectMake(0 , 0, UIScreen.mainScreen().bounds.width, slideshowHeight)
         
         // Set up Pull to Refresh

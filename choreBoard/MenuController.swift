@@ -11,6 +11,8 @@ import UIKit
 class MenuController: UITableViewController {
 
     @IBOutlet weak var groupNameLabel: UILabel!
+    @IBOutlet weak var choreFeedLabel: UILabel!
+    @IBOutlet weak var chorePlusLabel: UIImageView!
     
     @IBAction func logoutAction(sender: AnyObject) {
         println("thasdgas")
@@ -26,8 +28,14 @@ class MenuController: UITableViewController {
             (result: AnyObject!, error: NSError!) -> Void in
             if error == nil {
                 self.groupNameLabel.text = result as? String
+         
             }
+    
         }
+
+        groupNameLabel.textColor = UIColor(red: (232/255.0), green: (126/255.0), blue: (4/255.0), alpha: 1.0)
+
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

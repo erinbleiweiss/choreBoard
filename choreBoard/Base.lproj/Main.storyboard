@@ -259,7 +259,7 @@
                                                     <color key="textColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add2" translatesAutoresizingMaskIntoConstraints="NO" id="XLg-xF-6mY">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add2" translatesAutoresizingMaskIntoConstraints="NO" id="XLg-xF-6mY">
                                                     <rect key="frame" x="206" y="11" width="23" height="21"/>
                                                 </imageView>
                                             </subviews>
@@ -279,7 +279,7 @@
                                                     <color key="textColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add2" translatesAutoresizingMaskIntoConstraints="NO" id="ZWq-f0-bao">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add2" translatesAutoresizingMaskIntoConstraints="NO" id="ZWq-f0-bao">
                                                     <rect key="frame" x="202" y="11" width="23" height="21"/>
                                                 </imageView>
                                             </subviews>
@@ -299,7 +299,7 @@
                                                     <color key="textColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add2" translatesAutoresizingMaskIntoConstraints="NO" id="f38-Vk-S0Q">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add2" translatesAutoresizingMaskIntoConstraints="NO" id="f38-Vk-S0Q">
                                                     <rect key="frame" x="234" y="11" width="23" height="21"/>
                                                 </imageView>
                                             </subviews>

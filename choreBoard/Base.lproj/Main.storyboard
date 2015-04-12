@@ -242,6 +242,9 @@
                                                     <color key="textColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="homeicon" translatesAutoresizingMaskIntoConstraints="NO" id="Ly3-ZB-gbV">
+                                                    <rect key="frame" x="168" y="11" width="29" height="21"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
@@ -947,6 +950,7 @@
     <resources>
         <image name="add2" width="224" height="231"/>
         <image name="facebooklogin" width="724" height="152"/>
+        <image name="homeicon" width="376" height="312"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="WUg-3H-Dz4"/>

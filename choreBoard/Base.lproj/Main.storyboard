@@ -39,17 +39,15 @@
                                 <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbY-K0-2Se">
-                                <rect key="frame" x="229" y="330" width="46" height="30"/>
-                                <accessibility key="accessibilityConfiguration" label="">
-                                    <accessibilityTraits key="traits" none="YES" button="YES"/>
-                                </accessibility>
-                                <state key="normal" title="Login">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Av-Hu-nof">
+                                <rect key="frame" x="96" y="494" width="142" height="30"/>
+                                <state key="normal" title="Create New Account">
                                     <color key="titleColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginButtonAction:" destination="bxx-Ja-Q9Q" eventType="touchUpInside" id="coc-iK-SPv"/>
+                                    <action selector="registerButtonAction:" destination="bxx-Ja-Q9Q" eventType="touchUpInside" id="wCV-Qd-2tY"/>
+                                    <segue destination="bVH-IR-b19" kind="presentation" id="cjN-bO-OP0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ms-we-XEg">
@@ -61,15 +59,17 @@
                                     <action selector="facebookLoginAction:" destination="bxx-Ja-Q9Q" eventType="touchUpInside" id="UrB-TJ-OsN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Av-Hu-nof">
-                                <rect key="frame" x="96" y="494" width="142" height="30"/>
-                                <state key="normal" title="Create New Account">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbY-K0-2Se">
+                                <rect key="frame" x="228" y="314" width="46" height="30"/>
+                                <accessibility key="accessibilityConfiguration" label="">
+                                    <accessibilityTraits key="traits" none="YES" button="YES"/>
+                                </accessibility>
+                                <state key="normal" title="Login">
                                     <color key="titleColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="registerButtonAction:" destination="bxx-Ja-Q9Q" eventType="touchUpInside" id="wCV-Qd-2tY"/>
-                                    <segue destination="bVH-IR-b19" kind="presentation" id="cjN-bO-OP0"/>
+                                    <action selector="loginButtonAction:" destination="bxx-Ja-Q9Q" eventType="touchUpInside" id="coc-iK-SPv"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -114,19 +114,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEf-C9-upM">
-                                <rect key="frame" x="62" y="125" width="166" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Create Group">
+                                <rect key="frame" x="62" y="160" width="228" height="46"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="28"/>
+                                <state key="normal" title="Create New Group">
+                                    <color key="titleColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="BNr-LA-7Fk" kind="presentation" id="POh-L9-S2o"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="OR" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="p8N-ef-WPa">
+                                <rect key="frame" x="128" y="254" width="97" height="30"/>
+                                <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V2c-8v-igX">
-                                <rect key="frame" x="62" y="196" width="228" height="45"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="58" y="317" width="237" height="45"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="28"/>
                                 <state key="normal" title="Find My Roommates">
+                                    <color key="titleColor" red="0.0" green="0.20000000000000001" blue="0.40000000000000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -919,6 +927,6 @@
         <image name="facebooklogin" width="724" height="152"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WUg-3H-Dz4"/>
+        <segue reference="anr-mq-6Ez"/>
     </inferredMetricsTieBreakers>
 </document>

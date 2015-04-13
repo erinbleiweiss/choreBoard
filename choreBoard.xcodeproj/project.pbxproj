@@ -39,6 +39,11 @@
 		80B7813E1AD97A8600B03AF7 /* DRDynamicSlideShow.m in Sources */ = {isa = PBXBuildFile; fileRef = 80B7813D1AD97A8600B03AF7 /* DRDynamicSlideShow.m */; };
 		80B781401AD97C1E00B03AF7 /* ChoreFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B7813F1AD97C1E00B03AF7 /* ChoreFeedViewController.swift */; };
 		80C211F81AD37EBE00DD512A /* RoommateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C211F71AD37EBE00DD512A /* RoommateTableViewCell.swift */; };
+		80C7B1B61ADC4A03006028C2 /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C7B1AD1ADC4A03006028C2 /* SWCellScrollView.m */; };
+		80C7B1B71ADC4A03006028C2 /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C7B1AF1ADC4A03006028C2 /* SWLongPressGestureRecognizer.m */; };
+		80C7B1B81ADC4A03006028C2 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C7B1B11ADC4A03006028C2 /* SWTableViewCell.m */; };
+		80C7B1B91ADC4A03006028C2 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C7B1B31ADC4A03006028C2 /* SWUtilityButtonTapGestureRecognizer.m */; };
+		80C7B1BA1ADC4A03006028C2 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C7B1B51ADC4A03006028C2 /* SWUtilityButtonView.m */; };
 		80C7C7731AD4E91E009E9736 /* BBBadgeBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C7C7721AD4E91E009E9736 /* BBBadgeBarButtonItem.m */; };
 		80C7C7751AD58C0A009E9736 /* ChoreBoardBlueNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7C7741AD58C0A009E9736 /* ChoreBoardBlueNavigationController.swift */; };
 		80C7C7771AD5C60A009E9736 /* groupNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7C7761AD5C60A009E9736 /* groupNotifications.swift */; };
@@ -106,6 +111,16 @@
 		80B7813D1AD97A8600B03AF7 /* DRDynamicSlideShow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRDynamicSlideShow.m; sourceTree = "<group>"; };
 		80B7813F1AD97C1E00B03AF7 /* ChoreFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreFeedViewController.swift; sourceTree = "<group>"; };
 		80C211F71AD37EBE00DD512A /* RoommateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoommateTableViewCell.swift; sourceTree = "<group>"; };
+		80C7B1AC1ADC4A03006028C2 /* SWCellScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCellScrollView.h; sourceTree = "<group>"; };
+		80C7B1AD1ADC4A03006028C2 /* SWCellScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWCellScrollView.m; sourceTree = "<group>"; };
+		80C7B1AE1ADC4A03006028C2 /* SWLongPressGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWLongPressGestureRecognizer.h; sourceTree = "<group>"; };
+		80C7B1AF1ADC4A03006028C2 /* SWLongPressGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWLongPressGestureRecognizer.m; sourceTree = "<group>"; };
+		80C7B1B01ADC4A03006028C2 /* SWTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableViewCell.h; sourceTree = "<group>"; };
+		80C7B1B11ADC4A03006028C2 /* SWTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTableViewCell.m; sourceTree = "<group>"; };
+		80C7B1B21ADC4A03006028C2 /* SWUtilityButtonTapGestureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonTapGestureRecognizer.h; sourceTree = "<group>"; };
+		80C7B1B31ADC4A03006028C2 /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
+		80C7B1B41ADC4A03006028C2 /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonView.h; sourceTree = "<group>"; };
+		80C7B1B51ADC4A03006028C2 /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
 		80C7C7711AD4E91E009E9736 /* BBBadgeBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBadgeBarButtonItem.h; sourceTree = "<group>"; };
 		80C7C7721AD4E91E009E9736 /* BBBadgeBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBadgeBarButtonItem.m; sourceTree = "<group>"; };
 		80C7C7741AD58C0A009E9736 /* ChoreBoardBlueNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreBoardBlueNavigationController.swift; sourceTree = "<group>"; };
@@ -278,6 +293,23 @@
 			name = DRDynamicSlideShow;
 			sourceTree = "<group>";
 		};
+		80C7B1AB1ADC49E6006028C2 /* SWTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				80C7B1AC1ADC4A03006028C2 /* SWCellScrollView.h */,
+				80C7B1AD1ADC4A03006028C2 /* SWCellScrollView.m */,
+				80C7B1AE1ADC4A03006028C2 /* SWLongPressGestureRecognizer.h */,
+				80C7B1AF1ADC4A03006028C2 /* SWLongPressGestureRecognizer.m */,
+				80C7B1B01ADC4A03006028C2 /* SWTableViewCell.h */,
+				80C7B1B11ADC4A03006028C2 /* SWTableViewCell.m */,
+				80C7B1B21ADC4A03006028C2 /* SWUtilityButtonTapGestureRecognizer.h */,
+				80C7B1B31ADC4A03006028C2 /* SWUtilityButtonTapGestureRecognizer.m */,
+				80C7B1B41ADC4A03006028C2 /* SWUtilityButtonView.h */,
+				80C7B1B51ADC4A03006028C2 /* SWUtilityButtonView.m */,
+			);
+			name = SWTableViewCell;
+			sourceTree = "<group>";
+		};
 		80C7C7701AD4E8FB009E9736 /* BBBadgeBarButtonItem */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +326,7 @@
 				80DA7D851ACA558D001B8999 /* ApiKeys.plist */,
 				80DA7D831ACA4FB7001B8999 /* ApiKeys.swift */,
 				80DA7D801ACA4BFA001B8999 /* PushNotificationController.swift */,
+				80C7B1AB1ADC49E6006028C2 /* SWTableViewCell */,
 				80B7813B1AD97A7600B03AF7 /* DRDynamicSlideShow */,
 				800A39D41AC6020000CA4F59 /* SWRevealViewController */,
 				80C7C7701AD4E8FB009E9736 /* BBBadgeBarButtonItem */,
@@ -475,6 +508,7 @@
 				80C7C7751AD58C0A009E9736 /* ChoreBoardBlueNavigationController.swift in Sources */,
 				80F434E81ADB1D8E00B15B4B /* TransitionManager.swift in Sources */,
 				80F434EA1ADB328100B15B4B /* optionItem.swift in Sources */,
+				80C7B1B71ADC4A03006028C2 /* SWLongPressGestureRecognizer.m in Sources */,
 				80F434EE1ADB6B6400B15B4B /* WeeklyFreqPickerTableViewController.swift in Sources */,
 				80E2A0A91AB7FA3B008A169D /* ChoreDetailViewController.swift in Sources */,
 				80E2A0AF1AB800EF008A169D /* choreItem.swift in Sources */,
@@ -495,11 +529,15 @@
 				80F434E21ADB181000B15B4B /* DayPickerTableViewController.swift in Sources */,
 				801824191AC64A320009A7DE /* ChoreViewController.swift in Sources */,
 				80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */,
+				80C7B1B81ADC4A03006028C2 /* SWTableViewCell.m in Sources */,
+				80C7B1B91ADC4A03006028C2 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				80DA7D8C1ACB7916001B8999 /* UserTemp.swift in Sources */,
 				80C211F81AD37EBE00DD512A /* RoommateTableViewCell.swift in Sources */,
+				80C7B1BA1ADC4A03006028C2 /* SWUtilityButtonView.m in Sources */,
 				8064E54E1AC7381E00863ADA /* ManageGroupsViewController.swift in Sources */,
 				80F434E01ADB097B00B15B4B /* WeeklyPickerTableViewController.swift in Sources */,
 				80AF9BD31ABCE915003829F3 /* PageNavigationController.swift in Sources */,
+				80C7B1B61ADC4A03006028C2 /* SWCellScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

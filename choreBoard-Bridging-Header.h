@@ -9,6 +9,13 @@
 
 #import "SWRevealViewController.h"
 
+#import "SWTableViewCell.h"
+#import "SWUtilityButtonView.h"
+#import "SWUtilityButtonTapGestureRecognizer.h"
+#import "SWCellScrollView.h"
+#import "SWLongPressGestureRecognizer.h"
+#import "NSMutableArray+SWUtilityButtons.h"
+
 #import <ParseFacebookUtils/PFFacebookUtils.h>
 
 #import <FBSDKCoreKit/FBSDKCoreKit.h>

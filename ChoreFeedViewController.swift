@@ -8,20 +8,38 @@
 
 import UIKit
 
-class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+// for swipe buttons (SWTableViewCell)
+extension NSMutableArray
+{
+    
+    func sw_addUtilityButtonWithColor(color : UIColor, title : String)
+    {
+        var button:UIButton = UIButton.buttonWithType(UIButtonType.Custom) as UIButton
+        button.backgroundColor = color;
+        button.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+        button.setTitle(title, forState: .Normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth;
+        self.addObject(button)
+    }
+}
 
+class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate {
+    
     var viewLaidOut:Bool = false
     var frame: CGRect = CGRectMake(0, 0, 0, 0)
     var slideshowHeight: CGFloat = 100
     
     @IBOutlet weak var slideshow: DRDynamicSlideShow!
     @IBOutlet weak var choreFeed: UITableView!
-
+    
     var refreshControl:UIRefreshControl!
     var chores = [choreItem]()
     
     var customButton: UIButton?
     var barButton: BBBadgeBarButtonItem?
+    
+    var leftButtons : NSMutableArray = NSMutableArray()
+    var rightButtons : NSMutableArray = NSMutableArray()
     
     func refresh(sender:AnyObject)
     {
@@ -71,7 +89,11 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
             customButton!.addTarget(self.revealViewController(), action: "rightRevealToggle:", forControlEvents: .TouchUpInside)
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
-    
+        
+        
+        // Set up buttons
+        leftButtons.sw_addUtilityButtonWithColor(UIColor.blueColor(), title: "Edit")
+        leftButtons.sw_addUtilityButtonWithColor(UIColor.greenColor(), title: "Done!")
         
     }
     
@@ -85,19 +107,19 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
             
             let colors = [UIColor.redColor(), UIColor.greenColor(), UIColor.yellowColor(), UIColor.magentaColor()]
             let snark = ["If you care about shelter, you should pay your rent else the underpass is nice.",
-                        "I’ll pee in the shower until you buy toilet paper.",
-                        "Want me to move those biology experiments you are growing in the sink to your bed, for closer study?",
-                        "Contrary to what you may believe, the government won't subsidize a landfill on our property"]
+                "I’ll pee in the shower until you buy toilet paper.",
+                "Want me to move those biology experiments you are growing in the sink to your bed, for closer study?",
+                "Contrary to what you may believe, the government won't subsidize a landfill on our property"]
             
             for index in 0..<colors.count {
                 
                 frame.size = CGSizeMake(self.view.frame.size.width, slideshowHeight)
-
+                
                 var subview = UIView(frame: frame)
                 subview.backgroundColor = UIColor.clearColor()
                 self.slideshow.addSubview(subview, onPage: index)
                 
-                var subviewText = UILabel(frame: CGRectMake(0, 0, slideshow.frame.width, slideshowHeight))                
+                var subviewText = UILabel(frame: CGRectMake(0, 0, slideshow.frame.width, slideshowHeight))
                 subviewText.textColor = UIColor.blackColor()
                 subviewText.backgroundColor = UIColor.clearColor()
                 subviewText.numberOfLines = 0
@@ -115,19 +137,19 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
                 
                 switch index
                 {
-                    case 0:
-                        self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 0, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
-                    case 1:
-                        self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 1, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
-                    case 2:
-                        self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 2, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
-                    case 3:
-                        self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 3, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
-                    default:
-                        break
+                case 0:
+                    self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 0, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
+                case 1:
+                    self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 1, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
+                case 2:
+                    self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 2, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
+                case 3:
+                    self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 3, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
+                default:
+                    break
                 }
                 
-
+                
             }
             
             slideshow.contentSize = CGSizeMake(self.view.frame.size.width * CGFloat(colors.count), slideshowHeight)
@@ -136,7 +158,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
     }
-
+    
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -148,29 +170,96 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         return self.chores.count
     }
     
+    //    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    //        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
+    //
+    //        cell.textLabel!.text = self.chores[indexPath.row].text
+    //
+    //        return cell
+    //    }
+    
+    ///////////////////////////////////////////////
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
         
-        cell.textLabel!.text = self.chores[indexPath.row].text
+        //variable type is inferred
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as? SWTableViewCell
         
-        return cell
+        if cell == nil {
+            cell = SWTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
+            cell!.leftUtilityButtons = self.leftButtons
+            cell!.rightUtilityButtons = self.rightButtons
+            cell!.delegate = self
+        }
+        
+        
+        cell!.textLabel?.text = self.chores[indexPath.row].text
+        
+        return cell!
     }
     
-
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    }
+    
+    
+    
+    //    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    //    }
+    //
+    //    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]?  {
+    //        // 1
+    //        var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+    //            // 2
+    //            let shareMenu = UIAlertController(title: nil, message: "Share using", preferredStyle: .ActionSheet)
+    //
+    //            let twitterAction = UIAlertAction(title: "Twitter", style: UIAlertActionStyle.Default, handler: nil)
+    //            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+    //
+    //            shareMenu.addAction(twitterAction)
+    //            shareMenu.addAction(cancelAction)
+    //
+    //
+    //            self.presentViewController(shareMenu, animated: true, completion: nil)
+    //        })
+    //        // 3
+    //        var rateAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Rate" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
+    //            // 4
+    //            let rateMenu = UIAlertController(title: nil, message: "Rate this App", preferredStyle: .ActionSheet)
+    //
+    //            let appRateAction = UIAlertAction(title: "Rate", style: UIAlertActionStyle.Default, handler: nil)
+    //            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+    //
+    //            rateMenu.addAction(appRateAction)
+    //            rateMenu.addAction(cancelAction)
+    //
+    //
+    //            self.presentViewController(rateMenu, animated: true, completion: nil)
+    //        })
+    //        // 5
+    //        return [shareAction,rateAction]
+    //    }
+    //
+    
+    
+    
+    ///////////////////////////////////////////////
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

@@ -2,4 +2,66 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "choreBoard/AppDelegate.swift"
+            timestampString = "450631601.168728"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "choreBoard.AppDelegate.pushNotificationController.setter : Swift.Optional&lt;choreBoard.PushNotificationController&gt;"
+                  moduleName = "choreBoard"
+                  urlString = "file:///Users/JulietteSeive/Documents/choreBoardDev/choreBoard/choreBoard/AppDelegate.swift"
+                  timestampString = "450633241.728362"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "choreBoard.AppDelegate.pushNotificationController.materializeForSet : Swift.Optional&lt;choreBoard.PushNotificationController&gt;"
+                  moduleName = "choreBoard"
+                  urlString = "file:///Users/JulietteSeive/Documents/choreBoardDev/choreBoard/choreBoard/AppDelegate.swift"
+                  timestampString = "450633241.728764"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "choreBoard.AppDelegate.init (choreBoard.AppDelegate.Type)() -&gt; choreBoard.AppDelegate"
+                  moduleName = "choreBoard"
+                  urlString = "file:///Users/JulietteSeive/Documents/choreBoardDev/choreBoard/choreBoard/AppDelegate.swift"
+                  timestampString = "450633241.729187"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "47">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

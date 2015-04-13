@@ -890,7 +890,7 @@
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZL-nr-nrF" userLabel="Container View 3">
                                 <rect key="frame" x="0.0" y="332" width="600" height="215"/>
                                 <connections>
-                                    <segue destination="bGJ-SE-rPd" kind="embed" id="G8A-5O-2nh"/>
+                                    <segue destination="Lab-dQ-uyx" kind="embed" id="qKD-6i-RhH"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -1000,19 +1000,33 @@
             </objects>
             <point key="canvasLocation" x="629" y="3784"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Monthly Picker Table View Controller-->
         <scene sceneID="tKT-px-hw7">
             <objects>
-                <tableViewController id="9dy-gW-o2y" sceneMemberID="viewController">
+                <tableViewController id="9dy-gW-o2y" customClass="MonthlyPickerTableViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ibU-6f-VqC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="215"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="AVl-GV-h2K">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MonthSettingsCell" textLabel="qnh-06-bS5" detailTextLabel="QSf-CQ-07P" style="IBUITableViewCellStyleValue1" id="AVl-GV-h2K">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AVl-GV-h2K" id="yAX-h8-cKC">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qnh-06-bS5">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QSf-CQ-07P">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -1026,31 +1040,38 @@
             </objects>
             <point key="canvasLocation" x="629" y="5664.5"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="Dt7-iU-p0P">
+        <!--View Controller-->
+        <scene sceneID="SUx-mL-C45">
             <objects>
-                <tableViewController id="bGJ-SE-rPd" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="SqH-3v-QcD">
+                <viewController id="Lab-dQ-uyx" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hML-8k-286"/>
+                        <viewControllerLayoutGuide type="bottom" id="eYy-Sw-4yW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rzk-mF-eiN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="215"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Chore can be toggled on and off manually by anyone in your group." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BHd-pS-Cd1">
+                                <rect key="frame" x="158" y="21" width="284" height="173"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="284" id="CeV-Bj-xAc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="kTH-XP-A0i">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kTH-XP-A0i" id="tHK-NB-Jqe">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="bGJ-SE-rPd" id="UmK-bB-K60"/>
-                            <outlet property="delegate" destination="bGJ-SE-rPd" id="OIM-Vr-SGJ"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lP5-ax-eYD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="BHd-pS-Cd1" secondAttribute="centerY" id="Kac-2W-VRD"/>
+                            <constraint firstAttribute="centerX" secondItem="BHd-pS-Cd1" secondAttribute="centerX" id="tJy-vr-5pc"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kx4-rg-bYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="629" y="6346.5"/>
+            <point key="canvasLocation" x="629" y="6676.5"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="rCT-sE-QCT">

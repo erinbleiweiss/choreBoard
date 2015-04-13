@@ -15,7 +15,6 @@
 		800D8B261AD9C6E200AD975C /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800D8B251AD9C6E200AD975C /* BillViewController.swift */; };
 		801824171AC6492C0009A7DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801824151AC6492C0009A7DE /* Main.storyboard */; };
 		801824191AC64A320009A7DE /* ChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801824181AC64A320009A7DE /* ChoreViewController.swift */; };
-		802A3B7F1AD8C98B0071B955 /* WeeklyPIckerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802A3B7E1AD8C98B0071B955 /* WeeklyPIckerViewController.swift */; };
 		8064E54E1AC7381E00863ADA /* ManageGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064E54D1AC7381E00863ADA /* ManageGroupsViewController.swift */; };
 		80656F551AC5130200C1994C /* createGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80656F541AC5130200C1994C /* createGroupViewController.swift */; };
 		807FA8611ABF69C600BB5A8A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA85C1ABF69C600BB5A8A /* Bolts.framework */; };
@@ -63,11 +62,15 @@
 		80E2A0AF1AB800EF008A169D /* choreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2A0AE1AB800EF008A169D /* choreItem.swift */; };
 		80E2A0B11AB8010F008A169D /* StrikeThroughText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2A0B01AB8010F008A169D /* StrikeThroughText.swift */; };
 		80E2A0B31AB801DA008A169D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2A0B21AB801DA008A169D /* TableViewCell.swift */; };
+		80F434E01ADB097B00B15B4B /* WeeklyPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F434DF1ADB097B00B15B4B /* WeeklyPickerTableViewController.swift */; };
+		80F434E21ADB181000B15B4B /* DayPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F434E11ADB181000B15B4B /* DayPickerTableViewController.swift */; };
+		80F434E81ADB1D8E00B15B4B /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F434E71ADB1D8E00B15B4B /* TransitionManager.swift */; };
+		80F434EA1ADB328100B15B4B /* optionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F434E91ADB328100B15B4B /* optionItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		599F2DE21ADAD07A007EF367 /* add1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add1.png; path = ../../../Pictures/add1.png; sourceTree = "<group>"; };
-		599F2DE41ADAD199007EF367 /* add2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add2.png; path = ../../../Pictures/add2.png; sourceTree = "<group>"; };
+		599F2DE21ADAD07A007EF367 /* add1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add1.png; path = choreBoard/Images.xcassets/add1.imageset/add1.png; sourceTree = "<group>"; };
+		599F2DE41ADAD199007EF367 /* add2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = add2.png; path = choreBoard/Images.xcassets/add2.imageset/add2.png; sourceTree = "<group>"; };
 		800A39D51AC6023000CA4F59 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		800A39D61AC6023000CA4F59 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		800A39D81AC602C400CA4F59 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuController.swift; path = choreBoard/MenuController.swift; sourceTree = "<group>"; };
@@ -75,7 +78,6 @@
 		800D8B251AD9C6E200AD975C /* BillViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillViewController.swift; sourceTree = "<group>"; };
 		801824161AC6492C0009A7DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = choreBoard/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		801824181AC64A320009A7DE /* ChoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreViewController.swift; sourceTree = "<group>"; };
-		802A3B7E1AD8C98B0071B955 /* WeeklyPIckerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyPIckerViewController.swift; sourceTree = "<group>"; };
 		8064E54D1AC7381E00863ADA /* ManageGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageGroupsViewController.swift; sourceTree = "<group>"; };
 		80656F541AC5130200C1994C /* createGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createGroupViewController.swift; sourceTree = "<group>"; };
 		807FA85C1ABF69C600BB5A8A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -130,6 +132,10 @@
 		80E2A0AE1AB800EF008A169D /* choreItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = choreItem.swift; path = choreBoard/choreItem.swift; sourceTree = "<group>"; };
 		80E2A0B01AB8010F008A169D /* StrikeThroughText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrikeThroughText.swift; sourceTree = "<group>"; };
 		80E2A0B21AB801DA008A169D /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		80F434DF1ADB097B00B15B4B /* WeeklyPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyPickerTableViewController.swift; sourceTree = "<group>"; };
+		80F434E11ADB181000B15B4B /* DayPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayPickerTableViewController.swift; sourceTree = "<group>"; };
+		80F434E71ADB1D8E00B15B4B /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
+		80F434E91ADB328100B15B4B /* optionItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = optionItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +202,7 @@
 				80DA7D8B1ACB7916001B8999 /* UserTemp.swift */,
 				80E2A0AE1AB800EF008A169D /* choreItem.swift */,
 				80DA80671AD23DDD001B8999 /* FBUser.swift */,
+				80F434E91ADB328100B15B4B /* optionItem.swift */,
 			);
 			name = itemClasses;
 			sourceTree = "<group>";
@@ -215,7 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				801824181AC64A320009A7DE /* ChoreViewController.swift */,
-				802A3B7E1AD8C98B0071B955 /* WeeklyPIckerViewController.swift */,
+				80F434DF1ADB097B00B15B4B /* WeeklyPickerTableViewController.swift */,
+				80F434E11ADB181000B15B4B /* DayPickerTableViewController.swift */,
 			);
 			name = addChore;
 			sourceTree = "<group>";
@@ -278,6 +286,7 @@
 		80D89BA61AA768CD00583941 = {
 			isa = PBXGroup;
 			children = (
+				80F434E71ADB1D8E00B15B4B /* TransitionManager.swift */,
 				80DA7D851ACA558D001B8999 /* ApiKeys.plist */,
 				80DA7D831ACA4FB7001B8999 /* ApiKeys.swift */,
 				80DA7D801ACA4BFA001B8999 /* PushNotificationController.swift */,
@@ -442,8 +451,9 @@
 				800D8B241AD9C6D800AD975C /* SupplyViewController.swift in Sources */,
 				809490271AC36902004C364E /* LoginViewController.swift in Sources */,
 				80C7C7751AD58C0A009E9736 /* ChoreBoardBlueNavigationController.swift in Sources */,
+				80F434E81ADB1D8E00B15B4B /* TransitionManager.swift in Sources */,
+				80F434EA1ADB328100B15B4B /* optionItem.swift in Sources */,
 				80E2A0A91AB7FA3B008A169D /* ChoreDetailViewController.swift in Sources */,
-				802A3B7F1AD8C98B0071B955 /* WeeklyPIckerViewController.swift in Sources */,
 				80E2A0AF1AB800EF008A169D /* choreItem.swift in Sources */,
 				80E2A0B11AB8010F008A169D /* StrikeThroughText.swift in Sources */,
 				80E2A0B31AB801DA008A169D /* TableViewCell.swift in Sources */,
@@ -458,11 +468,13 @@
 				800D8B261AD9C6E200AD975C /* BillViewController.swift in Sources */,
 				80DA7D841ACA4FB7001B8999 /* ApiKeys.swift in Sources */,
 				80C7C7731AD4E91E009E9736 /* BBBadgeBarButtonItem.m in Sources */,
+				80F434E21ADB181000B15B4B /* DayPickerTableViewController.swift in Sources */,
 				801824191AC64A320009A7DE /* ChoreViewController.swift in Sources */,
 				80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */,
 				80DA7D8C1ACB7916001B8999 /* UserTemp.swift in Sources */,
 				80C211F81AD37EBE00DD512A /* RoommateTableViewCell.swift in Sources */,
 				8064E54E1AC7381E00863ADA /* ManageGroupsViewController.swift in Sources */,
+				80F434E01ADB097B00B15B4B /* WeeklyPickerTableViewController.swift in Sources */,
 				80AF9BD31ABCE915003829F3 /* PageNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

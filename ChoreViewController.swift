@@ -20,6 +20,11 @@ class ChoreViewController: UIViewController, UISearchBarDelegate, UISearchDispla
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
+    @IBAction func cancelToAddChoreVC(segue:UIStoryboardSegue) {
+        let dayPickerTableViewController = segue.sourceViewController as DayPickerTableViewController
+        selectedDays = dayPickerTableViewController.selectedDays
+    }
+    
     // MARK: - Variables
     var customButton: UIButton?
     var barButton: BBBadgeBarButtonItem?
@@ -27,6 +32,8 @@ class ChoreViewController: UIViewController, UISearchBarDelegate, UISearchDispla
     var newChoreItem: choreItem?
     var allChores = [choreItem]()
     var filteredChores = [choreItem]()
+    
+    var selectedDays = [optionItem]()
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {

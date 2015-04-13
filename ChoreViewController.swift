@@ -20,10 +20,16 @@ class ChoreViewController: UIViewController, UISearchBarDelegate, UISearchDispla
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    @IBAction func cancelToAddChoreVC(segue:UIStoryboardSegue) {
+    @IBAction func cancelToAddChoreVCFromRepeat(segue:UIStoryboardSegue) {
         let dayPickerTableViewController = segue.sourceViewController as DayPickerTableViewController
         selectedDays = dayPickerTableViewController.selectedDays
     }
+    
+    @IBAction func cancelToAddChoreVCFromFrequency(segue:UIStoryboardSegue) {
+        let freqPickerTableViewController = segue.sourceViewController as WeeklyFreqPickerTableViewController
+        selectedFrequency = freqPickerTableViewController.selectedFrequency
+    }
+    
     
     // MARK: - Variables
     var customButton: UIButton?
@@ -34,6 +40,7 @@ class ChoreViewController: UIViewController, UISearchBarDelegate, UISearchDispla
     var filteredChores = [choreItem]()
     
     var selectedDays = [optionItem]()
+    var selectedFrequency = optionItem?()
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {

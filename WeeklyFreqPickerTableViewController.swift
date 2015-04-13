@@ -1,5 +1,5 @@
 //
-//  DayPickerTableViewController.swift
+//  WeeklyFreqPickerTableViewController.swift
 //  choreBoard
 //
 //  Created by Erin Bleiweiss on 4/12/15.
@@ -8,29 +8,19 @@
 
 import UIKit
 
-class DayPickerTableViewController: UITableViewController {
+class WeeklyFreqPickerTableViewController: UITableViewController {
 
-    var selectedDays = [optionItem]()
+    var selectedFrequencyIndex: Int?
+    var selectedFrequency = optionItem?()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        selectedDays.append(optionItem(text: "Sunday"))
-        selectedDays.append(optionItem(text: "Monday"))
-        selectedDays.append(optionItem(text: "Tuesday"))
-        selectedDays.append(optionItem(text: "Wednesday"))
-        selectedDays.append(optionItem(text: "Thursday"))
-        selectedDays.append(optionItem(text: "Friday"))
-        selectedDays.append(optionItem(text: "Saturday"))
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-    
-    override func viewDidAppear(animated: Bool) {
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,28 +39,39 @@ class DayPickerTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 7
+        return 4
     }
     
-
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        let row = indexPath.row
+        //Other row is selected - need to deselect it
+        if let index = selectedFrequencyIndex {
+            let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
+            cell?.accessoryType = .None
+        }
         
+        selectedFrequencyIndex = indexPath.row
+        
+        switch indexPath.row{
+            case 0:
+                selectedFrequency = optionItem(text: "Weekly")
+            case 1:
+                selectedFrequency = optionItem(text: "Every 2 Weeks")
+            case 2:
+                selectedFrequency = optionItem(text: "Every 3 Weeks")
+            case 3:
+                selectedFrequency = optionItem(text: "Every 4 Weeks")
+            default:
+                break
+        }
         
         //update the checkmark for the current row
-        if cell!.accessoryType == .Checkmark {
-            cell!.accessoryType = .None
-            selectedDays[row].setSelected(false)
-        }
-        else{
-            cell!.accessoryType = .Checkmark
-            selectedDays[row].setSelected(true)
-        }
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.accessoryType = .Checkmark
         
         
     }
+
 
 }

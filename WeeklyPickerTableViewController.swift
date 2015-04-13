@@ -16,6 +16,7 @@ class WeeklyPickerTableViewController: UITableViewController {
     
     let transitionManager = TransitionManager()
     var selectedDays = [optionItem]()
+    var selectedFrequency = optionItem?()
     
     // MARK: - Outlets
     @IBOutlet var theTableView: UITableView!
@@ -33,6 +34,7 @@ class WeeklyPickerTableViewController: UITableViewController {
     override func viewDidAppear(animated: Bool) {
         if let parentVC = self.parentViewController as? ChoreViewController{
             selectedDays = parentVC.selectedDays
+            selectedFrequency = parentVC.selectedFrequency
         }
         
         tableView.reloadData()
@@ -120,6 +122,12 @@ class WeeklyPickerTableViewController: UITableViewController {
         else {
             cell.textLabel?.text = "Frequency"
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            cell.detailTextLabel!.text = "Weekly"
+            
+            if selectedFrequency != nil{
+                cell.detailTextLabel!.text = selectedFrequency?.text
+            }
+            
             return cell
         }
         
@@ -132,6 +140,9 @@ class WeeklyPickerTableViewController: UITableViewController {
         
         if row == 0{
             performSegueWithIdentifier("WeekRepeatSegue", sender: nil)
+        }
+        else if row == 1{
+            performSegueWithIdentifier("WeekFrequencySegue", sender: nil)
         }
         
     }

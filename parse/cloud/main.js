@@ -487,9 +487,18 @@ Parse.Cloud.define("getPendingRequests", function(request, response){
 	query.equalTo("toGroup", groupPointer);
 	query.find({
 		success: function(queryRequest){
-			var theRequest = queryRequest[0];
-			console.log(queryRequest.length);
-			response.success(queryRequest.length);
+			
+			var result = []
+
+			for (var i=0; i<queryRequest.length; i++){
+				var theRequest = queryRequest[i];
+				var fromUser = theRequest.get("fromUser");
+
+				var User = Parse.Object.extend("_User");
+
+			}
+
+
 		},
 		error: function(error){
 			response.error(error);

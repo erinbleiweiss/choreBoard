@@ -82,6 +82,7 @@ class TransitionManager: NSObject, UIViewControllerAnimatedTransitioning, UIView
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         
         // these methods are the perfect place to set our `presenting` flag to either true or false - voila!
+        
         self.presenting = true
         return self
     }

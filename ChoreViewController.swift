@@ -152,8 +152,7 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let autoCompleteRowIdentifier = "Cell"
-        var cell = tableView.dequeueReusableCellWithIdentifier(autoCompleteRowIdentifier) as? UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
 
         if let temp = cell
         {

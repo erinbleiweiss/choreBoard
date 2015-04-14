@@ -47,6 +47,8 @@
 		80C7C7731AD4E91E009E9736 /* BBBadgeBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 80C7C7721AD4E91E009E9736 /* BBBadgeBarButtonItem.m */; };
 		80C7C7751AD58C0A009E9736 /* ChoreBoardBlueNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7C7741AD58C0A009E9736 /* ChoreBoardBlueNavigationController.swift */; };
 		80C7C7771AD5C60A009E9736 /* groupNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C7C7761AD5C60A009E9736 /* groupNotifications.swift */; };
+		80CC8D781ADD80B500833CE2 /* NotificationsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CC8D771ADD80B500833CE2 /* NotificationsTableViewController.swift */; };
+		80CC8D7A1ADD80E900833CE2 /* notificationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CC8D791ADD80E900833CE2 /* notificationItem.swift */; };
 		80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D89BB41AA768CD00583941 /* AppDelegate.swift */; };
 		80D89BBC1AA768CD00583941 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80D89BBB1AA768CD00583941 /* Images.xcassets */; };
 		80D89BBF1AA768CD00583941 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D89BBD1AA768CD00583941 /* LaunchScreen.xib */; };
@@ -125,6 +127,8 @@
 		80C7C7721AD4E91E009E9736 /* BBBadgeBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBadgeBarButtonItem.m; sourceTree = "<group>"; };
 		80C7C7741AD58C0A009E9736 /* ChoreBoardBlueNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreBoardBlueNavigationController.swift; sourceTree = "<group>"; };
 		80C7C7761AD5C60A009E9736 /* groupNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = groupNotifications.swift; sourceTree = "<group>"; };
+		80CC8D771ADD80B500833CE2 /* NotificationsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsTableViewController.swift; sourceTree = "<group>"; };
+		80CC8D791ADD80E900833CE2 /* notificationItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = notificationItem.swift; sourceTree = "<group>"; };
 		80D89BAF1AA768CD00583941 /* choreBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = choreBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D89BB31AA768CD00583941 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80D89BB41AA768CD00583941 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = choreBoard/AppDelegate.swift; sourceTree = "<group>"; };
@@ -222,6 +226,7 @@
 				80E2A0AE1AB800EF008A169D /* choreItem.swift */,
 				80DA80671AD23DDD001B8999 /* FBUser.swift */,
 				80F434E91ADB328100B15B4B /* optionItem.swift */,
+				80CC8D791ADD80E900833CE2 /* notificationItem.swift */,
 			);
 			name = itemClasses;
 			sourceTree = "<group>";
@@ -229,7 +234,6 @@
 		800D8B221AD9C68800AD975C /* OLD */ = {
 			isa = PBXGroup;
 			children = (
-				80E2A0A61AB7FA3B008A169D /* ChoreDetailViewController.swift */,
 				80AF9BD21ABCE915003829F3 /* PageNavigationController.swift */,
 				80E2A0AC1AB7FA5A008A169D /* PageItemController.swift */,
 				80E2A0B41AB801E5008A169D /* Chore List */,
@@ -334,7 +338,9 @@
 				80D89BB41AA768CD00583941 /* AppDelegate.swift */,
 				800A39D81AC602C400CA4F59 /* MenuController.swift */,
 				80B7813F1AD97C1E00B03AF7 /* ChoreFeedViewController.swift */,
+				80E2A0A61AB7FA3B008A169D /* ChoreDetailViewController.swift */,
 				80C7C7741AD58C0A009E9736 /* ChoreBoardBlueNavigationController.swift */,
+				80CC8D771ADD80B500833CE2 /* NotificationsTableViewController.swift */,
 				802A3B7D1AD8C96A0071B955 /* addChore */,
 				800D8B1F1AD9C63B00AD975C /* addSupply */,
 				800D8B201AD9C65200AD975C /* addBill */,
@@ -531,7 +537,9 @@
 				80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */,
 				80C7B1B81ADC4A03006028C2 /* SWTableViewCell.m in Sources */,
 				80C7B1B91ADC4A03006028C2 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
+				80CC8D7A1ADD80E900833CE2 /* notificationItem.swift in Sources */,
 				80DA7D8C1ACB7916001B8999 /* UserTemp.swift in Sources */,
+				80CC8D781ADD80B500833CE2 /* NotificationsTableViewController.swift in Sources */,
 				80C211F81AD37EBE00DD512A /* RoommateTableViewCell.swift in Sources */,
 				80C7B1BA1ADC4A03006028C2 /* SWUtilityButtonView.m in Sources */,
 				8064E54E1AC7381E00863ADA /* ManageGroupsViewController.swift in Sources */,

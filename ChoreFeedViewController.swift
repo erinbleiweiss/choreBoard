@@ -32,17 +32,15 @@ let kCellStateLeft = SWCellState(1)
 let kCellStateRight = SWCellState(2)
 
 
-class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate {
+class ChoreFeedViewController: UIViewController, SWTableViewCellDelegate {
     
     var viewLaidOut:Bool = false
     var frame: CGRect = CGRectMake(0, 0, 0, 0)
     var slideshowHeight: CGFloat = 100
     
-    @IBOutlet weak var slideshow: DRDynamicSlideShow!
-    @IBOutlet weak var choreFeed: UITableView!
-    
     var refreshControl:UIRefreshControl!
     var chores = [choreItem]()
+    var swipedItem: choreItem?
     
     var customButton: UIButton?
     var barButton: BBBadgeBarButtonItem?
@@ -50,9 +48,17 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     var leftButtons : NSMutableArray = NSMutableArray()
     var rightButtons : NSMutableArray = NSMutableArray()
     
+    @IBOutlet weak var slideshow: DRDynamicSlideShow!
+    @IBOutlet weak var choreFeed: UITableView!
+    
+    
+    @IBAction func cancelToChoreFeedVC(segue:UIStoryboardSegue) {
+        let choreDetailViewController = segue.sourceViewController as ChoreDetailViewController
+//        selectedDays = dayPickerTableViewController.selectedDays
+    }
+    
     func refresh(sender:AnyObject)
     {
-        println("refreshing!")
         // Load Chores From Parse
         PFCloud.callFunctionInBackground("getGroupChores", withParameters:[:]) {
             (result: AnyObject!, error: NSError!) -> Void in
@@ -71,6 +77,8 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         
         self.refreshControl?.endRefreshing()
     }
+    
+    let transitionManager2 = TransitionManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -129,6 +137,19 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         refresh(self)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "ChoreDetailSegue" {
+            // this gets a reference to the screen that we're about to transition to
+            var toViewController = (segue.destinationViewController as ChoreDetailViewController)
+            
+            // instead of using the default transition animation, we'll ask
+            // the segue to use our custom TransitionManager object to manage the transition animation
+            toViewController.transitioningDelegate = self.transitionManager2
+        }
+        
+    }
+    
     func swipeableTableViewCell(cell: SWTableViewCell!, canSwipeToState state: SWCellState) -> Bool {
     
         println("checkpoint")
@@ -148,10 +169,10 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerLeftUtilityButtonWithIndex index: Int){
         if index == 0{
-            println("clicked edit button")
+            performSegueWithIdentifier("ChoreDetailSegue", sender: nil)
         }
         else if index == 1{
-            println("clicked main button")
+            println("clicked done button")
         }
 
     }
@@ -237,10 +258,11 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     
     ///////////////////////////////////////////////
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> SWTableViewCell {
         
         //variable type is inferred
         var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as? SWTableViewCell
+        
         
         if cell == nil {
             cell = SWTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
@@ -259,7 +281,13 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     }
     
-    
+    func didSelectedCell(cell: SWTableViewCell!) {
+
+        var indexPath: NSIndexPath = choreFeed.indexPathForCell(cell)!
+        swipedItem = chores[indexPath.row]
+        println(swipedItem!.text)
+        
+    }
     
     ///////////////////////////////////////////////
     
@@ -269,15 +297,6 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
+
     
 }

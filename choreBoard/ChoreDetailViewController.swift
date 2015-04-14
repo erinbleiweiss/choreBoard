@@ -8,32 +8,25 @@
 
 import UIKit
 
-protocol SwipedChore {
-    
-    func getSwipedChore() -> choreItem
-}
-
 class ChoreDetailViewController: UIViewController {
     
     // MARK: - Outlets
-    @IBOutlet weak var detailLabel: UILabel!
-    var delegate: SwipedChore? = nil
     
     // MARK: - Variables
+    var swipedChore: choreItem!
 
-    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var theChore = self.delegate?.getSwipedChore()
-        detailLabel.text = theChore!.text
+        println(swipedChore)
     }
     
     override func viewDidAppear(animated: Bool) {
-//        var theChore = currentChore.sharedInstance.getCurrentChore()
-//        detailLabel.text = theChore.text
+
+        println(swipedChore)   
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

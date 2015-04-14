@@ -37,23 +37,23 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
         selectedFrequency = freqPickerTableViewController.selectedFrequency
     }
     
-    @IBAction func saveButton(sender: AnyObject) {
-        var userObj: PFUser!
-        var groupObj: PFObject!
-        
-//        newChoreItem = choreItem(text: searchBar.text)
-        
-        PFCloud.callFunctionInBackground("addChore", withParameters: ["choreName": searchBar.text], block: nil)
-
-    }
-
     @IBAction func searchBarDidChange(sender: AnyObject) {
         choreTableView.hidden = false
         var searchString = searchBar.text
         searchAutocompleteEntriesWithSubstring(searchString)
     }
     
-    
+    @IBAction func addChoreAction(sender: AnyObject) {
+        var userObj: PFUser!
+        var groupObj: PFObject!
+
+        newChoreItem = choreItem(text: searchBar.text)
+        PFCloud.callFunctionInBackground("addChore", withParameters: ["choreName": searchBar.text], block: nil)
+        
+        let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as UIViewController
+        self.presentViewController(pageVC, animated: true, completion: nil)
+    }
+
     
     // MARK: - Variables
     var customButton: UIButton?

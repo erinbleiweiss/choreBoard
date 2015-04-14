@@ -52,7 +52,23 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func refresh(sender:AnyObject)
     {
-        self.choreFeed.reloadData()
+        println("refreshing!")
+        // Load Chores From Parse
+        PFCloud.callFunctionInBackground("getGroupChores", withParameters:[:]) {
+            (result: AnyObject!, error: NSError!) -> Void in
+            if error == nil {
+                
+                self.chores = [choreItem]()
+                
+                for chore in result as NSArray {
+                    let choreName = chore["choreName"] as String
+                    self.chores.append(choreItem(text: choreName))
+                    self.choreFeed.reloadData()
+                }
+            }
+        }
+        
+        
         self.refreshControl?.endRefreshing()
     }
     
@@ -63,6 +79,8 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
         PFCloud.callFunctionInBackground("getGroupChores", withParameters:[:]) {
             (result: AnyObject!, error: NSError!) -> Void in
             if error == nil {
+                
+                self.chores = [choreItem]()
                 
                 for chore in result as NSArray {
                     let choreName = chore["choreName"] as String
@@ -108,6 +126,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidAppear(animated: Bool) {
         barButton!.badgeValue = String(groupNotifications.sharedInstance.getNumNotifications())
+        refresh(self)
     }
     
     func swipeableTableViewCell(cell: SWTableViewCell!, canSwipeToState state: SWCellState) -> Bool {
@@ -239,45 +258,6 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
     }
-    
-    
-    
-    //    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    //    }
-    //
-    //    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject]?  {
-    //        // 1
-    //        var shareAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Share" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-    //            // 2
-    //            let shareMenu = UIAlertController(title: nil, message: "Share using", preferredStyle: .ActionSheet)
-    //
-    //            let twitterAction = UIAlertAction(title: "Twitter", style: UIAlertActionStyle.Default, handler: nil)
-    //            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
-    //
-    //            shareMenu.addAction(twitterAction)
-    //            shareMenu.addAction(cancelAction)
-    //
-    //
-    //            self.presentViewController(shareMenu, animated: true, completion: nil)
-    //        })
-    //        // 3
-    //        var rateAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Rate" , handler: { (action:UITableViewRowAction!, indexPath:NSIndexPath!) -> Void in
-    //            // 4
-    //            let rateMenu = UIAlertController(title: nil, message: "Rate this App", preferredStyle: .ActionSheet)
-    //
-    //            let appRateAction = UIAlertAction(title: "Rate", style: UIAlertActionStyle.Default, handler: nil)
-    //            let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
-    //
-    //            rateMenu.addAction(appRateAction)
-    //            rateMenu.addAction(cancelAction)
-    //
-    //
-    //            self.presentViewController(rateMenu, animated: true, completion: nil)
-    //        })
-    //        // 5
-    //        return [shareAction,rateAction]
-    //    }
-    //
     
     
     

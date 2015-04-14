@@ -808,7 +808,6 @@
                                 </state>
                                 <connections>
                                     <action selector="addChoreAction:" destination="EGp-XD-9zB" eventType="touchUpInside" id="NzD-vi-ZgX"/>
-                                    <action selector="saveButton:" destination="EGp-XD-9zB" eventType="touchUpInside" id="JrX-Jv-6Oe"/>
                                     <segue destination="esl-YE-Fef" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="U7r-lE-ns3"/>
                                 </connections>
                             </button>

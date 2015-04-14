@@ -23,6 +23,15 @@ extension NSMutableArray
     }
 }
 
+struct SWCellState {
+    var value: UInt32
+    init(_ val: UInt32) { value = val }
+}
+let kCellStateCenter = SWCellState(0)
+let kCellStateLeft = SWCellState(1)
+let kCellStateRight = SWCellState(2)
+
+
 class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SWTableViewCellDelegate {
     
     var viewLaidOut:Bool = false
@@ -100,6 +109,35 @@ class ChoreFeedViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidAppear(animated: Bool) {
         barButton!.badgeValue = String(groupNotifications.sharedInstance.getNumNotifications())
     }
+    
+    func swipeableTableViewCell(cell: SWTableViewCell!, canSwipeToState state: SWCellState) -> Bool {
+    
+        println("checkpoint")
+        
+//        switch (state.value) {
+//            case kCellStateLeft.value:
+//                return false
+//            case kCellStateRight.value:
+//                return false
+//            default:
+//                break
+//        }
+        
+        return false
+        
+    }
+    
+    func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerLeftUtilityButtonWithIndex index: Int){
+        if index == 0{
+            println("clicked edit button")
+        }
+        else if index == 1{
+            println("clicked main button")
+        }
+
+    }
+
+    
     
     override func viewDidLayoutSubviews() {
         

@@ -808,16 +808,10 @@
                                 </state>
                                 <connections>
                                     <action selector="addChoreAction:" destination="EGp-XD-9zB" eventType="touchUpInside" id="NzD-vi-ZgX"/>
+                                    <action selector="saveButton:" destination="EGp-XD-9zB" eventType="touchUpInside" id="JrX-Jv-6Oe"/>
                                     <segue destination="esl-YE-Fef" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="U7r-lE-ns3"/>
                                 </connections>
                             </button>
-                            <searchBar contentMode="redraw" placeholder="New Chore..." translatesAutoresizingMaskIntoConstraints="NO" id="wV9-tX-pDO">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="EGp-XD-9zB" id="aTd-eb-YkG"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WaX-lb-dK3">
                                 <rect key="frame" x="0.0" y="108" width="600" height="180"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -858,31 +852,29 @@
                                     <segue destination="Lab-dQ-uyx" kind="embed" id="qKD-6i-RhH"/>
                                 </connections>
                             </containerView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ebv-QY-t7G">
+                                <rect key="frame" x="0.0" y="64" width="600" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="dHl-1l-4LY" firstAttribute="top" secondItem="J7F-cQ-IWf" secondAttribute="bottom" constant="8" id="177-kr-dCD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hDl-95-T5j" secondAttribute="trailing" constant="15" id="1XW-YB-x7f"/>
-                            <constraint firstAttribute="trailing" secondItem="wV9-tX-pDO" secondAttribute="trailing" id="3V0-uW-h2w"/>
                             <constraint firstItem="dHl-1l-4LY" firstAttribute="bottom" secondItem="QZL-nr-nrF" secondAttribute="bottom" id="5is-us-HSZ"/>
                             <constraint firstItem="J7F-cQ-IWf" firstAttribute="top" secondItem="Joy-xA-m5g" secondAttribute="top" constant="296" id="8Py-7I-o9f"/>
                             <constraint firstAttribute="centerX" secondItem="J7F-cQ-IWf" secondAttribute="centerX" id="8pL-e8-YGd"/>
                             <constraint firstItem="uBs-1v-crw" firstAttribute="top" secondItem="hDl-95-T5j" secondAttribute="bottom" constant="8" symbolic="YES" id="A7y-qQ-bRm"/>
                             <constraint firstItem="QZL-nr-nrF" firstAttribute="leading" secondItem="dHl-1l-4LY" secondAttribute="leading" id="Bj7-Rw-KlC"/>
                             <constraint firstItem="QZL-nr-nrF" firstAttribute="top" secondItem="J7F-cQ-IWf" secondAttribute="bottom" constant="8" symbolic="YES" id="CoV-m0-3uB"/>
-                            <constraint firstItem="wV9-tX-pDO" firstAttribute="top" secondItem="ov8-w6-Rwv" secondAttribute="bottom" id="DxJ-jV-99u"/>
                             <constraint firstItem="PXn-Tb-r4Q" firstAttribute="top" secondItem="J7F-cQ-IWf" secondAttribute="bottom" constant="8" symbolic="YES" id="GYd-2B-Hgl"/>
-                            <constraint firstAttribute="centerX" secondItem="wV9-tX-pDO" secondAttribute="centerX" id="JQS-Eo-CTI"/>
                             <constraint firstItem="J7F-cQ-IWf" firstAttribute="centerX" secondItem="PXn-Tb-r4Q" secondAttribute="centerX" id="MAm-tN-uow"/>
                             <constraint firstItem="J7F-cQ-IWf" firstAttribute="centerX" secondItem="QZL-nr-nrF" secondAttribute="centerX" id="MZX-wn-Esz"/>
                             <constraint firstAttribute="trailing" secondItem="WaX-lb-dK3" secondAttribute="trailing" id="PJM-0S-7Eg"/>
                             <constraint firstAttribute="trailing" secondItem="dHl-1l-4LY" secondAttribute="trailing" id="PdT-CY-FSJ"/>
                             <constraint firstAttribute="centerX" secondItem="WaX-lb-dK3" secondAttribute="centerX" id="Xs5-mP-lT3"/>
-                            <constraint firstItem="wV9-tX-pDO" firstAttribute="leading" secondItem="Joy-xA-m5g" secondAttribute="leading" id="aQh-9W-und"/>
-                            <constraint firstAttribute="trailing" secondItem="wV9-tX-pDO" secondAttribute="trailing" id="bLi-kO-Tlo"/>
-                            <constraint firstItem="wV9-tX-pDO" firstAttribute="top" secondItem="ov8-w6-Rwv" secondAttribute="bottom" id="lmH-4V-4hd"/>
                             <constraint firstItem="dHl-1l-4LY" firstAttribute="leading" secondItem="Joy-xA-m5g" secondAttribute="leading" id="m7J-nr-Q93"/>
-                            <constraint firstItem="wV9-tX-pDO" firstAttribute="leading" secondItem="Joy-xA-m5g" secondAttribute="leading" id="oHe-TA-R82"/>
                             <constraint firstItem="hDl-95-T5j" firstAttribute="top" secondItem="PXn-Tb-r4Q" secondAttribute="bottom" constant="13" id="qXm-IT-fEr"/>
                             <constraint firstItem="PXn-Tb-r4Q" firstAttribute="bottom" secondItem="dHl-1l-4LY" secondAttribute="bottom" id="qso-XU-GF8"/>
                             <constraint firstItem="WaX-lb-dK3" firstAttribute="leading" secondItem="Joy-xA-m5g" secondAttribute="leading" id="r0R-CP-xRU"/>
@@ -892,10 +884,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add Chore" id="b0h-EX-upt"/>
                     <connections>
-                        <outlet property="choreTableView" destination="WaX-lb-dK3" id="LW0-oJ-9Oe"/>
+                        <outlet property="choreTableView" destination="WaX-lb-dK3" id="v5q-Y7-keq"/>
                         <outlet property="manualView" destination="QZL-nr-nrF" id="uVb-zI-rci"/>
                         <outlet property="monthlyView" destination="PXn-Tb-r4Q" id="GXn-Xq-XzR"/>
-                        <outlet property="searchBar" destination="wV9-tX-pDO" id="kY4-st-cFY"/>
+                        <outlet property="searchBar" destination="Ebv-QY-t7G" id="xBF-BW-3Fr"/>
                         <outlet property="searchDisplayController" destination="Qps-CH-Oe8" id="Tgb-WK-ilV"/>
                         <outlet property="segmentedControl" destination="J7F-cQ-IWf" id="gsv-3e-2dm"/>
                         <outlet property="weeklyView" destination="dHl-1l-4LY" id="eTQ-5K-JYg"/>
@@ -905,7 +897,6 @@
                 <searchDisplayController id="Qps-CH-Oe8">
                     <connections>
                         <outlet property="delegate" destination="EGp-XD-9zB" id="9gQ-P3-pxW"/>
-                        <outlet property="searchBar" destination="wV9-tX-pDO" id="1qf-os-xdv"/>
                         <outlet property="searchContentsController" destination="EGp-XD-9zB" id="CEI-nr-zec"/>
                         <outlet property="searchResultsDataSource" destination="EGp-XD-9zB" id="PDr-Mh-86z"/>
                         <outlet property="searchResultsDelegate" destination="EGp-XD-9zB" id="R4E-lN-kpJ"/>

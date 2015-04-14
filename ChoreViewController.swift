@@ -8,15 +8,22 @@
 
 import UIKit
 
-class ChoreViewController: UIViewController, UISearchBarDelegate, UISearchDisplayDelegate {
+class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate  {
 
     // MARK: - Outlets
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var weeklyView: UIView!
     @IBOutlet weak var monthlyView: UIView!
     @IBOutlet weak var manualView: UIView!
-    
     @IBOutlet weak var choreTableView: UITableView!
+    
+    @IBOutlet weak var searchBar: UITextField!
+
+    var choreDataSource = [choreItem]()
+    
+    required init(coder aDecoder: (NSCoder)) {
+        choreTableView = UITableView(frame: CGRectMake(13, 200, 295, 200), style: UITableViewStyle.Plain);
+        super.init(coder: aDecoder);
+    }
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
@@ -30,6 +37,16 @@ class ChoreViewController: UIViewController, UISearchBarDelegate, UISearchDispla
         selectedFrequency = freqPickerTableViewController.selectedFrequency
     }
     
+    @IBAction func saveButton(sender: AnyObject) {
+        var userObj: PFUser!
+        var groupObj: PFObject!
+        
+//        newChoreItem = choreItem(text: searchBar.text)
+        
+        PFCloud.callFunctionInBackground("addChore", withParameters: ["choreName": searchBar.text], block: nil)
+
+    }
+
     
     // MARK: - Variables
     var customButton: UIButton?
@@ -45,6 +62,15 @@ class ChoreViewController: UIViewController, UISearchBarDelegate, UISearchDispla
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Search Bar
+        searchBar.delegate = self
+        
+        choreTableView!.dataSource = self
+        choreTableView!.delegate = self
+        choreTableView!.scrollEnabled = true
+        choreTableView!.hidden = true
+        self.view.addSubview(choreTableView)
         
         // Load Chores From Parse
         PFCloud.callFunctionInBackground("getAllChores", withParameters:[:]) {
@@ -80,6 +106,69 @@ class ChoreViewController: UIViewController, UISearchBarDelegate, UISearchDispla
         barButton!.badgeValue = String(groupNotifications.sharedInstance.getNumNotifications())
     }
 
+///////////////////////////////////////////
+    func textField(textField: UITextField!, shouldChangeCharactersInRange range: NSRange, replacementString string: String!) -> Bool
+    {
+        choreTableView.hidden = false
+        var substring = (self.searchBar.text as NSString).stringByReplacingCharactersInRange(range, withString: string)
+        
+        searchAutocompleteEntriesWithSubstring(substring)
+        return true
+    }
+    
+    func searchAutocompleteEntriesWithSubstring(substring: String)
+    {
+        filteredChores.removeAll(keepCapacity: false)
+        
+        for curString in allChores
+        {
+            var myString:NSString! = curString.text.lowercaseString as NSString
+            var substringRange: NSRange! = myString.rangeOfString(substring.lowercaseString)
+            if (substringRange.location  == 0)
+            {
+                filteredChores.append(curString)
+            }
+        }
+        
+        choreTableView!.reloadData()
+    }
+
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return filteredChores.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let autoCompleteRowIdentifier = "Cell"
+        var cell = tableView.dequeueReusableCellWithIdentifier(autoCompleteRowIdentifier) as? UITableViewCell
+
+        if let temp = cell
+        {
+            let index = indexPath.row as Int
+            cell!.textLabel!.text = filteredChores[index].text
+        } else
+        {
+            cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
+        }
+        
+        return cell!
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedCell : UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+        searchBar.text = selectedCell.textLabel!.text
+    }
+    
+///////////////////////////////////////////
+    
+    
+    
+    
+    
+
+    
     @IBAction func changeFrequencyType(sender: AnyObject) {
         switch segmentedControl.selectedSegmentIndex
         {
@@ -100,84 +189,7 @@ class ChoreViewController: UIViewController, UISearchBarDelegate, UISearchDispla
         }
     }
     
-    @IBAction func addChoreAction(sender: AnyObject) {
-        var userObj: PFUser!
-        var groupObj: PFObject!
-        
-        newChoreItem = choreItem(text: searchBar.text)
-        PFCloud.callFunctionInBackground("addChore", withParameters: ["choreName": searchBar.text], block: nil)
-    }
-    
-    func filterContentForSearchText(searchText: String) {
-        // First array value is user's input (custom value)
-        self.filteredChores = [choreItem(text: searchText)]
-        
-        // Filter the array using the filter method
-        self.filteredChores += self.allChores.filter({( chore: choreItem) -> Bool in
-            let stringMatch = chore.text.lowercaseString.rangeOfString(searchText.lowercaseString)
-            return stringMatch != nil ? true : false
-        })
-    }
-    
-    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchString searchString: String!) -> Bool {
-        self.filterContentForSearchText(searchString)
-        return true
-    }
-    
-    func searchDisplayController(controller: UISearchDisplayController!, shouldReloadTableForSearchScope searchOption: Int) -> Bool {
-        self.filterContentForSearchText(self.searchDisplayController!.searchBar.text)
-        return true
-    }
-    
-    func searchDisplayController(controller: UISearchDisplayController,
-        didShowSearchResultsTableView tableView: UITableView){
-            
-        var frame: CGRect = self.choreTableView.frame
-        var cFrame: CGRect = controller.searchBar.frame
-        var newFrame: CGRect = CGRectMake(frame.origin.x,
-//            frame.origin.y + cFrame.size.height,
-            0,
-            frame.size.width,
-            frame.size.height - cFrame.size.height)
-        tableView.frame = newFrame
-            
-    }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == self.searchDisplayController!.searchResultsTableView {
-            return self.filteredChores.count
-        } else {
-            return self.allChores.count
-        }
-    }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        //variable type is inferred
-        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
-        
-        if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-        }
-        
-        var chore : choreItem
-        // Check to see whether the normal table or search results table is being displayed and set chore friend object from the appropriate array
-        if tableView == self.searchDisplayController!.searchResultsTableView {
-            chore = filteredChores[indexPath.row]
-        } else {
-            chore = filteredChores[indexPath.row]
-        }
-        
-        // Configure the cell
-        cell!.textLabel!.text = chore.text
-        
-        return cell!
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

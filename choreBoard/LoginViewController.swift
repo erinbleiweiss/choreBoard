@@ -27,8 +27,6 @@ class LoginViewController: UIViewController {
     }
         
     func dismissKeyboard(){
-        loginUsernameField.resignFirstResponder()
-        loginPasswordField.resignFirstResponder()
     }
 
     

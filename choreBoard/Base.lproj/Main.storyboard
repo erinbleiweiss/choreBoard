@@ -812,8 +812,8 @@
                                     <segue destination="esl-YE-Fef" kind="custom" customClass="SWRevealViewControllerSeguePushController" id="U7r-lE-ns3"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WaX-lb-dK3">
-                                <rect key="frame" x="0.0" y="108" width="600" height="180"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WaX-lb-dK3">
+                                <rect key="frame" x="0.0" y="92" width="600" height="196"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="180" id="MDj-gm-qqg"/>
@@ -852,10 +852,18 @@
                                     <segue destination="Lab-dQ-uyx" kind="embed" id="qKD-6i-RhH"/>
                                 </connections>
                             </containerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ebv-QY-t7G">
-                                <rect key="frame" x="0.0" y="64" width="600" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Chore..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ebv-QY-t7G">
+                                <rect key="frame" x="0.0" y="64" width="600" height="36"/>
+                                <color key="backgroundColor" red="0.83729272959183676" green="0.83729272959183676" blue="0.83729272959183676" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Z21-Ng-sRP"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="searchBarDidChange:" destination="EGp-XD-9zB" eventType="editingChanged" id="ucm-qF-UbV"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -871,9 +879,12 @@
                             <constraint firstItem="PXn-Tb-r4Q" firstAttribute="top" secondItem="J7F-cQ-IWf" secondAttribute="bottom" constant="8" symbolic="YES" id="GYd-2B-Hgl"/>
                             <constraint firstItem="J7F-cQ-IWf" firstAttribute="centerX" secondItem="PXn-Tb-r4Q" secondAttribute="centerX" id="MAm-tN-uow"/>
                             <constraint firstItem="J7F-cQ-IWf" firstAttribute="centerX" secondItem="QZL-nr-nrF" secondAttribute="centerX" id="MZX-wn-Esz"/>
+                            <constraint firstItem="Ebv-QY-t7G" firstAttribute="top" secondItem="ov8-w6-Rwv" secondAttribute="bottom" id="NEc-9J-gr0"/>
                             <constraint firstAttribute="trailing" secondItem="WaX-lb-dK3" secondAttribute="trailing" id="PJM-0S-7Eg"/>
                             <constraint firstAttribute="trailing" secondItem="dHl-1l-4LY" secondAttribute="trailing" id="PdT-CY-FSJ"/>
+                            <constraint firstAttribute="trailing" secondItem="Ebv-QY-t7G" secondAttribute="trailing" id="SEe-QJ-SSu"/>
                             <constraint firstAttribute="centerX" secondItem="WaX-lb-dK3" secondAttribute="centerX" id="Xs5-mP-lT3"/>
+                            <constraint firstItem="Ebv-QY-t7G" firstAttribute="leading" secondItem="Joy-xA-m5g" secondAttribute="leading" id="ch6-KJ-sTu"/>
                             <constraint firstItem="dHl-1l-4LY" firstAttribute="leading" secondItem="Joy-xA-m5g" secondAttribute="leading" id="m7J-nr-Q93"/>
                             <constraint firstItem="hDl-95-T5j" firstAttribute="top" secondItem="PXn-Tb-r4Q" secondAttribute="bottom" constant="13" id="qXm-IT-fEr"/>
                             <constraint firstItem="PXn-Tb-r4Q" firstAttribute="bottom" secondItem="dHl-1l-4LY" secondAttribute="bottom" id="qso-XU-GF8"/>

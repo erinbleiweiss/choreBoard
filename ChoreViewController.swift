@@ -47,6 +47,13 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
 
     }
 
+    @IBAction func searchBarDidChange(sender: AnyObject) {
+        choreTableView.hidden = false
+        var searchString = searchBar.text
+        searchAutocompleteEntriesWithSubstring(searchString)
+    }
+    
+    
     
     // MARK: - Variables
     var customButton: UIButton?
@@ -107,14 +114,14 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
     }
 
 ///////////////////////////////////////////
-    func textField(textField: UITextField!, shouldChangeCharactersInRange range: NSRange, replacementString string: String!) -> Bool
-    {
-        choreTableView.hidden = false
-        var substring = (self.searchBar.text as NSString).stringByReplacingCharactersInRange(range, withString: string)
-        
-        searchAutocompleteEntriesWithSubstring(substring)
-        return true
-    }
+//    func textField(textField: UITextField!, shouldChangeCharactersInRange range: NSRange, replacementString string: String!) -> Bool
+//    {
+//        choreTableView.hidden = false
+//        var substring = (self.searchBar.text as NSString).stringByReplacingCharactersInRange(range, withString: string)
+//        
+//        searchAutocompleteEntriesWithSubstring(substring)
+//        return true
+//    }
     
     func searchAutocompleteEntriesWithSubstring(substring: String)
     {
@@ -128,6 +135,10 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
             {
                 filteredChores.append(curString)
             }
+        }
+        
+        if filteredChores.count == 0{
+            filteredChores.append(choreItem(text: searchBar.text))
         }
         
         choreTableView!.reloadData()
@@ -161,10 +172,15 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
         searchBar.text = selectedCell.textLabel!.text
     }
     
+    
+    func textFieldShouldClear(textField: UITextField!) -> Bool {
+        filteredChores = [choreItem]()
+        choreTableView.reloadData()
+        searchBar.resignFirstResponder()
+        return true
+    }
+    
 ///////////////////////////////////////////
-    
-    
-    
     
     
 

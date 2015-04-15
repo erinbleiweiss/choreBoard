@@ -54,6 +54,17 @@ class MenuController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        PFCloud.callFunctionInBackground("getCurrentGroupName", withParameters:[:]) {
+            (result: AnyObject!, error: NSError!) -> Void in
+            if error == nil {
+                self.groupNameLabel.text = result as? String
+                
+            }
+            
+        }
+    }
+    
 
     
     override func didReceiveMemoryWarning() {

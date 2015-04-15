@@ -339,11 +339,11 @@ Parse.Cloud.define("addUserToMyGroup", function(request, response){
 	var currentUser = Parse.User.current();
 	var currentGroup = currentUser.get("group");	
 
-	var fbId = request.params.fbId;
+	var userId = request.params.userId;
 
 	var User = Parse.Object.extend("_User");
 	var query = new Parse.Query(User);
-	query.equalTo("facebookId", fbId);
+	query.equalTo("objectId", userId);
 	query.find({
 		success: function(queryUser){
 			var theUser = queryUser[0];
@@ -414,6 +414,7 @@ Parse.Cloud.define("joinGroupRequest", function(request, response){
 			var newRequest = new JoinGroupRequest();
 
 			newRequest.set("fromUser", currentUser);
+			newRequest.set("fromUserName", (firstName + " " + lastName));
 			newRequest.set("toGroup", roommateGroup);
 			newRequest.set("status", "pending");
 
@@ -480,7 +481,6 @@ Parse.Cloud.define("getPendingRequests", function(request, response){
 	var currentUser = Parse.User.current();
 	var groupPointer = currentUser.get("group");
 
-	console.log(groupPointer);
 
 	var JoinGroupRequest = Parse.Object.extend("JoinGroupRequest");
 	var query = new Parse.Query(JoinGroupRequest);
@@ -488,22 +488,24 @@ Parse.Cloud.define("getPendingRequests", function(request, response){
 	query.find({
 		success: function(queryRequest){
 			
-			var result = []
+			var results = [];
 
 			for (var i=0; i<queryRequest.length; i++){
-				var theRequest = queryRequest[i];
-				var fromUser = theRequest.get("fromUser");
-
-				var User = Parse.Object.extend("_User");
-
+				var fromUser = queryRequest[i].get("fromUser");
+				var fromUserId = fromUser.id;
+				var fromUserName = queryRequest[i].get("fromUserName");
+				result = {"fromUserId" : fromUserId,
+									"fromUserName" : fromUserName}
+				results.push(result);
 			}
 
+			response.success(results);
 
 		},
 		error: function(error){
 			response.error(error);
 		}
-	})
+	});
 
 
 });

@@ -107,6 +107,15 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
             self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
+        
+        // Dismiss Keyboard
+//        let tapRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+//        view.addGestureRecognizer(tapRecognizer)
+        
+    }
+    
+    func dismissKeyboard(){
+        searchBar.resignFirstResponder()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -169,6 +178,7 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedCell : UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
         searchBar.text = selectedCell.textLabel!.text
+        dismissKeyboard()
     }
     
     

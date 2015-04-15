@@ -68,7 +68,7 @@
             </objects>
             <point key="canvasLocation" x="3115" y="2218"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Group Requests-->
         <scene sceneID="IFI-ly-S4I">
             <objects>
                 <tableViewController id="t1E-L0-wa7" customClass="NotificationsTableViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
@@ -89,7 +89,7 @@
                             <outlet property="delegate" destination="t1E-L0-wa7" id="eMU-ES-9ua"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="U0R-zo-woC"/>
+                    <navigationItem key="navigationItem" title="Group Requests" id="U0R-zo-woC"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bcr-iO-cj6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

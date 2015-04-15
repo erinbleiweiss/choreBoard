@@ -9,12 +9,14 @@
 import UIKit
 
 class notificationItem: NSObject {
-    var text: String
+    var name: String
+    var userId: String
     var selected: Bool
     
     
-    init(text: String) {
-        self.text = text
+    init(name: String, userId: String) {
+        self.name = name
+        self.userId = userId
         self.selected = false
     }
     

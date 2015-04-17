@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bxx-Ja-Q9Q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="b9i-Fk-fZg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -761,10 +761,10 @@
             </objects>
             <point key="canvasLocation" x="2566" y="4800"/>
         </scene>
-        <!--Reveal View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="aUa-TO-SFI">
             <objects>
-                <viewController storyboardIdentifier="ViewController1" id="b9i-Fk-fZg" customClass="SWRevealViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController1" id="b9i-Fk-fZg" customClass="RootViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="56E-7E-y0V"/>
                         <viewControllerLayoutGuide type="bottom" id="emv-OF-Drl"/>
@@ -1218,7 +1218,7 @@
         <!--Chore Board Blue Navigation Controller-->
         <scene sceneID="i45-j3-sVz">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="esl-YE-Fef" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ChoreFeedNav" automaticallyAdjustsScrollViewInsets="NO" id="esl-YE-Fef" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tH5-5I-S7s">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1306,40 +1306,6 @@
             </objects>
             <point key="canvasLocation" x="2039" y="2218"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="YID-zn-fNa">
-            <objects>
-                <viewController id="qfh-72-6Lk" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="31o-bP-64p"/>
-                        <viewControllerLayoutGuide type="bottom" id="rz7-Jb-8wQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="j9V-cA-Lyk">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OHh-Jh-Fnv" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="UZZ-MC-lFX">
-            <objects>
-                <viewController id="epT-s6-PQ2" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ryl-TY-bYR"/>
-                        <viewControllerLayoutGuide type="bottom" id="Jk7-Jx-yse"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="D2a-gm-gdF">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qzp-Bp-pL4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="add2" width="224" height="231"/>
@@ -1347,7 +1313,7 @@
         <image name="homeicon" width="376" height="312"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7Rc-nS-Vdb"/>
+        <segue reference="anr-mq-6Ez"/>
         <segue reference="6Ry-MP-rBw"/>
     </inferredMetricsTieBreakers>
 </document>

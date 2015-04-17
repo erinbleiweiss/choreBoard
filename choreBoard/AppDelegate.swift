@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
         var controller:PFQueryTableViewController = PFQueryTableViewController(className: "Chore")
         
+        // Minimum fetch interval for background data
+        application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
         
         self.pushNotificationController = PushNotificationController()
         // Register for Push Notitications, if running iOS 8
@@ -87,6 +89,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         completionHandler(UIBackgroundFetchResult.NewData)
     }
+    
+    
+    // Function for fetching background data
+    func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
+        
+        let navigationController = self.window?.rootViewController
+        println(navigationController)
+
+        if self.window?.rootViewController is RootViewController
+        {
+            let vc = self.window?.rootViewController as RootViewController
+            vc.insertNewObjectForFetchWithCompletionHandler(completionHandler)
+        }
+        else {
+            println("Not the right class")
+            completionHandler(UIBackgroundFetchResult.Failed)
+        }
+        
+//        var x = 1
+//        
+//        // Call or write any code necessary to get new data, process it and update the UI.
+//
+//        // The logic for informing iOS about the fetch results in plain language:
+//        if (/** NEW DATA EXISTS AND WAS SUCCESSFULLY PROCESSED **/ x == 1) {
+//            completionHandler(UIBackgroundFetchResult.NewData);
+//        }
+//        
+//        if (/** NO NEW DATA EXISTS **/ x == 2) {
+//            completionHandler(UIBackgroundFetchResult.NoData);
+//        }
+//        
+//        if (/** ANY ERROR OCCURS **/ x == 3) {
+//            completionHandler(UIBackgroundFetchResult.Failed);
+//        }
+        
+    }
+    
     
     
     func UIColorFromRGB(rgbValue: UInt) -> UIColor {

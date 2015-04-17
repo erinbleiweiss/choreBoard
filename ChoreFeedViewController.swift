@@ -81,6 +81,8 @@ class ChoreFeedViewController: UIViewController, SWTableViewCellDelegate {
     let transitionManager2 = TransitionManager()
     
     override func viewDidLoad() {
+        checkForLogin()
+
         super.viewDidLoad()
         
         // Load Chores From Parse
@@ -137,6 +139,16 @@ class ChoreFeedViewController: UIViewController, SWTableViewCellDelegate {
         refresh(self)
     }
     
+    func checkForLogin(){
+        let prefs = NSUserDefaults.standardUserDefaults()
+        let checkfortoken = prefs.stringForKey("username")
+        println(prefs.stringForKey("username"))
+        if(checkfortoken == nil){
+            let vc = storyboard!.instantiateViewControllerWithIdentifier("LoginController") as UIViewController
+            self.presentViewController(vc, animated: false, completion: nil)
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "ChoreDetailSegue" {
@@ -149,6 +161,17 @@ class ChoreFeedViewController: UIViewController, SWTableViewCellDelegate {
         }
         
     }
+    
+    
+//    // For Background Data Fetching
+//    func insertNewObjectForFetchWithCompletionHandler (performFetchWithCompletionHandler completionHandler:(UIBackgroundFetchResult) -> Void) {
+//    
+//        println("updating table view")
+//    
+//    
+//        completionHandler(UIBackgroundFetchResult.NewData)
+//    }
+    
     
     func swipeableTableViewCell(cell: SWTableViewCell!, canSwipeToState state: SWCellState) -> Bool {
     

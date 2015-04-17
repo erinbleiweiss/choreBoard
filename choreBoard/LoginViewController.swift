@@ -28,7 +28,6 @@ class LoginViewController: UIViewController {
         
     func dismissKeyboard(){
     }
-
     
     @IBAction func facebookLoginAction(sender: AnyObject) {
         PFFacebookUtils.logInWithPermissions(permissions, {
@@ -71,6 +70,9 @@ class LoginViewController: UIViewController {
                     }
                     
                     println("User logged in through Facebook!")
+                    let defaults = NSUserDefaults.standardUserDefaults()
+                    defaults.setObject(username, forKey: "username")
+                    
                     self.loginAction()
                 }
             } else {
@@ -79,49 +81,49 @@ class LoginViewController: UIViewController {
         })
     }
     
-    @IBAction func loginButtonAction(sender: AnyObject) {
-        if loginUsernameField.text != "" && loginPasswordField.text != "" {
-            
-            PFUser.logInWithUsernameInBackground(loginUsernameField.text, password:loginPasswordField.text) {
-                (user: PFUser!, error: NSError!) -> Void in
-                if user != nil {
-                    // Yes, User Exists
-                    println("login successful!")
-                    
-                    var username = user.objectForKey("username") as String
-
-                    let defaults = NSUserDefaults.standardUserDefaults()
-                    defaults.setObject(username, forKey: "username")
-                    
-                    
-                    let groupName = PFCloud.callFunction("getCurrentGroupName", withParameters: [:]) as? String
-
-                    // if user is in a group, present chores list
-                    if groupName != nil{
-                        let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as UIViewController
-                        self.presentViewController(pageVC, animated: true, completion: nil)
-                    }
-                    
-                    // else, present add group page
-                    else {
-                        let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ManageGroups") as UIViewController
-                        self.presentViewController(pageVC, animated: true, completion: nil)
-                    }
-                    
-
-
-                } else {
-                    // No, User Doesn't Exist
-                    println("login invalid")
-                }
-            }
-            
-        } else {
-            // Empty, Notify user
-        }
-        
-        
-    }
+//    @IBAction func loginButtonAction(sender: AnyObject) {
+//        if loginUsernameField.text != "" && loginPasswordField.text != "" {
+//            
+//            PFUser.logInWithUsernameInBackground(loginUsernameField.text, password:loginPasswordField.text) {
+//                (user: PFUser!, error: NSError!) -> Void in
+//                if user != nil {
+//                    // Yes, User Exists
+//                    println("login successful!")
+//                    
+//                    var username = user.objectForKey("username") as String
+//
+//                    let defaults = NSUserDefaults.standardUserDefaults()
+//                    defaults.setObject(username, forKey: "username")
+//                    
+//                    
+//                    let groupName = PFCloud.callFunction("getCurrentGroupName", withParameters: [:]) as? String
+//
+//                    // if user is in a group, present chores list
+//                    if groupName != nil{
+//                        let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as UIViewController
+//                        self.presentViewController(pageVC, animated: true, completion: nil)
+//                    }
+//                    
+//                    // else, present add group page
+//                    else {
+//                        let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ManageGroups") as UIViewController
+//                        self.presentViewController(pageVC, animated: true, completion: nil)
+//                    }
+//                    
+//
+//
+//                } else {
+//                    // No, User Doesn't Exist
+//                    println("login invalid")
+//                }
+//            }
+//            
+//        } else {
+//            // Empty, Notify user
+//        }
+//        
+//        
+//    }
     
     func loginAction(){
         let groupName = PFCloud.callFunction("getCurrentGroupName", withParameters: [:]) as? String
@@ -138,8 +140,12 @@ class LoginViewController: UIViewController {
 //            self.presentViewController(pageVC, animated: true, completion: nil)
 //        }
         
-        let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as UIViewController
-        self.presentViewController(pageVC, animated: true, completion: nil)
+        
+        let rootVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as SWRevealViewController
+        let navVC = self.storyboard!.instantiateViewControllerWithIdentifier("ChoreFeedNav") as ChoreBoardBlueNavigationController
+        rootVC.pushFrontViewController(navVC, animated: false)
+    
+        self.presentViewController(rootVC, animated: true, completion: nil)
     
     }
     

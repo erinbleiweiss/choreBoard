@@ -22,8 +22,10 @@ class MenuController: UITableViewController {
     @IBOutlet weak var chorePlusLabel: UIImageView!
     
     @IBAction func logoutAction(sender: AnyObject) {
-        println("thasdgas")
         PFUser.logOut()
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(nil, forKey: "username")
+        
         let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("LoginController") as UIViewController
         self.presentViewController(pageVC, animated: true, completion: nil)
     }

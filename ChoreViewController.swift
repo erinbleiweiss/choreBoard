@@ -121,6 +121,8 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
     override func viewDidAppear(animated: Bool) {
         barButton!.badgeValue = String(groupNotifications.sharedInstance.getNumNotifications())
     }
+    
+        
 
 ///////////////////////////////////////////
 //    func textField(textField: UITextField!, shouldChangeCharactersInRange range: NSRange, replacementString string: String!) -> Bool

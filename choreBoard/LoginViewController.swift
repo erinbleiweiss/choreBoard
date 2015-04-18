@@ -13,9 +13,6 @@ class LoginViewController: UIViewController {
 
     // MARK: - Outlets
     
-    @IBOutlet weak var loginUsernameField: UITextField!
-    @IBOutlet weak var loginPasswordField: UITextField!
-    
     
     // MARK: - Variables
     var permissions = ["public_profile", "user_friends"]
@@ -35,20 +32,22 @@ class LoginViewController: UIViewController {
             if let user = user {
                 if user.isNew {
                     println("User signed up and logged in through Facebook!")
-                    self.loginAction()
-                    
+
+                    // Set up installation (for push notifications)
                     var currentUser = PFUser.currentUser()
                     var username = currentUser.objectForKey("username") as String
                     let currentInstallation = PFInstallation.currentInstallation()
                     currentInstallation["username"] = username
                     currentInstallation.saveInBackground()
                     
+                    // Populate Parse with FB info (name, gender)
                     PFCloud.callFunctionInBackground("fillFBInfo", withParameters:[:]) {
                         (result: AnyObject!, error: NSError!) -> Void in
                         if error == nil {
                         }
                     }
                     
+                    // present chores list
                     self.loginAction()
                     
                 } else {
@@ -73,6 +72,7 @@ class LoginViewController: UIViewController {
                     let defaults = NSUserDefaults.standardUserDefaults()
                     defaults.setObject(username, forKey: "username")
                     
+                    // present chores list
                     self.loginAction()
                 }
             } else {
@@ -81,53 +81,9 @@ class LoginViewController: UIViewController {
         })
     }
     
-//    @IBAction func loginButtonAction(sender: AnyObject) {
-//        if loginUsernameField.text != "" && loginPasswordField.text != "" {
-//            
-//            PFUser.logInWithUsernameInBackground(loginUsernameField.text, password:loginPasswordField.text) {
-//                (user: PFUser!, error: NSError!) -> Void in
-//                if user != nil {
-//                    // Yes, User Exists
-//                    println("login successful!")
-//                    
-//                    var username = user.objectForKey("username") as String
-//
-//                    let defaults = NSUserDefaults.standardUserDefaults()
-//                    defaults.setObject(username, forKey: "username")
-//                    
-//                    
-//                    let groupName = PFCloud.callFunction("getCurrentGroupName", withParameters: [:]) as? String
-//
-//                    // if user is in a group, present chores list
-//                    if groupName != nil{
-//                        let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as UIViewController
-//                        self.presentViewController(pageVC, animated: true, completion: nil)
-//                    }
-//                    
-//                    // else, present add group page
-//                    else {
-//                        let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ManageGroups") as UIViewController
-//                        self.presentViewController(pageVC, animated: true, completion: nil)
-//                    }
-//                    
-//
-//
-//                } else {
-//                    // No, User Doesn't Exist
-//                    println("login invalid")
-//                }
-//            }
-//            
-//        } else {
-//            // Empty, Notify user
-//        }
-//        
-//        
-//    }
     
     func loginAction(){
-        let groupName = PFCloud.callFunction("getCurrentGroupName", withParameters: [:]) as? String
-        
+//        let groupName = PFCloud.callFunction("getCurrentGroupName", withParameters: [:]) as? String
 //        // if user is in a group, present chores list
 //        if groupName != nil{
 //            let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as UIViewController
@@ -148,10 +104,7 @@ class LoginViewController: UIViewController {
         self.presentViewController(rootVC, animated: true, completion: nil)
     
     }
-    
-    @IBAction func registerButtonAction(sender: AnyObject) {
-    }
-    
+
 
     
     override func didReceiveMemoryWarning() {

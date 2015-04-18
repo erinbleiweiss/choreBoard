@@ -100,7 +100,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if self.window?.rootViewController is RootViewController
         {
             let vc = self.window?.rootViewController as RootViewController
-            vc.insertNewObjectForFetchWithCompletionHandler(completionHandler)
+            vc.fetchBackgroundData(completionHandler)
         }
         else {
             println("Not the right class")

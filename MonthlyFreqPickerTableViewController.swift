@@ -1,14 +1,14 @@
 //
-//  MonthlyPickerTableViewController.swift
+//  MonthlyFreqPickerTableViewController.swift
 //  choreBoard
 //
-//  Created by Erin Bleiweiss on 4/12/15.
+//  Created by Erin Bleiweiss on 4/17/15.
 //  Copyright (c) 2015 Erin Bleiweiss. All rights reserved.
 //
 
 import UIKit
 
-class MonthlyPickerTableViewController: UITableViewController {
+class MonthlyFreqPickerTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,40 +36,19 @@ class MonthlyPickerTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 2
+        return 6
     }
 
+    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("MonthSettingsCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
 
-        if indexPath.row == 0{
-            cell.textLabel?.text = "Repeat"
-            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-            cell.detailTextLabel!.text = "Never"
-        }
-        else{
-            cell.textLabel?.text = "Frequency"
-            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-            cell.detailTextLabel!.text = "Every Month"
-        }
+        // Configure the cell...
 
         return cell
     }
+    */
 
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
-        let row = indexPath.row
-        
-        if row == 0{
-            performSegueWithIdentifier("MonthRepeatSegue", sender: nil)
-        }
-        else if row == 1{
-            performSegueWithIdentifier("MonthFrequencySegue", sender: nil)
-        }
-        
-    }
-
-    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

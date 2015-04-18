@@ -8,13 +8,23 @@
 
 import UIKit
 
-class RootViewController: SWRevealViewController {
+class RootViewController: SWRevealViewController, parseChoreData {
 
+    var rootChores = [choreItem]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let prefs = NSUserDefaults.standardUserDefaults()
+        let checkfortoken = prefs.stringForKey("username")
+        if (checkfortoken != nil){
+//            loadParseChores()
+        }
+        
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -22,12 +32,30 @@ class RootViewController: SWRevealViewController {
     }
     
     // For Background Data Fetching
-    func insertNewObjectForFetchWithCompletionHandler (performFetchWithCompletionHandler completionHandler:(UIBackgroundFetchResult) -> Void) {
+    func fetchBackgroundData (performFetchWithCompletionHandler completionHandler:(UIBackgroundFetchResult) -> Void) {
         
-        println("updating table view")
-        
-        
-        completionHandler(UIBackgroundFetchResult.NewData)
+        PFCloud.callFunctionInBackground("getGroupChores", withParameters:[:]) {
+            (result: AnyObject!, error: NSError!) -> Void in
+            
+            
+            if error == nil {
+                for chore in result as NSArray {
+                    self.rootChores = [choreItem]()
+                    let choreName = chore["choreName"] as String
+                    self.rootChores.append(choreItem(text: choreName))
+                }
+                completionHandler(UIBackgroundFetchResult.NewData)
+            }
+            else{
+                completionHandler(UIBackgroundFetchResult.Failed)
+            }
+        }
+    }
+    
+    
+    
+    func getParseData() -> Array<choreItem> {
+        return rootChores
     }
 
     /*

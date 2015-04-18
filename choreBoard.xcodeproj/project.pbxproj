@@ -16,6 +16,8 @@
 		801824171AC6492C0009A7DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801824151AC6492C0009A7DE /* Main.storyboard */; };
 		801824191AC64A320009A7DE /* ChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801824181AC64A320009A7DE /* ChoreViewController.swift */; };
 		8022091A1AE1B67D00B7A7A5 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802209191AE1B67D00B7A7A5 /* RootViewController.swift */; };
+		8022091C1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8022091B1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift */; };
+		8022091E1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8022091D1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift */; };
 		8064E54E1AC7381E00863ADA /* ManageGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064E54D1AC7381E00863ADA /* ManageGroupsViewController.swift */; };
 		80656F551AC5130200C1994C /* createGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80656F541AC5130200C1994C /* createGroupViewController.swift */; };
 		807FA8611ABF69C600BB5A8A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA85C1ABF69C600BB5A8A /* Bolts.framework */; };
@@ -88,6 +90,8 @@
 		801824161AC6492C0009A7DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = choreBoard/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		801824181AC64A320009A7DE /* ChoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreViewController.swift; sourceTree = "<group>"; };
 		802209191AE1B67D00B7A7A5 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		8022091B1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyDayPickerTableViewController.swift; sourceTree = "<group>"; };
+		8022091D1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyFreqPickerTableViewController.swift; sourceTree = "<group>"; };
 		8064E54D1AC7381E00863ADA /* ManageGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageGroupsViewController.swift; sourceTree = "<group>"; };
 		80656F541AC5130200C1994C /* createGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createGroupViewController.swift; sourceTree = "<group>"; };
 		807FA85C1ABF69C600BB5A8A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -422,6 +426,8 @@
 			isa = PBXGroup;
 			children = (
 				80F434F11ADB77A900B15B4B /* MonthlyPickerTableViewController.swift */,
+				8022091B1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift */,
+				8022091D1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift */,
 			);
 			name = Monthly;
 			sourceTree = "<group>";
@@ -542,7 +548,9 @@
 				80C7B1B91ADC4A03006028C2 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				80CC8D7A1ADD80E900833CE2 /* notificationItem.swift in Sources */,
 				80DA7D8C1ACB7916001B8999 /* UserTemp.swift in Sources */,
+				8022091C1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift in Sources */,
 				80CC8D781ADD80B500833CE2 /* NotificationsTableViewController.swift in Sources */,
+				8022091E1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift in Sources */,
 				80C211F81AD37EBE00DD512A /* RoommateTableViewCell.swift in Sources */,
 				80C7B1BA1ADC4A03006028C2 /* SWUtilityButtonView.m in Sources */,
 				8064E54E1AC7381E00863ADA /* ManageGroupsViewController.swift in Sources */,

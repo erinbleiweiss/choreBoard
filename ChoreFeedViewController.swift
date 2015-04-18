@@ -32,6 +32,12 @@ let kCellStateLeft = SWCellState(1)
 let kCellStateRight = SWCellState(2)
 
 
+protocol parseChoreData{
+    
+    func getParseData() -> Array<choreItem>
+}
+
+
 class ChoreFeedViewController: UIViewController, SWTableViewCellDelegate {
     
     var viewLaidOut:Bool = false
@@ -47,6 +53,8 @@ class ChoreFeedViewController: UIViewController, SWTableViewCellDelegate {
     
     var leftButtons : NSMutableArray = NSMutableArray()
     var rightButtons : NSMutableArray = NSMutableArray()
+    
+    var delegate: parseChoreData? = nil
     
     @IBOutlet weak var slideshow: DRDynamicSlideShow!
     @IBOutlet weak var choreFeed: UITableView!
@@ -84,6 +92,11 @@ class ChoreFeedViewController: UIViewController, SWTableViewCellDelegate {
         checkForLogin()
 
         super.viewDidLoad()
+        var allChores = self.delegate?.getParseData()
+        println("rootchores")
+        println(allChores)
+        
+
         
         // Load Chores From Parse
         PFCloud.callFunctionInBackground("getGroupChores", withParameters:[:]) {
@@ -142,7 +155,6 @@ class ChoreFeedViewController: UIViewController, SWTableViewCellDelegate {
     func checkForLogin(){
         let prefs = NSUserDefaults.standardUserDefaults()
         let checkfortoken = prefs.stringForKey("username")
-        println(prefs.stringForKey("username"))
         if(checkfortoken == nil){
             let vc = storyboard!.instantiateViewControllerWithIdentifier("LoginController") as UIViewController
             self.presentViewController(vc, animated: false, completion: nil)

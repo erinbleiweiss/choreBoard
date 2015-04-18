@@ -84,6 +84,8 @@ class WeeklyPickerTableViewController: UITableViewController {
             var daysList:String = ""
             var count = 0
             
+            var selectedDaysNew = [optionItem]()
+            
             for item in selectedDays {
                 if (item.selected) {
                     if count > 0{
@@ -98,8 +100,12 @@ class WeeklyPickerTableViewController: UITableViewController {
                         daysList += item.text
                     }
                     count++
+                    selectedDaysNew.append(item)
                 }
+
             }
+            
+            selectedDays = selectedDaysNew
             
             if count == 1{
                 cell.detailTextLabel!.text = daysList

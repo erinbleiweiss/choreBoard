@@ -33,6 +33,7 @@ class RootViewController: SWRevealViewController, parseChoreData {
     
     // For Background Data Fetching
     func fetchBackgroundData (performFetchWithCompletionHandler completionHandler:(UIBackgroundFetchResult) -> Void) {
+
         
         PFCloud.callFunctionInBackground("getGroupChores", withParameters:[:]) {
             (result: AnyObject!, error: NSError!) -> Void in

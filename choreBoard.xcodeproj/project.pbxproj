@@ -18,6 +18,7 @@
 		8022091A1AE1B67D00B7A7A5 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802209191AE1B67D00B7A7A5 /* RootViewController.swift */; };
 		8022091C1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8022091B1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift */; };
 		8022091E1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8022091D1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift */; };
+		804E5A7C1AE3247F0004536C /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 804E5A7B1AE3247F0004536C /* ParseFacebookUtilsV4.framework */; };
 		8064E54E1AC7381E00863ADA /* ManageGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064E54D1AC7381E00863ADA /* ManageGroupsViewController.swift */; };
 		80656F551AC5130200C1994C /* createGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80656F541AC5130200C1994C /* createGroupViewController.swift */; };
 		807FA8611ABF69C600BB5A8A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA85C1ABF69C600BB5A8A /* Bolts.framework */; };
@@ -54,8 +55,6 @@
 		80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D89BB41AA768CD00583941 /* AppDelegate.swift */; };
 		80D89BBC1AA768CD00583941 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80D89BBB1AA768CD00583941 /* Images.xcassets */; };
 		80D89BBF1AA768CD00583941 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 80D89BBD1AA768CD00583941 /* LaunchScreen.xib */; };
-		80DA7D7E1ACA4AC7001B8999 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80DA7D7C1ACA4AC7001B8999 /* Bolts.framework */; };
-		80DA7D7F1ACA4AC7001B8999 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80DA7D7D1ACA4AC7001B8999 /* Parse.framework */; };
 		80DA7D811ACA4BFA001B8999 /* PushNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DA7D801ACA4BFA001B8999 /* PushNotificationController.swift */; };
 		80DA7D841ACA4FB7001B8999 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80DA7D831ACA4FB7001B8999 /* ApiKeys.swift */; };
 		80DA7D861ACA558D001B8999 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80DA7D851ACA558D001B8999 /* ApiKeys.plist */; };
@@ -92,6 +91,7 @@
 		802209191AE1B67D00B7A7A5 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		8022091B1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyDayPickerTableViewController.swift; sourceTree = "<group>"; };
 		8022091D1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyFreqPickerTableViewController.swift; sourceTree = "<group>"; };
+		804E5A7B1AE3247F0004536C /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		8064E54D1AC7381E00863ADA /* ManageGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageGroupsViewController.swift; sourceTree = "<group>"; };
 		80656F541AC5130200C1994C /* createGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createGroupViewController.swift; sourceTree = "<group>"; };
 		807FA85C1ABF69C600BB5A8A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -170,6 +170,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				807FA8641ABF69C700BB5A8A /* ParseFacebookUtils.framework in Frameworks */,
+				804E5A7C1AE3247F0004536C /* ParseFacebookUtilsV4.framework in Frameworks */,
+				807FA8611ABF69C600BB5A8A /* Bolts.framework in Frameworks */,
+				807FA8621ABF69C700BB5A8A /* Parse.framework in Frameworks */,
+				807FA8631ABF69C700BB5A8A /* ParseCrashReporting.framework in Frameworks */,
+				807FA8651ABF69C700BB5A8A /* ParseUI.framework in Frameworks */,
 				80DA80661ACCA1E9001B8999 /* FBSDKShareKit.framework in Frameworks */,
 				80DA80641ACCA1DE001B8999 /* FBSDKLoginKit.framework in Frameworks */,
 				80DA80621ACCA1D8001B8999 /* FBSDKCoreKit.framework in Frameworks */,
@@ -183,14 +189,7 @@
 				807FA86D1ABF6A0200BB5A8A /* CoreLocation.framework in Frameworks */,
 				807FA86B1ABF69FC00BB5A8A /* CoreGraphics.framework in Frameworks */,
 				807FA8691ABF69F800BB5A8A /* CFNetwork.framework in Frameworks */,
-				80DA7D7F1ACA4AC7001B8999 /* Parse.framework in Frameworks */,
 				807FA8671ABF69F300BB5A8A /* AudioToolbox.framework in Frameworks */,
-				807FA8621ABF69C700BB5A8A /* Parse.framework in Frameworks */,
-				807FA8651ABF69C700BB5A8A /* ParseUI.framework in Frameworks */,
-				80DA7D7E1ACA4AC7001B8999 /* Bolts.framework in Frameworks */,
-				807FA8641ABF69C700BB5A8A /* ParseFacebookUtils.framework in Frameworks */,
-				807FA8631ABF69C700BB5A8A /* ParseCrashReporting.framework in Frameworks */,
-				807FA8611ABF69C600BB5A8A /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +256,7 @@
 		807FA85B1ABF69B100BB5A8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				804E5A7B1AE3247F0004536C /* ParseFacebookUtilsV4.framework */,
 				80DA80651ACCA1E9001B8999 /* FBSDKShareKit.framework */,
 				80DA80631ACCA1DE001B8999 /* FBSDKLoginKit.framework */,
 				80DA80611ACCA1D8001B8999 /* FBSDKCoreKit.framework */,

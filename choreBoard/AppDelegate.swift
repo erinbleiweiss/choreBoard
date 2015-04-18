@@ -27,7 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var controller:PFQueryTableViewController = PFQueryTableViewController(className: "Chore")
         
         // Minimum fetch interval for background data
-        application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+//        application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+        application.setMinimumBackgroundFetchInterval(30) // value is in seconds (for testing purposes)
         
         self.pushNotificationController = PushNotificationController()
         // Register for Push Notitications, if running iOS 8

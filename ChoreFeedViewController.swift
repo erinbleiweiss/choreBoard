@@ -99,19 +99,19 @@ class ChoreFeedViewController: UIViewController, SWTableViewCellDelegate {
 
         
         // Load Chores From Parse
-        PFCloud.callFunctionInBackground("getGroupChores", withParameters:[:]) {
-            (result: AnyObject!, error: NSError!) -> Void in
-            if error == nil {
-                
-                self.chores = [choreItem]()
-                
-                for chore in result as NSArray {
-                    let choreName = chore["choreName"] as String
-                    self.chores.append(choreItem(text: choreName))
-                }
-                self.choreFeed.reloadData()
-            }
-        }
+//        PFCloud.callFunctionInBackground("getGroupChores", withParameters:[:]) {
+//            (result: AnyObject!, error: NSError!) -> Void in
+//            if error == nil {
+//                
+//                self.chores = [choreItem]()
+//                
+//                for chore in result as NSArray {
+//                    let choreName = chore["choreName"] as String
+//                    self.chores.append(choreItem(text: choreName))
+//                }
+//                self.choreFeed.reloadData()
+//            }
+//        }
         
         // Set up Top Slideshow
         slideshow.backgroundColor = UIColor.orangeColor()

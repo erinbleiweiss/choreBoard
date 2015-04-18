@@ -46,7 +46,14 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
     @IBAction func addChoreAction(sender: AnyObject) {
         var userObj: PFUser!
         var groupObj: PFObject!
-
+        
+        println("frequency")
+        println(selectedFrequency?.text)
+        println("days")
+        for day in selectedDays{
+            println(day.text)
+        }
+    
         newChoreItem = choreItem(text: searchBar.text)
         PFCloud.callFunctionInBackground("addChore", withParameters: ["choreName": searchBar.text], block: nil)
         

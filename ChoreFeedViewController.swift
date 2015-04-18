@@ -153,9 +153,7 @@ class ChoreFeedViewController: UIViewController, SWTableViewCellDelegate {
     }
     
     func checkForLogin(){
-        let prefs = NSUserDefaults.standardUserDefaults()
-        let checkfortoken = prefs.stringForKey("username")
-        if(checkfortoken == nil){
+        if(PFUser.currentUser() == nil){
             let vc = storyboard!.instantiateViewControllerWithIdentifier("LoginController") as UIViewController
             self.presentViewController(vc, animated: false, completion: nil)
         }

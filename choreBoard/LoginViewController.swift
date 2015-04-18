@@ -35,6 +35,8 @@ class LoginViewController: UIViewController {
 
                     // Set up installation (for push notifications)
                     var currentUser = PFUser.currentUser()
+                    user.saveInBackground()
+                    
                     var username = currentUser.objectForKey("username") as String
                     let currentInstallation = PFInstallation.currentInstallation()
                     currentInstallation["username"] = username
@@ -53,6 +55,8 @@ class LoginViewController: UIViewController {
                 } else {
                     
                     var currentUser = PFUser.currentUser()
+                    user.saveInBackground()
+                    
                     var username = currentUser.objectForKey("username") as String
                     let currentInstallation = PFInstallation.currentInstallation()
                     currentInstallation["username"] = username

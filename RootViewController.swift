@@ -34,17 +34,31 @@ class RootViewController: SWRevealViewController, parseChoreData {
     // For Background Data Fetching
     func fetchBackgroundData (performFetchWithCompletionHandler completionHandler:(UIBackgroundFetchResult) -> Void) {
 
+        let defaults = NSUserDefaults.standardUserDefaults()
+        var storedChores: NSDictionary = defaults.dictionaryForKey("storedChores")!
+        var activeChores = [String]()
         
         PFCloud.callFunctionInBackground("getGroupChores", withParameters:[:]) {
             (result: AnyObject!, error: NSError!) -> Void in
-            
             
             if error == nil {
                 for chore in result as NSArray {
                     self.rootChores = [choreItem]()
                     let choreName = chore["choreName"] as String
+                    let choreId = chore.objectId as String
+                    let choreStatus = chore["completed"] as Bool
+                    
+                    if (storedChores.valueForKey(choreId) as Bool != choreStatus){
+                        activeChores.append(choreName)
+                    }
+
                     self.rootChores.append(choreItem(text: choreName))
                 }
+                
+                for chore in activeChores{
+                    PFCloud.callFunction("activeChorePush", withParameters: ["message": chore])
+                }
+                
                 completionHandler(UIBackgroundFetchResult.NewData)
             }
             else{

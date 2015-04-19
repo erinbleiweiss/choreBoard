@@ -67,6 +67,9 @@ class ChoreFeedViewController: UIViewController, SWTableViewCellDelegate {
     
     func refresh(sender:AnyObject)
     {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        var storedChores = [String: Bool]()
+        
         // Load Chores From Parse
         PFCloud.callFunctionInBackground("getGroupChores", withParameters:[:]) {
             (result: AnyObject!, error: NSError!) -> Void in
@@ -75,14 +78,22 @@ class ChoreFeedViewController: UIViewController, SWTableViewCellDelegate {
                 self.chores = [choreItem]()
                 
                 for chore in result as NSArray {
+                    
                     let choreName = chore["choreName"] as String
+                    
+                    let choreId = chore.objectId as String
+                    let choreStatus = chore["completed"] as Bool
                     self.chores.append(choreItem(text: choreName))
+                    
+                    storedChores[choreId] = choreStatus
+                    
                     self.choreFeed.reloadData()
                 }
             }
+            
+            defaults.setObject(storedChores, forKey: "storedChores")
         }
-        
-        
+
         self.refreshControl?.endRefreshing()
     }
     
@@ -95,23 +106,6 @@ class ChoreFeedViewController: UIViewController, SWTableViewCellDelegate {
         var allChores = self.delegate?.getParseData()
         println("rootchores")
         println(allChores)
-        
-
-        
-        // Load Chores From Parse
-//        PFCloud.callFunctionInBackground("getGroupChores", withParameters:[:]) {
-//            (result: AnyObject!, error: NSError!) -> Void in
-//            if error == nil {
-//                
-//                self.chores = [choreItem]()
-//                
-//                for chore in result as NSArray {
-//                    let choreName = chore["choreName"] as String
-//                    self.chores.append(choreItem(text: choreName))
-//                }
-//                self.choreFeed.reloadData()
-//            }
-//        }
         
         // Set up Top Slideshow
         slideshow.backgroundColor = UIColor.orangeColor()

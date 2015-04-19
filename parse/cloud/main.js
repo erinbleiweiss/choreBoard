@@ -39,6 +39,7 @@ Parse.Cloud.define("addChore", function(request, response){
 	  		success: function(chore){
 	  			var choreName = request.params.choreName;
 	  			chore.set("choreName", choreName);
+	  			chore.set("completed", false);
 	  			chore.save(null, {
 	  				success: function(chore){
 	  					response.success(chore);
@@ -239,7 +240,7 @@ Parse.Cloud.define("getGroupChores", function (request, response){
 	query.find({
 		success: function(allChores){
 			for (var i=0; i < allChores.length; i++){
-				console.log(allChores[i].get("choreName"))
+				console.log(allChores[i])
 			}
 			response.success(allChores);
 		},
@@ -524,6 +525,34 @@ Parse.Cloud.define("getAllChores", function(request, response) {
 			response.error(error);
 		}
 	});
+
+});
+
+
+Parse.Cloud.define("activeChorePush", function(request, response){
+
+	var message = request.params.message;
+
+	var currentUser = Parse.User.current();
+	var username = currentUser.get("username");
+
+	var query = new Parse.Query(Parse.Installation);
+	query.equalTo("username", username);
+	 
+	Parse.Push.send({
+	  where: query, // Set our Installation query
+	  data: {
+	    alert: message
+	  }
+	}, {
+	  success: function() {
+	    response.success()
+	  },
+	  error: function(error) {
+	    response.error()
+	  }
+	});
+
 
 });
 

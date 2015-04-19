@@ -19,6 +19,7 @@
 		8022091C1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8022091B1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift */; };
 		8022091E1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8022091D1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift */; };
 		804E5A7C1AE3247F0004536C /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 804E5A7B1AE3247F0004536C /* ParseFacebookUtilsV4.framework */; };
+		804E5A7E1AE344500004536C /* MySWCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804E5A7D1AE344500004536C /* MySWCell.swift */; };
 		8064E54E1AC7381E00863ADA /* ManageGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064E54D1AC7381E00863ADA /* ManageGroupsViewController.swift */; };
 		80656F551AC5130200C1994C /* createGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80656F541AC5130200C1994C /* createGroupViewController.swift */; };
 		807FA8611ABF69C600BB5A8A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA85C1ABF69C600BB5A8A /* Bolts.framework */; };
@@ -92,6 +93,7 @@
 		8022091B1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyDayPickerTableViewController.swift; sourceTree = "<group>"; };
 		8022091D1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyFreqPickerTableViewController.swift; sourceTree = "<group>"; };
 		804E5A7B1AE3247F0004536C /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
+		804E5A7D1AE344500004536C /* MySWCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MySWCell.swift; sourceTree = "<group>"; };
 		8064E54D1AC7381E00863ADA /* ManageGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageGroupsViewController.swift; sourceTree = "<group>"; };
 		80656F541AC5130200C1994C /* createGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createGroupViewController.swift; sourceTree = "<group>"; };
 		807FA85C1ABF69C600BB5A8A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				800A39D41AC6020000CA4F59 /* SWRevealViewController */,
 				80C7C7701AD4E8FB009E9736 /* BBBadgeBarButtonItem */,
 				801824151AC6492C0009A7DE /* Main.storyboard */,
+				804E5A7D1AE344500004536C /* MySWCell.swift */,
 				802209191AE1B67D00B7A7A5 /* RootViewController.swift */,
 				800A39D81AC602C400CA4F59 /* MenuController.swift */,
 				80B7813F1AD97C1E00B03AF7 /* ChoreFeedViewController.swift */,
@@ -543,6 +546,7 @@
 				80C7C7731AD4E91E009E9736 /* BBBadgeBarButtonItem.m in Sources */,
 				80F434E21ADB181000B15B4B /* DayPickerTableViewController.swift in Sources */,
 				801824191AC64A320009A7DE /* ChoreViewController.swift in Sources */,
+				804E5A7E1AE344500004536C /* MySWCell.swift in Sources */,
 				80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */,
 				80C7B1B81ADC4A03006028C2 /* SWTableViewCell.m in Sources */,
 				80C7B1B91ADC4A03006028C2 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,

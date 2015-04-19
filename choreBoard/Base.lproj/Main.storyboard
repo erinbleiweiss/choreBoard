@@ -805,7 +805,7 @@
                                 <rect key="frame" x="0.0" y="164" width="600" height="435"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="RkL-Kv-Jsp">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChoreFeedCell" id="RkL-Kv-Jsp">
                                         <rect key="frame" x="0.0" y="0.0" width="607" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RkL-Kv-Jsp" id="02H-vg-6qa">
@@ -821,12 +821,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="tpa-ZL-0UQ" firstAttribute="leading" secondItem="a7E-kV-XR9" secondAttribute="leading" id="6Vk-vY-oZA"/>
                             <constraint firstAttribute="trailing" secondItem="uS9-wd-GEA" secondAttribute="trailing" id="DMu-Wr-e7e"/>
                             <constraint firstItem="tpa-ZL-0UQ" firstAttribute="top" secondItem="VzV-6x-Oov" secondAttribute="bottom" constant="100" id="IoZ-gC-QfG"/>
                             <constraint firstItem="tpa-ZL-0UQ" firstAttribute="leading" secondItem="a7E-kV-XR9" secondAttribute="leading" id="NSe-rc-V1y"/>
                             <constraint firstItem="uS9-wd-GEA" firstAttribute="leading" secondItem="a7E-kV-XR9" secondAttribute="leading" id="R62-C2-egb"/>
                             <constraint firstItem="Y41-Sp-WgE" firstAttribute="top" secondItem="tpa-ZL-0UQ" secondAttribute="bottom" constant="1" id="aL4-ck-ltg"/>
                             <constraint firstAttribute="trailing" secondItem="tpa-ZL-0UQ" secondAttribute="trailing" id="gXP-wL-QWC"/>
+                            <constraint firstAttribute="trailing" secondItem="tpa-ZL-0UQ" secondAttribute="trailing" id="mrO-nF-RJO"/>
                             <constraint firstItem="uS9-wd-GEA" firstAttribute="top" secondItem="VzV-6x-Oov" secondAttribute="bottom" id="v2b-8D-xdj"/>
                         </constraints>
                     </view>

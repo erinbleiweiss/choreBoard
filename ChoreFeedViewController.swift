@@ -38,7 +38,7 @@ protocol parseChoreData{
 }
 
 
-class ChoreFeedViewController: UIViewController, SWTableViewCellDelegate {
+class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SWTableViewCellDelegate {
     
     var viewLaidOut:Bool = false
     var frame: CGRect = CGRectMake(0, 0, 0, 0)
@@ -51,8 +51,8 @@ class ChoreFeedViewController: UIViewController, SWTableViewCellDelegate {
     var customButton: UIButton?
     var barButton: BBBadgeBarButtonItem?
     
-    var leftButtons : NSMutableArray = NSMutableArray()
-    var rightButtons : NSMutableArray = NSMutableArray()
+//    var leftButtons : NSMutableArray = NSMutableArray()
+//    var rightButtons : NSMutableArray = NSMutableArray()
     
     var delegate: parseChoreData? = nil
     
@@ -131,13 +131,15 @@ class ChoreFeedViewController: UIViewController, SWTableViewCellDelegate {
         
         if self.revealViewController() != nil {
             customButton!.addTarget(self.revealViewController(), action: "rightRevealToggle:", forControlEvents: .TouchUpInside)
-            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+//            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
+        // Register Cell
+//        self.choreFeed.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier:"ChoreFeedCell")
         
-        // Set up buttons
-        leftButtons.sw_addUtilityButtonWithColor(UIColor.blueColor(), title: "Edit")
-        leftButtons.sw_addUtilityButtonWithColor(UIColor.greenColor(), title: "Done!")
+//        // Set up buttons
+//        leftButtons.sw_addUtilityButtonWithColor(UIColor.blueColor(), title: "Edit")
+//        leftButtons.sw_addUtilityButtonWithColor(UIColor.greenColor(), title: "Done!")
         
     }
     
@@ -181,14 +183,14 @@ class ChoreFeedViewController: UIViewController, SWTableViewCellDelegate {
     
         println("checkpoint")
         
-//        switch (state.value) {
-//            case kCellStateLeft.value:
-//                return false
-//            case kCellStateRight.value:
-//                return false
-//            default:
-//                break
-//        }
+        switch (state.value) {
+            case kCellStateLeft.value:
+                return false
+            case kCellStateRight.value:
+                return false
+            default:
+                break
+        }
         
         return false
         
@@ -274,35 +276,54 @@ class ChoreFeedViewController: UIViewController, SWTableViewCellDelegate {
         
         return self.chores.count
     }
-    
-    //    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    //        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-    //
-    //        cell.textLabel!.text = self.chores[indexPath.row].text
-    //
-    //        return cell
-    //    }
+
     
     ///////////////////////////////////////////////
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> SWTableViewCell {
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 50
+    }
+    
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 50
+    }
+
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        //variable type is inferred
-        var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as? SWTableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("ChoreFeedCell") as? SWTableViewCell
         
-        
-        if cell == nil {
-            cell = SWTableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-            cell!.leftUtilityButtons = self.leftButtons
-            cell!.rightUtilityButtons = self.rightButtons
+        if cell == nil{
+            cell = SWTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "ChoreFeedCell")
+            cell!.leftUtilityButtons = self.leftButtons()
+            cell!.rightUtilityButtons = self.rightButtons()
             cell!.delegate = self
         }
-        
         
         cell!.textLabel?.text = self.chores[indexPath.row].text
         
         return cell!
+        
     }
+    
+
+    func leftButtons() -> NSArray{
+        
+        var leftUtilityButtons: NSMutableArray = []
+        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.blueColor(), title: "Edit")
+        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.greenColor(), title: "Done!")
+        
+        return leftUtilityButtons
+    }
+    
+    func rightButtons() -> NSArray{
+        
+        var rightUtilityButtons: NSMutableArray = []
+        return rightUtilityButtons
+    }
+    
     
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {

@@ -962,7 +962,7 @@
                                                         <constraint firstAttribute="width" constant="30" id="QZC-B5-Sj9"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsr-us-jh1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsr-us-jh1">
                                                     <rect key="frame" x="53" y="0.0" width="400" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="400" id="XfB-jm-135"/>
@@ -2575,7 +2575,7 @@
         <image name="homeicon" width="376" height="312"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7Rc-nS-Vdb"/>
+        <segue reference="anr-mq-6Ez"/>
         <segue reference="6Ry-MP-rBw"/>
     </inferredMetricsTieBreakers>
 </document>

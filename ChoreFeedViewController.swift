@@ -68,7 +68,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         // Load Chores From Parse
         PFCloud.callFunctionInBackground("getGroupItems", withParameters:[:]) {
             (result: AnyObject!, error: NSError!) -> Void in
-            if error == nil {
+            if error == nil && result != nil{
                 
                 for chore in result["chores"] as NSArray{
                     let choreName = chore["choreName"] as String

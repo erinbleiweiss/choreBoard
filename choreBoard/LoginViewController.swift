@@ -62,15 +62,15 @@ class LoginViewController: UIViewController {
                     currentInstallation["username"] = username
                     currentInstallation.saveInBackground()
                     
-                    PFCloud.callFunctionInBackground("getMyGroupId", withParameters:[:]) {
-                        (result: AnyObject!, error: NSError!) -> Void in
-                        if (error == nil) && (result != nil) {
-                            var groupId = result as String
-                            let currentInstallation = PFInstallation.currentInstallation()
-                            currentInstallation.addUniqueObject("CH_" + groupId, forKey: "channels")
-                            currentInstallation.saveInBackground()
-                        }
-                    }
+//                    PFCloud.callFunctionInBackground("getMyGroupId", withParameters:[:]) {
+//                        (result: AnyObject!, error: NSError!) -> Void in
+//                        if (error == nil) && (result != nil) {
+//                            var groupId = result as String
+//                            let currentInstallation = PFInstallation.currentInstallation()
+//                            currentInstallation.addUniqueObject("CH_" + groupId, forKey: "channels")
+//                            currentInstallation.saveInBackground()
+//                        }
+//                    }
                     
                     // println("User logged in through Facebook!")
                     let defaults = NSUserDefaults.standardUserDefaults()

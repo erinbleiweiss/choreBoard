@@ -68,34 +68,44 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         // Load Chores From Parse
         PFCloud.callFunctionInBackground("getGroupItems", withParameters:[:]) {
             (result: AnyObject!, error: NSError!) -> Void in
-            if error == nil && result != nil{
+            if error == nil {
                 
-                for chore in result["chores"] as NSArray{
-                    let choreName = chore["choreName"] as String
-                    let choreStatus = chore["completed"] as Bool
-                    let choreId = chore.objectId as String
-                    self.groupItems.append(groupItem(text: choreName, type: "Chore", completed: choreStatus, objectId: choreId))
-                    
-                    storedChores[choreId] = choreStatus
+                let allChores: NSArray = result["chores"] as NSArray
+                for chore in allChores{
+                    if allChores.count > 0 {
+                        let choreName = chore["choreName"] as String
+                        let choreStatus = chore["completed"] as Bool
+                        let choreId = chore.objectId as String
+                        self.groupItems.append(groupItem(text: choreName, type: "Chore", completed: choreStatus, objectId: choreId))
+                        
+                        storedChores[choreId] = choreStatus
+                    }
                 }
                 
-                for supply in result["supplies"] as NSArray{
-                    let supplyName = supply["supplyName"] as String
-                    let supplyStatus = supply["completed"] as Bool
-                    let supplyId = supply.objectId as String
-                    self.groupItems.append(groupItem(text: supplyName, type: "Supply", completed: supplyStatus, objectId: supplyId))
-                    
+                let allSupplies: NSArray = result["supplies"] as NSArray
+                for supply in allSupplies as NSArray{
+                    if allSupplies.count > 0{
+                        let supplyName = supply["supplyName"] as String
+                        let supplyStatus = supply["completed"] as Bool
+                        let supplyId = supply.objectId as String
+                        self.groupItems.append(groupItem(text: supplyName, type: "Supply", completed: supplyStatus, objectId: supplyId))
+                        
+                    }
                 }
                 
-                for bill in result["bills"] as NSArray{
-                    let billName = bill["billName"] as String
-                    let billAmount = bill["amount"] as String
-                    let billStatus = bill["completed"] as Bool
-                    let billId = bill.objectId as String
-                    
-                    var billString = billName + " (" + billAmount + ")"
-                    
-                    self.groupItems.append(groupItem(text: billString, type: "Bill", completed: billStatus, objectId: billId))
+                let allBills: NSArray = result["bills"] as NSArray
+                for bill in allBills as NSArray{
+                    if allBills.count > 0{
+                        let billName = bill["billName"] as String
+                        let billAmount = bill["amount"] as String
+                        let billStatus = bill["completed"] as Bool
+                        let billId = bill.objectId as String
+                        
+                        var billString = billName + " (" + billAmount + ")"
+                        
+                        self.groupItems.append(groupItem(text: billString, type: "Bill", completed: billStatus, objectId: billId))
+                    }
+
                 }
                 
             }

@@ -179,7 +179,10 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
     
     override func viewDidAppear(animated: Bool) {
         barButton!.badgeValue = String(groupNotifications.sharedInstance.getNumNotifications())
-        refresh(self)
+        
+        if checkForLogin(){
+            refresh(self)
+        }
     }
 
     

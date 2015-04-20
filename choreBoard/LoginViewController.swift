@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
             (user: PFUser!, error: NSError!) -> Void in
             if let user = user {
                 if user.isNew {
-                    println("User signed up and logged in through Facebook!")
+                    // println("User signed up and logged in through Facebook!")
 
                     // Set up installation (for push notifications)
                     var currentUser = PFUser.currentUser()
@@ -72,7 +72,7 @@ class LoginViewController: UIViewController {
                         }
                     }
                     
-                    println("User logged in through Facebook!")
+                    // println("User logged in through Facebook!")
                     let defaults = NSUserDefaults.standardUserDefaults()
                     defaults.setObject(username, forKey: "username")
                     
@@ -80,7 +80,7 @@ class LoginViewController: UIViewController {
                     self.loginAction()
                 }
             } else {
-                println("Uh oh. The user cancelled the Facebook login.")
+                // println("Uh oh. The user cancelled the Facebook login.")
             }
         })
     }

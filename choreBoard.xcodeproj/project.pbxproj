@@ -37,6 +37,7 @@
 		807FA8771ABF6A1F00BB5A8A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA8761ABF6A1F00BB5A8A /* SystemConfiguration.framework */; };
 		807FA8791ABF6A2700BB5A8A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA8781ABF6A2700BB5A8A /* libz.dylib */; };
 		807FA87B1ABF6A2D00BB5A8A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA87A1ABF6A2D00BB5A8A /* libsqlite3.dylib */; };
+		808FD8021AE4C56200FEDC6D /* supplyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808FD8011AE4C56200FEDC6D /* supplyItem.swift */; };
 		809490271AC36902004C364E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809490261AC36902004C364E /* LoginViewController.swift */; };
 		809490291AC38093004C364E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809490281AC38093004C364E /* RegisterViewController.swift */; };
 		80AF9BD31ABCE915003829F3 /* PageNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AF9BD21ABCE915003829F3 /* PageNavigationController.swift */; };
@@ -113,6 +114,7 @@
 		807FA8781ABF6A2700BB5A8A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		807FA87A1ABF6A2D00BB5A8A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		807FA87D1ABF6B3C00BB5A8A /* choreBoard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "choreBoard-Bridging-Header.h"; sourceTree = "<group>"; };
+		808FD8011AE4C56200FEDC6D /* supplyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = supplyItem.swift; sourceTree = "<group>"; };
 		809490261AC36902004C364E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = choreBoard/LoginViewController.swift; sourceTree = "<group>"; };
 		809490281AC38093004C364E /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = choreBoard/RegisterViewController.swift; sourceTree = "<group>"; };
 		80AF9BD21ABCE915003829F3 /* PageNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageNavigationController.swift; path = choreBoard/PageNavigationController.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 			children = (
 				80DA7D8B1ACB7916001B8999 /* UserTemp.swift */,
 				80E2A0AE1AB800EF008A169D /* choreItem.swift */,
+				808FD8011AE4C56200FEDC6D /* supplyItem.swift */,
 				80DA80671AD23DDD001B8999 /* FBUser.swift */,
 				80F434E91ADB328100B15B4B /* optionItem.swift */,
 				80CC8D791ADD80E900833CE2 /* notificationItem.swift */,
@@ -543,6 +546,7 @@
 				800A39D91AC602C400CA4F59 /* MenuController.swift in Sources */,
 				80DA7D8A1ACB120F001B8999 /* FindRoommatesTableViewController.swift in Sources */,
 				80C7C7771AD5C60A009E9736 /* groupNotifications.swift in Sources */,
+				808FD8021AE4C56200FEDC6D /* supplyItem.swift in Sources */,
 				80656F551AC5130200C1994C /* createGroupViewController.swift in Sources */,
 				800A39D71AC6023000CA4F59 /* SWRevealViewController.m in Sources */,
 				800D8B261AD9C6E200AD975C /* BillViewController.swift in Sources */,

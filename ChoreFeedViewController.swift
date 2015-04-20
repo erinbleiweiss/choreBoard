@@ -168,13 +168,10 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         
         switch (state) {
             case .CellStateLeft: // Left
-                println("left")
                 return true
             case .CellStateRight: // Right
-                println("right")
                 return false
             default:
-                println("default")
                 break
         }
         

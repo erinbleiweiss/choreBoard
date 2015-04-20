@@ -97,6 +97,44 @@ Parse.Cloud.define("addSupply", function(request, response){
 });
 
 
+Parse.Cloud.define("addBill", function(request, response){
+
+	var Bill = Parse.Object.extend("Bill");
+	var bill = new Bill();
+
+	var currentUser = Parse.User.current();
+	currentUser.fetch({
+	  success: function(currentUser) {
+	  	var groupObj = currentUser.get("group");
+	    bill.set("group", groupObj);
+	  	bill.save(null, {
+	  		success: function(bill){
+	  			var billName = request.params.billName;
+	  			var billAmount = request.params.billAmount;
+	  			bill.set("billName", billName);
+	  			bill.set("amount", billAmount)
+	  			bill.set("completed", false);
+	  			bill.save(null, {
+	  				success: function(bill){
+	  					response.success(bill);
+	  				},
+	  				error: function(error){
+	  					response.error(error);
+	  				}
+	  			});
+	  		},
+	  		error: function(error){
+	  			response.error(error)
+	  		}
+
+	  	});
+	  }
+	});
+
+
+});
+
+
 Parse.Cloud.define("getCurrentGroupOld", function(request, response){
 
 	var currentUser = Parse.User.current();

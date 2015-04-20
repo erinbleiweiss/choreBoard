@@ -15,18 +15,30 @@ class ChoreTEMPViewController: UIViewController, UITextFieldDelegate, UITableVie
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var choreTableView: UITableView!
     
+
     @IBAction func searchBarDidChange(sender: AnyObject) {
         choreTableView.hidden = false
         var searchString = searchBar.text
         searchAutocompleteEntriesWithSubstring(searchString)
     }
     
+    
+    @IBAction func addChoreAction(sender: AnyObject) {
+        
+        if searchBar.text != ""{
+            newChoreItem = choreItem(text: searchBar.text)
+            PFCloud.callFunctionInBackground("addChore", withParameters: ["choreName": searchBar.text], block: nil)
+        }
+        
+        let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as UIViewController
+        self.presentViewController(pageVC, animated: true, completion: nil)
+    }
+    
+    
     // MARK: - Variables
     var customButton: UIButton?
     var barButton: BBBadgeBarButtonItem?
-    
-    var choreDataSource = [choreItem]()
-    
+        
     var newChoreItem: choreItem?
     var allChores = [choreItem]()
     var filteredChores = [choreItem]()
@@ -57,7 +69,6 @@ class ChoreTEMPViewController: UIViewController, UITextFieldDelegate, UITableVie
         choreTableView!.dataSource = self
         choreTableView!.delegate = self
         choreTableView!.scrollEnabled = true
-        choreTableView!.hidden = true
         self.view.addSubview(choreTableView)
         
         // Load Chores From Parse
@@ -112,6 +123,13 @@ class ChoreTEMPViewController: UIViewController, UITextFieldDelegate, UITableVie
         } else
         {
             cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
+        }
+        
+        if filteredChores.count == 1 && cell!.textLabel?.text != ""  && cell!.textLabel?.text == searchBar.text{
+            cell!.accessoryType = .Checkmark
+        }
+        else{
+            cell!.accessoryType = .None
         }
         
         return cell!

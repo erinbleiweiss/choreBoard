@@ -163,7 +163,11 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         
             
         // Navigation Title
-        var imageView = UIImageView(frame: CGRectMake(0, 0, 80, 30))
+        var imageView = UIImageView(frame: CGRectMake(0, 0, 60, 20))
+        imageView.autoresizingMask = UIViewAutoresizing.FlexibleBottomMargin | UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleWidth
+            
+        imageView.contentMode = UIViewContentMode.ScaleAspectFit
+            
         let logo = UIImage(named: "choreboard_white")
         imageView.image = logo
 
@@ -368,7 +372,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 var strikeThroughText = NSMutableAttributedString(string: self.groupItems[indexPath.row].text)
                 strikeThroughText.addAttribute(NSStrikethroughStyleAttributeName, value: NSUnderlineStyle.StyleSingle.rawValue, range: NSMakeRange(0, strikeThroughText.length))
                 cell!.choreText.attributedText = strikeThroughText
-                cell!.choreImage.alpha = 0.5
+                cell!.choreImage.alpha = 0.3
             }
             else{
                 cell!.reset()
@@ -387,7 +391,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 var strikeThroughText = NSMutableAttributedString(string: "Buy " + self.groupItems[indexPath.row].text)
                 strikeThroughText.addAttribute(NSStrikethroughStyleAttributeName, value: NSUnderlineStyle.StyleSingle.rawValue, range: NSMakeRange(0, strikeThroughText.length))
                 cell!.choreText.attributedText = strikeThroughText
-                cell!.choreImage.alpha = 0.5
+                cell!.choreImage.alpha = 0.3
             }
             else{
                 cell!.reset()
@@ -406,7 +410,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 var strikeThroughText = NSMutableAttributedString(string: "Pay " + self.groupItems[indexPath.row].text)
                 strikeThroughText.addAttribute(NSStrikethroughStyleAttributeName, value: NSUnderlineStyle.StyleSingle.rawValue, range: NSMakeRange(0, strikeThroughText.length))
                 cell!.choreText.attributedText = strikeThroughText
-                cell!.choreImage.alpha = 0.5
+                cell!.choreImage.alpha = 0.3
             }
             else{
                 cell!.reset()

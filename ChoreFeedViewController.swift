@@ -61,6 +61,8 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         let defaults = NSUserDefaults.standardUserDefaults()
         var storedChores = [String: Bool]()
         
+        self.groupItems.removeAll(keepCapacity: false)
+        
         // Load Chores From Parse
         PFCloud.callFunctionInBackground("getGroupItems", withParameters:[:]) {
             (result: AnyObject!, error: NSError!) -> Void in
@@ -286,7 +288,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         var cell = tableView.dequeueReusableCellWithIdentifier("ChoreFeedCell") as? ChoreFeedCell
         
         if cell == nil{
-            cell = ChoreFeedCell()
+            cell = ChoreFeedCell(style: UITableViewCellStyle.Default, reuseIdentifier: "ChoreFeedCell")
             cell!.leftUtilityButtons = self.leftButtons()
             cell!.rightUtilityButtons = nil
             cell!.delegate = self
@@ -296,7 +298,6 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
             cell!.choreText?.text = self.groupItems[indexPath.row].text
             cell!.choreText?.textAlignment = .Left
             cell!.choreImage.image = UIImage(named: "broom")
-
         }
             
         else if groupItems[indexPath.row].type == "supply"{
@@ -318,8 +319,8 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
             cell!.choreText?.textAlignment = .Left
         }
         
-        cell!.leftUtilityButtons = self.leftButtons()
-        cell!.rightUtilityButtons = nil
+        
+        cell!.setLeftUtilityButtons(leftButtons(), withButtonWidth: 80)
         cell!.delegate = self
         return cell!
         

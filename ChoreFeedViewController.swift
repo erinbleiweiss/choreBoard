@@ -290,11 +290,13 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 subview.backgroundColor = UIColor.clearColor()
                 self.slideshow.addSubview(subview, onPage: index)
                 
-                var subviewText = UILabel(frame: CGRectMake(0, 0, slideshow.frame.width, slideshowHeight))
-                subviewText.textColor = UIColor.blackColor()
+                var subviewText = UILabel(frame: CGRectMake(10, 0, slideshow.frame.width - 20, slideshowHeight))
+                
+                subviewText.textColor = UIColor.whiteColor()
                 subviewText.backgroundColor = UIColor.clearColor()
                 subviewText.numberOfLines = 0
                 subviewText.text = snark[index]
+                subviewText.font = UIFont(name: "GilLSans", size: 18.0)
                 subview.addSubview(subviewText)
                 
                 let point = CGPointMake(subviewText.center.x + self.slideshow.frame.size.width, subviewText.center.y - self.slideshow.frame.size.height)

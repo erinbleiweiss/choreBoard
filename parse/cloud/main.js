@@ -744,3 +744,29 @@ Parse.Cloud.define("reset", function(request, response){
 
 });
 
+
+Parse.Cloud.define("deleteObject", function(request, response){
+
+	var objId = request.params.objectId;
+	var kind = request.params.kind;
+
+
+	var Class = Parse.Object.extend(kind);
+	var query = new Parse.Query(Class);
+	query.equalTo("objectId", objId);
+	query.find({
+		success: function(queryUser){
+			var theObject = queryUser[0];
+			theObject.destroy();
+
+			response.success();
+		},
+		error: function(error){
+			response.error(error);
+		}
+
+	});
+
+
+});
+

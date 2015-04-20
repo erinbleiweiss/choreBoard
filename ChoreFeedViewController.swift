@@ -39,7 +39,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
     var refreshControl:UIRefreshControl!
     
     var chores = [choreItem]()
-    var groupItems = [groupItem]()
+    var groupItems: [groupItem] = []
     var swipedItem: groupItem?
     
     var clickedButtonIndex: Int!
@@ -101,9 +101,18 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
             }
             
             defaults.setObject(storedChores, forKey: "storedChores")
+            
+            self.groupItems.sort({
+                item1, item2 in
+                let bool1 = item1.completed as Bool
+                let bool2 = item2.completed as Bool
+                
+                return bool1 == false && bool2 == true
+            })
+            
             self.choreFeed.reloadData()
         }
-        
+
         
         self.refreshControl?.endRefreshing()
     }
@@ -226,7 +235,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
             }
             
 
-
+            refresh(self)
             
         }
         

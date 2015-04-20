@@ -61,6 +61,42 @@ Parse.Cloud.define("addChore", function(request, response){
 });
 
 
+Parse.Cloud.define("addSupply", function(request, response){
+
+	var Supply = Parse.Object.extend("Supply");
+	var supply = new Supply();
+
+	var currentUser = Parse.User.current();
+	currentUser.fetch({
+	  success: function(currentUser) {
+	  	var groupObj = currentUser.get("group");
+	    supply.set("group", groupObj);
+	  	supply.save(null, {
+	  		success: function(supply){
+	  			var supplyName = request.params.supplyName;
+	  			supply.set("supplyName", supplyName);
+	  			supply.set("completed", false);
+	  			supply.save(null, {
+	  				success: function(supply){
+	  					response.success(supply);
+	  				},
+	  				error: function(error){
+	  					response.error(error);
+	  				}
+	  			});
+	  		},
+	  		error: function(error){
+	  			response.error(error)
+	  		}
+
+	  	});
+	  }
+	});
+
+
+});
+
+
 Parse.Cloud.define("getCurrentGroupOld", function(request, response){
 
 	var currentUser = Parse.User.current();
@@ -520,6 +556,22 @@ Parse.Cloud.define("getAllChores", function(request, response) {
 	query.find({
 		success: function(allChores){
 			response.success(allChores);
+		},
+		error: function(error){
+			response.error(error);
+		}
+	});
+
+});
+
+Parse.Cloud.define("getAllSupplies", function(request, response) {
+
+	var Supply = Parse.Object.extend("PresetSupply");
+	var query = new Parse.Query(Supply);
+	query.limit(1000);
+	query.find({
+		success: function(allSupplies){
+			response.success(allSupplies);
 		},
 		error: function(error){
 			response.error(error);

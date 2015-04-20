@@ -71,6 +71,7 @@
 		80E2A0AF1AB800EF008A169D /* choreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2A0AE1AB800EF008A169D /* choreItem.swift */; };
 		80E2A0B11AB8010F008A169D /* StrikeThroughText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2A0B01AB8010F008A169D /* StrikeThroughText.swift */; };
 		80E2A0B31AB801DA008A169D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E2A0B21AB801DA008A169D /* TableViewCell.swift */; };
+		80E655581AE49CAD0033997D /* ChoreTEMPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E655571AE49CAD0033997D /* ChoreTEMPViewController.swift */; };
 		80F434E01ADB097B00B15B4B /* WeeklyPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F434DF1ADB097B00B15B4B /* WeeklyPickerTableViewController.swift */; };
 		80F434E21ADB181000B15B4B /* DayPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F434E11ADB181000B15B4B /* DayPickerTableViewController.swift */; };
 		80F434E81ADB1D8E00B15B4B /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F434E71ADB1D8E00B15B4B /* TransitionManager.swift */; };
@@ -159,6 +160,7 @@
 		80E2A0AE1AB800EF008A169D /* choreItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = choreItem.swift; path = choreBoard/choreItem.swift; sourceTree = "<group>"; };
 		80E2A0B01AB8010F008A169D /* StrikeThroughText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StrikeThroughText.swift; sourceTree = "<group>"; };
 		80E2A0B21AB801DA008A169D /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		80E655571AE49CAD0033997D /* ChoreTEMPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreTEMPViewController.swift; sourceTree = "<group>"; };
 		80F434DF1ADB097B00B15B4B /* WeeklyPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyPickerTableViewController.swift; sourceTree = "<group>"; };
 		80F434E11ADB181000B15B4B /* DayPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayPickerTableViewController.swift; sourceTree = "<group>"; };
 		80F434E71ADB1D8E00B15B4B /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				801824181AC64A320009A7DE /* ChoreViewController.swift */,
+				80E655571AE49CAD0033997D /* ChoreTEMPViewController.swift */,
 				80F434EF1ADB6B8200B15B4B /* Weekly */,
 				80F434F01ADB779300B15B4B /* Monthly */,
 			);
@@ -518,6 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80B781401AD97C1E00B03AF7 /* ChoreFeedViewController.swift in Sources */,
+				80E655581AE49CAD0033997D /* ChoreTEMPViewController.swift in Sources */,
 				80DA80681AD23DDD001B8999 /* FBUser.swift in Sources */,
 				80B7813E1AD97A8600B03AF7 /* DRDynamicSlideShow.m in Sources */,
 				800D8B241AD9C6D800AD975C /* SupplyViewController.swift in Sources */,

@@ -201,7 +201,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ebz-qs-N0s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1087" y="4332"/>
+            <point key="canvasLocation" x="1105" y="6128"/>
         </scene>
         <!--Day Picker Table View Controller-->
         <scene sceneID="ur5-mH-dHW">
@@ -332,7 +332,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jHF-ec-nMi" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="2xT-5k-Tt6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1813" y="4332"/>
+            <point key="canvasLocation" x="1831" y="6128"/>
         </scene>
         <!--Bill View Controller-->
         <scene sceneID="YQT-ZF-6f8">
@@ -675,7 +675,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zhv-Zy-yTb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Zkw-Qp-TY2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1813" y="5000"/>
+            <point key="canvasLocation" x="1831" y="6796"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SeN-VA-22C">
@@ -691,7 +691,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4gK-ag-qbf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080" y="5006"/>
+            <point key="canvasLocation" x="1098" y="6802"/>
         </scene>
         <!--Find Roommates Table View Controller-->
         <scene sceneID="mBn-wg-yhU">
@@ -843,6 +843,66 @@
             </objects>
             <point key="canvasLocation" x="-69" y="3107"/>
         </scene>
+        <!--ChoreTEMP View Controller-->
+        <scene sceneID="K4b-Qz-MEu">
+            <objects>
+                <viewController id="Ylc-Px-6OV" customClass="ChoreTEMPViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RgE-MX-XPl"/>
+                        <viewControllerLayoutGuide type="bottom" id="7K4-1n-DUo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XmG-P7-Do6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Chore..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="EEu-lJ-NlL">
+                                <rect key="frame" x="0.0" y="64" width="600" height="36"/>
+                                <color key="backgroundColor" red="0.83729272960000001" green="0.83729272960000001" blue="0.83729272960000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="glR-XE-eWb"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="searchBarDidChange:" destination="EGp-XD-9zB" eventType="editingChanged" id="8TP-bJ-KUo"/>
+                                    <action selector="searchBarDidChange:" destination="Ylc-Px-6OV" eventType="editingChanged" id="f60-en-2MP"/>
+                                </connections>
+                            </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="6DV-XG-Ed2">
+                                <rect key="frame" x="0.0" y="101" width="606" height="499"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="EEu-lJ-NlL" secondAttribute="trailing" id="LPz-mr-ora"/>
+                            <constraint firstItem="6DV-XG-Ed2" firstAttribute="leading" secondItem="XmG-P7-Do6" secondAttribute="leading" id="ewW-2D-aKx"/>
+                            <constraint firstItem="EEu-lJ-NlL" firstAttribute="leading" secondItem="XmG-P7-Do6" secondAttribute="leading" id="gqL-gy-fdt"/>
+                            <constraint firstAttribute="trailing" secondItem="6DV-XG-Ed2" secondAttribute="trailing" constant="6" id="iOJ-m8-iJq"/>
+                            <constraint firstItem="EEu-lJ-NlL" firstAttribute="top" secondItem="RgE-MX-XPl" secondAttribute="bottom" id="orH-wH-GEk"/>
+                            <constraint firstItem="6DV-XG-Ed2" firstAttribute="top" secondItem="EEu-lJ-NlL" secondAttribute="bottom" id="upQ-jA-OZK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vjR-6C-wap"/>
+                    <connections>
+                        <outlet property="choreTableView" destination="6DV-XG-Ed2" id="rYf-sa-lrh"/>
+                        <outlet property="searchBar" destination="EEu-lJ-NlL" id="daz-gi-jWn"/>
+                        <outlet property="searchDisplayController" destination="q5S-vd-H5b" id="pd4-8o-vgq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8bX-Po-lUk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="q5S-vd-H5b">
+                    <connections>
+                        <outlet property="delegate" destination="Ylc-Px-6OV" id="y3U-Eq-e4U"/>
+                        <outlet property="searchContentsController" destination="Ylc-Px-6OV" id="lXG-xW-JJ9"/>
+                        <outlet property="searchResultsDataSource" destination="Ylc-Px-6OV" id="S8g-fK-6iS"/>
+                        <outlet property="searchResultsDelegate" destination="Ylc-Px-6OV" id="J4W-N0-Hqt"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="629" y="3107"/>
+        </scene>
         <!--Add Chore-->
         <scene sceneID="63K-ED-kt4">
             <objects>
@@ -907,7 +967,7 @@
                                     <segue destination="Lab-dQ-uyx" kind="embed" id="qKD-6i-RhH"/>
                                 </connections>
                             </containerView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Chore..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ebv-QY-t7G">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Add Chore..." minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ebv-QY-t7G">
                                 <rect key="frame" x="0.0" y="64" width="600" height="36"/>
                                 <color key="backgroundColor" red="0.83729272959183676" green="0.83729272959183676" blue="0.83729272959183676" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -969,7 +1029,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="629" y="3107"/>
+            <point key="canvasLocation" x="647" y="4903"/>
         </scene>
         <!--Chore Board Blue Navigation Controller-->
         <scene sceneID="kkw-Tc-l4c">
@@ -1062,7 +1122,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c0s-fK-Brs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="629" y="3784"/>
+            <point key="canvasLocation" x="647" y="5579.5"/>
         </scene>
         <!--Monthly Picker Table View Controller-->
         <scene sceneID="tKT-px-hw7">
@@ -1106,7 +1166,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yN9-zX-cyJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="629" y="5664.5"/>
+            <point key="canvasLocation" x="647" y="7460.5"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="iqd-ad-7Wa">
@@ -1215,7 +1275,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n1O-7s-50w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1907" y="6239"/>
+            <point key="canvasLocation" x="1925" y="8035"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="ZGL-Zf-wn4">
@@ -1324,7 +1384,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Xc-P1-hH5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1907" y="6931"/>
+            <point key="canvasLocation" x="1925" y="8727"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cBf-HS-N8u">
@@ -1340,7 +1400,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YYA-cu-aTa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1087" y="6931"/>
+            <point key="canvasLocation" x="1105" y="8727"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="PaP-ZV-6zY">
@@ -1356,7 +1416,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LEO-Zh-vXQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1087" y="6239"/>
+            <point key="canvasLocation" x="1105" y="8035"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="SUx-mL-C45">
@@ -1389,7 +1449,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kx4-rg-bYq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="629" y="7364.5"/>
+            <point key="canvasLocation" x="647" y="9160.5"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="rCT-sE-QCT">
@@ -1500,7 +1560,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="EGp-XD-9zB" kind="relationship" relationship="rootViewController" id="Kce-ZE-97c"/>
+                        <segue destination="Ylc-Px-6OV" kind="relationship" relationship="rootViewController" id="39f-fU-Pe8"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nCm-zv-YfT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1576,7 +1636,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OTK-57-ih4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1087" y="4332"/>
+            <point key="canvasLocation" x="1105" y="6128"/>
         </scene>
         <!--Day Picker Table View Controller-->
         <scene sceneID="rQa-u6-o1E">
@@ -1707,7 +1767,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQP-IR-6PW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="psV-43-O9c" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1813" y="4332"/>
+            <point key="canvasLocation" x="1831" y="6128"/>
         </scene>
         <!--Weekly Freq Picker Table View Controller-->
         <scene sceneID="XtV-BL-J3r">
@@ -1796,7 +1856,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nay-WI-av1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="c79-Qg-eg8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1813" y="5000"/>
+            <point key="canvasLocation" x="1831" y="6796"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Emb-Ah-eaA">
@@ -1812,7 +1872,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uBy-K9-3n1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080" y="5006"/>
+            <point key="canvasLocation" x="1098" y="6802"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="aLK-uO-hgp">
@@ -1828,7 +1888,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PwI-dH-Ybs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1087" y="4332"/>
+            <point key="canvasLocation" x="1105" y="6128"/>
         </scene>
         <!--Day Picker Table View Controller-->
         <scene sceneID="cia-FT-rPA">
@@ -1959,7 +2019,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6N-av-3VF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="khM-lr-tp5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1813" y="4332"/>
+            <point key="canvasLocation" x="1831" y="6128"/>
         </scene>
         <!--Weekly Freq Picker Table View Controller-->
         <scene sceneID="2Sw-iU-YGE">
@@ -2048,7 +2108,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dcH-0M-Lyz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zA2-ea-QwR" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1813" y="5000"/>
+            <point key="canvasLocation" x="1831" y="6796"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4E3-YD-gdI">
@@ -2064,7 +2124,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNm-Gd-5ME" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080" y="5006"/>
+            <point key="canvasLocation" x="1098" y="6802"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Tpb-nQ-4J4">
@@ -2080,7 +2140,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RHi-gw-wtS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1087" y="4332"/>
+            <point key="canvasLocation" x="1105" y="6128"/>
         </scene>
         <!--Day Picker Table View Controller-->
         <scene sceneID="fjM-bX-zsQ">
@@ -2211,7 +2271,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fhv-ma-psD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="AMh-pB-axi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1813" y="4332"/>
+            <point key="canvasLocation" x="1831" y="6128"/>
         </scene>
         <!--Weekly Freq Picker Table View Controller-->
         <scene sceneID="QkH-tK-KQa">
@@ -2300,7 +2360,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J02-3R-Bl4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="LxE-ZP-wdG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1813" y="5000"/>
+            <point key="canvasLocation" x="1831" y="6796"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hOa-dJ-4xp">
@@ -2316,7 +2376,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvl-8H-Ej9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1080" y="5006"/>
+            <point key="canvasLocation" x="1098" y="6802"/>
         </scene>
     </scenes>
     <resources>
@@ -2325,7 +2385,7 @@
         <image name="homeicon" width="376" height="312"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="anr-mq-6Ez"/>
+        <segue reference="U7r-lE-ns3"/>
         <segue reference="6Ry-MP-rBw"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -23,13 +23,13 @@ extension NSMutableArray
     }
 }
 
-struct SWCellState {
-    var value: UInt32
-    init(_ val: UInt32) { value = val }
-}
-let kCellStateCenter = SWCellState(0)
-let kCellStateLeft = SWCellState(1)
-let kCellStateRight = SWCellState(2)
+//struct SWCellState {
+//    var value: UInt32
+//    init(_ val: UInt32) { value = val }
+//}
+//let kCellStateCenter = SWCellState(0)
+//let kCellStateLeft = SWCellState(1)
+//let kCellStateRight = SWCellState(2)
 
 
 protocol parseChoreData{
@@ -134,13 +134,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
 //            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        // Register Cell
-//        self.choreFeed.registerClass(UITableViewCell.classForCoder(), forCellReuseIdentifier:"ChoreFeedCell")
-        
-//        // Set up buttons
-//        leftButtons.sw_addUtilityButtonWithColor(UIColor.blueColor(), title: "Edit")
-//        leftButtons.sw_addUtilityButtonWithColor(UIColor.greenColor(), title: "Done!")
-        
+
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -169,31 +163,27 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     
-//    // For Background Data Fetching
-//    func insertNewObjectForFetchWithCompletionHandler (performFetchWithCompletionHandler completionHandler:(UIBackgroundFetchResult) -> Void) {
-//    
-//        println("updating table view")
-//    
-//    
-//        completionHandler(UIBackgroundFetchResult.NewData)
-//    }
-    
     
     func swipeableTableViewCell(cell: SWTableViewCell!, canSwipeToState state: SWCellState) -> Bool {
-    
-        println("checkpoint")
         
-        switch (state.value) {
-            case kCellStateLeft.value:
-                return false
-            case kCellStateRight.value:
+        switch (state) {
+            case .CellStateLeft: // Left
+                println("left")
+                return true
+            case .CellStateRight: // Right
+                println("right")
                 return false
             default:
+                println("default")
                 break
         }
         
-        return false
+        return true
         
+    }
+    
+    func swipeableTableViewCellShouldHideUtilityButtonsOnSwipe(cell: SWTableViewCell!) -> Bool {
+        return true
     }
     
     func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerLeftUtilityButtonWithIndex index: Int){
@@ -298,7 +288,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         if cell == nil{
             cell = SWTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "ChoreFeedCell")
             cell!.leftUtilityButtons = self.leftButtons()
-            cell!.rightUtilityButtons = self.rightButtons()
+            cell!.rightUtilityButtons = nil
             cell!.delegate = self
         }
         
@@ -326,8 +316,8 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    }
+//    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+//    }
     
     func didSelectedCell(cell: SWTableViewCell!) {
 

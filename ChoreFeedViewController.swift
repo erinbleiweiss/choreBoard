@@ -152,6 +152,14 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
 //            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
+        // Navigation Title
+        var imageView = UIImageView(frame: CGRectMake(0, 0, 80, 30))
+        let logo = UIImage(named: "choreboard_white")
+        imageView.image = logo
+
+        self.navigationItem.titleView = imageView
+        
+        
 
     }
     
@@ -431,7 +439,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         
         var leftUtilityButtons: NSMutableArray = []
         leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.redColor(), title: "Delete")
-        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.greenColor(), title: "Done!")
+        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor(red: (0/255.0), green: (67/255.0), blue: (112/255.0), alpha: 1.0), title: "Done!")
         
         return leftUtilityButtons
     }
@@ -440,7 +448,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         
         var leftUtilityButtons: NSMutableArray = []
         leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.redColor(), title: "Delete")
-        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.greenColor(), title: "Reset!")
+        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor(red: (0/255.0), green: (67/255.0), blue: (112/255.0), alpha: 1.0), title: "Reset!")
         
         return leftUtilityButtons
     }

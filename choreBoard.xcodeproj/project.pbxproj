@@ -15,6 +15,8 @@
 		800D8B261AD9C6E200AD975C /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800D8B251AD9C6E200AD975C /* BillViewController.swift */; };
 		801824171AC6492C0009A7DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801824151AC6492C0009A7DE /* Main.storyboard */; };
 		801824191AC64A320009A7DE /* ChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801824181AC64A320009A7DE /* ChoreViewController.swift */; };
+		801EAFE81AE55696005BF7C0 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801EAFE71AE55696005BF7C0 /* PrivacyPolicyViewController.swift */; };
+		801EAFEA1AE56BD2005BF7C0 /* privacy.html in Resources */ = {isa = PBXBuildFile; fileRef = 801EAFE91AE56BD2005BF7C0 /* privacy.html */; };
 		8022091A1AE1B67D00B7A7A5 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802209191AE1B67D00B7A7A5 /* RootViewController.swift */; };
 		8022091C1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8022091B1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift */; };
 		8022091E1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8022091D1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift */; };
@@ -92,6 +94,8 @@
 		800D8B251AD9C6E200AD975C /* BillViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillViewController.swift; sourceTree = "<group>"; };
 		801824161AC6492C0009A7DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = choreBoard/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		801824181AC64A320009A7DE /* ChoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreViewController.swift; sourceTree = "<group>"; };
+		801EAFE71AE55696005BF7C0 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
+		801EAFE91AE56BD2005BF7C0 /* privacy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = privacy.html; sourceTree = "<group>"; };
 		802209191AE1B67D00B7A7A5 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		8022091B1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyDayPickerTableViewController.swift; sourceTree = "<group>"; };
 		8022091D1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyFreqPickerTableViewController.swift; sourceTree = "<group>"; };
@@ -349,6 +353,8 @@
 				800A39D41AC6020000CA4F59 /* SWRevealViewController */,
 				80C7C7701AD4E8FB009E9736 /* BBBadgeBarButtonItem */,
 				801824151AC6492C0009A7DE /* Main.storyboard */,
+				801EAFE91AE56BD2005BF7C0 /* privacy.html */,
+				801EAFE71AE55696005BF7C0 /* PrivacyPolicyViewController.swift */,
 				80EECF7B1AE4E9DA00F78CCE /* ChoreFeedCell.swift */,
 				802209191AE1B67D00B7A7A5 /* RootViewController.swift */,
 				800A39D81AC602C400CA4F59 /* MenuController.swift */,
@@ -514,6 +520,7 @@
 				80DA7D861ACA558D001B8999 /* ApiKeys.plist in Resources */,
 				599F2DE51ADAD199007EF367 /* add2.png in Resources */,
 				80D89BBF1AA768CD00583941 /* LaunchScreen.xib in Resources */,
+				801EAFEA1AE56BD2005BF7C0 /* privacy.html in Resources */,
 				80D89BBC1AA768CD00583941 /* Images.xcassets in Resources */,
 				599F2DE31ADAD07A007EF367 /* add1.png in Resources */,
 			);
@@ -553,6 +560,7 @@
 				808FD8021AE4C56200FEDC6D /* supplyItem.swift in Sources */,
 				80656F551AC5130200C1994C /* createGroupViewController.swift in Sources */,
 				80EECF7A1AE4E47500F78CCE /* groupItem.swift in Sources */,
+				801EAFE81AE55696005BF7C0 /* PrivacyPolicyViewController.swift in Sources */,
 				800A39D71AC6023000CA4F59 /* SWRevealViewController.m in Sources */,
 				800D8B261AD9C6E200AD975C /* BillViewController.swift in Sources */,
 				80DA7D841ACA4FB7001B8999 /* ApiKeys.swift in Sources */,

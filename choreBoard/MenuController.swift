@@ -14,8 +14,8 @@ class MenuController: UITableViewController {
     @IBOutlet weak var choreLabel: UILabel!
     @IBOutlet weak var suppliesLabel: UILabel!
     @IBOutlet weak var billsLabel: UILabel!
-    @IBOutlet weak var manageGroupsLabel: UILabel!
-    @IBOutlet weak var nofticationsLabel: UIButton!
+//    @IBOutlet weak var manageGroupsLabel: UILabel!
+//    @IBOutlet weak var nofticationsLabel: UIButton!
     @IBOutlet weak var logoutLabel: UIButton!
     
     
@@ -60,8 +60,8 @@ class MenuController: UITableViewController {
         groupNameLabel.textColor = UIColor(red: (232/255.0), green: (126/255.0), blue: (4/255.0), alpha: 1.0)
         choreLabel.textColor = UIColor(red: (0/255.0), green: (67/255.0), blue: (112/255.0), alpha: 1.0)
         suppliesLabel.textColor = UIColor(red: (0/255.0), green: (67/255.0), blue: (112/255.0), alpha: 1.0)
-        billsLabel.textColor = UIColor(red: (0/255.0), green: (67/255.0), blue: (112/255.0), alpha: 1.0)
-        manageGroupsLabel.textColor = UIColor(red: (0/255.0), green: (67/255.0), blue: (112/255.0), alpha: 1.0)
+//        billsLabel.textColor = UIColor(red: (0/255.0), green: (67/255.0), blue: (112/255.0), alpha: 1.0)
+//        manageGroupsLabel.textColor = UIColor(red: (0/255.0), green: (67/255.0), blue: (112/255.0), alpha: 1.0)
 
 
         // Uncomment the following line to preserve selection between presentations

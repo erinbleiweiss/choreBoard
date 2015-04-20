@@ -41,6 +41,8 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
     var chores = [choreItem]()
     var groupItems = [groupItem]()
     var swipedItem: groupItem?
+    
+    var clickedButtonIndex: Int!
 
     var customButton: UIButton?
     var barButton: BBBadgeBarButtonItem?
@@ -188,16 +190,31 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         return true
     }
     
-    func swipeableTableViewCell(cell: SWTableViewCell!, didTriggerLeftUtilityButtonWithIndex index: Int){
+    func swipeableTableViewCell(cell: ChoreFeedCell!, didTriggerLeftUtilityButtonWithIndex index: Int){
+        
+        self.clickedButtonIndex = index
+        
+        
+        
         if index == 0{
             performSegueWithIdentifier("ChoreDetailSegue", sender: nil)
         }
         else if index == 1{
             println("clicked done button")
+            cell.setCompleted()
         }
 
     }
 
+    
+    func didSelectedCell(cell: ChoreFeedCell!) {
+        var indexPath: NSIndexPath = choreFeed.indexPathForCell(cell)!
+        groupItems[indexPath.row].completed = true
+        
+        self.choreFeed.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+        
+    }
+    
     
     
     override func viewDidLayoutSubviews() {
@@ -295,20 +312,49 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         }
         
         if groupItems[indexPath.row].type == "chore"{
-            cell!.choreText?.text = self.groupItems[indexPath.row].text
+            if groupItems[indexPath.row].completed{
+                cell?.setCompleted()
+                var strikeThroughText = NSMutableAttributedString(string: self.groupItems[indexPath.row].text)
+                strikeThroughText.addAttribute(NSStrikethroughStyleAttributeName, value: NSUnderlineStyle.StyleSingle.rawValue, range: NSMakeRange(0, strikeThroughText.length))
+                cell!.choreText.attributedText = strikeThroughText
+            }
+            else{
+                cell!.choreText?.text = self.groupItems[indexPath.row].text
+
+            }
+
             cell!.choreText?.textAlignment = .Left
             cell!.choreImage.image = UIImage(named: "broom")
         }
             
         else if groupItems[indexPath.row].type == "supply"{
-            cell!.choreText?.text = "Buy " + self.groupItems[indexPath.row].text
+            if groupItems[indexPath.row].completed{
+                cell?.setCompleted()
+                var strikeThroughText = NSMutableAttributedString(string: "Buy " + self.groupItems[indexPath.row].text)
+                strikeThroughText.addAttribute(NSStrikethroughStyleAttributeName, value: NSUnderlineStyle.StyleSingle.rawValue, range: NSMakeRange(0, strikeThroughText.length))
+                cell!.choreText.attributedText = strikeThroughText
+            }
+            else{
+                cell!.choreText?.text = "Buy " + self.groupItems[indexPath.row].text
+                
+            }
+            
             cell!.choreText?.textAlignment = .Left
             cell!.choreImage.image = UIImage(named: "shoppingcart")
 
         }
             
         else if groupItems[indexPath.row].type == "bill"{
-            cell!.choreText?.text = "Pay " + self.groupItems[indexPath.row].text
+            if groupItems[indexPath.row].completed{
+                cell?.setCompleted()
+                var strikeThroughText = NSMutableAttributedString(string: "Pay " + self.groupItems[indexPath.row].text)
+                strikeThroughText.addAttribute(NSStrikethroughStyleAttributeName, value: NSUnderlineStyle.StyleSingle.rawValue, range: NSMakeRange(0, strikeThroughText.length))
+                cell!.choreText.attributedText = strikeThroughText
+            }
+            else{
+                cell!.choreText?.text = "Pay " + self.groupItems[indexPath.row].text
+                
+            }
             cell!.choreText?.textAlignment = .Left
             cell!.choreImage.image = UIImage(named: "creditcard")
 
@@ -318,6 +364,9 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
             cell!.choreText?.text = self.groupItems[indexPath.row].text
             cell!.choreText?.textAlignment = .Left
         }
+        
+
+        
         
         
         cell!.setLeftUtilityButtons(leftButtons(), withButtonWidth: 80)
@@ -347,14 +396,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
 //    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
 //    }
     
-    func didSelectedCell(cell: SWTableViewCell!) {
 
-        var indexPath: NSIndexPath = choreFeed.indexPathForCell(cell)!
-        swipedItem = groupItems[indexPath.row]
-        println(swipedItem!.text)
-        
-    }
-    
     ///////////////////////////////////////////////
     
     

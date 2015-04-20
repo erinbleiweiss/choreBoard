@@ -11,8 +11,11 @@ import UIKit
 class ChoreFeedCell: SWTableViewCell {
 
     @IBOutlet weak var choreImage: UIImageView!
-    
     @IBOutlet weak var choreText: UILabel!
+    
+    func setCompleted() -> Void {
+        choreText.textColor = UIColor.redColor()
+    }
     
     /*
     // Only override drawRect: if you perform custom drawing.

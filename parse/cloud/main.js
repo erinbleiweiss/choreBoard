@@ -238,6 +238,7 @@ Parse.Cloud.define("getCurrentGroupName", function(request, response){
 });
 
 
+
 Parse.Cloud.define("getUserInfo", function(request, response){
 
 	var currentUser = Parse.User.current();
@@ -758,7 +759,6 @@ Parse.Cloud.define("deleteObject", function(request, response){
 		success: function(queryUser){
 			var theObject = queryUser[0];
 			theObject.destroy();
-
 			response.success();
 		},
 		error: function(error){

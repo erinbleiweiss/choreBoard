@@ -207,7 +207,8 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         
         
         if index == 0{
-            performSegueWithIdentifier("ChoreDetailSegue", sender: nil)
+//            performSegueWithIdentifier("ChoreDetailSegue", sender: nil)
+            
         }
         else if index == 1{
 //            println("clicked done button")
@@ -217,10 +218,9 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
 
     
     func didSelectedCell(cell: ChoreFeedCell!) {
-        
+        var indexPath: NSIndexPath = choreFeed.indexPathForCell(cell)!
+
         if clickedButtonIndex == 1{ // clicked done button
-            var indexPath: NSIndexPath = choreFeed.indexPathForCell(cell)!
-            
             if groupItems[indexPath.row].completed == false{
 //                cell.setCompleted()
                 groupItems[indexPath.row].completed = true
@@ -238,7 +238,19 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
             refresh(self)
             
         }
-        
+        else if clickedButtonIndex == 0{
+            var refreshAlert = UIAlertController(title: "Delete", message: "Are you sure you want to delete \"" + groupItems[indexPath.row].text + "?\"", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+            }))
+            
+            refreshAlert.addAction(UIAlertAction(title: "Delete", style: .Default, handler: { (action: UIAlertAction!) in
+                PFCloud.callFunctionInBackground("deleteObject", withParameters: ["objectId": self.groupItems[indexPath.row].objectId, "kind": self.groupItems[indexPath.row].type], block: nil)
+                self.refresh(self)
+            }))
+            
+            presentViewController(refreshAlert, animated: true, completion: nil)
+        }
         
     }
     
@@ -418,7 +430,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
     func leftButtons() -> NSArray{
         
         var leftUtilityButtons: NSMutableArray = []
-        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.blueColor(), title: "Edit")
+        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.redColor(), title: "Delete")
         leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.greenColor(), title: "Done!")
         
         return leftUtilityButtons
@@ -427,7 +439,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
     func leftButtons2() -> NSArray{
         
         var leftUtilityButtons: NSMutableArray = []
-        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.blueColor(), title: "Edit")
+        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.redColor(), title: "Delete")
         leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.greenColor(), title: "Reset!")
         
         return leftUtilityButtons

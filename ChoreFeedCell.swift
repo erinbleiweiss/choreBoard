@@ -14,7 +14,11 @@ class ChoreFeedCell: SWTableViewCell {
     @IBOutlet weak var choreText: UILabel!
     
     func setCompleted() -> Void {
-        choreText.textColor = UIColor.redColor()
+        choreText.textColor = UIColor.grayColor()
+    }
+    
+    func reset() -> Void {
+        choreText.textColor = UIColor.blackColor()
     }
     
     /*

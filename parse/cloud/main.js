@@ -691,5 +691,56 @@ Parse.Cloud.define("activeChorePush", function(request, response){
 
 
 
+Parse.Cloud.define("setCompleted", function(request, response){
 
+	var objId = request.params.objectId;
+	var kind = request.params.kind;
+
+
+	var Class = Parse.Object.extend(kind);
+	var query = new Parse.Query(Class);
+	query.equalTo("objectId", objId);
+	query.find({
+		success: function(queryUser){
+			var theObject = queryUser[0];
+			theObject.set("completed", true);
+			theObject.save();
+
+			response.success();
+		},
+		error: function(error){
+			response.error(error);
+		}
+
+	});
+
+
+});
+
+
+Parse.Cloud.define("reset", function(request, response){
+
+	var objId = request.params.objectId;
+	var kind = request.params.kind;
+
+
+	var Class = Parse.Object.extend(kind);
+	var query = new Parse.Query(Class);
+	query.equalTo("objectId", objId);
+	query.find({
+		success: function(queryUser){
+			var theObject = queryUser[0];
+			theObject.set("completed", false);
+			theObject.save();
+
+			response.success();
+		},
+		error: function(error){
+			response.error(error);
+		}
+
+	});
+
+
+});
 

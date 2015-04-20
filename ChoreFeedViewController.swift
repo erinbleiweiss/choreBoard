@@ -74,7 +74,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                     let choreName = chore["choreName"] as String
                     let choreStatus = chore["completed"] as Bool
                     let choreId = chore.objectId as String
-                    self.groupItems.append(groupItem(text: choreName, type: "chore", completed: choreStatus))
+                    self.groupItems.append(groupItem(text: choreName, type: "Chore", completed: choreStatus, objectId: choreId))
                     
                     storedChores[choreId] = choreStatus
                 }
@@ -82,7 +82,8 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 for supply in result["supplies"] as NSArray{
                     let supplyName = supply["supplyName"] as String
                     let supplyStatus = supply["completed"] as Bool
-                    self.groupItems.append(groupItem(text: supplyName, type: "supply", completed: supplyStatus))
+                    let supplyId = supply.objectId as String
+                    self.groupItems.append(groupItem(text: supplyName, type: "Supply", completed: supplyStatus, objectId: supplyId))
                     
                 }
                 
@@ -90,10 +91,11 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                     let billName = bill["billName"] as String
                     let billAmount = bill["amount"] as String
                     let billStatus = bill["completed"] as Bool
+                    let billId = bill.objectId as String
                     
                     var billString = billName + " (" + billAmount + ")"
                     
-                    self.groupItems.append(groupItem(text: billString, type: "bill", completed: billStatus))
+                    self.groupItems.append(groupItem(text: billString, type: "Bill", completed: billStatus, objectId: billId))
                 }
                 
             }
@@ -195,23 +197,39 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         self.clickedButtonIndex = index
         
         
-        
         if index == 0{
             performSegueWithIdentifier("ChoreDetailSegue", sender: nil)
         }
         else if index == 1{
-            println("clicked done button")
-            cell.setCompleted()
+//            println("clicked done button")
         }
 
     }
 
     
     func didSelectedCell(cell: ChoreFeedCell!) {
-        var indexPath: NSIndexPath = choreFeed.indexPathForCell(cell)!
-        groupItems[indexPath.row].completed = true
         
-        self.choreFeed.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+        if clickedButtonIndex == 1{ // clicked done button
+            var indexPath: NSIndexPath = choreFeed.indexPathForCell(cell)!
+            
+            if groupItems[indexPath.row].completed == false{
+                cell.setCompleted()
+                groupItems[indexPath.row].completed = true
+                self.choreFeed.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+                PFCloud.callFunctionInBackground("setCompleted", withParameters: ["objectId": groupItems[indexPath.row].objectId, "kind": groupItems[indexPath.row].type], block: nil)
+            }
+            else{
+                cell.reset()
+                groupItems[indexPath.row].completed = false
+                self.choreFeed.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+                PFCloud.callFunctionInBackground("reset", withParameters: ["objectId": groupItems[indexPath.row].objectId, "kind": groupItems[indexPath.row].type], block: nil)
+            }
+            
+
+
+            
+        }
+        
         
     }
     
@@ -311,7 +329,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
             cell!.delegate = self
         }
         
-        if groupItems[indexPath.row].type == "chore"{
+        if groupItems[indexPath.row].type == "Chore"{
             if groupItems[indexPath.row].completed{
                 cell?.setCompleted()
                 var strikeThroughText = NSMutableAttributedString(string: self.groupItems[indexPath.row].text)
@@ -319,6 +337,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 cell!.choreText.attributedText = strikeThroughText
             }
             else{
+                cell!.reset()
                 cell!.choreText?.text = self.groupItems[indexPath.row].text
 
             }
@@ -327,7 +346,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
             cell!.choreImage.image = UIImage(named: "broom")
         }
             
-        else if groupItems[indexPath.row].type == "supply"{
+        else if groupItems[indexPath.row].type == "Supply"{
             if groupItems[indexPath.row].completed{
                 cell?.setCompleted()
                 var strikeThroughText = NSMutableAttributedString(string: "Buy " + self.groupItems[indexPath.row].text)
@@ -335,6 +354,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 cell!.choreText.attributedText = strikeThroughText
             }
             else{
+                cell!.reset()
                 cell!.choreText?.text = "Buy " + self.groupItems[indexPath.row].text
                 
             }
@@ -344,7 +364,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
 
         }
             
-        else if groupItems[indexPath.row].type == "bill"{
+        else if groupItems[indexPath.row].type == "Bill"{
             if groupItems[indexPath.row].completed{
                 cell?.setCompleted()
                 var strikeThroughText = NSMutableAttributedString(string: "Pay " + self.groupItems[indexPath.row].text)
@@ -352,6 +372,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 cell!.choreText.attributedText = strikeThroughText
             }
             else{
+                cell!.reset()
                 cell!.choreText?.text = "Pay " + self.groupItems[indexPath.row].text
                 
             }
@@ -366,10 +387,14 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         }
         
 
+        if groupItems[indexPath.row].completed == true{
+            cell!.setLeftUtilityButtons(leftButtons2(), withButtonWidth: 80)
+        }
+        else{
+            cell!.setLeftUtilityButtons(leftButtons(), withButtonWidth: 80)
+        }
         
         
-        
-        cell!.setLeftUtilityButtons(leftButtons(), withButtonWidth: 80)
         cell!.delegate = self
         return cell!
         
@@ -381,6 +406,15 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         var leftUtilityButtons: NSMutableArray = []
         leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.blueColor(), title: "Edit")
         leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.greenColor(), title: "Done!")
+        
+        return leftUtilityButtons
+    }
+    
+    func leftButtons2() -> NSArray{
+        
+        var leftUtilityButtons: NSMutableArray = []
+        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.blueColor(), title: "Edit")
+        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.greenColor(), title: "Reset!")
         
         return leftUtilityButtons
     }

@@ -9,10 +9,10 @@
 import UIKit
 
 class SupplyViewController: UIViewController, UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate {
-
+    
     // MARK: - Outlets
     
-    @IBOutlet weak var searchBar: UITextField!
+    @IBOutlet weak var searchBar: CustomSearchBar!
     @IBOutlet weak var supplyTableView: UITableView!
     
     @IBAction func searchBarDidChange(sender: AnyObject) {
@@ -63,7 +63,7 @@ class SupplyViewController: UIViewController, UITextFieldDelegate, UITableViewDa
         
         // Search Bar
         searchBar.delegate = self
-        
+
         supplyTableView!.dataSource = self
         supplyTableView!.delegate = self
         supplyTableView!.scrollEnabled = true

@@ -17,6 +17,7 @@
 		801824191AC64A320009A7DE /* ChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801824181AC64A320009A7DE /* ChoreViewController.swift */; };
 		801EAFE81AE55696005BF7C0 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801EAFE71AE55696005BF7C0 /* PrivacyPolicyViewController.swift */; };
 		801EAFEA1AE56BD2005BF7C0 /* privacy.html in Resources */ = {isa = PBXBuildFile; fileRef = 801EAFE91AE56BD2005BF7C0 /* privacy.html */; };
+		801EAFEC1AE57B62005BF7C0 /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801EAFEB1AE57B62005BF7C0 /* CustomSearchBar.swift */; };
 		8022091A1AE1B67D00B7A7A5 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802209191AE1B67D00B7A7A5 /* RootViewController.swift */; };
 		8022091C1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8022091B1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift */; };
 		8022091E1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8022091D1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift */; };
@@ -96,6 +97,7 @@
 		801824181AC64A320009A7DE /* ChoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreViewController.swift; sourceTree = "<group>"; };
 		801EAFE71AE55696005BF7C0 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
 		801EAFE91AE56BD2005BF7C0 /* privacy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = privacy.html; sourceTree = "<group>"; };
+		801EAFEB1AE57B62005BF7C0 /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSearchBar.swift; sourceTree = "<group>"; };
 		802209191AE1B67D00B7A7A5 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		8022091B1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyDayPickerTableViewController.swift; sourceTree = "<group>"; };
 		8022091D1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyFreqPickerTableViewController.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 				80E2A0A61AB7FA3B008A169D /* ChoreDetailViewController.swift */,
 				80C7C7741AD58C0A009E9736 /* ChoreBoardBlueNavigationController.swift */,
 				80CC8D771ADD80B500833CE2 /* NotificationsTableViewController.swift */,
+				801EAFEB1AE57B62005BF7C0 /* CustomSearchBar.swift */,
 				802A3B7D1AD8C96A0071B955 /* addChore */,
 				800D8B1F1AD9C63B00AD975C /* addSupply */,
 				800D8B201AD9C65200AD975C /* addBill */,
@@ -568,6 +571,7 @@
 				80F434E21ADB181000B15B4B /* DayPickerTableViewController.swift in Sources */,
 				801824191AC64A320009A7DE /* ChoreViewController.swift in Sources */,
 				80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */,
+				801EAFEC1AE57B62005BF7C0 /* CustomSearchBar.swift in Sources */,
 				80C7B1B81ADC4A03006028C2 /* SWTableViewCell.m in Sources */,
 				80C7B1B91ADC4A03006028C2 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				80CC8D7A1ADD80E900833CE2 /* notificationItem.swift in Sources */,

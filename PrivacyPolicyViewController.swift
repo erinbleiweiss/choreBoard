@@ -47,16 +47,6 @@ class PrivacyPolicyViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         barButton!.badgeValue = String(groupNotifications.sharedInstance.getNumNotifications())
     }
-
-//    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-//        
-//        var cellID = "Cell"
-//        var cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier(cellID)  as UITableViewCell
-//        
-//        var yourLabelHeight = cell.textLabel.size.height
-//        return yourLabelHeight
-//        
-//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

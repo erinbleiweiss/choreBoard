@@ -119,8 +119,34 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
     
     let transitionManager2 = TransitionManager()
     
+
+    func checkForLogin() -> Bool{
+        if(PFUser.currentUser() == nil){
+            let vc = storyboard!.instantiateViewControllerWithIdentifier("LoginController") as UIViewController
+            self.presentViewController(vc, animated: false, completion: nil)
+            return false
+        }
+        return true
+    }
+    
     override func viewDidLoad() {
-        checkForLogin()
+        // Set up Notification Badge
+        let buttonImage = UIImage(named: "ico-to-do-list") as UIImage?
+        customButton = UIButton(frame: CGRectMake(0, 0, 20, 20))
+        customButton!.setImage(buttonImage, forState: .Normal)
+        
+        barButton = BBBadgeBarButtonItem(customUIButton: customButton)
+        barButton!.shouldHideBadgeAtZero = true
+        
+        // Set up Navigation Drawer
+        self.navigationItem.rightBarButtonItem = barButton;
+        
+        if self.revealViewController() != nil {
+            customButton!.addTarget(self.revealViewController(), action: "rightRevealToggle:", forControlEvents: .TouchUpInside)
+            //            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
+        if self.checkForLogin() {
 
         super.viewDidLoad()
         var allChores = self.delegate?.getParseData()
@@ -135,23 +161,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.choreFeed.addSubview(refreshControl)
         
-        
-        // Set up Notification Badge
-        let buttonImage = UIImage(named: "ico-to-do-list") as UIImage?
-        customButton = UIButton(frame: CGRectMake(0, 0, 20, 20))
-        customButton!.setImage(buttonImage, forState: .Normal)
-        
-        barButton = BBBadgeBarButtonItem(customUIButton: customButton)
-        barButton!.shouldHideBadgeAtZero = true
-        
-        // Set up Navigation Drawer
-        self.navigationItem.rightBarButtonItem = barButton;
-        
-        if self.revealViewController() != nil {
-            customButton!.addTarget(self.revealViewController(), action: "rightRevealToggle:", forControlEvents: .TouchUpInside)
-//            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        }
-        
+            
         // Navigation Title
         var imageView = UIImageView(frame: CGRectMake(0, 0, 80, 30))
         let logo = UIImage(named: "choreboard_white")
@@ -160,20 +170,14 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         self.navigationItem.titleView = imageView
         
         
-
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
         barButton!.badgeValue = String(groupNotifications.sharedInstance.getNumNotifications())
         refresh(self)
     }
-    
-    func checkForLogin(){
-        if(PFUser.currentUser() == nil){
-            let vc = storyboard!.instantiateViewControllerWithIdentifier("LoginController") as UIViewController
-            self.presentViewController(vc, animated: false, completion: nil)
-        }
-    }
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -230,16 +234,16 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
 
         if clickedButtonIndex == 1{ // clicked done button
             if groupItems[indexPath.row].completed == false{
-//                cell.setCompleted()
+                cell.setCompleted()
                 groupItems[indexPath.row].completed = true
-                self.choreFeed.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
                 PFCloud.callFunctionInBackground("setCompleted", withParameters: ["objectId": groupItems[indexPath.row].objectId, "kind": groupItems[indexPath.row].type], block: nil)
+                self.choreFeed.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
             }
             else{
-//                cell.reset()
+                cell.reset()
                 groupItems[indexPath.row].completed = false
-                self.choreFeed.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
                 PFCloud.callFunctionInBackground("reset", withParameters: ["objectId": groupItems[indexPath.row].objectId, "kind": groupItems[indexPath.row].type], block: nil)
+                self.choreFeed.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
             }
             
 

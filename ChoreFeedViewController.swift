@@ -222,13 +222,13 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
             var indexPath: NSIndexPath = choreFeed.indexPathForCell(cell)!
             
             if groupItems[indexPath.row].completed == false{
-                cell.setCompleted()
+//                cell.setCompleted()
                 groupItems[indexPath.row].completed = true
                 self.choreFeed.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
                 PFCloud.callFunctionInBackground("setCompleted", withParameters: ["objectId": groupItems[indexPath.row].objectId, "kind": groupItems[indexPath.row].type], block: nil)
             }
             else{
-                cell.reset()
+//                cell.reset()
                 groupItems[indexPath.row].completed = false
                 self.choreFeed.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
                 PFCloud.callFunctionInBackground("reset", withParameters: ["objectId": groupItems[indexPath.row].objectId, "kind": groupItems[indexPath.row].type], block: nil)
@@ -344,10 +344,12 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 var strikeThroughText = NSMutableAttributedString(string: self.groupItems[indexPath.row].text)
                 strikeThroughText.addAttribute(NSStrikethroughStyleAttributeName, value: NSUnderlineStyle.StyleSingle.rawValue, range: NSMakeRange(0, strikeThroughText.length))
                 cell!.choreText.attributedText = strikeThroughText
+                cell!.choreImage.alpha = 0.5
             }
             else{
                 cell!.reset()
                 cell!.choreText?.text = self.groupItems[indexPath.row].text
+                cell!.choreImage.alpha = 1
 
             }
 
@@ -361,11 +363,12 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 var strikeThroughText = NSMutableAttributedString(string: "Buy " + self.groupItems[indexPath.row].text)
                 strikeThroughText.addAttribute(NSStrikethroughStyleAttributeName, value: NSUnderlineStyle.StyleSingle.rawValue, range: NSMakeRange(0, strikeThroughText.length))
                 cell!.choreText.attributedText = strikeThroughText
+                cell!.choreImage.alpha = 0.5
             }
             else{
                 cell!.reset()
                 cell!.choreText?.text = "Buy " + self.groupItems[indexPath.row].text
-                
+                cell!.choreImage.alpha = 1
             }
             
             cell!.choreText?.textAlignment = .Left
@@ -379,10 +382,12 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 var strikeThroughText = NSMutableAttributedString(string: "Pay " + self.groupItems[indexPath.row].text)
                 strikeThroughText.addAttribute(NSStrikethroughStyleAttributeName, value: NSUnderlineStyle.StyleSingle.rawValue, range: NSMakeRange(0, strikeThroughText.length))
                 cell!.choreText.attributedText = strikeThroughText
+                cell!.choreImage.alpha = 0.5
             }
             else{
                 cell!.reset()
                 cell!.choreText?.text = "Pay " + self.groupItems[indexPath.row].text
+                cell!.choreImage.alpha = 1
                 
             }
             cell!.choreText?.textAlignment = .Left

@@ -310,13 +310,56 @@ Parse.Cloud.define("getGroupChores", function (request, response){
 
 	var Chore = Parse.Object.extend("Chore");
 	var query = new Parse.Query(Chore);
-	query.equalTo("group", groupPointer)
+	query.equalTo("group", groupPointer);
 	query.find({
 		success: function(allChores){
 			for (var i=0; i < allChores.length; i++){
 				console.log(allChores[i])
 			}
 			response.success(allChores);
+		},
+		error: function(error){
+			response.error(error);
+		}
+	});
+
+
+});
+
+Parse.Cloud.define("getGroupItems", function (request, response){
+
+	var user = Parse.User.current()
+	var groupPointer = user.get("group");
+
+	var Chore = Parse.Object.extend("Chore");
+	var choreQuery = new Parse.Query(Chore);
+	choreQuery.equalTo("group", groupPointer);
+	choreQuery.find({
+		success: function(allChores){
+			var Supply = Parse.Object.extend("Supply");
+			var supplyQuery = new Parse.Query(Supply);
+			supplyQuery.equalTo("group", groupPointer);
+			supplyQuery.find({
+				success: function(allSupplies){
+					var Bill = Parse.Object.extend("Bill");
+					var billQuery = new Parse.Query(Bill);
+					billQuery.equalTo("group", groupPointer);
+					billQuery.find({
+						success: function(allBills){
+							response.success({"chores" : allChores,
+																"supplies" : allSupplies,
+																"bills" : allBills}
+							);
+						},
+						error: function(error){
+							response.error(error);
+						}
+					});
+				},
+				error: function(error){
+					response.error(error);
+				}
+			});
 		},
 		error: function(error){
 			response.error(error);

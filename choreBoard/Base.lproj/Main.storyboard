@@ -905,16 +905,41 @@
                                     <constraint firstAttribute="height" constant="100" id="hxm-uC-Haf"/>
                                 </constraints>
                             </scrollView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tpa-ZL-0UQ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="tpa-ZL-0UQ">
                                 <rect key="frame" x="0.0" y="164" width="600" height="435"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChoreFeedCell" id="RkL-Kv-Jsp">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ChoreFeedCell" rowHeight="60" id="RkL-Kv-Jsp" customClass="ChoreFeedCell" customModule="choreBoard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="607" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RkL-Kv-Jsp" id="02H-vg-6qa">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="broom" translatesAutoresizingMaskIntoConstraints="NO" id="bNR-vk-QTT">
+                                                    <rect key="frame" x="8" y="15" width="30" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="OnQ-Vs-6pQ"/>
+                                                        <constraint firstAttribute="width" constant="30" id="QZC-B5-Sj9"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsr-us-jh1">
+                                                    <rect key="frame" x="53" y="19" width="400" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="bsr-us-jh1" firstAttribute="top" secondItem="02H-vg-6qa" secondAttribute="top" id="4vf-Y3-9jm"/>
+                                                <constraint firstItem="bsr-us-jh1" firstAttribute="leading" secondItem="bNR-vk-QTT" secondAttribute="trailing" constant="10" id="VbT-gm-CEK"/>
+                                                <constraint firstAttribute="bottom" secondItem="bsr-us-jh1" secondAttribute="bottom" id="Xk3-kF-bCf"/>
+                                                <constraint firstAttribute="centerY" secondItem="bNR-vk-QTT" secondAttribute="centerY" id="sg2-AF-BSw"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="choreImage" destination="bNR-vk-QTT" id="BPd-gA-g8L"/>
+                                            <outlet property="choreText" destination="bsr-us-jh1" id="6ZC-uv-LXZ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -945,7 +970,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sl3-wz-2cn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-69" y="3107"/>
+            <point key="canvasLocation" x="-69" y="3105"/>
         </scene>
         <!--Add New Chore-->
         <scene sceneID="K4b-Qz-MEu">
@@ -2501,6 +2526,7 @@
     </scenes>
     <resources>
         <image name="add2" width="224" height="231"/>
+        <image name="broom" width="256" height="256"/>
         <image name="cB_white" width="400" height="316"/>
         <image name="homeicon" width="376" height="312"/>
     </resources>

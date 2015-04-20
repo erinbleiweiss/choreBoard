@@ -23,14 +23,6 @@ extension NSMutableArray
     }
 }
 
-//struct SWCellState {
-//    var value: UInt32
-//    init(_ val: UInt32) { value = val }
-//}
-//let kCellStateCenter = SWCellState(0)
-//let kCellStateLeft = SWCellState(1)
-//let kCellStateRight = SWCellState(2)
-
 
 protocol parseChoreData{
     
@@ -45,14 +37,13 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
     var slideshowHeight: CGFloat = 100
     
     var refreshControl:UIRefreshControl!
-    var chores = [choreItem]()
-    var swipedItem: choreItem?
     
+    var chores = [choreItem]()
+    var groupItems = [groupItem]()
+    var swipedItem: groupItem?
+
     var customButton: UIButton?
     var barButton: BBBadgeBarButtonItem?
-    
-//    var leftButtons : NSMutableArray = NSMutableArray()
-//    var rightButtons : NSMutableArray = NSMutableArray()
     
     var delegate: parseChoreData? = nil
     
@@ -71,29 +62,43 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         var storedChores = [String: Bool]()
         
         // Load Chores From Parse
-        PFCloud.callFunctionInBackground("getGroupChores", withParameters:[:]) {
+        PFCloud.callFunctionInBackground("getGroupItems", withParameters:[:]) {
             (result: AnyObject!, error: NSError!) -> Void in
             if error == nil {
                 
-                self.chores = [choreItem]()
-                
-                for chore in result as NSArray {
-                    
+                for chore in result["chores"] as NSArray{
                     let choreName = chore["choreName"] as String
-                    
-                    let choreId = chore.objectId as String
                     let choreStatus = chore["completed"] as Bool
-                    self.chores.append(choreItem(text: choreName))
+                    let choreId = chore.objectId as String
+                    self.groupItems.append(groupItem(text: choreName, type: "chore", completed: choreStatus))
                     
                     storedChores[choreId] = choreStatus
-                    
-                    self.choreFeed.reloadData()
                 }
+                
+                for supply in result["supplies"] as NSArray{
+                    let supplyName = supply["supplyName"] as String
+                    let supplyStatus = supply["completed"] as Bool
+                    self.groupItems.append(groupItem(text: supplyName, type: "supply", completed: supplyStatus))
+                    
+                }
+                
+                for bill in result["bills"] as NSArray{
+                    let billName = bill["billName"] as String
+                    let billAmount = bill["amount"] as String
+                    let billStatus = bill["completed"] as Bool
+                    
+                    var billString = billName + " (" + billAmount + ")"
+                    
+                    self.groupItems.append(groupItem(text: billString, type: "bill", completed: billStatus))
+                }
+                
             }
             
             defaults.setObject(storedChores, forKey: "storedChores")
+            self.choreFeed.reloadData()
         }
-
+        
+        
         self.refreshControl?.endRefreshing()
     }
     
@@ -104,8 +109,6 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
 
         super.viewDidLoad()
         var allChores = self.delegate?.getParseData()
-        println("rootchores")
-        println(allChores)
         
         // Set up Top Slideshow
         slideshow.backgroundColor = UIColor.orangeColor()
@@ -261,7 +264,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.chores.count
+        return self.groupItems.count
     }
 
     
@@ -280,17 +283,44 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell = tableView.dequeueReusableCellWithIdentifier("ChoreFeedCell") as? SWTableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("ChoreFeedCell") as? ChoreFeedCell
         
         if cell == nil{
-            cell = SWTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "ChoreFeedCell")
+            cell = ChoreFeedCell()
             cell!.leftUtilityButtons = self.leftButtons()
             cell!.rightUtilityButtons = nil
             cell!.delegate = self
         }
         
-        cell!.textLabel?.text = self.chores[indexPath.row].text
+        if groupItems[indexPath.row].type == "chore"{
+            cell!.choreText?.text = self.groupItems[indexPath.row].text
+            cell!.choreText?.textAlignment = .Left
+            cell!.choreImage.image = UIImage(named: "broom")
+
+        }
+            
+        else if groupItems[indexPath.row].type == "supply"{
+            cell!.choreText?.text = "Buy " + self.groupItems[indexPath.row].text
+            cell!.choreText?.textAlignment = .Left
+            cell!.choreImage.image = UIImage(named: "shoppingcart")
+
+        }
+            
+        else if groupItems[indexPath.row].type == "bill"{
+            cell!.choreText?.text = "Pay " + self.groupItems[indexPath.row].text
+            cell!.choreText?.textAlignment = .Left
+            cell!.choreImage.image = UIImage(named: "creditcard")
+
+        }
+            
+        else{
+            cell!.choreText?.text = self.groupItems[indexPath.row].text
+            cell!.choreText?.textAlignment = .Left
+        }
         
+        cell!.leftUtilityButtons = self.leftButtons()
+        cell!.rightUtilityButtons = nil
+        cell!.delegate = self
         return cell!
         
     }
@@ -319,7 +349,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
     func didSelectedCell(cell: SWTableViewCell!) {
 
         var indexPath: NSIndexPath = choreFeed.indexPathForCell(cell)!
-        swipedItem = chores[indexPath.row]
+        swipedItem = groupItems[indexPath.row]
         println(swipedItem!.text)
         
     }

@@ -99,7 +99,7 @@ class NotificationsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         var clickedFriend = notifications[indexPath.row]
         
-        println("clicked on " + clickedFriend.name)
+//        println("clicked on " + clickedFriend.name)
 
         
         
@@ -107,7 +107,7 @@ class NotificationsTableViewController: UITableViewController {
             (result: AnyObject!, error: NSError!) -> Void in
             if error == nil {
                 
-                println("Added!")
+//                println("Added!")
                 
 
                 
@@ -123,10 +123,12 @@ class NotificationsTableViewController: UITableViewController {
                     let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as UIViewController
                     self.presentViewController(pageVC, animated: true, completion: nil)
             case .Cancel:
-                println("cancel")
+                break
+//                println("cancel")
                 
             case .Destructive:
-                println("destructive")
+                break
+//                println("destructive")
             }
         }))
         self.presentViewController(alert, animated: true, completion: nil)

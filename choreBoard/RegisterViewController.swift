@@ -36,7 +36,7 @@ class RegisterViewController: UIViewController {
         if usrEntered != "" && pwdEntered != "" && emlEntered != "" {
             userSignUp()
         } else {
-            println("Could not register")
+//            println("Could not register")
         }
         
     }

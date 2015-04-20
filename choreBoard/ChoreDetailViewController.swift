@@ -19,12 +19,12 @@ class ChoreDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        println(swipedChore)
+//        println(swipedChore)
     }
     
     override func viewDidAppear(animated: Bool) {
 
-        println(swipedChore)   
+//        println(swipedChore)   
     }
     
 

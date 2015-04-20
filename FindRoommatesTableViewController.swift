@@ -121,7 +121,7 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
         let row = indexPath.row
         var clickedFriend = filteredFriends[row]
         
-        println("clicked on "+filteredFriends[row].name)
+//        println("clicked on "+filteredFriends[row].name)
         
 //        PFCloud.callFunctionInBackground("addUserToMyGroup", withParameters:["fbId": clickedFriend.fbId]) {
 //            (result: AnyObject!, error: NSError!) -> Void in

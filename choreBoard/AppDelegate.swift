@@ -96,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, performFetchWithCompletionHandler completionHandler: (UIBackgroundFetchResult) -> Void) {
         
         let navigationController = self.window?.rootViewController
-        println(navigationController)
+//        println(navigationController)
 
         if self.window?.rootViewController is RootViewController
         {
@@ -104,7 +104,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             vc.fetchBackgroundData(completionHandler)
         }
         else {
-            println("Not the right class")
+//            println("Not the right class")
             completionHandler(UIBackgroundFetchResult.Failed)
         }
         

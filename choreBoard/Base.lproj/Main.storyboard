@@ -1248,15 +1248,31 @@
                     <view key="view" contentMode="scaleToFill" id="UBt-Ye-loA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NG2-pN-Dgc">
+                                <rect key="frame" x="279" y="148" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="NG2-pN-Dgc" secondAttribute="trailing" id="YAH-A1-txa"/>
+                            <constraint firstItem="NG2-pN-Dgc" firstAttribute="leading" secondItem="UBt-Ye-loA" secondAttribute="leading" id="yUT-jy-UY3"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="t2a-Lq-Qjv">
-                        <barButtonItem key="rightBarButtonItem" title="Back" id="TKx-Jm-I1u">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="TKx-Jm-I1u">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="qab-tj-rKm" kind="unwind" unwindAction="cancelToChoreFeedVC:" id="7dn-Xx-Aet"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="detailLabel" destination="NG2-pN-Dgc" id="a9C-14-pCm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dc3-hK-y7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="qab-tj-rKm" userLabel="Exit" sceneMemberID="exit"/>

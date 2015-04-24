@@ -11,20 +11,28 @@ import UIKit
 class ChoreDetailViewController: UIViewController {
     
     // MARK: - Outlets
+    @IBOutlet weak var detailLabel: UILabel!
     
     // MARK: - Variables
+    var activeChore: groupItem!
+
     var swipedChore: choreItem!
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        println(swipedChore)
+        if let parentVC = self.parentViewController as? ChoreDetailNavController{
+            self.activeChore = parentVC.activeChore!
+            detailLabel.text = self.activeChore.text
+        }
+        
+        println(activeChore.text)
     }
     
     override func viewDidAppear(animated: Bool) {
 
-//        println(swipedChore)   
+//        println(swipedChore)
     }
     
 

@@ -204,6 +204,8 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
             
             // instead of using the default transition animation, we'll ask
             // the segue to use our custom TransitionManager object to manage the transition animation
+            
+            toViewController.activeChore = swipedItem
             toViewController.transitioningDelegate = self.transitionManager
         }
         
@@ -233,15 +235,6 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
     func swipeableTableViewCell(cell: ChoreFeedCell!, didTriggerLeftUtilityButtonWithIndex index: Int){
         
         self.clickedButtonIndex = index
-        
-        
-        if index == 0{
-//            performSegueWithIdentifier("ChoreDetailSegue", sender: nil)
-            
-        }
-        else if index == 1{
-//            println("clicked done button")
-        }
 
     }
 
@@ -281,6 +274,8 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
             presentViewController(refreshAlert, animated: true, completion: nil)
         }
         else if clickedButtonIndex == 2 {
+            
+            self.swipedItem = groupItems[indexPath.row]
             performSegueWithIdentifier("ChoreDetailSegue", sender: self)
             
         }

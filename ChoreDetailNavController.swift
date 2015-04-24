@@ -10,6 +10,9 @@ import UIKit
 
 class ChoreDetailNavController: UINavigationController {
 
+    // MARK: - Variables
+    var activeChore: groupItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,7 +22,9 @@ class ChoreDetailNavController: UINavigationController {
         navigationBar.barTintColor = UIColor(red: (0/255.0), green: (67/255.0), blue: (112/255.0), alpha: 1.0)
         
         navigationBar.barStyle = UIBarStyle.Black
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.]
+        
+        println(activeChore.text)
     }
     
     func UIColorFromRGB(rgbValue: UInt) -> UIColor {

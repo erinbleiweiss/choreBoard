@@ -1,3 +1,5 @@
+var moment = require('moment');
+
 // Use Parse.Cloud.define to define as many cloud functions as you want.
 // For example:
 Parse.Cloud.define("hello", function(request, response) {
@@ -769,4 +771,125 @@ Parse.Cloud.define("deleteObject", function(request, response){
 
 
 });
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+Parse.Cloud.define("addChore_DEVELOPMENT", function(request, response){
+
+	var ChoreClass = Parse.Object.extend("Chore");
+	var chore = new ChoreClass();
+
+	var days = request.params.days;
+	var frequency = request.params.frequency;
+
+	switch (frequency){
+		case "Weekly":
+			frequency = 1; break;
+		case "Every 2 Weeks":
+			frequency = 2; break;
+		case "Every 3 Weeks":
+			frequency = 3; break;
+		case "Every 4 Weeks":
+			frequency = 4; break;
+		default:
+			break;
+	}
+
+	var rule = []
+	for (var i=0; i<days.length; i++){
+
+		var ruleTemp = days[i];
+
+		console.log(ruleTemp);
+
+		switch (days[i]){
+			case "Sunday":
+				days[i] = 0; break;
+			case "Monday":
+				days[i] = 1; break;
+			case "Tuesday":
+				days[i] = 2; break;
+			case "Wednesday":
+				days[i] = 3; break;
+			case "Thursday":
+				days[i] = 4; break;
+			case "Friday":
+				days[i] = 5; break;
+			case "Saturday":
+				days[i] = 6; break;
+			default:
+				break;
+		}
+
+		// check if current day <= days[i]
+
+		var next = days[i] + (7 * frequency);
+		console.log(next);
+
+		var dict = {}
+		dict[ruleTemp] = moment().day(next);
+		rule.push(dict);
+
+	}	
+
+
+	console.log(frequency);
+
+	console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
+	console.log(moment().day(10));
+
+	var currentUser = Parse.User.current();
+	currentUser.fetch({
+	  success: function(currentUser) {
+	  	var groupObj = currentUser.get("group");
+	    chore.set("group", groupObj);
+	  	chore.save(null, {
+	  		success: function(chore){
+	  			var choreName = request.params.choreName;
+	  			chore.set("choreName", choreName);
+	  			chore.set("completed", false);
+	  			if (request.params.days.length > 0){
+		  			chore.set("rule", rule);
+	  			}
+	  			chore.save(null, {
+	  				success: function(chore){
+	  					response.success(chore);
+	  				},
+	  				error: function(error){
+	  					response.error(error);
+	  				}
+	  			});
+	  		},
+	  		error: function(error){
+	  			response.error(error)
+	  		}
+
+	  	});
+	  }
+	});
+
+
+});
+
+
+
+
+
+
+
+
+
+
 

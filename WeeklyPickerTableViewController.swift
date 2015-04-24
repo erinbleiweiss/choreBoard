@@ -15,7 +15,7 @@ class WeeklyPickerTableViewController: UITableViewController {
     // MARK: - Variables
     
     let transitionManager = TransitionManager()
-    var selectedDays = [optionItem]()
+    var selectedDays = []
     var selectedFrequency = optionItem?()
     
     // MARK: - Outlets
@@ -86,7 +86,7 @@ class WeeklyPickerTableViewController: UITableViewController {
             
             var selectedDaysNew = [optionItem]()
             
-            for item in selectedDays {
+            for item in selectedDays as [optionItem]{
                 if (item.selected) {
                     if count > 0{
                         daysList += " "
@@ -105,7 +105,7 @@ class WeeklyPickerTableViewController: UITableViewController {
 
             }
             
-            selectedDays = selectedDaysNew
+            self.selectedDays = selectedDaysNew
             
             if count == 1{
                 cell.detailTextLabel!.text = daysList
@@ -145,10 +145,10 @@ class WeeklyPickerTableViewController: UITableViewController {
         let row = indexPath.row
         
         if row == 0{
-            performSegueWithIdentifier("WeekRepeatSegue", sender: nil)
+            performSegueWithIdentifier("WeekRepeatSegue", sender: self)
         }
         else if row == 1{
-            performSegueWithIdentifier("WeekFrequencySegue", sender: nil)
+            performSegueWithIdentifier("WeekFrequencySegue", sender: self)
         }
         
     }

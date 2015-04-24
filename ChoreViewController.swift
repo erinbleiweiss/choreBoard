@@ -22,7 +22,7 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
     
     required init(coder aDecoder: (NSCoder)) {
         choreTableView = UITableView(frame: CGRectMake(13, 200, 295, 200), style: UITableViewStyle.Plain);
-        super.init(coder: aDecoder);
+        super.init(coder: aDecoder)
     }
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -34,7 +34,7 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
     
     @IBAction func cancelToAddChoreVCFromFrequency(segue:UIStoryboardSegue) {
         let freqPickerTableViewController = segue.sourceViewController as WeeklyFreqPickerTableViewController
-        selectedFrequency = freqPickerTableViewController.selectedFrequency
+        selectedFrequency = freqPickerTableViewController.selectedFrequency!
     }
     
     @IBAction func searchBarDidChange(sender: AnyObject) {
@@ -44,18 +44,31 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
     }
     
     @IBAction func addChoreAction(sender: AnyObject) {
-        var userObj: PFUser!
-        var groupObj: PFObject!
         
-//        println("frequency")
-//        println(selectedFrequency?.text)
-//        println("days")
-        for day in selectedDays{
-//            println(day.text)
+        if searchBar.text != "" || searchBar.text == ""{
+
+            if segmentedControl.selectedSegmentIndex == 0{
+        
+                var days = [String]()
+                
+                for i in selectedDays as [optionItem]{
+                    if i.selected{
+                        days.append(i.text)
+                    }
+                }
+                
+                newChoreItem = choreItem(text: searchBar.text)
+                PFCloud.callFunctionInBackground("addChore_DEVELOPMENT", withParameters: ["choreName": searchBar.text, "type": "weekly", "days": days, "frequency": selectedFrequency.text ], block: nil)
+            }
+            else if segmentedControl.selectedSegmentIndex == 1{
+                println("monthly!")
+            }
+            else if segmentedControl.selectedSegmentIndex == 2{
+                println("manual!")
+            }
+            
+
         }
-    
-        newChoreItem = choreItem(text: searchBar.text)
-        PFCloud.callFunctionInBackground("addChore", withParameters: ["choreName": searchBar.text], block: nil)
         
         let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as UIViewController
         self.presentViewController(pageVC, animated: true, completion: nil)
@@ -70,33 +83,12 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
     var allChores = [choreItem]()
     var filteredChores = [choreItem]()
     
-    var selectedDays = [optionItem]()
-    var selectedFrequency = optionItem?()
+    var selectedDays = []
+    var selectedFrequency = optionItem(text: "Weekly")
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Search Bar
-        searchBar.delegate = self
-        
-        choreTableView!.dataSource = self
-        choreTableView!.delegate = self
-        choreTableView!.scrollEnabled = true
-        choreTableView!.hidden = true
-        self.view.addSubview(choreTableView)
-        
-        // Load Chores From Parse
-        PFCloud.callFunctionInBackground("getAllChores", withParameters:[:]) {
-            (result: AnyObject!, error: NSError!) -> Void in
-            if error == nil {
-                
-                for chore in result as NSArray {
-                    let choreName = chore["name"] as String
-                    self.allChores.append(choreItem(text: choreName))
-                }
-            }
-        }
         
         // Set up Notification Badge
         let buttonImage = UIImage(named: "ico-to-do-list") as UIImage?
@@ -115,45 +107,44 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
         }
         
         
-        // Dismiss Keyboard
-//        let tapRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
-//        view.addGestureRecognizer(tapRecognizer)
+        // Search Bar
+        searchBar.delegate = self
+        
+        choreTableView!.dataSource = self
+        choreTableView!.delegate = self
+        choreTableView!.scrollEnabled = true
+        self.view.addSubview(choreTableView)
+        
+        // Load Chores From Parse
+        PFCloud.callFunctionInBackground("getAllChores", withParameters:[:]) {
+            (result: AnyObject!, error: NSError!) -> Void in
+            if error == nil {
+                
+                for chore in result as NSArray {
+                    let choreName = chore["name"] as String
+                    self.allChores.append(choreItem(text: choreName))
+                }
+            }
+        }
+        
+
         
     }
     
-    func dismissKeyboard(){
-        searchBar.resignFirstResponder()
-    }
+
     
     override func viewDidAppear(animated: Bool) {
         barButton!.badgeValue = String(groupNotifications.sharedInstance.getNumNotifications())
     }
     
-        
-
-///////////////////////////////////////////
-//    func textField(textField: UITextField!, shouldChangeCharactersInRange range: NSRange, replacementString string: String!) -> Bool
-//    {
-//        choreTableView.hidden = false
-//        var substring = (self.searchBar.text as NSString).stringByReplacingCharactersInRange(range, withString: string)
-//        
-//        searchAutocompleteEntriesWithSubstring(substring)
-//        return true
-//    }
     
     func searchAutocompleteEntriesWithSubstring(substring: String)
     {
         filteredChores.removeAll(keepCapacity: false)
         
-        for curString in allChores
-        {
-            var myString:NSString! = curString.text.lowercaseString as NSString
-            var substringRange: NSRange! = myString.rangeOfString(substring.lowercaseString)
-            if (substringRange.location  == 0)
-            {
-                filteredChores.append(curString)
-            }
-        }
+        let searchPredicate = NSPredicate(format: "text CONTAINS[c] %@", searchBar.text)
+        let array = (allChores as NSArray).filteredArrayUsingPredicate(searchPredicate!)
+        filteredChores = array as [choreItem]
         
         if filteredChores.count == 0{
             filteredChores.append(choreItem(text: searchBar.text))
@@ -171,7 +162,7 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var cell = tableView.dequeueReusableCellWithIdentifier("Cell") as? UITableViewCell
-
+        
         if let temp = cell
         {
             let index = indexPath.row as Int
@@ -179,6 +170,13 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
         } else
         {
             cell = UITableViewCell(style: UITableViewCellStyle.Value1, reuseIdentifier: "Cell")
+        }
+        
+        if filteredChores.count == 1 && cell!.textLabel?.text != ""  && cell!.textLabel?.text == searchBar.text{
+            cell!.accessoryType = .Checkmark
+        }
+        else{
+            cell!.accessoryType = .None
         }
         
         return cell!
@@ -196,6 +194,10 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
         choreTableView.reloadData()
         searchBar.resignFirstResponder()
         return true
+    }
+    
+    func dismissKeyboard(){
+        searchBar.resignFirstResponder()
     }
     
 ///////////////////////////////////////////

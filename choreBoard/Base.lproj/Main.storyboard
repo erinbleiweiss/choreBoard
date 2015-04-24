@@ -1009,7 +1009,7 @@
                     <connections>
                         <outlet property="choreFeed" destination="tpa-ZL-0UQ" id="u7V-6u-uuw"/>
                         <outlet property="slideshow" destination="uS9-wd-GEA" id="cs3-yS-cMk"/>
-                        <segue destination="7jz-je-Ve4" kind="custom" identifier="ChoreDetailSegue" id="6Ry-MP-rBw"/>
+                        <segue destination="gCA-tP-CGl" kind="presentation" identifier="ChoreDetailSegue" id="0hf-lm-Zpl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sl3-wz-2cn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1221,10 +1221,10 @@
             </objects>
             <point key="canvasLocation" x="629" y="3107"/>
         </scene>
-        <!--Chore Board Blue Navigation Controller-->
+        <!--Chore Detail Nav Controller-->
         <scene sceneID="kkw-Tc-l4c">
             <objects>
-                <navigationController storyboardIdentifier="ChoreDetailViewController" id="gCA-tP-CGl" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ChoreDetailViewController" id="gCA-tP-CGl" customClass="ChoreDetailNavController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="v6G-oC-2Ax">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2561,6 +2561,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="U7r-lE-ns3"/>
-        <segue reference="6Ry-MP-rBw"/>
     </inferredMetricsTieBreakers>
 </document>

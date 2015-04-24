@@ -24,6 +24,8 @@
 		804E5A7C1AE3247F0004536C /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 804E5A7B1AE3247F0004536C /* ParseFacebookUtilsV4.framework */; };
 		8064E54E1AC7381E00863ADA /* ManageGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064E54D1AC7381E00863ADA /* ManageGroupsViewController.swift */; };
 		80656F551AC5130200C1994C /* createGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80656F541AC5130200C1994C /* createGroupViewController.swift */; };
+		807A9B581AEAE13F008AE1E3 /* TransitionManager2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807A9B571AEAE13F008AE1E3 /* TransitionManager2.swift */; };
+		807A9B5A1AEAE3CC008AE1E3 /* ChoreDetailNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807A9B591AEAE3CC008AE1E3 /* ChoreDetailNavController.swift */; };
 		807FA8611ABF69C600BB5A8A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA85C1ABF69C600BB5A8A /* Bolts.framework */; };
 		807FA8621ABF69C700BB5A8A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA85D1ABF69C600BB5A8A /* Parse.framework */; };
 		807FA8631ABF69C700BB5A8A /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA85E1ABF69C600BB5A8A /* ParseCrashReporting.framework */; };
@@ -104,6 +106,8 @@
 		804E5A7B1AE3247F0004536C /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		8064E54D1AC7381E00863ADA /* ManageGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageGroupsViewController.swift; sourceTree = "<group>"; };
 		80656F541AC5130200C1994C /* createGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createGroupViewController.swift; sourceTree = "<group>"; };
+		807A9B571AEAE13F008AE1E3 /* TransitionManager2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager2.swift; sourceTree = "<group>"; };
+		807A9B591AEAE3CC008AE1E3 /* ChoreDetailNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreDetailNavController.swift; sourceTree = "<group>"; };
 		807FA85C1ABF69C600BB5A8A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		807FA85D1ABF69C600BB5A8A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		807FA85E1ABF69C600BB5A8A /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -350,6 +354,7 @@
 				80D89BB41AA768CD00583941 /* AppDelegate.swift */,
 				80DA7D801ACA4BFA001B8999 /* PushNotificationController.swift */,
 				80F434E71ADB1D8E00B15B4B /* TransitionManager.swift */,
+				807A9B571AEAE13F008AE1E3 /* TransitionManager2.swift */,
 				80C7B1AB1ADC49E6006028C2 /* SWTableViewCell */,
 				80B7813B1AD97A7600B03AF7 /* DRDynamicSlideShow */,
 				800A39D41AC6020000CA4F59 /* SWRevealViewController */,
@@ -362,6 +367,7 @@
 				800A39D81AC602C400CA4F59 /* MenuController.swift */,
 				80B7813F1AD97C1E00B03AF7 /* ChoreFeedViewController.swift */,
 				80E2A0A61AB7FA3B008A169D /* ChoreDetailViewController.swift */,
+				807A9B591AEAE3CC008AE1E3 /* ChoreDetailNavController.swift */,
 				80C7C7741AD58C0A009E9736 /* ChoreBoardBlueNavigationController.swift */,
 				80CC8D771ADD80B500833CE2 /* NotificationsTableViewController.swift */,
 				801EAFEB1AE57B62005BF7C0 /* CustomSearchBar.swift */,
@@ -543,6 +549,7 @@
 				80B7813E1AD97A8600B03AF7 /* DRDynamicSlideShow.m in Sources */,
 				800D8B241AD9C6D800AD975C /* SupplyViewController.swift in Sources */,
 				809490271AC36902004C364E /* LoginViewController.swift in Sources */,
+				807A9B581AEAE13F008AE1E3 /* TransitionManager2.swift in Sources */,
 				80C7C7751AD58C0A009E9736 /* ChoreBoardBlueNavigationController.swift in Sources */,
 				80F434E81ADB1D8E00B15B4B /* TransitionManager.swift in Sources */,
 				80F434EA1ADB328100B15B4B /* optionItem.swift in Sources */,
@@ -581,6 +588,7 @@
 				8022091E1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift in Sources */,
 				80C211F81AD37EBE00DD512A /* RoommateTableViewCell.swift in Sources */,
 				80C7B1BA1ADC4A03006028C2 /* SWUtilityButtonView.m in Sources */,
+				807A9B5A1AEAE3CC008AE1E3 /* ChoreDetailNavController.swift in Sources */,
 				8064E54E1AC7381E00863ADA /* ManageGroupsViewController.swift in Sources */,
 				80F434E01ADB097B00B15B4B /* WeeklyPickerTableViewController.swift in Sources */,
 				80AF9BD31ABCE915003829F3 /* PageNavigationController.swift in Sources */,

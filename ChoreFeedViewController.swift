@@ -127,7 +127,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         self.refreshControl?.endRefreshing()
     }
     
-    let transitionManager2 = TransitionManager()
+    let transitionManager = TransitionManager2()
     
 
     func checkForLogin() -> Bool{
@@ -200,11 +200,11 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         
         if segue.identifier == "ChoreDetailSegue" {
             // this gets a reference to the screen that we're about to transition to
-            var toViewController = (segue.destinationViewController as ChoreDetailViewController)
+            var toViewController = (segue.destinationViewController as ChoreDetailNavController)
             
             // instead of using the default transition animation, we'll ask
             // the segue to use our custom TransitionManager object to manage the transition animation
-            toViewController.transitioningDelegate = self.transitionManager2
+            toViewController.transitioningDelegate = self.transitionManager
         }
         
     }
@@ -279,6 +279,10 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
             }))
             
             presentViewController(refreshAlert, animated: true, completion: nil)
+        }
+        else if clickedButtonIndex == 2 {
+            performSegueWithIdentifier("ChoreDetailSegue", sender: self)
+            
         }
         
     }
@@ -463,6 +467,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         var leftUtilityButtons: NSMutableArray = []
         leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.redColor(), title: "Delete")
         leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor(red: (0/255.0), green: (67/255.0), blue: (112/255.0), alpha: 1.0), title: "Done!")
+        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.greenColor(), title: "Edit")
         
         return leftUtilityButtons
     }
@@ -472,6 +477,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         var leftUtilityButtons: NSMutableArray = []
         leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.redColor(), title: "Delete")
         leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor(red: (0/255.0), green: (67/255.0), blue: (112/255.0), alpha: 1.0), title: "Reset!")
+        leftUtilityButtons.sw_addUtilityButtonWithColor(UIColor.greenColor(), title: "Edit")
         
         return leftUtilityButtons
     }

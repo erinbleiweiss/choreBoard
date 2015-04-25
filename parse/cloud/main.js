@@ -887,6 +887,14 @@ Parse.Cloud.define("addChore_DEVELOPMENT", function(request, response){
 
 
 
+Parse.Cloud.define("getSettings", function(request, response){
+
+	
+
+
+
+});
+
 
 
 

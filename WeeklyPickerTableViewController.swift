@@ -131,7 +131,7 @@ class WeeklyPickerTableViewController: UITableViewController {
         else {
             cell.textLabel?.text = "Frequency"
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-            cell.detailTextLabel!.text = "Weekly"
+            cell.detailTextLabel!.text = "Every Week"
             
             if selectedFrequency != nil{
                 cell.detailTextLabel!.text = selectedFrequency?.text

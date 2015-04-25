@@ -13,6 +13,7 @@
 		800A39D91AC602C400CA4F59 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800A39D81AC602C400CA4F59 /* MenuController.swift */; };
 		800D8B241AD9C6D800AD975C /* SupplyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800D8B231AD9C6D800AD975C /* SupplyViewController.swift */; };
 		800D8B261AD9C6E200AD975C /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800D8B251AD9C6E200AD975C /* BillViewController.swift */; };
+		80106FE91AEC1A2D004A7523 /* ChoreDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80106FE81AEC1A2D004A7523 /* ChoreDetailTableViewController.swift */; };
 		801824171AC6492C0009A7DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 801824151AC6492C0009A7DE /* Main.storyboard */; };
 		801824191AC64A320009A7DE /* ChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801824181AC64A320009A7DE /* ChoreViewController.swift */; };
 		801EAFE81AE55696005BF7C0 /* PrivacyPolicyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801EAFE71AE55696005BF7C0 /* PrivacyPolicyViewController.swift */; };
@@ -95,6 +96,7 @@
 		800A39D81AC602C400CA4F59 /* MenuController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuController.swift; path = choreBoard/MenuController.swift; sourceTree = "<group>"; };
 		800D8B231AD9C6D800AD975C /* SupplyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupplyViewController.swift; sourceTree = "<group>"; };
 		800D8B251AD9C6E200AD975C /* BillViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillViewController.swift; sourceTree = "<group>"; };
+		80106FE81AEC1A2D004A7523 /* ChoreDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreDetailTableViewController.swift; sourceTree = "<group>"; };
 		801824161AC6492C0009A7DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = choreBoard/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		801824181AC64A320009A7DE /* ChoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChoreViewController.swift; sourceTree = "<group>"; };
 		801EAFE71AE55696005BF7C0 /* PrivacyPolicyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewController.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 				800A39D81AC602C400CA4F59 /* MenuController.swift */,
 				80B7813F1AD97C1E00B03AF7 /* ChoreFeedViewController.swift */,
 				807A9B591AEAE3CC008AE1E3 /* ChoreDetailNavController.swift */,
+				80106FE81AEC1A2D004A7523 /* ChoreDetailTableViewController.swift */,
 				80E2A0A61AB7FA3B008A169D /* ChoreDetailViewController.swift */,
 				80C7C7741AD58C0A009E9736 /* ChoreBoardBlueNavigationController.swift */,
 				80CC8D771ADD80B500833CE2 /* NotificationsTableViewController.swift */,
@@ -572,6 +575,7 @@
 				80EECF7A1AE4E47500F78CCE /* groupItem.swift in Sources */,
 				801EAFE81AE55696005BF7C0 /* PrivacyPolicyViewController.swift in Sources */,
 				800A39D71AC6023000CA4F59 /* SWRevealViewController.m in Sources */,
+				80106FE91AEC1A2D004A7523 /* ChoreDetailTableViewController.swift in Sources */,
 				800D8B261AD9C6E200AD975C /* BillViewController.swift in Sources */,
 				80DA7D841ACA4FB7001B8999 /* ApiKeys.swift in Sources */,
 				80C7C7731AD4E91E009E9736 /* BBBadgeBarButtonItem.m in Sources */,

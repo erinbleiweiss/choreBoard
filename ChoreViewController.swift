@@ -92,7 +92,7 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
     var filteredChores = [choreItem]()
     
     var selectedDays = []
-    var selectedFrequency = optionItem(text: "Weekly")
+    var selectedFrequency = optionItem(text: "Every Week")
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {

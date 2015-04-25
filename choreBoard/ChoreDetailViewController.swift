@@ -27,7 +27,6 @@ class ChoreDetailViewController: UIViewController {
             detailLabel.text = self.activeChore.text
         }
         
-        println(activeChore.text)
     }
     
     override func viewDidAppear(animated: Bool) {

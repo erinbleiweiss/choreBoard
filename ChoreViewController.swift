@@ -34,7 +34,7 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
     
     @IBAction func cancelToAddChoreVCFromFrequency(segue:UIStoryboardSegue) {
         let freqPickerTableViewController = segue.sourceViewController as WeeklyFreqPickerTableViewController
-        selectedFrequency = freqPickerTableViewController.selectedFrequency!
+        selectedFrequency = freqPickerTableViewController.selectedFrequency
     }
     
     @IBAction func searchBarDidChange(sender: AnyObject) {

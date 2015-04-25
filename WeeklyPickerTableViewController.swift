@@ -118,6 +118,10 @@ class WeeklyPickerTableViewController: UITableViewController {
             {
                 cell.detailTextLabel!.text = "Weekends"
             }
+            else if daysList == "Sun Mon Tue Wed Thu Fri Sat"
+            {
+                cell.detailTextLabel!.text = "Every Day"
+            }
             else if daysList != ""{
                 cell.detailTextLabel!.text = daysList
             }

@@ -810,9 +810,7 @@ Parse.Cloud.define("addChore_DEVELOPMENT", function(request, response){
 	var rule = []
 	for (var i=0; i<days.length; i++){
 
-		var ruleTemp = days[i];
-
-		console.log(ruleTemp);
+		var theDay = days[i];
 
 		switch (days[i]){
 			case "Sunday":
@@ -839,7 +837,10 @@ Parse.Cloud.define("addChore_DEVELOPMENT", function(request, response){
 		console.log(next);
 
 		var dict = {}
-		dict[ruleTemp] = moment().day(next);
+		dict["type"] = "Weekly"
+		dict["day"] = theDay;
+		dict["frequency"] = request.params.frequency;
+		dict["nextDue"] = moment().day(next);
 		rule.push(dict);
 
 	}	

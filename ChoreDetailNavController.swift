@@ -23,8 +23,6 @@ class ChoreDetailNavController: UINavigationController {
         
         navigationBar.barStyle = UIBarStyle.Black
         // Do any additional setup after loading the view.]
-        
-        println(activeChore.text)
     }
     
     func UIColorFromRGB(rgbValue: UInt) -> UIColor {

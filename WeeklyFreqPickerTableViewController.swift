@@ -11,7 +11,7 @@ import UIKit
 class WeeklyFreqPickerTableViewController: UITableViewController {
 
     var selectedFrequencyIndex: Int?
-    var selectedFrequency = optionItem?()
+    var selectedFrequency = optionItem(text: "Weekly")
     
     override func viewDidLoad() {
         super.viewDidLoad()

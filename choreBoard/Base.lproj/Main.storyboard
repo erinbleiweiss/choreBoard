@@ -962,7 +962,7 @@
                                                         <constraint firstAttribute="width" constant="30" id="QZC-B5-Sj9"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsr-us-jh1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsr-us-jh1">
                                                     <rect key="frame" x="53" y="0.0" width="400" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="400" id="XfB-jm-135"/>
@@ -1252,13 +1252,14 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NG2-pN-Dgc">
                                 <rect key="frame" x="279" y="148" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="NG2-pN-Dgc" secondAttribute="trailing" id="YAH-A1-txa"/>
+                            <constraint firstAttribute="centerX" secondItem="NG2-pN-Dgc" secondAttribute="centerX" id="l5P-gy-HFW"/>
                             <constraint firstItem="NG2-pN-Dgc" firstAttribute="leading" secondItem="UBt-Ye-loA" secondAttribute="leading" id="yUT-jy-UY3"/>
                         </constraints>
                     </view>
@@ -1322,8 +1323,8 @@
                     <connections>
                         <outlet property="tableView" destination="Vhe-Lx-py3" id="woj-gS-FSr"/>
                         <outlet property="theTableView" destination="Vhe-Lx-py3" id="4Sk-j9-KaM"/>
-                        <segue destination="gEf-14-xz4" kind="custom" identifier="WeekRepeatSegue" id="FcO-Hh-Dri"/>
-                        <segue destination="vHP-sn-iyH" kind="custom" identifier="WeekFrequencySegue" id="15V-gm-ue6"/>
+                        <segue destination="gEf-14-xz4" kind="presentation" identifier="WeekRepeatSegue" id="FcO-Hh-Dri"/>
+                        <segue destination="vHP-sn-iyH" kind="presentation" identifier="WeekFrequencySegue" id="15V-gm-ue6"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c0s-fK-Brs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2080,10 +2081,10 @@
             </objects>
             <point key="canvasLocation" x="1080" y="5014"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Chore Board Blue Navigation Controller-->
         <scene sceneID="aLK-uO-hgp">
             <objects>
-                <navigationController id="Cgs-nj-9lW" sceneMemberID="viewController">
+                <navigationController id="Cgs-nj-9lW" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="GEV-PO-Nwg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2552,10 +2553,10 @@
             </objects>
             <point key="canvasLocation" x="1813" y="5008"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Chore Board Blue Navigation Controller-->
         <scene sceneID="hOa-dJ-4xp">
             <objects>
-                <navigationController id="3Lf-0o-O1O" sceneMemberID="viewController">
+                <navigationController id="3Lf-0o-O1O" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7gA-HP-DGG">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -58,6 +58,9 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
 //        selectedDays = dayPickerTableViewController.selectedDays
     }
     
+    @IBAction func cancelToChoreFeedVCFromDetail(segue:UIStoryboardSegue) {
+    }
+    
     func refresh(sender:AnyObject)
     {
         let defaults = NSUserDefaults.standardUserDefaults()

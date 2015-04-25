@@ -37,6 +37,14 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
         selectedFrequency = freqPickerTableViewController.selectedFrequency
     }
     
+
+    @IBAction func cancelToAddChoreVCFromRepeat_Month(segue:UIStoryboardSegue) {
+    }
+    
+    @IBAction func cancelToAddChoreVCFromFrequency_Month(segue:UIStoryboardSegue) {
+    }
+    
+    
     @IBAction func searchBarDidChange(sender: AnyObject) {
         choreTableView.hidden = false
         var searchString = searchBar.text

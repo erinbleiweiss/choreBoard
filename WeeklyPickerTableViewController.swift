@@ -12,8 +12,7 @@ class WeeklyPickerTableViewController: UITableViewController {
 
     
     
-    // MARK: - Variables
-    
+    // MARK: - Variables    
     let transitionManager = TransitionManager()
     var selectedDays = []
     var selectedFrequency = optionItem?()

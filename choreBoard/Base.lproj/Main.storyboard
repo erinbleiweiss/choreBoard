@@ -1375,7 +1375,7 @@
             </objects>
             <point key="canvasLocation" x="629" y="5672.5"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Monthly Day Picker Table View Controller-->
         <scene sceneID="iqd-ad-7Wa">
             <objects>
                 <tableViewController id="eMd-Vd-DKv" customClass="MonthlyDayPickerTableViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
@@ -1478,13 +1478,21 @@
                             <outlet property="delegate" destination="eMd-Vd-DKv" id="0ML-Y9-irh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="MMJ-tI-OFM"/>
+                    <navigationItem key="navigationItem" id="MMJ-tI-OFM">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="LaT-1v-Aab">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="8tQ-kP-lG0" kind="unwind" unwindAction="cancelToAddChoreVCFromRepeat_Month:" id="9Fv-Xs-LPO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n1O-7s-50w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="8tQ-kP-lG0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1907" y="6247"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Monthly Freq Picker Table View Controller-->
         <scene sceneID="ZGL-Zf-wn4">
             <objects>
                 <tableViewController id="3NZ-94-eNo" customClass="MonthlyFreqPickerTableViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
@@ -1587,9 +1595,17 @@
                             <outlet property="delegate" destination="3NZ-94-eNo" id="dTV-IU-tQm"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="b09-Tr-Awj"/>
+                    <navigationItem key="navigationItem" id="b09-Tr-Awj">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="XPW-UY-vJI">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="NNG-zO-Jxo" kind="unwind" unwindAction="cancelToAddChoreVCFromFrequency_Month:" id="2yX-lb-51c"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Xc-P1-hH5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="NNG-zO-Jxo" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1907" y="6939"/>
         </scene>
@@ -2568,6 +2584,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kvl-8H-Ej9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1080" y="5014"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="PgW-hS-7rZ">
+            <objects>
+                <viewController id="f5G-XU-DhZ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wiA-G9-D0p"/>
+                        <viewControllerLayoutGuide type="bottom" id="QlP-ot-Xhe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2gB-vH-N3i">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gk4-BQ-1bp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

@@ -1367,8 +1367,8 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="lUY-9d-thh" kind="custom" identifier="MonthRepeatSegue" id="K16-hi-aoF"/>
-                        <segue destination="4LE-wA-IyD" kind="custom" identifier="MonthFrequencySegue" id="mwH-cr-78u"/>
+                        <segue destination="lUY-9d-thh" kind="presentation" identifier="MonthRepeatSegue" id="K16-hi-aoF"/>
+                        <segue destination="4LE-wA-IyD" kind="presentation" identifier="MonthFrequencySegue" id="mwH-cr-78u"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yN9-zX-cyJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1593,10 +1593,10 @@
             </objects>
             <point key="canvasLocation" x="1907" y="6939"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Chore Board Blue Navigation Controller-->
         <scene sceneID="cBf-HS-N8u">
             <objects>
-                <navigationController id="4LE-wA-IyD" sceneMemberID="viewController">
+                <navigationController id="4LE-wA-IyD" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="WIa-yV-Ctv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1609,10 +1609,10 @@
             </objects>
             <point key="canvasLocation" x="1087" y="6939"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Chore Board Blue Navigation Controller-->
         <scene sceneID="PaP-ZV-6zY">
             <objects>
-                <navigationController id="lUY-9d-thh" sceneMemberID="viewController">
+                <navigationController id="lUY-9d-thh" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dDA-gn-cjp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1829,10 +1829,10 @@
             </objects>
             <point key="canvasLocation" x="2039" y="2218"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Chore Board Blue Navigation Controller-->
         <scene sceneID="oqv-yJ-ZlL">
             <objects>
-                <navigationController id="8PM-EO-tAO" sceneMemberID="viewController">
+                <navigationController id="8PM-EO-tAO" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZNR-Wa-v1Z">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

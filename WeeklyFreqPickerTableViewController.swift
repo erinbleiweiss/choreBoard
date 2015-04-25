@@ -16,6 +16,10 @@ class WeeklyFreqPickerTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        var navigationBar = self.navigationController?.navigationBar
+        navigationBar?.tintColor = UIColor(red: (0/255.0), green: (67/255.0), blue: (112/255.0), alpha: 1.0)
+        navigationBar?.barTintColor = UIColor(red: (0/255.0), green: (67/255.0), blue: (112/255.0), alpha: 1.0)
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

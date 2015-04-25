@@ -15,6 +15,10 @@ class DayPickerTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var navigationBar = self.navigationController?.navigationBar
+        navigationBar?.tintColor = UIColor(red: (0/255.0), green: (67/255.0), blue: (112/255.0), alpha: 1.0)
+        navigationBar?.barTintColor = UIColor(red: (0/255.0), green: (67/255.0), blue: (112/255.0), alpha: 1.0)
+        
         selectedDays.append(optionItem(text: "Sunday"))
         selectedDays.append(optionItem(text: "Monday"))
         selectedDays.append(optionItem(text: "Tuesday"))

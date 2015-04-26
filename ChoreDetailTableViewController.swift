@@ -14,8 +14,19 @@ class ChoreDetailTableViewController: UITableViewController {
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var detailLabel: UILabel!
     
+    @IBAction func cancelToDetailFromSchedule(segue:UIStoryboardSegue) {
+    }
+
+    @IBAction func cancelToDetailFromRepeat(segue:UIStoryboardSegue) {
+    }
+
+    @IBAction func cancelToDetailFromFrequency(segue:UIStoryboardSegue) {
+    }
+    
     // MARK: - Variables
     var activeChore: groupItem!
+    let transitionManager = TransitionManager()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +53,44 @@ class ChoreDetailTableViewController: UITableViewController {
             default: break
             }
             
+        }
+        
+        var objectId = activeChore.objectId
+        var kind = activeChore.type
+        
+        PFCloud.callFunctionInBackground("getSettings", withParameters:["objId": objectId, "kind": kind]) {
+            (result: AnyObject!, error: NSError!) -> Void in
+            if error == nil {
+                println(result)
+                println(result["type"]!!)
+                println(result["frequency"]!!)
+                println(result["repeat"]!!)
+
+            }
+
+        }
+        
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        var toViewController = (segue.destinationViewController as ChoreBoardBlueNavigationController)
+        toViewController.transitioningDelegate = self.transitionManager
+        
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        let row = indexPath.row
+        
+        if row == 1{
+            performSegueWithIdentifier("DetailScheduleSegue", sender: self)
+        }
+        else if row == 2{
+            performSegueWithIdentifier("DetailRepeatSegue", sender: self)
+        }
+        else if row == 3{
+            performSegueWithIdentifier("DetailFrequencySegue", sender: self)
         }
         
     }

@@ -22,6 +22,9 @@
 		8022091A1AE1B67D00B7A7A5 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 802209191AE1B67D00B7A7A5 /* RootViewController.swift */; };
 		8022091C1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8022091B1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift */; };
 		8022091E1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8022091D1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift */; };
+		8037631D1AEC4150003B906B /* DetailScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037631C1AEC4150003B906B /* DetailScheduleTableViewController.swift */; };
+		803763201AEC416F003B906B /* DetailRepeatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8037631F1AEC416F003B906B /* DetailRepeatTableViewController.swift */; };
+		803763221AEC417C003B906B /* DetailFrequencyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803763211AEC417C003B906B /* DetailFrequencyTableViewController.swift */; };
 		804E5A7C1AE3247F0004536C /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 804E5A7B1AE3247F0004536C /* ParseFacebookUtilsV4.framework */; };
 		8064E54E1AC7381E00863ADA /* ManageGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064E54D1AC7381E00863ADA /* ManageGroupsViewController.swift */; };
 		80656F551AC5130200C1994C /* createGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80656F541AC5130200C1994C /* createGroupViewController.swift */; };
@@ -105,6 +108,9 @@
 		802209191AE1B67D00B7A7A5 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		8022091B1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyDayPickerTableViewController.swift; sourceTree = "<group>"; };
 		8022091D1AE1BD4A00B7A7A5 /* MonthlyFreqPickerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyFreqPickerTableViewController.swift; sourceTree = "<group>"; };
+		8037631C1AEC4150003B906B /* DetailScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailScheduleTableViewController.swift; sourceTree = "<group>"; };
+		8037631F1AEC416F003B906B /* DetailRepeatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRepeatTableViewController.swift; sourceTree = "<group>"; };
+		803763211AEC417C003B906B /* DetailFrequencyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailFrequencyTableViewController.swift; sourceTree = "<group>"; };
 		804E5A7B1AE3247F0004536C /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
 		8064E54D1AC7381E00863ADA /* ManageGroupsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageGroupsViewController.swift; sourceTree = "<group>"; };
 		80656F541AC5130200C1994C /* createGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createGroupViewController.swift; sourceTree = "<group>"; };
@@ -276,6 +282,26 @@
 			name = addChore;
 			sourceTree = "<group>";
 		};
+		8037631B1AEC411D003B906B /* Detail Controller */ = {
+			isa = PBXGroup;
+			children = (
+				80106FE81AEC1A2D004A7523 /* ChoreDetailTableViewController.swift */,
+				807A9B591AEAE3CC008AE1E3 /* ChoreDetailNavController.swift */,
+				8037631E1AEC4154003B906B /* Pickers */,
+			);
+			name = "Detail Controller";
+			sourceTree = "<group>";
+		};
+		8037631E1AEC4154003B906B /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				8037631C1AEC4150003B906B /* DetailScheduleTableViewController.swift */,
+				8037631F1AEC416F003B906B /* DetailRepeatTableViewController.swift */,
+				803763211AEC417C003B906B /* DetailFrequencyTableViewController.swift */,
+			);
+			name = Pickers;
+			sourceTree = "<group>";
+		};
 		807FA85B1ABF69B100BB5A8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,8 +394,7 @@
 				802209191AE1B67D00B7A7A5 /* RootViewController.swift */,
 				800A39D81AC602C400CA4F59 /* MenuController.swift */,
 				80B7813F1AD97C1E00B03AF7 /* ChoreFeedViewController.swift */,
-				807A9B591AEAE3CC008AE1E3 /* ChoreDetailNavController.swift */,
-				80106FE81AEC1A2D004A7523 /* ChoreDetailTableViewController.swift */,
+				8037631B1AEC411D003B906B /* Detail Controller */,
 				80E2A0A61AB7FA3B008A169D /* ChoreDetailViewController.swift */,
 				80C7C7741AD58C0A009E9736 /* ChoreBoardBlueNavigationController.swift */,
 				80CC8D771ADD80B500833CE2 /* NotificationsTableViewController.swift */,
@@ -554,6 +579,7 @@
 				809490271AC36902004C364E /* LoginViewController.swift in Sources */,
 				807A9B581AEAE13F008AE1E3 /* TransitionManager2.swift in Sources */,
 				80C7C7751AD58C0A009E9736 /* ChoreBoardBlueNavigationController.swift in Sources */,
+				803763221AEC417C003B906B /* DetailFrequencyTableViewController.swift in Sources */,
 				80F434E81ADB1D8E00B15B4B /* TransitionManager.swift in Sources */,
 				80F434EA1ADB328100B15B4B /* optionItem.swift in Sources */,
 				80C7B1B71ADC4A03006028C2 /* SWLongPressGestureRecognizer.m in Sources */,
@@ -581,10 +607,12 @@
 				80C7C7731AD4E91E009E9736 /* BBBadgeBarButtonItem.m in Sources */,
 				80F434E21ADB181000B15B4B /* DayPickerTableViewController.swift in Sources */,
 				801824191AC64A320009A7DE /* ChoreViewController.swift in Sources */,
+				8037631D1AEC4150003B906B /* DetailScheduleTableViewController.swift in Sources */,
 				80D89BB51AA768CD00583941 /* AppDelegate.swift in Sources */,
 				801EAFEC1AE57B62005BF7C0 /* CustomSearchBar.swift in Sources */,
 				80C7B1B81ADC4A03006028C2 /* SWTableViewCell.m in Sources */,
 				80C7B1B91ADC4A03006028C2 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
+				803763201AEC416F003B906B /* DetailRepeatTableViewController.swift in Sources */,
 				80CC8D7A1ADD80E900833CE2 /* notificationItem.swift in Sources */,
 				80DA7D8C1ACB7916001B8999 /* UserTemp.swift in Sources */,
 				8022091C1AE1BD3900B7A7A5 /* MonthlyDayPickerTableViewController.swift in Sources */,

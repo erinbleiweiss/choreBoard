@@ -377,153 +377,6 @@
             </objects>
             <point key="canvasLocation" x="2039" y="3103"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="IOq-t1-kBe">
-            <objects>
-                <navigationController id="gEf-14-xz4" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Axv-yV-Loc">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="GaT-rb-mul" kind="relationship" relationship="rootViewController" id="faC-Rv-hib"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ebz-qs-N0s" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1087" y="4340"/>
-        </scene>
-        <!--Day Picker Table View Controller-->
-        <scene sceneID="ur5-mH-dHW">
-            <objects>
-                <tableViewController id="GaT-rb-mul" customClass="DayPickerTableViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="y1d-fd-HFM">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection id="0d3-QZ-nXe">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Az0-pZ-5mh">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Az0-pZ-5mh" id="w9d-ma-2QR">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sunday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8j-rb-3r0">
-                                                    <rect key="frame" x="8" y="11" width="59" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vB6-II-C6L">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vB6-II-C6L" id="4qF-GV-bsa">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Monday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rpf-zE-P6T">
-                                                    <rect key="frame" x="8" y="11" width="63" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="nxp-H4-3Mb">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nxp-H4-3Mb" id="Lgl-xu-uYg">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tuesday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nq2-uC-T5t">
-                                                    <rect key="frame" x="8" y="11" width="64" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="5a9-KD-rVJ">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5a9-KD-rVJ" id="bKA-8k-5FU">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wednesday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lss-iS-vL9">
-                                                    <rect key="frame" x="8" y="11" width="90" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="VjQ-8p-Sgh">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VjQ-8p-Sgh" id="pU3-sN-eaS">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thursday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nex-1v-6Vh">
-                                                    <rect key="frame" x="8" y="11" width="72" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hyx-18-bMf">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hyx-18-bMf" id="Luw-4R-zxH">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Friday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXw-Ui-RBO">
-                                                    <rect key="frame" x="8" y="11" width="48" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="8YT-Rl-F8u">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8YT-Rl-F8u" id="rYx-DM-0Ty">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saturday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Zo-NA-3BI">
-                                                    <rect key="frame" x="8" y="11" width="69" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="GaT-rb-mul" id="fnT-fw-1NX"/>
-                            <outlet property="delegate" destination="GaT-rb-mul" id="42g-ET-Rqh"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="XmB-Nw-O6U">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="b9n-98-zOw">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="2xT-5k-Tt6" kind="unwind" unwindAction="cancelToAddChoreVCFromRepeat:" id="iOI-s5-b2t"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jHF-ec-nMi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="2xT-5k-Tt6" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1813" y="4340"/>
-        </scene>
         <!--Menu Controller-->
         <scene sceneID="e9r-yN-10y">
             <objects>
@@ -821,10 +674,10 @@
             </objects>
             <point key="canvasLocation" x="1813" y="5008"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Chore Board Blue Navigation Controller-->
         <scene sceneID="SeN-VA-22C">
             <objects>
-                <navigationController id="vHP-sn-iyH" sceneMemberID="viewController">
+                <navigationController id="vHP-sn-iyH" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="53e-Lc-Rin">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1186,6 +1039,9 @@
                     <connections>
                         <outlet property="detailImage" destination="uUe-iN-Jr1" id="ZcM-9y-Ntu"/>
                         <outlet property="detailLabel" destination="NU9-w3-tMg" id="otH-hS-hYp"/>
+                        <segue destination="yQ6-i7-8eI" kind="presentation" identifier="DetailScheduleSegue" id="K49-gd-YbO"/>
+                        <segue destination="J2X-Fx-JjQ" kind="presentation" identifier="DetailRepeatSegue" id="6uf-vg-bWs"/>
+                        <segue destination="CHf-d0-rDs" kind="presentation" identifier="DetailFrequencySegue" id="why-cX-3hB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aDF-gv-fNu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1267,7 +1123,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-155" y="4299"/>
+            <point key="canvasLocation" x="-3227" y="3315"/>
         </scene>
         <!--Add Chore-->
         <scene sceneID="63K-ED-kt4">
@@ -1478,7 +1334,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dc3-hK-y7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="qab-tj-rKm" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-1735" y="3936"/>
+            <point key="canvasLocation" x="-3787" y="4136"/>
         </scene>
         <!--Weekly Picker Table View Controller-->
         <scene sceneID="ObR-WQ-wSu">
@@ -1523,8 +1379,8 @@
                     <connections>
                         <outlet property="tableView" destination="Vhe-Lx-py3" id="woj-gS-FSr"/>
                         <outlet property="theTableView" destination="Vhe-Lx-py3" id="4Sk-j9-KaM"/>
-                        <segue destination="gEf-14-xz4" kind="presentation" identifier="WeekRepeatSegue" id="FcO-Hh-Dri"/>
                         <segue destination="vHP-sn-iyH" kind="presentation" identifier="WeekFrequencySegue" id="15V-gm-ue6"/>
+                        <segue destination="Cgs-nj-9lW" kind="presentation" identifier="WeekRepeatSegue" id="ITC-Um-qRb"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c0s-fK-Brs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2045,153 +1901,6 @@
             </objects>
             <point key="canvasLocation" x="2039" y="2218"/>
         </scene>
-        <!--Chore Board Blue Navigation Controller-->
-        <scene sceneID="oqv-yJ-ZlL">
-            <objects>
-                <navigationController id="8PM-EO-tAO" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZNR-Wa-v1Z">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="6IN-FA-U79" kind="relationship" relationship="rootViewController" id="Qh9-HS-fIi"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OTK-57-ih4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1087" y="4340"/>
-        </scene>
-        <!--Day Picker Table View Controller-->
-        <scene sceneID="rQa-u6-o1E">
-            <objects>
-                <tableViewController id="6IN-FA-U79" customClass="DayPickerTableViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bWL-BL-RLk">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection id="Iea-1p-Yzb">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="sNb-2v-ekC">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sNb-2v-ekC" id="gcG-So-u2L">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sunday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPV-Ql-LIH">
-                                                    <rect key="frame" x="8" y="11" width="59" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Jjt-MT-jHg">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jjt-MT-jHg" id="Ve2-Y2-fzI">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Monday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abu-ZZ-6yV">
-                                                    <rect key="frame" x="8" y="11" width="63" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2hs-qB-fCm">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2hs-qB-fCm" id="Lm8-tR-rg2">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tuesday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGj-nA-qwy">
-                                                    <rect key="frame" x="8" y="11" width="64" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="6bM-lv-FcT">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6bM-lv-FcT" id="O7a-PS-Ryj">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wednesday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Act-4v-yat">
-                                                    <rect key="frame" x="8" y="11" width="90" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="826-Nh-UJW">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="826-Nh-UJW" id="uS4-2m-MCS">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thursday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtU-XQ-a7b">
-                                                    <rect key="frame" x="8" y="11" width="72" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="RxR-Bu-ELI">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RxR-Bu-ELI" id="6aK-k5-tgu">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Friday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="254-5h-GUW">
-                                                    <rect key="frame" x="8" y="11" width="48" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="G9D-vK-z64">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G9D-vK-z64" id="tg5-yy-dHy">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saturday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9As-Gj-7hi">
-                                                    <rect key="frame" x="8" y="11" width="69" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="6IN-FA-U79" id="Erp-xr-L7M"/>
-                            <outlet property="delegate" destination="6IN-FA-U79" id="AnF-OZ-MMx"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="prs-AQ-zgl">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="OwA-jT-zIS">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="psV-43-O9c" kind="unwind" unwindAction="cancelToAddChoreVCFromRepeat:" id="bac-qj-uLu"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SQP-IR-6PW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="psV-43-O9c" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1813" y="4340"/>
-        </scene>
         <!--Weekly Freq Picker Table View Controller-->
         <scene sceneID="XtV-BL-J3r">
             <objects>
@@ -2281,22 +1990,6 @@
             </objects>
             <point key="canvasLocation" x="1813" y="5008"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Emb-Ah-eaA">
-            <objects>
-                <navigationController id="vVD-WW-4EL" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PBa-GV-DLL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="21q-NW-p08" kind="relationship" relationship="rootViewController" id="Byh-H6-LlC"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uBy-K9-3n1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1080" y="5014"/>
-        </scene>
         <!--Chore Board Blue Navigation Controller-->
         <scene sceneID="aLK-uO-hgp">
             <objects>
@@ -2306,143 +1999,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="940-cL-c78" kind="relationship" relationship="rootViewController" id="U4u-MP-wiw"/>
+                        <segue destination="TIr-hO-bya" kind="relationship" relationship="rootViewController" id="UC0-yE-YDq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PwI-dH-Ybs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1087" y="4340"/>
-        </scene>
-        <!--Day Picker Table View Controller-->
-        <scene sceneID="cia-FT-rPA">
-            <objects>
-                <tableViewController id="940-cL-c78" customClass="DayPickerTableViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Edm-AY-2qr">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection id="K2f-uW-7pT">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="jpf-7g-Y7A">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jpf-7g-Y7A" id="ECG-dg-VOy">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sunday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXp-Bl-SKt">
-                                                    <rect key="frame" x="8" y="11" width="59" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vcY-tc-31s">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vcY-tc-31s" id="GIi-uO-Bck">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Monday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBe-SH-qtr">
-                                                    <rect key="frame" x="8" y="11" width="63" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tzX-dt-B8O">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tzX-dt-B8O" id="bVC-WJ-olr">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tuesday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htT-cL-B2a">
-                                                    <rect key="frame" x="8" y="11" width="64" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="e4D-hH-4cN">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e4D-hH-4cN" id="iwL-Ef-EtC">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Wednesday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Lu-0J-Qn8">
-                                                    <rect key="frame" x="8" y="11" width="90" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Obp-QD-f5X">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Obp-QD-f5X" id="AoK-hg-Fx1">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thursday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x7H-d3-D85">
-                                                    <rect key="frame" x="8" y="11" width="72" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="rS1-6K-YGQ">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rS1-6K-YGQ" id="XQg-5j-d38">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Friday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHS-it-FY7">
-                                                    <rect key="frame" x="8" y="11" width="48" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="iII-UA-Vu6">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iII-UA-Vu6" id="AWr-Yn-2NL">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Saturday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhG-vp-8Ln">
-                                                    <rect key="frame" x="8" y="11" width="69" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="940-cL-c78" id="yyq-AK-uJK"/>
-                            <outlet property="delegate" destination="940-cL-c78" id="L9j-Ep-WKK"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="cMj-JU-g9C">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="dLW-RS-63G">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="khM-lr-tp5" kind="unwind" unwindAction="cancelToAddChoreVCFromRepeat:" id="jQA-2K-ecq"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="r6N-av-3VF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="khM-lr-tp5" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="1813" y="4340"/>
         </scene>
         <!--Weekly Freq Picker Table View Controller-->
         <scene sceneID="2Sw-iU-YGE">
@@ -2525,41 +2087,11 @@
             </objects>
             <point key="canvasLocation" x="1813" y="5008"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="4E3-YD-gdI">
-            <objects>
-                <navigationController id="Nyb-hk-giJ" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GQZ-ca-7hN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="vlv-IO-ab9" kind="relationship" relationship="rootViewController" id="FRn-Co-o9Q"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vNm-Gd-5ME" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1080" y="5014"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Tpb-nQ-4J4">
-            <objects>
-                <navigationController id="KWD-YS-nKR" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tuY-U2-QiM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="TIr-hO-bya" kind="relationship" relationship="rootViewController" id="UCu-wF-ncM"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RHi-gw-wtS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1087" y="4340"/>
-        </scene>
         <!--Day Picker Table View Controller-->
         <scene sceneID="fjM-bX-zsQ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fhv-ma-psD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="LGP-zc-O9D" userLabel="Exit" sceneMemberID="exit"/>
                 <tableViewController id="TIr-hO-bya" customClass="DayPickerTableViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5nO-J0-acb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -2674,11 +2206,17 @@
                             <outlet property="delegate" destination="TIr-hO-bya" id="i1F-g5-t0w"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ahF-gN-U1w"/>
+                    <navigationItem key="navigationItem" id="ahF-gN-U1w">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="Txr-bj-Vis">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="LGP-zc-O9D" kind="unwind" unwindAction="cancelToAddChoreVCFromRepeat:" id="uqL-DQ-tgX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fhv-ma-psD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1813" y="4340"/>
+            <point key="canvasLocation" x="1805" y="4340"/>
         </scene>
         <!--Weekly Freq Picker Table View Controller-->
         <scene sceneID="QkH-tK-KQa">
@@ -2769,22 +2307,6 @@
             </objects>
             <point key="canvasLocation" x="1813" y="5008"/>
         </scene>
-        <!--Chore Board Blue Navigation Controller-->
-        <scene sceneID="hOa-dJ-4xp">
-            <objects>
-                <navigationController id="3Lf-0o-O1O" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7gA-HP-DGG">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="gN1-Nd-Zbw" kind="relationship" relationship="rootViewController" id="QRu-o0-BPO"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kvl-8H-Ej9" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1080" y="5014"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="PgW-hS-7rZ">
             <objects>
@@ -2801,6 +2323,162 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gk4-BQ-1bp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Chore Board Blue Navigation Controller-->
+        <scene sceneID="MNX-lw-QmC">
+            <objects>
+                <navigationController id="J2X-Fx-JjQ" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Byj-2q-sqx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9dx-ka-6br" kind="relationship" relationship="rootViewController" id="knA-Gl-qgM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FLZ-Mw-9o2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-915" y="5310"/>
+        </scene>
+        <!--Detail Schedule Table View Controller-->
+        <scene sceneID="xha-cr-a89">
+            <objects>
+                <tableViewController id="o5b-PJ-SgR" customClass="DetailScheduleTableViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="42H-xv-kVp">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="3j4-3Q-4Wz">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3j4-3Q-4Wz" id="ZLZ-MJ-NwJ">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="o5b-PJ-SgR" id="fj1-Z4-QkF"/>
+                            <outlet property="delegate" destination="o5b-PJ-SgR" id="mLc-LT-8vo"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="nxC-Yi-V4S">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="CcI-EW-VbB">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="T8F-h6-gYH" kind="unwind" unwindAction="cancelToDetailFromSchedule:" id="oTX-dv-mtk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vyl-5Q-dFo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="T8F-h6-gYH" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-182" y="4636"/>
+        </scene>
+        <!--Chore Board Blue Navigation Controller-->
+        <scene sceneID="On9-7m-RsP">
+            <objects>
+                <navigationController id="yQ6-i7-8eI" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="UOX-hE-6YA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="o5b-PJ-SgR" kind="relationship" relationship="rootViewController" id="DQW-9v-a0c"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9dJ-C2-gNX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-915" y="4642"/>
+        </scene>
+        <!--Detail Repeat Table View Controller-->
+        <scene sceneID="m2b-TR-Fh1">
+            <objects>
+                <tableViewController id="9dx-ka-6br" customClass="DetailRepeatTableViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WNb-te-ssg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Bb2-Fd-Y4C">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bb2-Fd-Y4C" id="l1T-F4-gKB">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="9dx-ka-6br" id="CN8-la-gUO"/>
+                            <outlet property="delegate" destination="9dx-ka-6br" id="jCB-Pn-yGs"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="24Y-1p-htR">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="FB8-Ot-x0F">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="Lzw-4o-5Jy" kind="unwind" unwindAction="cancelToDetailFromRepeat:" id="zec-wf-lH7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b5A-11-avs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Lzw-4o-5Jy" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-182" y="5310"/>
+        </scene>
+        <!--Chore Board Blue Navigation Controller-->
+        <scene sceneID="4ng-Dg-Vei">
+            <objects>
+                <navigationController id="CHf-d0-rDs" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sMj-GW-D5O">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="CP4-T1-FeX" kind="relationship" relationship="rootViewController" id="TfN-gM-XbW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oN0-nI-iQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-915" y="6014"/>
+        </scene>
+        <!--Detail Frequency Table View Controller-->
+        <scene sceneID="mPB-SU-Hci">
+            <objects>
+                <tableViewController id="CP4-T1-FeX" customClass="DetailFrequencyTableViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Htb-OM-acW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="Pix-wa-gKH">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Pix-wa-gKH" id="t7m-EK-Fr3">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="CP4-T1-FeX" id="Yj4-Ne-vnc"/>
+                            <outlet property="delegate" destination="CP4-T1-FeX" id="d0C-dO-0Sq"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="0gB-bs-SwA">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="yEM-Vo-rxb">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="uXZ-kT-tqW" kind="unwind" unwindAction="cancelToDetailFromFrequency:" id="fb0-HF-OpA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tqY-1i-lMk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="uXZ-kT-tqW" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-182" y="6014"/>
         </scene>
     </scenes>
     <resources>

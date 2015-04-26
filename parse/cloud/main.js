@@ -889,7 +889,42 @@ Parse.Cloud.define("addChore_DEVELOPMENT", function(request, response){
 
 Parse.Cloud.define("getSettings", function(request, response){
 
-	
+	var objId = request.params.objId;
+	var kind = request.params.kind;
+
+
+	var Class = Parse.Object.extend(kind);
+	var query = new Parse.Query(Class);
+	query.equalTo("objectId", objId);
+	query.find({
+		success: function(result){
+			var theObject = result[0];
+			var ruleData = theObject.get("rule");
+
+			var dict = {}
+
+			if (ruleData[0]["type"] == "Weekly"){
+				var frequency = ruleData[0]["frequency"];
+				var repeat = [];
+				for (var i=0; i<ruleData.length; i++){
+					repeat.push(ruleData[i]["day"]);
+				}
+
+				dict["type"] = "Weekly";
+				dict["frequency"] = frequency;
+				dict["repeat"] = repeat;
+
+			}
+
+			
+
+			response.success(dict);
+		},
+		error: function(error){
+			response.error(error);
+		}
+
+	});
 
 
 

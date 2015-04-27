@@ -12,6 +12,8 @@ class MonthlyPickerTableViewController: UITableViewController {
 
     // MARK: - Variables
     let transitionManager = TransitionManager()
+    var selectedDate = optionItem(text: "1st of the Month")
+    var selectedMonthFrequency = optionItem?()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +25,15 @@ class MonthlyPickerTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    override func viewDidAppear(animated: Bool) {
+        if let parentVC = self.parentViewController as? ChoreViewController{
+            selectedDate = parentVC.selectedDate
+            selectedMonthFrequency = parentVC.selectedMonthFrequency
+        }
+        
+        tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -48,12 +59,20 @@ class MonthlyPickerTableViewController: UITableViewController {
         if indexPath.row == 0{
             cell.textLabel?.text = "Repeat"
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-            cell.detailTextLabel!.text = "Never"
+            
+            cell.detailTextLabel!.text = selectedDate.text
+            
         }
         else{
             cell.textLabel?.text = "Frequency"
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+         
             cell.detailTextLabel!.text = "Every Month"
+            
+            if selectedMonthFrequency != nil{
+                cell.detailTextLabel!.text = selectedMonthFrequency?.text
+            }
+            
         }
 
         return cell

@@ -18,6 +18,8 @@ class DetailFrequencyTableViewController: UITableViewController {
     var frequency2 = ["Every Month", "Every 2 Months", "Every 3 Months", "Every 4 Motnhs", "Every 5 Months", "Every 6 Months"]
     var activeFrequency = [String]()
     
+    var frequencyType: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

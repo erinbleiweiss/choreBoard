@@ -26,6 +26,8 @@ class ChoreDetailTableViewController: UITableViewController {
     // MARK: - Variables
     var activeChore: groupItem!
     let transitionManager = TransitionManager()
+    
+    var repeatType: String!
 
     
     override func viewDidLoad() {
@@ -61,10 +63,12 @@ class ChoreDetailTableViewController: UITableViewController {
         PFCloud.callFunctionInBackground("getSettings", withParameters:["objId": objectId, "kind": kind]) {
             (result: AnyObject!, error: NSError!) -> Void in
             if error == nil {
-                println(result)
-                println(result["type"]!!)
-                println(result["frequency"]!!)
-                println(result["repeat"]!!)
+//                println(result)
+//                println(result["type"]!!)
+//                println(result["frequency"]!!)
+//                println(result["repeat"]!!)
+                
+                self.repeatType = result["type"]!! as String
 
             }
 
@@ -75,7 +79,8 @@ class ChoreDetailTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        var toViewController = (segue.destinationViewController as ChoreBoardBlueNavigationController)
+        var toViewController = (segue.destinationViewController as DetailNavViewController)
+        toViewController.repeatType = self.repeatType
         toViewController.transitioningDelegate = self.transitionManager
         
     }

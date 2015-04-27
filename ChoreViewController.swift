@@ -39,9 +39,13 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
     
 
     @IBAction func cancelToAddChoreVCFromRepeat_Month(segue:UIStoryboardSegue) {
+        let monthlyDayPickerTableViewController = segue.sourceViewController as MonthlyDayPickerTableViewController
+        selectedDate = monthlyDayPickerTableViewController.selectedDate
     }
     
     @IBAction func cancelToAddChoreVCFromFrequency_Month(segue:UIStoryboardSegue) {
+        let freqPickerTableViewController = segue.sourceViewController as MonthlyFreqPickerTableViewController
+        selectedMonthFrequency = freqPickerTableViewController.selectedMonthFrequency
     }
     
     
@@ -92,7 +96,9 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
     var filteredChores = [choreItem]()
     
     var selectedDays = []
+    var selectedDate = optionItem(text: "1st of the Month")
     var selectedFrequency = optionItem(text: "Every Week")
+    var selectedMonthFrequency = optionItem(text: "Every Month")
 
     // MARK: - View Lifecycle
     override func viewDidLoad() {

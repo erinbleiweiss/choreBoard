@@ -18,10 +18,21 @@ class DetailRepeatTableViewController: UITableViewController {
     var days2 = ["1st of the Month", "10th of the Month", "15th of the Month", "20th of the Month", "Last Day of the Month"]
     var activeDays = [String]()
     
+    var repeatType: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        activeDays = days1
+        if let parentVC = self.parentViewController as? DetailNavViewController{
+            self.repeatType = parentVC.repeatType
+        }
+        
+        if self.repeatType == "Weekly" {
+            activeDays = days1
+        }
+        else {
+            activeDays = days2
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

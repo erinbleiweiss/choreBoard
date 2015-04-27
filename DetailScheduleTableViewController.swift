@@ -16,14 +16,18 @@ class DetailScheduleTableViewController: UITableViewController {
     // MARK: - Variables
     var options = ["Weekly", "Monthly", "Manual"]
     
+    var scheduleType: String!
+    var selectedIndex: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        if let parentVC = self.parentViewController as? DetailNavViewController{
+            self.scheduleType = parentVC.scheduleType
+        }
+        
+        tableView.reloadData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,9 +57,41 @@ class DetailScheduleTableViewController: UITableViewController {
         // Configure the cell...
         
         cell.textLabel?.text = options[indexPath.row]
+        
+        
+        if cell.textLabel?.text == self.scheduleType{
+            cell.accessoryType = .Checkmark
+        }
+        else {
+            cell.accessoryType = .None
+        }
 
         return cell
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+
+        //Other row is selected - need to deselect it
+        if let index = selectedIndex {
+            let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
+            cell?.accessoryType = .None
+        }
+        
+        selectedIndex = indexPath.row
+        
+        
+        //update the checkmark for the current row
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.accessoryType = .Checkmark
+        self.scheduleType = cell?.textLabel?.text
+        
+        tableView.reloadData()
+        
+        
+    }
+
 
 
     /*

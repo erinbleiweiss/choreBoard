@@ -32,7 +32,7 @@ class ChoreDetailTableViewController: UITableViewController {
     let transitionManager = TransitionManager()
     
     var scheduleType: String!
-    var repeatType: NSArray!
+    var repeatType = [String]()
     var frequencyType: String!
 
     var reuseIDs = ["DetailMainCell", "DetailScheduleCell", "DetailRepeatCell", "DetailFrequencyCell", "DetailActiveCell"]
@@ -78,7 +78,7 @@ class ChoreDetailTableViewController: UITableViewController {
                 self.frequencyDetail.text = self.frequencyType
                 
                 
-                self.repeatType = result["repeat"] as NSArray
+                self.repeatType = result["repeat"] as [String]
                 
                 var count = 0
                 var repeatTypeString: String = ""
@@ -127,6 +127,29 @@ class ChoreDetailTableViewController: UITableViewController {
         
     }
     
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "DetailScheduleSegue" {
+            var toViewController = (segue.destinationViewController as DetailNavViewController)
+
+            toViewController.scheduleType = self.scheduleType
+            toViewController.transitioningDelegate = self.transitionManager
+        }
+        else if segue.identifier == "DetailRepeatSegue" {
+            var toViewController = (segue.destinationViewController as DetailNavViewController)
+            toViewController.scheduleType = self.scheduleType
+            toViewController.repeatType = self.repeatType
+            toViewController.transitioningDelegate = self.transitionManager
+        }
+        else if segue.identifier == "DetailFrequencySegue" {
+            var toViewController = (segue.destinationViewController as DetailNavViewController)
+            toViewController.scheduleType = self.scheduleType
+            toViewController.frequencyType = self.frequencyType
+            toViewController.transitioningDelegate = self.transitionManager
+        }
+        
+    }
 
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){

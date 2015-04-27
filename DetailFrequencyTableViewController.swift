@@ -18,12 +18,24 @@ class DetailFrequencyTableViewController: UITableViewController {
     var frequency2 = ["Every Month", "Every 2 Months", "Every 3 Months", "Every 4 Motnhs", "Every 5 Months", "Every 6 Months"]
     var activeFrequency = [String]()
     
+    var scheduleType: String!
     var frequencyType: String!
-    
+    var selectedIndex: Int!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        activeFrequency = frequency1
+        if let parentVC = self.parentViewController as? DetailNavViewController{
+            self.scheduleType = parentVC.scheduleType
+            self.frequencyType = parentVC.frequencyType
+        }
+        
+        if self.scheduleType == "Weekly" {
+            activeFrequency = frequency1
+        }
+        else {
+            activeFrequency = frequency2
+        }
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -54,9 +66,39 @@ class DetailFrequencyTableViewController: UITableViewController {
         
         cell.textLabel?.text = activeFrequency[indexPath.row]
         
+        if cell.textLabel?.text == self.frequencyType{
+            cell.accessoryType = .Checkmark
+        }
+        else {
+            cell.accessoryType = .None
+        }
+        
         return cell
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        
+        //Other row is selected - need to deselect it
+        if let index = selectedIndex {
+            let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
+            cell?.accessoryType = .None
+        }
+        
+        selectedIndex = indexPath.row
+        
+        
+        //update the checkmark for the current row
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        cell?.accessoryType = .Checkmark
+        self.frequencyType = cell?.textLabel?.text
+        
+        tableView.reloadData()
+        
+        
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

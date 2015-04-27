@@ -11,8 +11,9 @@ import UIKit
 class DetailNavViewController: UINavigationController {
 
     // MARK: - Variables
-    var repeatType: String!
-    
+    var scheduleType: String!
+    var repeatType = [String]()
+    var frequencyType: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -18,16 +18,20 @@ class DetailRepeatTableViewController: UITableViewController {
     var days2 = ["1st of the Month", "10th of the Month", "15th of the Month", "20th of the Month", "Last Day of the Month"]
     var activeDays = [String]()
     
-    var repeatType: String!
+    var scheduleType: String!
+    var repeatType = [String]()
+    var monthlyRepeatType: String!
+    var selectedIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let parentVC = self.parentViewController as? DetailNavViewController{
+            self.scheduleType = parentVC.scheduleType
             self.repeatType = parentVC.repeatType
         }
         
-        if self.repeatType == "Weekly" {
+        if self.scheduleType == "Weekly" {
             activeDays = days1
         }
         else {
@@ -64,9 +68,66 @@ class DetailRepeatTableViewController: UITableViewController {
 
         cell.textLabel?.text = activeDays[indexPath.row]
 
+        if self.scheduleType == "Weekly"{
+            for item in self.repeatType as [String] {
+                if cell.textLabel?.text == item{
+                    cell.accessoryType = .Checkmark
+                }
+            }
+        }
+        
+        else if self.scheduleType == "Monthly"{
+            if cell.textLabel?.text == self.repeatType[0] {
+                cell.accessoryType = .Checkmark
+            }
+            else {
+                cell.accessoryType = .None
+            }
+            
+        }
+        
+
+        
         return cell
     }
 
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        if self.scheduleType == "Weekly"{
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            let row = indexPath.row
+            
+            
+            //update the checkmark for the current row
+            if cell!.accessoryType == .Checkmark {
+                cell!.accessoryType = .None
+            }
+            else{
+                cell!.accessoryType = .Checkmark
+            }
+            
+        }
+        else if self.scheduleType == "Monthly"{
+            //Other row is selected - need to deselect it
+            if let index = selectedIndex {
+                let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0))
+                cell?.accessoryType = .None
+            }
+            
+            selectedIndex = indexPath.row
+            
+            
+            //update the checkmark for the current row
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            cell?.accessoryType = .Checkmark
+            self.repeatType[0] = cell?.textLabel?.text as String!
+            
+            tableView.reloadData()
+        }
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.

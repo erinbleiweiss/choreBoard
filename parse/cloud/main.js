@@ -791,65 +791,115 @@ Parse.Cloud.define("addChore_DEVELOPMENT", function(request, response){
 	var ChoreClass = Parse.Object.extend("Chore");
 	var chore = new ChoreClass();
 
-	var days = request.params.days;
-	var frequency = request.params.frequency;
-
-	switch (frequency){
-		case "Weekly":
-			frequency = 1; break;
-		case "Every 2 Weeks":
-			frequency = 2; break;
-		case "Every 3 Weeks":
-			frequency = 3; break;
-		case "Every 4 Weeks":
-			frequency = 4; break;
-		default:
-			break;
-	}
-
+	var type = request.params.kind;
 	var rule = []
-	for (var i=0; i<days.length; i++){
 
-		var theDay = days[i];
+	if (type == "weekly") {
+		var days = request.params.days;
+		var frequency = request.params.frequency;
 
-		switch (days[i]){
-			case "Sunday":
-				days[i] = 0; break;
-			case "Monday":
-				days[i] = 1; break;
-			case "Tuesday":
-				days[i] = 2; break;
-			case "Wednesday":
-				days[i] = 3; break;
-			case "Thursday":
-				days[i] = 4; break;
-			case "Friday":
-				days[i] = 5; break;
-			case "Saturday":
-				days[i] = 6; break;
+		switch (frequency){
+			case "Weekly":
+				frequency = 1; break;
+			case "Every 2 Weeks":
+				frequency = 2; break;
+			case "Every 3 Weeks":
+				frequency = 3; break;
+			case "Every 4 Weeks":
+				frequency = 4; break;
 			default:
 				break;
 		}
 
-		// check if current day <= days[i]
+		for (var i=0; i<days.length; i++){
 
-		var next = days[i] + (7 * frequency);
-		console.log(next);
+			var theDay = days[i];
+
+			switch (days[i]){
+				case "Sunday":
+					days[i] = 0; break;
+				case "Monday":
+					days[i] = 1; break;
+				case "Tuesday":
+					days[i] = 2; break;
+				case "Wednesday":
+					days[i] = 3; break;
+				case "Thursday":
+					days[i] = 4; break;
+				case "Friday":
+					days[i] = 5; break;
+				case "Saturday":
+					days[i] = 6; break;
+				default:
+					break;
+			}
+
+			// check if current day <= days[i]
+
+			var next = days[i] + (7 * frequency);
+			console.log(next);
+
+			var dict = {}
+			dict["type"] = "Weekly"
+			dict["day"] = theDay;
+			dict["frequency"] = request.params.frequency;
+			dict["nextDue"] = moment().day(next);
+			rule.push(dict);
+
+		}
+	}
+	else if (type == "monthly"){
+		var repeat = request.params.repeat;
+		var frequency = request.params.frequency;
+
+		switch (frequency){
+			case "Every Month":
+				frequency = 1; break;
+			case "Every 2 Months":
+				frequency = 2; break;
+			case "Every 3 Months":
+				frequency = 3; break;
+			case "Every 4 Months":
+				frequency = 4; break;
+			case "Every 5 Months":
+				frequency = 5; break;
+			case "Every 6 Months":
+				frequency = 6; break;
+			default: break;
+		}
+
+		switch (repeat){
+			case "1st of the Month":
+				repeat = 1; break;
+			case "5th of the Month":
+				repeat = 5; break;
+			case "10th of the Month":
+				repeat = 10; break;
+			case "15th of the Month":
+				repeat = 15; break;
+			case "20th of the Month":
+				repeat = 20; break;
+			case "25th of the Month":
+				repeat = 25; break;
+			case "Last Day of the Month":
+				repeat = 30; break;
+			default:
+				break;
+		}
+
+		console.log(frequency);
+		console.log(repeat);
 
 		var dict = {}
-		dict["type"] = "Weekly"
-		dict["day"] = theDay;
+		dict["type"] = "Monthly"
+		dict["repeat"] = request.params.repeat;
 		dict["frequency"] = request.params.frequency;
-		dict["nextDue"] = moment().day(next);
+		// dict["nextDue"] = moment().date(1).add((moment().date() > repeat ? 0 : 1), "months").add(repeat,"days");
+		dict["nextDue"] = moment().date(1).add((moment().date() > 14 ? 1 : 0), "months").add(14,"days");
 		rule.push(dict);
 
 	}	
 
-
-	console.log(frequency);
-
-	console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
-	console.log(moment().day(10));
 
 	var currentUser = Parse.User.current();
 	currentUser.fetch({
@@ -861,8 +911,11 @@ Parse.Cloud.define("addChore_DEVELOPMENT", function(request, response){
 	  			var choreName = request.params.choreName;
 	  			chore.set("choreName", choreName);
 	  			chore.set("completed", false);
-	  			if (request.params.days.length > 0){
+	  			if (request.params.kind == "weekly" && request.params.days.length > 0){
 		  			chore.set("rule", rule);
+	  			}
+	  			else if (request.params.kind == "monthly"){
+	  				chore.set("rule", rule);
 	  			}
 	  			chore.save(null, {
 	  				success: function(chore){
@@ -916,7 +969,7 @@ Parse.Cloud.define("getSettings", function(request, response){
 
 			}
 
-			
+
 
 			response.success(dict);
 		},

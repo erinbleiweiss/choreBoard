@@ -70,10 +70,11 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
                 }
                 
                 newChoreItem = choreItem(text: searchBar.text)
-                PFCloud.callFunctionInBackground("addChore_DEVELOPMENT", withParameters: ["choreName": searchBar.text, "type": "weekly", "days": days, "frequency": selectedFrequency.text ], block: nil)
+                PFCloud.callFunctionInBackground("addChore_DEVELOPMENT", withParameters: ["choreName": searchBar.text, "kind": "weekly", "days": days, "frequency": selectedFrequency.text ], block: nil)
             }
             else if segmentedControl.selectedSegmentIndex == 1{
-                println("monthly!")
+                newChoreItem = choreItem(text: searchBar.text)
+                PFCloud.callFunctionInBackground("addChore_DEVELOPMENT", withParameters: ["choreName": searchBar.text, "kind": "monthly", "repeat": selectedDate.text, "frequency": selectedMonthFrequency.text ], block: nil)
             }
             else if segmentedControl.selectedSegmentIndex == 2{
                 println("manual!")

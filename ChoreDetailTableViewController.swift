@@ -27,6 +27,29 @@ class ChoreDetailTableViewController: UITableViewController {
     @IBAction func cancelToDetailFromFrequency(segue:UIStoryboardSegue) {
     }
     
+    
+    @IBAction func deleteChore(sender: AnyObject) {
+        var refreshAlert = UIAlertController(title: "Delete", message: "Are you sure you want to delete \"" + self.activeChore.text + "?\"", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Delete", style: .Default, handler: { (action: UIAlertAction!) in
+            PFCloud.callFunctionInBackground("deleteObject", withParameters: ["objectId": self.activeChore.objectId, "kind": self.activeChore.type]) {
+                (result: AnyObject!, error: NSError!) -> Void in
+                
+                if error == nil{
+                    self.dismissViewControllerAnimated(true, completion: {});
+                }
+            }
+            
+        }))
+        
+        presentViewController(refreshAlert, animated: true, completion: nil)
+        
+    }
+    
+    
     // MARK: - Variables
     var activeChore: groupItem!
     let transitionManager = TransitionManager()

@@ -12,6 +12,7 @@ class ChoreFeedCell: SWTableViewCell {
 
     @IBOutlet weak var choreImage: UIImageView!
     @IBOutlet weak var choreText: UILabel!
+    @IBOutlet weak var choreCompletedText: UILabel!
     
     func setCompleted() -> Void {
         choreText.textColor = UIColor.lightGrayColor()

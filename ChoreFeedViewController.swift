@@ -79,7 +79,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                         let choreName = chore["choreName"] as String
                         let choreStatus = chore["completed"] as Bool
                         let choreId = chore.objectId as String
-                        self.groupItems.append(groupItem(text: choreName, type: "Chore", completed: choreStatus, objectId: choreId))
+                        self.groupItems.append(groupItem(text: choreName, type: "Chore", completed: choreStatus, objectId: choreId, completedBy: ""))
                         
                         storedChores[choreId] = choreStatus
                     }
@@ -91,7 +91,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                         let supplyName = supply["supplyName"] as String
                         let supplyStatus = supply["completed"] as Bool
                         let supplyId = supply.objectId as String
-                        self.groupItems.append(groupItem(text: supplyName, type: "Supply", completed: supplyStatus, objectId: supplyId))
+                        self.groupItems.append(groupItem(text: supplyName, type: "Supply", completed: supplyStatus, objectId: supplyId, completedBy: ""))
                         
                     }
                 }
@@ -103,10 +103,10 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                         let billAmount = bill["amount"] as String
                         let billStatus = bill["completed"] as Bool
                         let billId = bill.objectId as String
-                        
+
                         var billString = billName + " (" + billAmount + ")"
                         
-                        self.groupItems.append(groupItem(text: billString, type: "Bill", completed: billStatus, objectId: billId))
+                        self.groupItems.append(groupItem(text: billString, type: "Bill", completed: billStatus, objectId: billId, completedBy: ""))
                     }
 
                 }
@@ -249,7 +249,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
             if groupItems[indexPath.row].completed == false{
                 cell.setCompleted()
                 groupItems[indexPath.row].completed = true
-                PFCloud.callFunctionInBackground("setCompleted", withParameters: ["objectId": groupItems[indexPath.row].objectId, "kind": groupItems[indexPath.row].type], block: nil)
+                PFCloud.callFunctionInBackground("setCompleted_DEVELOPMENT", withParameters: ["objectId": groupItems[indexPath.row].objectId, "kind": groupItems[indexPath.row].type], block: nil)
                 self.choreFeed.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
             }
             else{
@@ -369,11 +369,11 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
     
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 50
+        return 60
     }
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 50
+        return 60
     }
 
     
@@ -454,9 +454,11 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
 
         if groupItems[indexPath.row].completed == true{
             cell!.setLeftUtilityButtons(leftButtons2(), withButtonWidth: 80)
+            cell!.choreCompletedText.text = groupItems[indexPath.row].completedBy
         }
         else{
             cell!.setLeftUtilityButtons(leftButtons(), withButtonWidth: 80)
+            cell!.choreCompletedText.text = ""
         }
         
         

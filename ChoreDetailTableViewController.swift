@@ -14,6 +14,10 @@ class ChoreDetailTableViewController: UITableViewController {
     @IBOutlet weak var detailImage: UIImageView!
     @IBOutlet weak var detailLabel: UILabel!
     
+    @IBOutlet weak var scheduleDetail: UILabel!
+    @IBOutlet weak var repeatDetail: UILabel!
+    @IBOutlet weak var frequencyDetail: UILabel!
+    
     @IBAction func cancelToDetailFromSchedule(segue:UIStoryboardSegue) {
     }
 
@@ -27,8 +31,11 @@ class ChoreDetailTableViewController: UITableViewController {
     var activeChore: groupItem!
     let transitionManager = TransitionManager()
     
-    var repeatType: String!
+    var scheduleType: String!
+    var repeatType: NSArray!
+    var frequencyType: String!
 
+    var reuseIDs = ["DetailMainCell", "DetailScheduleCell", "DetailRepeatCell", "DetailFrequencyCell", "DetailActiveCell"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,12 +70,55 @@ class ChoreDetailTableViewController: UITableViewController {
         PFCloud.callFunctionInBackground("getSettings", withParameters:["objId": objectId, "kind": kind]) {
             (result: AnyObject!, error: NSError!) -> Void in
             if error == nil {
-//                println(result)
-//                println(result["type"]!!)
-//                println(result["frequency"]!!)
-//                println(result["repeat"]!!)
                 
-                self.repeatType = result["type"]!! as String
+                self.scheduleType = result["type"] as String
+                self.scheduleDetail.text = self.scheduleType
+                
+                self.frequencyType = result["frequency"] as String
+                self.frequencyDetail.text = self.frequencyType
+                
+                
+                self.repeatType = result["repeat"] as NSArray
+                
+                var count = 0
+                var repeatTypeString: String = ""
+                
+                for item in self.repeatType as [String]{
+                    if count > 0{
+                        repeatTypeString += " "
+                        if count == 1{
+                            repeatTypeString = repeatTypeString.substringToIndex(advance(repeatTypeString.startIndex, 3))
+                            repeatTypeString += " "
+                        }
+                        repeatTypeString += item.substringToIndex(advance(item.startIndex, 3))
+                    }
+                    else {
+                        repeatTypeString += item
+                    }
+                    count++
+                }
+                
+                if count == 1{
+                    self.repeatDetail.text = repeatTypeString
+                }
+                else if repeatTypeString == "Mon Tue Wed Thu Fri"
+                {
+                    self.repeatDetail.text = "Weekdays"
+                }
+                else if repeatTypeString == "Sun Sat"
+                {
+                    self.repeatDetail.text = "Weekends"
+                }
+                else if repeatTypeString == "Sun Mon Tue Wed Thu Fri Sat"
+                {
+                    self.repeatDetail.text = "Every Day"
+                }
+                else if repeatTypeString != ""{
+                    self.repeatDetail.text = repeatTypeString
+                }
+
+                
+                self.tableView.reloadData()
 
             }
 
@@ -77,13 +127,7 @@ class ChoreDetailTableViewController: UITableViewController {
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        var toViewController = (segue.destinationViewController as DetailNavViewController)
-        toViewController.repeatType = self.repeatType
-        toViewController.transitioningDelegate = self.transitionManager
-        
-    }
+
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         let row = indexPath.row
@@ -119,15 +163,6 @@ class ChoreDetailTableViewController: UITableViewController {
 //        return 0
 //    }
 
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
 
     /*
     // Override to support conditional editing of the table view.

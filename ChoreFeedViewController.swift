@@ -53,10 +53,10 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var choreFeed: UITableView!
     
     
-    @IBAction func cancelToChoreFeedVC(segue:UIStoryboardSegue) {
-        let choreDetailViewController = segue.sourceViewController as ChoreDetailViewController
-//        selectedDays = dayPickerTableViewController.selectedDays
-    }
+//    @IBAction func cancelToChoreFeedVC(segue:UIStoryboardSegue) {
+//        let choreDetailViewController = segue.sourceViewController as ChoreDetailViewController
+////        selectedDays = dayPickerTableViewController.selectedDays
+//    }
     
     @IBAction func cancelToChoreFeedVCFromDetail(segue:UIStoryboardSegue) {
     }
@@ -270,8 +270,14 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
             }))
             
             refreshAlert.addAction(UIAlertAction(title: "Delete", style: .Default, handler: { (action: UIAlertAction!) in
-                PFCloud.callFunctionInBackground("deleteObject", withParameters: ["objectId": self.groupItems[indexPath.row].objectId, "kind": self.groupItems[indexPath.row].type], block: nil)
-                self.refresh(self)
+                PFCloud.callFunctionInBackground("deleteObject", withParameters: ["objectId": self.groupItems[indexPath.row].objectId, "kind": self.groupItems[indexPath.row].type]) {
+                    (result: AnyObject!, error: NSError!) -> Void in
+                    
+                    if error == nil{
+                        self.refresh(self)
+                    }
+                }
+                
             }))
             
             presentViewController(refreshAlert, animated: true, completion: nil)

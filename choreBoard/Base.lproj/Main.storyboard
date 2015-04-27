@@ -815,7 +815,7 @@
                                                         <constraint firstAttribute="width" constant="30" id="QZC-B5-Sj9"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsr-us-jh1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsr-us-jh1">
                                                     <rect key="frame" x="53" y="0.0" width="400" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="400" id="XfB-jm-135"/>
@@ -880,7 +880,7 @@
                         <sections>
                             <tableViewSection id="Y8T-dH-9kd">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="jYw-ia-R2u">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailMainCell" rowHeight="100" id="jYw-ia-R2u">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jYw-ia-R2u" id="0Pt-Lg-ZQH">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -911,7 +911,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="mam-DQ-TU7">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DetailScheduleCell" id="mam-DQ-TU7">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mam-DQ-TU7" id="mkq-KJ-R39">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -939,7 +939,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="3BB-E3-kpP">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DetailRepeatCell" id="3BB-E3-kpP">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3BB-E3-kpP" id="qPt-S4-EpH">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -967,7 +967,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="1lS-1v-kx4">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="DetailFrequencyCell" id="1lS-1v-kx4">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1lS-1v-kx4" id="SPp-Me-qGF">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -995,7 +995,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7iH-De-HuU">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailActiveCell" id="7iH-De-HuU">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7iH-De-HuU" id="mbw-UO-y6d">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -1039,6 +1039,9 @@
                     <connections>
                         <outlet property="detailImage" destination="uUe-iN-Jr1" id="ZcM-9y-Ntu"/>
                         <outlet property="detailLabel" destination="NU9-w3-tMg" id="otH-hS-hYp"/>
+                        <outlet property="frequencyDetail" destination="qCG-m9-6hx" id="p0g-Yw-Hx4"/>
+                        <outlet property="repeatDetail" destination="Y71-3k-Ila" id="Pdd-CA-ch3"/>
+                        <outlet property="scheduleDetail" destination="13c-dp-czx" id="ywI-fK-lRt"/>
                         <segue destination="yQ6-i7-8eI" kind="presentation" identifier="DetailScheduleSegue" id="K49-gd-YbO"/>
                         <segue destination="J2X-Fx-JjQ" kind="presentation" identifier="DetailRepeatSegue" id="6uf-vg-bWs"/>
                         <segue destination="CHf-d0-rDs" kind="presentation" identifier="DetailFrequencySegue" id="why-cX-3hB"/>
@@ -2104,8 +2107,6 @@
         <!--Day Picker Table View Controller-->
         <scene sceneID="fjM-bX-zsQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fhv-ma-psD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="LGP-zc-O9D" userLabel="Exit" sceneMemberID="exit"/>
                 <tableViewController id="TIr-hO-bya" customClass="DayPickerTableViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5nO-J0-acb">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -2229,6 +2230,8 @@
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fhv-ma-psD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="LGP-zc-O9D" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1805" y="4340"/>
         </scene>

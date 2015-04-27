@@ -894,8 +894,15 @@ Parse.Cloud.define("addChore_DEVELOPMENT", function(request, response){
 		dict["type"] = "Monthly"
 		dict["repeat"] = request.params.repeat;
 		dict["frequency"] = request.params.frequency;
-		// dict["nextDue"] = moment().date(1).add((moment().date() > repeat ? 0 : 1), "months").add(repeat,"days");
-		dict["nextDue"] = moment().date(1).add((moment().date() > 14 ? 1 : 0), "months").add(14,"days");
+
+
+		if (repeat != 30) {
+			dict["nextDue"] = moment().date(1).add("months", (moment().date() > repeat ? frequency - 1 : frequency)).add("days", repeat - 1);
+		}
+		else {
+			dict["nextDue"] = moment().date(1).add("months", (moment().date() > repeat ? frequency - 1 : frequency)).endOf("month");
+		}
+
 		rule.push(dict);
 
 	}	
@@ -966,6 +973,15 @@ Parse.Cloud.define("getSettings", function(request, response){
 				dict["type"] = "Weekly";
 				dict["frequency"] = frequency;
 				dict["repeat"] = repeat;
+
+			}
+			else if (ruleData[0]["type"] == "Monthly"){
+				var frequency = ruleData[0]["frequency"];
+				var repeat = ruleData[0]["repeat"];
+
+				dict["type"] = "Monthly";
+				dict["frequency"] = frequency;
+				dict["repeat"] = [repeat];
 
 			}
 

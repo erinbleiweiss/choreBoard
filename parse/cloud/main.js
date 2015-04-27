@@ -1003,6 +1003,41 @@ Parse.Cloud.define("getSettings", function(request, response){
 
 
 
+Parse.Cloud.define("setCompleted_DEVELOPMENT", function(request, response){
+
+	var objId = request.params.objectId;
+	var kind = request.params.kind;
+
+	var currentUser = Parse.User.current();
+	var firstName = currentUser.get("firstName");
+	var lastName = currentUser.get("lastName");
+	var fullName = firstName + " " + lastName;
+
+	var Class = Parse.Object.extend(kind);
+	var query = new Parse.Query(Class);
+	query.equalTo("objectId", objId);
+	query.find({
+		success: function(queryUser){
+			var theObject = queryUser[0];
+			theObject.set("completed", true);
+			theObject.set("completedBy", fullName);
+			theObject.set("completedAt", new Date());
+
+			theObject.save();
+
+			response.success({"fullName": fullName, "completedAt": new Date()});
+		},
+		error: function(error){
+			response.error(error);
+		}
+
+	});
+
+
+});
+
+
+
 
 
 

@@ -46,6 +46,8 @@ class ChoreDetailViewController: UIViewController {
                 default: break
             }
             
+            detailLabel.font = UIFont (name: "ComicSans", size: 18)
+            
         }
         
         println(activeChore.text)

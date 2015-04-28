@@ -147,6 +147,7 @@ class ChoreDetailTableViewController: UITableViewController {
 
         }
         
+        detailLabel.font = UIFont (name: "Gill Sans", size: 24)
         
     }
     

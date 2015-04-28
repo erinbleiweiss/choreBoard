@@ -105,6 +105,9 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Dismiss Keyboard
+        self.searchBar.delegate = self;
+        
         // Set up Notification Badge
         let buttonImage = UIImage(named: "ico-to-do-list") as UIImage?
         customButton = UIButton(frame: CGRectMake(0, 0, 20, 20))
@@ -245,6 +248,12 @@ class ChoreViewController: UIViewController, UITextFieldDelegate, UITableViewDat
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    // Dismissing Keyboard
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
     }
 
 }

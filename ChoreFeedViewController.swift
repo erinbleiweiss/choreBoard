@@ -283,7 +283,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
             let snark = ["If you care about shelter, you should pay your rent else the underpass is nice.",
                 "I’ll pee in the shower until you buy toilet paper.",
                 "Want me to move those biology experiments you are growing in the sink to your bed, for closer study?",
-                "Contrary to what you may believe, the government won't subsidize a landfill on our property"]
+                "Contrary to what you may believe, the government won't subsidize a landfill on our property", "I won't be verbose, Stop Being Gross."]
             
             for index in 0..<colors.count {
                 
@@ -299,7 +299,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 subviewText.backgroundColor = UIColor.clearColor()
                 subviewText.numberOfLines = 0
                 subviewText.text = snark[index]
-                subviewText.font = UIFont(name: "GilLSans", size: 18.0)
+                subviewText.font = UIFont(name: "GilL Sans", size: 18.0)
                 subview.addSubview(subviewText)
                 
                 let point = CGPointMake(subviewText.center.x + self.slideshow.frame.size.width, subviewText.center.y - self.slideshow.frame.size.height)
@@ -321,9 +321,12 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                     self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 2, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
                 case 3:
                     self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 3, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
+                case 4:
+                    self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 4, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
                 default:
                     break
                 }
+                
                 
                 
             }

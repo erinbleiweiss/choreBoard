@@ -81,6 +81,14 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
             cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         }
         
+        cell!.accessoryType = .Checkmark
+
+        let checkImage = UIImage(named: "add1")
+        let checkmark = UIImageView(image: checkImage)
+        checkmark.frame = CGRectMake(0, 0, 20.0, 20.0)
+        
+        cell!.accessoryView = checkmark
+        
         var user : FBUser
         // Check to see whether the normal table or search results table is being displayed and set the friend object from the appropriate array
         if tableView == self.searchDisplayController!.searchResultsTableView {
@@ -123,25 +131,42 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
         
 //        println("clicked on "+filteredFriends[row].name)
         
-//        PFCloud.callFunctionInBackground("addUserToMyGroup", withParameters:["fbId": clickedFriend.fbId]) {
+
+            var refreshAlert = UIAlertController(title: "Add Roommate", message: "Add " + self.filteredFriends[row].name + " to your group?", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+            }))
+            
+            refreshAlert.addAction(UIAlertAction(title: "Add", style: .Default, handler: { (action: UIAlertAction!) in
+                PFCloud.callFunctionInBackground("addUserToMyGroup", withParameters:["fbId": clickedFriend.fbId]) {
+                    (result: AnyObject!, error: NSError!) -> Void in
+                    if error == nil {
+                        self.dismissViewControllerAnimated(true, completion: {});
+                        
+                    }
+                }
+
+                
+            }))
+            
+            presentViewController(refreshAlert, animated: true, completion: nil)
+            
+            
+            
+            
+            
+    }
+        
+        
+//        PFCloud.callFunctionInBackground("joinGroupRequest", withParameters:["fbId": clickedFriend.fbId]) {
 //            (result: AnyObject!, error: NSError!) -> Void in
 //            if error == nil {
 //
-//                
-//                
+////                let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as UIViewController
+////                self.presentViewController(pageVC, animated: true, completion: nil)
+//
 //            }
 //        }
-        
-        
-        PFCloud.callFunctionInBackground("joinGroupRequest", withParameters:["fbId": clickedFriend.fbId]) {
-            (result: AnyObject!, error: NSError!) -> Void in
-            if error == nil {
-
-//                let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as UIViewController
-//                self.presentViewController(pageVC, animated: true, completion: nil)
-
-            }
-        }
 
         
 //        PFCloud.callFunctionInBackground("addToGroupRequest", withParameters:["fbId": clickedFriend.fbId]) {
@@ -153,10 +178,7 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
 //            }
 //        }
 
-        
-        
-        
-    }
+    
 
 
     override func didReceiveMemoryWarning() {

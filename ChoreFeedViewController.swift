@@ -76,9 +76,9 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 let allChores: NSArray = result["chores"] as NSArray
                 for chore in allChores{
                     if allChores.count > 0 {
-                        let choreName = chore["choreName"] as String
-                        let choreStatus = chore["completed"] as Bool
-                        let choreId = chore.objectId as String
+                        let choreName = chore["choreName"] as String!
+                        let choreStatus = chore["completed"] as Bool!
+                        let choreId = chore.objectId as String!
                         self.groupItems.append(groupItem(text: choreName, type: "Chore", completed: choreStatus, objectId: choreId, completedBy: ""))
                         
                         storedChores[choreId] = choreStatus
@@ -88,9 +88,9 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 let allSupplies: NSArray = result["supplies"] as NSArray
                 for supply in allSupplies as NSArray{
                     if allSupplies.count > 0{
-                        let supplyName = supply["supplyName"] as String
-                        let supplyStatus = supply["completed"] as Bool
-                        let supplyId = supply.objectId as String
+                        let supplyName = supply["supplyName"] as String!
+                        let supplyStatus = supply["completed"] as Bool!
+                        let supplyId = supply.objectId as String!
                         self.groupItems.append(groupItem(text: supplyName, type: "Supply", completed: supplyStatus, objectId: supplyId, completedBy: ""))
                         
                     }
@@ -99,10 +99,10 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 let allBills: NSArray = result["bills"] as NSArray
                 for bill in allBills as NSArray{
                     if allBills.count > 0{
-                        let billName = bill["billName"] as String
-                        let billAmount = bill["amount"] as String
-                        let billStatus = bill["completed"] as Bool
-                        let billId = bill.objectId as String
+                        let billName = bill["billName"] as String!
+                        let billAmount = bill["amount"] as String!
+                        let billStatus = bill["completed"] as Bool!
+                        let billId = bill.objectId as String!
 
                         var billString = billName + " (" + billAmount + ")"
                         
@@ -283,9 +283,10 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
             let snark = ["If you care about shelter, you should pay your rent else the underpass is nice.",
                 "I’ll pee in the shower until you buy toilet paper.",
                 "Want me to move those biology experiments you are growing in the sink to your bed, for closer study?",
-                "Contrary to what you may believe, the government won't subsidize a landfill on our property", "I won't be verbose, Stop Being Gross."]
+                "Contrary to what you may believe, the government won't subsidize a landfill on our property",
+                "I won't be verbose, Stop Being Gross."]
             
-            for index in 0..<colors.count {
+            for index in 0..<snark.count {
                 
                 frame.size = CGSizeMake(self.view.frame.size.width, slideshowHeight)
                 
@@ -299,7 +300,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 subviewText.backgroundColor = UIColor.clearColor()
                 subviewText.numberOfLines = 0
                 subviewText.text = snark[index]
-                subviewText.font = UIFont(name: "GilL Sans", size: 18.0)
+                subviewText.font = UIFont(name: "Gill Sans", size: 18.0)
                 subview.addSubview(subviewText)
                 
                 let point = CGPointMake(subviewText.center.x + self.slideshow.frame.size.width, subviewText.center.y - self.slideshow.frame.size.height)
@@ -331,7 +332,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 
             }
             
-            slideshow.contentSize = CGSizeMake(self.view.frame.size.width * CGFloat(colors.count), slideshowHeight)
+            slideshow.contentSize = CGSizeMake(self.view.frame.size.width * CGFloat(snark.count), slideshowHeight)
             
             viewLaidOut = true
         }

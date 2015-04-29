@@ -19,9 +19,15 @@ class ChoreDetailTableViewController: UITableViewController {
     @IBOutlet weak var frequencyDetail: UILabel!
     
     @IBAction func cancelToDetailFromSchedule(segue:UIStoryboardSegue) {
+        let sourceVC = segue.sourceViewController as DetailScheduleTableViewController
+        self.scheduleType = sourceVC.scheduleType
+        scheduleDetail.text = sourceVC.scheduleType
     }
 
     @IBAction func cancelToDetailFromRepeat(segue:UIStoryboardSegue) {
+        let sourceVC = segue.sourceViewController as DetailRepeatTableViewController
+        self.repeatType = sourceVC.repeatType
+        
     }
 
     @IBAction func cancelToDetailFromFrequency(segue:UIStoryboardSegue) {
@@ -56,13 +62,18 @@ class ChoreDetailTableViewController: UITableViewController {
     
     var scheduleType: String!
     var repeatType = [String]()
+    var repeatTypeString: String!
     var frequencyType: String!
+    
+    var initialScheduleSetting: String!
+    var scheduleSettingDidChange: Bool = false
 
     var reuseIDs = ["DetailMainCell", "DetailScheduleCell", "DetailRepeatCell", "DetailFrequencyCell", "DetailActiveCell"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set up Image
         detailImage.frame = CGRectMake(0, 0, 40, 40)
         detailImage.autoresizingMask = UIViewAutoresizing.FlexibleBottomMargin | UIViewAutoresizing.FlexibleHeight | UIViewAutoresizing.FlexibleRightMargin | UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleTopMargin | UIViewAutoresizing.FlexibleWidth
         
@@ -95,6 +106,7 @@ class ChoreDetailTableViewController: UITableViewController {
             if error == nil {
                 
                 self.scheduleType = result["type"] as String
+                self.initialScheduleSetting = result["type"] as String
                 self.scheduleDetail.text = self.scheduleType
                 
                 self.frequencyType = result["frequency"] as String
@@ -139,6 +151,8 @@ class ChoreDetailTableViewController: UITableViewController {
                 else if repeatTypeString != ""{
                     self.repeatDetail.text = repeatTypeString
                 }
+                
+                self.repeatTypeString = self.repeatDetail.text
 
                 
                 self.tableView.reloadData()
@@ -149,6 +163,55 @@ class ChoreDetailTableViewController: UITableViewController {
         
         detailLabel.font = UIFont (name: "Gill Sans", size: 24)
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        if self.initialScheduleSetting != self.scheduleType || self.scheduleSettingDidChange {
+            println("A")
+            
+            if self.initialScheduleSetting == self.scheduleType{
+                println("B")
+                
+                self.repeatDetail.text = self.repeatTypeString
+                self.frequencyDetail.text = self.frequencyType
+            }
+            
+            else {
+                println("C")
+                
+                self.scheduleSettingDidChange = true
+                let cell = tableView.dequeueReusableCellWithIdentifier("DetailRepeatCell") as? UITableViewCell
+                let cell2 = tableView.dequeueReusableCellWithIdentifier("DetailFrequencyCell") as? UITableViewCell
+                
+                switch (self.scheduleDetail.text as String!){
+                case "Weekly":
+                    cell?.hidden = false
+                    cell2?.hidden = false
+                    self.repeatDetail.text = "Sunday"
+                    self.frequencyDetail.text = "Every Week"
+                    
+                    break;
+                case "Monthly":
+                    cell?.hidden = false
+                    cell2?.hidden = false
+                    self.repeatDetail.text = "1st of the Month"
+                    self.frequencyDetail.text = "Every Month"
+
+                    break;
+                case "Manual":
+                    cell?.hidden = true
+                    cell2?.hidden = true
+                    
+                    break;
+                default:
+                    break;
+                    
+                }
+            }
+            
+            
+        }
     }
     
     

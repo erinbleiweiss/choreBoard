@@ -460,11 +460,11 @@ Parse.Cloud.define("addUserToMyGroup", function(request, response){
 	var currentUser = Parse.User.current();
 	var currentGroup = currentUser.get("group");	
 
-	var userId = request.params.userId;
+	var fbId = request.params.fbId;
 
 	var User = Parse.Object.extend("_User");
 	var query = new Parse.Query(User);
-	query.equalTo("objectId", userId);
+	query.equalTo("facebookId", fbId);
 	query.find({
 		success: function(queryUser){
 			var theUser = queryUser[0];
@@ -1036,6 +1036,40 @@ Parse.Cloud.define("setCompleted_DEVELOPMENT", function(request, response){
 
 });
 
+
+
+
+Parse.Cloud.define("getSnark", function(request, response){
+
+	var allItems = request.params.allItems;
+
+	var currentUser = Parse.User.current();
+	var firstName = currentUser.get("firstName");
+	var lastName = currentUser.get("lastName");
+	var fullName = firstName + " " + lastName;
+
+	var Class = Parse.Object.extend(kind);
+	var query = new Parse.Query(Class);
+	query.equalTo("objectId", objId);
+	query.find({
+		success: function(queryUser){
+			var theObject = queryUser[0];
+			theObject.set("completed", true);
+			theObject.set("completedBy", fullName);
+			theObject.set("completedAt", new Date());
+
+			theObject.save();
+
+			response.success({"fullName": fullName, "completedAt": new Date()});
+		},
+		error: function(error){
+			response.error(error);
+		}
+
+	});
+
+
+});
 
 
 

@@ -36,26 +36,26 @@ class MenuController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        PFCloud.callFunctionInBackground("getCurrentGroupName", withParameters:[:]) {
-//            (result: AnyObject!, error: NSError!) -> Void in
-//            if error == nil {
-//                self.groupNameLabel.text = result as? String
-//         
-//            }
-//    
-//        }
-        
-        var currentUser = PFUser.currentUser()
-        currentUser.fetchInBackgroundWithBlock { (object, error) -> Void in
-            currentUser.fetchIfNeededInBackgroundWithBlock { (result, error) -> Void in
-                
-                self.firstName = currentUser.objectForKey("firstName") as String
-                self.lastName = currentUser.objectForKey("lastName") as String
-                self.groupNameLabel.text = self.firstName + " " + self.lastName
-                
-                
+        PFCloud.callFunctionInBackground("getCurrentGroupName", withParameters:[:]) {
+            (result: AnyObject!, error: NSError!) -> Void in
+            if error == nil {
+                self.groupNameLabel.text = result as? String
+         
             }
+    
         }
+        
+//        var currentUser = PFUser.currentUser()
+//        currentUser.fetchInBackgroundWithBlock { (object, error) -> Void in
+//            currentUser.fetchIfNeededInBackgroundWithBlock { (result, error) -> Void in
+//                
+//                self.firstName = currentUser.objectForKey("firstName") as String
+//                self.lastName = currentUser.objectForKey("lastName") as String
+//                self.groupNameLabel.text = self.firstName + " " + self.lastName
+//                
+//                
+//            }
+//        }
 
         groupNameLabel.textColor = UIColor(red: (232/255.0), green: (126/255.0), blue: (4/255.0), alpha: 1.0)
         choreLabel.textColor = UIColor(red: (0/255.0), green: (67/255.0), blue: (112/255.0), alpha: 1.0)
@@ -72,26 +72,26 @@ class MenuController: UITableViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-//        PFCloud.callFunctionInBackground("getCurrentGroupName", withParameters:[:]) {
-//            (result: AnyObject!, error: NSError!) -> Void in
-//            if error == nil {
-//                self.groupNameLabel.text = result as? String
-//                
-//            }
-//            
-//        }
-
-        var currentUser = PFUser.currentUser()
-        currentUser.fetchInBackgroundWithBlock { (object, error) -> Void in
-            currentUser.fetchIfNeededInBackgroundWithBlock { (result, error) -> Void in
-                
-                self.firstName = currentUser.objectForKey("firstName") as String
-                self.lastName = currentUser.objectForKey("lastName") as String
-                self.groupNameLabel.text = self.firstName + " " + self.lastName
+        PFCloud.callFunctionInBackground("getCurrentGroupName", withParameters:[:]) {
+            (result: AnyObject!, error: NSError!) -> Void in
+            if error == nil {
+                self.groupNameLabel.text = result as? String
                 
             }
+            
         }
-    
+
+//        var currentUser = PFUser.currentUser()
+//        currentUser.fetchInBackgroundWithBlock { (object, error) -> Void in
+//            currentUser.fetchIfNeededInBackgroundWithBlock { (result, error) -> Void in
+//                
+//                self.firstName = currentUser.objectForKey("firstName") as String
+//                self.lastName = currentUser.objectForKey("lastName") as String
+//                self.groupNameLabel.text = self.firstName + " " + self.lastName
+//                
+//            }
+//        }
+
     }
     
 

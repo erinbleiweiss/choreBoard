@@ -84,11 +84,11 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
         
         cell!.accessoryType = .Checkmark
 
-        let checkImage = UIImage(named: "add1")
-        let checkmark = UIImageView(image: checkImage)
-        checkmark.frame = CGRectMake(0, 0, 20.0, 20.0)
+        let plusImage = UIImage(named: "add1")
+        let plus = UIImageView(image: plusImage)
+        plus.frame = CGRectMake(0, 0, 20.0, 20.0)
         
-        cell!.accessoryView = checkmark
+        cell!.accessoryView = plus
         
         var user : FBUser
         // Check to see whether the normal table or search results table is being displayed and set the friend object from the appropriate array
@@ -128,12 +128,20 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         let row = indexPath.row
-        var clickedFriend = filteredFriends[row]
+        
+        var clickedFriend: FBUser!
+
+        if filteredFriends.count > 0 {
+            clickedFriend = filteredFriends[row]
+        }
+        else{
+            clickedFriend = friends[row]
+        }
         
 //        println("clicked on "+filteredFriends[row].name)
         
 
-            var refreshAlert = UIAlertController(title: "Add Roommate", message: "Add " + self.filteredFriends[row].name + " to your group?", preferredStyle: UIAlertControllerStyle.Alert)
+            var refreshAlert = UIAlertController(title: "Add Roommate", message: "Add " + clickedFriend.name + " to your group?", preferredStyle: UIAlertControllerStyle.Alert)
             
             refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
             }))
@@ -146,15 +154,25 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
 //                        
 //                    }
 //                }
+                
+                PFCloud.callFunctionInBackground("addToGroupRequest", withParameters:["fbId": clickedFriend.fbId]) {
+                    (result: AnyObject!, error: NSError!) -> Void in
+                    if error == nil {
+                        
+                    }
+                }
 
+                
+                let selectedCell : UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+                
+                let checkImage = UIImage(named: "checkmark")
+                let checkmark = UIImageView(image: checkImage)
+                checkmark.frame = CGRectMake(0, 0, 20.0, 20.0)
+                selectedCell.accessoryView = checkmark
                 
             }))
             
             presentViewController(refreshAlert, animated: true, completion: nil)
-            
-            
-            
-            
             
     }
         

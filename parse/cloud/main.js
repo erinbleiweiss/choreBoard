@@ -460,11 +460,11 @@ Parse.Cloud.define("addUserToMyGroup", function(request, response){
 	var currentUser = Parse.User.current();
 	var currentGroup = currentUser.get("group");	
 
-	var fbId = request.params.fbId;
+	var objId = request.params.objId;
 
 	var User = Parse.Object.extend("_User");
 	var query = new Parse.Query(User);
-	query.equalTo("facebookId", fbId);
+	query.equalTo("objectId", objId);
 	query.find({
 		success: function(queryUser){
 			var theUser = queryUser[0];
@@ -1224,6 +1224,25 @@ Parse.Cloud.define("updateChoreSettings", function(request, response){
 
 
 
+Parse.Cloud.define("getGroupRequests", function(request, response){
 
+	var currentUser = Parse.User.current();
+	var groupPointer = currentUser.get("group");
+
+	var JoinGroupRequest = Parse.Object.extend("JoinGroupRequest");
+	var query = new Parse.Query(JoinGroupRequest);
+	query.equalTo("toGroup", groupPointer);
+	query.find({
+		success: function(result){
+			response.success(result);
+		},
+		error: function(error){
+			response.error(error);
+		}
+
+	});
+
+
+});
 
 

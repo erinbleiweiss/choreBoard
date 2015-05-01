@@ -1072,6 +1072,158 @@ Parse.Cloud.define("getSnark", function(request, response){
 });
 
 
+Parse.Cloud.define("updateChoreSettings", function(request, response){
+
+	var objId = request.params.objectId;
+	var type = request.params.kind;
+	if (type == "weekly") {
+		var days = request.params.days;
+		var frequency = request.params.frequency;
+
+		switch (frequency){
+			case "Weekly":
+				frequency = 1; break;
+			case "Every 2 Weeks":
+				frequency = 2; break;
+			case "Every 3 Weeks":
+				frequency = 3; break;
+			case "Every 4 Weeks":
+				frequency = 4; break;
+			default:
+				break;
+		}
+
+		for (var i=0; i<days.length; i++){
+
+			var theDay = days[i];
+
+			switch (days[i]){
+				case "Sunday":
+					days[i] = 0; break;
+				case "Monday":
+					days[i] = 1; break;
+				case "Tuesday":
+					days[i] = 2; break;
+				case "Wednesday":
+					days[i] = 3; break;
+				case "Thursday":
+					days[i] = 4; break;
+				case "Friday":
+					days[i] = 5; break;
+				case "Saturday":
+					days[i] = 6; break;
+				default:
+					break;
+			}
+
+			// check if current day <= days[i]
+
+			var next = days[i] + (7 * frequency);
+			console.log(next);
+
+			var dict = {}
+			dict["type"] = "Weekly"
+			dict["day"] = theDay;
+			dict["frequency"] = request.params.frequency;
+			dict["nextDue"] = moment().day(next);
+			rule.push(dict);
+
+		}
+	}
+	else if (type == "monthly"){
+		var repeat = request.params.repeat;
+		var frequency = request.params.frequency;
+
+		switch (frequency){
+			case "Every Month":
+				frequency = 1; break;
+			case "Every 2 Months":
+				frequency = 2; break;
+			case "Every 3 Months":
+				frequency = 3; break;
+			case "Every 4 Months":
+				frequency = 4; break;
+			case "Every 5 Months":
+				frequency = 5; break;
+			case "Every 6 Months":
+				frequency = 6; break;
+			default: break;
+		}
+
+		switch (repeat){
+			case "1st of the Month":
+				repeat = 1; break;
+			case "5th of the Month":
+				repeat = 5; break;
+			case "10th of the Month":
+				repeat = 10; break;
+			case "15th of the Month":
+				repeat = 15; break;
+			case "20th of the Month":
+				repeat = 20; break;
+			case "25th of the Month":
+				repeat = 25; break;
+			case "Last Day of the Month":
+				repeat = 30; break;
+			default:
+				break;
+		}
+
+		var dict = {}
+		dict["type"] = "Monthly"
+		dict["repeat"] = request.params.repeat;
+		dict["frequency"] = request.params.frequency;
+
+
+		if (repeat != 30) {
+			dict["nextDue"] = moment().date(1).add("months", (moment().date() > repeat ? frequency - 1 : frequency)).add("days", repeat - 1);
+		}
+		else {
+			dict["nextDue"] = moment().date(1).add("months", (moment().date() > repeat ? frequency - 1 : frequency)).endOf("month");
+		}
+
+		rule.push(dict);
+
+	}	
+
+
+
+	var Class = Parse.Object.extend(kind);
+	var query = new Parse.Query(Class);
+	query.equalTo("objectId", objId);
+	query.find({
+		success: function(result){
+			var theObject = result[0];
+
+			if (request.params.kind == "weekly" && request.params.days.length > 0){
+  			theObject.set("rule", rule);
+			}
+			else if (request.params.kind == "monthly"){
+				theObject.set("rule", rule);
+			}
+			theObject.save(null, {
+				success: function(chore){
+					response.success(chore);
+				},
+				error: function(error){
+					response.error(error);
+				}
+			});
+
+
+			response.success();
+		},
+		error: function(error){
+			response.error(error);
+		}
+
+	});
+
+
+});
+
+
+
 
 
 

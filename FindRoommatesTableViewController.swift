@@ -31,11 +31,12 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
                     let fbId = user["id"] as String
                     self.friends.append(FBUser(name: name, fbId: fbId))
                 }
+                
+                self.tableView.reloadData()
             }
         }
         
 
-        self.tableView.reloadData()
     }
     
     func filterContentForSearchText(searchText: String) {
@@ -138,13 +139,13 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
             }))
             
             refreshAlert.addAction(UIAlertAction(title: "Add", style: .Default, handler: { (action: UIAlertAction!) in
-                PFCloud.callFunctionInBackground("addUserToMyGroup", withParameters:["fbId": clickedFriend.fbId]) {
-                    (result: AnyObject!, error: NSError!) -> Void in
-                    if error == nil {
-                        self.dismissViewControllerAnimated(true, completion: {});
-                        
-                    }
-                }
+//                PFCloud.callFunctionInBackground("addUserToMyGroup", withParameters:["fbId": clickedFriend.fbId]) {
+//                    (result: AnyObject!, error: NSError!) -> Void in
+//                    if error == nil {
+//                        self.dismissViewControllerAnimated(true, completion: {});
+//                        
+//                    }
+//                }
 
                 
             }))

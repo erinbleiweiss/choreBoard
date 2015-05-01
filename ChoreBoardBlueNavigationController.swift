@@ -19,6 +19,10 @@ class ChoreBoardBlueNavigationController: UINavigationController {
         navigationBar.barTintColor = UIColor(red: (0/255.0), green: (67/255.0), blue: (112/255.0), alpha: 1.0)
         
         navigationBar.barStyle = UIBarStyle.Black
+        
+        // necessary for alignment
+        navigationBar.translucent = false
+        
         // Do any additional setup after loading the view.
     }
     

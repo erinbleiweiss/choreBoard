@@ -235,6 +235,9 @@ class ChoreDetailTableViewController: UITableViewController {
             toViewController.frequencyType = self.frequencyType
             toViewController.transitioningDelegate = self.transitionManager
         }
+        else if segue.identifier == "saveChoreSegue" {
+            
+        }
         
     }
 

@@ -234,7 +234,8 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
                     PFCloud.callFunctionInBackground("addUserToMyGroup", withParameters:["objId": clickedFriend.userId]) {
                         (result: AnyObject!, error: NSError!) -> Void in
                         if error == nil {
-                            self.dismissViewControllerAnimated(true, completion: {});
+                            let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as UIViewController
+                            self.presentViewController(pageVC, animated: true, completion: nil)
     
                         }
                     }

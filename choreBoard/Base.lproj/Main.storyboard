@@ -78,7 +78,7 @@
                             <rect key="frame" x="180" y="7" width="240" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                     </navigationItem>
@@ -582,6 +582,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="AddNewBill" destination="8hM-Ss-3Ak" id="dp8-0L-8qQ"/>
                         <outlet property="billAmount" destination="2O1-fh-b4y" id="qc7-t1-c0Z"/>
                         <outlet property="billName" destination="D3Q-qo-S8v" id="TVN-nd-anX"/>
                     </connections>
@@ -2790,6 +2791,6 @@
         <image name="homeicon" width="376" height="312"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7Rc-nS-Vdb"/>
+        <segue reference="U7r-lE-ns3"/>
     </inferredMetricsTieBreakers>
 </document>

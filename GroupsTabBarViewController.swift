@@ -10,6 +10,7 @@ import UIKit
 
 class GroupsTabBarViewController: UITabBarController {
 
+    
     // MARK: - Variables
     var customButton: UIButton?
     var barButton: BBBadgeBarButtonItem?

@@ -13,6 +13,7 @@ class BillViewController: UITableViewController, UITextFieldDelegate {
     // MARK: - Outlets
     @IBOutlet weak var billName: UITextField!
     @IBOutlet weak var billAmount: UITextField!
+    @IBOutlet weak var AddNewBill: UINavigationItem!
     
     @IBAction func billAmountChanged(sender: AnyObject) {
         billAmount.resignFirstResponder()

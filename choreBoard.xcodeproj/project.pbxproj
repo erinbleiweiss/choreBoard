@@ -49,6 +49,9 @@
 		807FA87B1ABF6A2D00BB5A8A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 807FA87A1ABF6A2D00BB5A8A /* libsqlite3.dylib */; };
 		808E36471AF409CE007492D0 /* JoinRequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E36461AF409CE007492D0 /* JoinRequestsTableViewController.swift */; };
 		808E36491AF40C74007492D0 /* FBUserPointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E36481AF40C74007492D0 /* FBUserPointer.swift */; };
+		808E364B1AF42FDD007492D0 /* NewUserFindRoommatesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E364A1AF42FDD007492D0 /* NewUserFindRoommatesTableViewController.swift */; };
+		808E364D1AF435CA007492D0 /* AddRequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E364C1AF435CA007492D0 /* AddRequestsTableViewController.swift */; };
+		808E364F1AF43AF0007492D0 /* NewUserNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808E364E1AF43AF0007492D0 /* NewUserNavViewController.swift */; };
 		808FD8021AE4C56200FEDC6D /* supplyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808FD8011AE4C56200FEDC6D /* supplyItem.swift */; };
 		809490271AC36902004C364E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809490261AC36902004C364E /* LoginViewController.swift */; };
 		809490291AC38093004C364E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809490281AC38093004C364E /* RegisterViewController.swift */; };
@@ -140,6 +143,9 @@
 		807FA87D1ABF6B3C00BB5A8A /* choreBoard-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "choreBoard-Bridging-Header.h"; sourceTree = "<group>"; };
 		808E36461AF409CE007492D0 /* JoinRequestsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinRequestsTableViewController.swift; sourceTree = "<group>"; };
 		808E36481AF40C74007492D0 /* FBUserPointer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBUserPointer.swift; sourceTree = "<group>"; };
+		808E364A1AF42FDD007492D0 /* NewUserFindRoommatesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserFindRoommatesTableViewController.swift; sourceTree = "<group>"; };
+		808E364C1AF435CA007492D0 /* AddRequestsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRequestsTableViewController.swift; sourceTree = "<group>"; };
+		808E364E1AF43AF0007492D0 /* NewUserNavViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserNavViewController.swift; sourceTree = "<group>"; };
 		808FD8011AE4C56200FEDC6D /* supplyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = supplyItem.swift; sourceTree = "<group>"; };
 		809490261AC36902004C364E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = choreBoard/LoginViewController.swift; sourceTree = "<group>"; };
 		809490281AC38093004C364E /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegisterViewController.swift; path = choreBoard/RegisterViewController.swift; sourceTree = "<group>"; };
@@ -413,9 +419,12 @@
 				800D8B1F1AD9C63B00AD975C /* addSupply */,
 				800D8B201AD9C65200AD975C /* addBill */,
 				80C7C7761AD5C60A009E9736 /* groupNotifications.swift */,
+				808E364E1AF43AF0007492D0 /* NewUserNavViewController.swift */,
 				8038EE4D1AF3F55D00E3542C /* GroupsTabBarViewController.swift */,
 				80DA7D891ACB120F001B8999 /* FindRoommatesTableViewController.swift */,
+				808E364A1AF42FDD007492D0 /* NewUserFindRoommatesTableViewController.swift */,
 				808E36461AF409CE007492D0 /* JoinRequestsTableViewController.swift */,
+				808E364C1AF435CA007492D0 /* AddRequestsTableViewController.swift */,
 				8064E54D1AC7381E00863ADA /* ManageGroupsViewController.swift */,
 				80656F541AC5130200C1994C /* createGroupViewController.swift */,
 				80C211F71AD37EBE00DD512A /* RoommateTableViewCell.swift */,
@@ -592,8 +601,10 @@
 				809490271AC36902004C364E /* LoginViewController.swift in Sources */,
 				803763241AEC9E26003B906B /* DetailNavViewController.swift in Sources */,
 				807A9B581AEAE13F008AE1E3 /* TransitionManager2.swift in Sources */,
+				808E364F1AF43AF0007492D0 /* NewUserNavViewController.swift in Sources */,
 				80C7C7751AD58C0A009E9736 /* ChoreBoardBlueNavigationController.swift in Sources */,
 				803763221AEC417C003B906B /* DetailFrequencyTableViewController.swift in Sources */,
+				808E364B1AF42FDD007492D0 /* NewUserFindRoommatesTableViewController.swift in Sources */,
 				80F434E81ADB1D8E00B15B4B /* TransitionManager.swift in Sources */,
 				80F434EA1ADB328100B15B4B /* optionItem.swift in Sources */,
 				80C7B1B71ADC4A03006028C2 /* SWLongPressGestureRecognizer.m in Sources */,
@@ -604,6 +615,7 @@
 				80E2A0B11AB8010F008A169D /* StrikeThroughText.swift in Sources */,
 				80E2A0B31AB801DA008A169D /* TableViewCell.swift in Sources */,
 				8038EE4E1AF3F55E00E3542C /* GroupsTabBarViewController.swift in Sources */,
+				808E364D1AF435CA007492D0 /* AddRequestsTableViewController.swift in Sources */,
 				808E36491AF40C74007492D0 /* FBUserPointer.swift in Sources */,
 				80DA7D811ACA4BFA001B8999 /* PushNotificationController.swift in Sources */,
 				80F434F21ADB77A900B15B4B /* MonthlyPickerTableViewController.swift in Sources */,

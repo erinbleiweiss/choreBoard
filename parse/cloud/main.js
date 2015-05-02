@@ -568,6 +568,8 @@ Parse.Cloud.define("addToGroupRequest", function(request, response){
 
 	Parse.Cloud.useMasterKey()
 	var currentUser = Parse.User.current();
+	var firstName = currentUser.get("firstName");
+	var lastName = currentUser.get("lastName");
 
 	var fbId = request.params.fbId;
 
@@ -582,6 +584,7 @@ Parse.Cloud.define("addToGroupRequest", function(request, response){
 			var newRequest = new AddToGroupRequest();
 
 			newRequest.set("fromUser", currentUser);
+			newRequest.set("fromUserName", (firstName + " " + lastName));
 			newRequest.set("toUser", theUser);
 			newRequest.set("status", "pending");
 
@@ -1246,3 +1249,61 @@ Parse.Cloud.define("getGroupRequests", function(request, response){
 });
 
 
+Parse.Cloud.define("getInvitationRequests", function(request, response){
+
+	var currentUser = Parse.User.current();
+
+	var AddToGroupRequest = Parse.Object.extend("AddToGroupRequest");
+	var query = new Parse.Query(AddToGroupRequest);
+	query.equalTo("toUser", currentUser);
+	query.find({
+		success: function(result){
+			console.log(result);
+			response.success(result);
+		},
+		error: function(error){
+			response.error(error);
+		}
+
+	});
+
+
+});
+
+
+Parse.Cloud.define("groupNameFromUserID", function(request, response){
+
+	var userId = request.params.userId;
+	
+	var User = Parse.Object.extend("_User");
+	var userQuery = new Parse.Query(User);
+	userQuery.equalTo("objectId", userId);
+	userQuery.find({
+		success: function(queryUser){
+			var theUser = queryUser[0];
+			var groupId = theUser.get("group").id;
+
+			var Group = Parse.Object.extend("Group");
+			var groupQuery = new Parse.Query(Group);
+			groupQuery.equalTo("objectId", groupId);
+			groupQuery.find({
+				success: function(queryGroup){
+					var theGroup = queryGroup[0];
+					response.success(theGroup.get("groupName"));
+
+				},
+				error: function(error){
+					response.error(error);
+				}
+
+			});
+
+		},
+		error: function(error){
+			response.error(error);
+		}
+
+	});
+
+
+});

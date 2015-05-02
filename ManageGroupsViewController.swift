@@ -10,6 +10,9 @@ import UIKit
 
 class ManageGroupsViewController: UIViewController {
 
+    @IBAction func cancelToNewUser(segue:UIStoryboardSegue) {
+    }
+    
     // MARK: - Variables
     var customButton: UIButton?
     var barButton: BBBadgeBarButtonItem?

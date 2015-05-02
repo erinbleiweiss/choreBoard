@@ -39,7 +39,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
     var refreshControl:UIRefreshControl!
     
     var chores = [choreItem]()
-    var groupItems: [groupItem] = []
+    var groupItems = [groupItem]()
     var swipedItem: groupItem?
     
     var snarkyRemarks = [String]()
@@ -408,7 +408,23 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
             cell!.rightUtilityButtons = nil
             cell!.delegate = self
         }
+
         
+//        var cell = tableView.dequeueReusableCellWithIdentifier("ChoreFeedCell") as? ChoreFeedCell
+//        
+//        if let temp = cell
+//        {
+//            cell!.leftUtilityButtons = self.leftButtons()
+//            cell!.rightUtilityButtons = nil
+//            cell!.delegate = self
+//        } else
+//        {
+//            cell = ChoreFeedCell(style: UITableViewCellStyle.Default, reuseIdentifier: "ChoreFeedCell")
+//        }
+
+        
+        if groupItems.count >= indexPath.row{
+            
         if groupItems[indexPath.row].type == "Chore"{
             if groupItems[indexPath.row].completed{
                 cell?.setCompleted()
@@ -479,6 +495,8 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         else{
             cell!.setLeftUtilityButtons(leftButtons(), withButtonWidth: 80)
             cell!.choreCompletedText.text = ""
+        }
+        
         }
         
         

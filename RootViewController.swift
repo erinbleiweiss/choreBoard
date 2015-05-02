@@ -56,7 +56,17 @@ class RootViewController: SWRevealViewController, parseChoreData {
                 }
                 
                 for chore in activeChores{
-                    PFCloud.callFunction("activeChorePush", withParameters: ["message": chore])
+                    PFCloud.callFunctionInBackground("getSnark", withParameters:["choreName": chore]) {
+                        (result: AnyObject!, error: NSError!) -> Void in
+                        if error == nil {
+                            
+                            PFCloud.callFunction("activeChorePush", withParameters: ["message": result])
+
+                            
+                        }
+                    }
+                    
+                    
                 }
                 
                 completionHandler(UIBackgroundFetchResult.NewData)

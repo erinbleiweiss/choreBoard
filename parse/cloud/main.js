@@ -1397,3 +1397,26 @@ Parse.Cloud.define('getSnark', function(request, response) {
   });
 
 });
+
+
+Parse.Cloud.define('getOneSnark', function(request, response) {
+	var theChore = request.params.choreName;
+
+	var Chore = Parse.Object.extend("PresetChore");
+  var query = new Parse.Query(Chore);
+  query.equalTo("name", theChore);
+  query.find({
+  	success: function(result){
+  		var theSnark = result[0].get("snark");
+  		response.success(theSnark);
+  	},
+  	error: function(error){
+  		response.error(error);
+  	}
+
+  });
+
+});
+
+
+

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="b9i-Fk-fZg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="b9i-Fk-fZg">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -854,7 +854,7 @@
             </objects>
             <point key="canvasLocation" x="1080" y="5014"/>
         </scene>
-        <!--Add Roommate-->
+        <!--Manage Group-->
         <scene sceneID="mBn-wg-yhU">
             <objects>
                 <tableViewController id="179-tr-ifO" customClass="FindRoommatesTableViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
@@ -871,7 +871,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="lj7-yH-cUh" detailTextLabel="VqQ-0I-4RW" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="o9D-rN-jgR" customClass="RoommateTableViewCell" customModule="choreBoard" customModuleProvider="target">
+                            <tableViewCell clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="lj7-yH-cUh" detailTextLabel="VqQ-0I-4RW" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="o9D-rN-jgR" customClass="RoommateTableViewCell" customModule="choreBoard" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o9D-rN-jgR" id="wCl-b3-8L9">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -897,8 +897,10 @@
                             <outlet property="delegate" destination="179-tr-ifO" id="i2B-wd-Y1I"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Add Roommate" systemItem="contacts" id="v2Y-d5-4tJ"/>
-                    <navigationItem key="navigationItem" id="p0V-Mc-P1m">
+                    <tabBarItem key="tabBarItem" title="Find Roomates" id="v2Y-d5-4tJ">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-18"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Manage Group" id="p0V-Mc-P1m">
                         <barButtonItem key="leftBarButtonItem" title="Back" style="done" id="XhR-dd-ycq">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
@@ -923,7 +925,7 @@
             </objects>
             <point key="canvasLocation" x="2424" y="4079"/>
         </scene>
-        <!--Join Requests Table View Controller-->
+        <!--Requests-->
         <scene sceneID="QI2-Lu-WrH">
             <objects>
                 <tableViewController id="qPT-8N-ryR" customClass="JoinRequestsTableViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
@@ -944,7 +946,10 @@
                             <outlet property="delegate" destination="qPT-8N-ryR" id="lOS-NY-Gev"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="4En-Pi-PaI"/>
+                    <tabBarItem key="tabBarItem" title="Roommate Requests" id="4En-Pi-PaI">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-18"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Requests" id="q9j-W5-ueg"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnV-Vz-2O0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1280,7 +1285,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AqG-QP-eq3">
+                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AqG-QP-eq3">
                                                     <rect key="frame" x="541" y="7" width="49" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="Delete">

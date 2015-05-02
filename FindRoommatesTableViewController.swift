@@ -84,7 +84,7 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
         
         cell!.accessoryType = .Checkmark
 
-        let plusImage = UIImage(named: "add1")
+        let plusImage = UIImage(named: "add2")
         let plus = UIImageView(image: plusImage)
         plus.frame = CGRectMake(0, 0, 20.0, 20.0)
         

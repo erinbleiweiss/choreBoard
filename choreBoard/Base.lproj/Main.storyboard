@@ -72,7 +72,16 @@
         <scene sceneID="gpM-HF-th3">
             <objects>
                 <tabBarController id="guc-Ej-f0n" customClass="GroupsTabBarViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="nJe-n9-L6L"/>
+                    <navigationItem key="navigationItem" id="nJe-n9-L6L">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Manage Group" textAlignment="center" minimumFontSize="17" id="P7y-vf-3Pc">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="16"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="ajp-c5-VcS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
@@ -955,7 +964,7 @@
             </objects>
             <point key="canvasLocation" x="3105" y="4079"/>
         </scene>
-        <!--Table View Controller-->
+        <!--More-->
         <scene sceneID="k1O-Wf-df7">
             <objects>
                 <tableViewController id="EBM-JC-g9q" sceneMemberID="viewController">
@@ -999,7 +1008,9 @@
                             <outlet property="delegate" destination="EBM-JC-g9q" id="M31-Ly-QBc"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="eV8-1Y-xDy"/>
+                    <tabBarItem key="tabBarItem" title="More" id="eV8-1Y-xDy">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-17"/>
+                    </tabBarItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Eh2-H4-X82" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

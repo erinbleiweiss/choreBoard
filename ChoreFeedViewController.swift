@@ -42,6 +42,8 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
     var groupItems: [groupItem] = []
     var swipedItem: groupItem?
     
+    var snarkyRemarks = [String]()
+    
     var clickedButtonIndex: Int!
 
     var customButton: UIButton?
@@ -129,8 +131,53 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
             })
             
             self.choreFeed.reloadData()
-        }
+            
+            
+            
+            
+            //////////////////// Get snarky remarks
+            
+            self.snarkyRemarks.removeAll(keepCapacity: false)
+            var choreNames = [String]()
+            for item in self.groupItems{
+                if item.type == "Chore" && item.completed == false{
+                choreNames.append(item.text)
+                }
+            }
 
+            
+            PFCloud.callFunctionInBackground("getSnark", withParameters:["allItems": choreNames]) {
+                (result: AnyObject!, error: NSError!) -> Void in
+                if error == nil {
+                    
+                    for item in result as [String]{
+                        self.snarkyRemarks.append(item)
+                    }
+                    
+                }
+                
+                self.viewLaidOut = false
+                self.slideshow.setNeedsDisplay()
+                
+                for view in self.slideshow.subviews as [UIView]{
+                    if !view.isKindOfClass(UILabel){
+                        view.removeFromSuperview()
+                    }
+                }
+                
+                self.loadTheSideshow()
+                
+            }
+            
+            ////////////////////
+            
+            
+            
+        }
+        
+        
+
+        
         
         self.refreshControl?.endRefreshing()
     }
@@ -193,6 +240,9 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         
         
         }
+
+        
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -201,6 +251,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         if checkForLogin(){
             refresh(self)
         }
+        
     }
 
     
@@ -278,20 +329,13 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
         
     }
     
-    
-    
-    override func viewDidLayoutSubviews() {
+
+    func loadTheSideshow() {
         
         if !viewLaidOut{
             
-            let colors = [UIColor.redColor(), UIColor.greenColor(), UIColor.yellowColor(), UIColor.magentaColor()]
-            let snark = ["If you care about shelter, you should pay your rent else the underpass is nice.",
-                "I’ll pee in the shower until you buy toilet paper.",
-                "Want me to move those biology experiments you are growing in the sink to your bed, for closer study?",
-                "Contrary to what you may believe, the government won't subsidize a landfill on our property",
-                "I won't be verbose, Stop Being Gross."]
             
-            for index in 0..<snark.count {
+            for index in 0..<snarkyRemarks.count {
                 
                 frame.size = CGSizeMake(self.view.frame.size.width, slideshowHeight)
                 
@@ -304,7 +348,7 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 subviewText.textColor = UIColor.whiteColor()
                 subviewText.backgroundColor = UIColor.clearColor()
                 subviewText.numberOfLines = 0
-                subviewText.text = snark[index]
+                subviewText.text = snarkyRemarks[index]
                 subviewText.font = UIFont(name: "Gill Sans", size: 18.0)
                 subview.addSubview(subviewText)
                 
@@ -317,27 +361,12 @@ class ChoreFeedViewController: UIViewController, UITableViewDataSource, UITableV
                 let rotation2 = CGAffineTransformMakeRotation(0)
                 let rotationObj2 = NSValue(CGAffineTransform: rotation)
                 
-                switch index
-                {
-                case 0:
-                    self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 0, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
-                case 1:
-                    self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 1, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
-                case 2:
-                    self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 2, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
-                case 3:
-                    self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 3, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
-                case 4:
-                    self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: 4, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
-                default:
-                    break
-                }
-                
-                
+                self.slideshow.addAnimation(DRDynamicSlideShowAnimation.animationForSubview(subviewText, page: index, keyPath: "center", toValue: pointObj, delay: 0) as DRDynamicSlideShowAnimation)
+
                 
             }
             
-            slideshow.contentSize = CGSizeMake(self.view.frame.size.width * CGFloat(snark.count), slideshowHeight)
+            slideshow.contentSize = CGSizeMake(self.view.frame.size.width * CGFloat(snarkyRemarks.count), slideshowHeight)
             
             viewLaidOut = true
         }

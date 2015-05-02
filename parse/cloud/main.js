@@ -1,4 +1,5 @@
 var moment = require('moment');
+var _ = require('underscore');
 
 // Use Parse.Cloud.define to define as many cloud functions as you want.
 // For example:
@@ -1041,40 +1042,6 @@ Parse.Cloud.define("setCompleted_DEVELOPMENT", function(request, response){
 
 
 
-
-Parse.Cloud.define("getSnark", function(request, response){
-
-	var allItems = request.params.allItems;
-
-	var currentUser = Parse.User.current();
-	var firstName = currentUser.get("firstName");
-	var lastName = currentUser.get("lastName");
-	var fullName = firstName + " " + lastName;
-
-	var Class = Parse.Object.extend(kind);
-	var query = new Parse.Query(Class);
-	query.equalTo("objectId", objId);
-	query.find({
-		success: function(queryUser){
-			var theObject = queryUser[0];
-			theObject.set("completed", true);
-			theObject.set("completedBy", fullName);
-			theObject.set("completedAt", new Date());
-
-			theObject.save();
-
-			response.success({"fullName": fullName, "completedAt": new Date()});
-		},
-		error: function(error){
-			response.error(error);
-		}
-
-	});
-
-
-});
-
-
 Parse.Cloud.define("updateChoreSettings", function(request, response){
 
 	var objId = request.params.objectId;
@@ -1305,5 +1272,44 @@ Parse.Cloud.define("groupNameFromUserID", function(request, response){
 
 	});
 
+
+});
+
+
+Parse.Cloud.define('getSnark', function(request, response) {
+
+ var allItems = request.params.allItems; // what is this an array of?
+ var snarkArray = [];
+ console.log(allItems);
+
+  return Parse.Promise.as().then(function() { // this just gets the ball rolling
+    var promise = Parse.Promise.as(); // define a promise
+
+    _.each(allItems, function(item) { // use underscore, its better :)
+      promise = promise.then(function() { // each time this loops the promise gets reassigned to the function below
+
+				var Chore = Parse.Object.extend("PresetChore");
+        var query = new Parse.Query(Chore);
+        query.equalTo("name", item); // is this the right query syntax?
+        return query.find().then(function(results) { // the code will wait (run async) before looping again knowing that this query (all parse queries) returns a promise. If there wasn't something returning a promise, it wouldn't wait.
+
+					var theSnark = results[0].get("snark");
+					// var theSnark = results[0];
+					snarkArray.push(theSnark);
+
+          return Parse.Promise.as(); // the code will wait again for the above to complete because there is another promise returning here (this is just a default promise, but you could also run something like return object.save() which would also return a promise)
+
+        }, function (error) {
+          response.error("score lookup failed with error.code: " + error.code + " error.message: " + error.message);
+        });
+      }); // edit: missing these guys
+    });
+    return promise; // this will not be triggered until the whole loop above runs and all promises above are resolved
+
+  }).then(function() {
+    response.success(snarkArray); // edit: changed to a capital A
+  }, function (error) {
+    response.error("script failed with error.code: " + error.code + " error.message: " + error.message);
+  });
 
 });

@@ -61,42 +61,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="guc-Ej-f0n" kind="relationship" relationship="rootViewController" id="Npz-hE-ZSt"/>
+                        <segue destination="179-tr-ifO" kind="relationship" relationship="rootViewController" id="0cu-uJ-ddP"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qId-fU-dwb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3115" y="2218"/>
-        </scene>
-        <!--Groups Tab Bar View Controller-->
-        <scene sceneID="gpM-HF-th3">
-            <objects>
-                <tabBarController id="guc-Ej-f0n" customClass="GroupsTabBarViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="nJe-n9-L6L">
-                        <nil key="title"/>
-                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Manage Group" textAlignment="center" minimumFontSize="17" id="P7y-vf-3Pc">
-                            <rect key="frame" x="180" y="7" width="240" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="18"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                    </navigationItem>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="ajp-c5-VcS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="179-tr-ifO" kind="relationship" relationship="viewControllers" id="axC-d3-dVU"/>
-                        <segue destination="qPT-8N-ryR" kind="relationship" relationship="viewControllers" id="ory-VV-QDv"/>
-                        <segue destination="EBM-JC-g9q" kind="relationship" relationship="viewControllers" id="t7W-3l-iKg"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uIh-X3-jrV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3115" y="3009"/>
         </scene>
         <!--Group Requests-->
         <scene sceneID="IFI-ly-S4I">
@@ -283,9 +253,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8i7-Ck-tRJ"/>
+                    <navigationItem key="navigationItem" id="8i7-Ck-tRJ">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="RWq-8q-teB">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="HVL-Ha-5Xr" kind="unwind" unwindAction="cancelToNewUser:" id="ekr-jF-IS0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgn-Wx-mm4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="HVL-Ha-5Xr" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2807" y="7141"/>
         </scene>
@@ -391,10 +369,10 @@
             </objects>
             <point key="canvasLocation" x="3887" y="8003"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--New User Nav View Controller-->
         <scene sceneID="Ov2-tv-E1V">
             <objects>
-                <navigationController id="bfW-oM-Rck" sceneMemberID="viewController">
+                <navigationController id="bfW-oM-Rck" customClass="NewUserNavViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="os5-TH-hLe">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -910,14 +888,7 @@
                     <tabBarItem key="tabBarItem" title="Find Roomates" id="v2Y-d5-4tJ">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-18"/>
                     </tabBarItem>
-                    <navigationItem key="navigationItem" title="Manage Group" id="p0V-Mc-P1m">
-                        <barButtonItem key="leftBarButtonItem" title="Back" style="done" id="XhR-dd-ycq">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="cancelToManageViewController:" destination="179-tr-ifO" id="lRw-vW-XBs"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Manage Group" id="p0V-Mc-P1m"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="b9f-72-4P9" id="ioU-6s-6TP"/>
                     </connections>
@@ -933,89 +904,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2424" y="4079"/>
-        </scene>
-        <!--Requests-->
-        <scene sceneID="QI2-Lu-WrH">
-            <objects>
-                <tableViewController id="qPT-8N-ryR" customClass="JoinRequestsTableViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="QtH-74-glM">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="cS4-v6-4Pk">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cS4-v6-4Pk" id="HOU-gr-7rE">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="qPT-8N-ryR" id="tOq-EK-Dlz"/>
-                            <outlet property="delegate" destination="qPT-8N-ryR" id="lOS-NY-Gev"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Roommate Requests" id="4En-Pi-PaI">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-18"/>
-                    </tabBarItem>
-                    <navigationItem key="navigationItem" title="Requests" id="q9j-W5-ueg"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nnV-Vz-2O0" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3105" y="4079"/>
-        </scene>
-        <!--More-->
-        <scene sceneID="k1O-Wf-df7">
-            <objects>
-                <tableViewController id="EBM-JC-g9q" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="70X-PW-azh">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection headerTitle="Settings" id="FQW-ct-KNZ">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="Uyk-xr-aae">
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Uyk-xr-aae" id="tFx-uC-N2J">
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Group Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqW-kl-n5Y">
-                                                    <rect key="frame" x="15" y="11" width="163" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45j-X2-Qe0">
-                                                    <rect key="frame" x="392" y="13" width="167" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="45j-X2-Qe0" firstAttribute="trailing" secondItem="tFx-uC-N2J" secondAttribute="trailingMargin" id="2ic-eZ-KEs"/>
-                                                <constraint firstItem="45j-X2-Qe0" firstAttribute="top" secondItem="tFx-uC-N2J" secondAttribute="topMargin" constant="3" id="mrM-4S-h6j"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="45j-X2-Qe0" secondAttribute="bottom" constant="3" id="tAJ-hj-WCs"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="EBM-JC-g9q" id="V7c-ri-DU1"/>
-                            <outlet property="delegate" destination="EBM-JC-g9q" id="M31-Ly-QBc"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="More" id="eV8-1Y-xDy">
-                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-17"/>
-                    </tabBarItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Eh2-H4-X82" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3785" y="4077"/>
+            <point key="canvasLocation" x="3115" y="3103"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="aUa-TO-SFI">

@@ -132,6 +132,42 @@ class NewUserFindRoommatesTableViewController: UITableViewController, UISearchBa
     
     
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        let row = indexPath.row
+        
+        var clickedFriend: FBUser = friends[row]
+        
+        var refreshAlert = UIAlertController(title: "Join Group", message: "Join " + clickedFriend.name + "\'s group?", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+        }))
+        
+        refreshAlert.addAction(UIAlertAction(title: "Join", style: .Default, handler: { (action: UIAlertAction!) in
+            
+            PFCloud.callFunctionInBackground("joinGroupRequest", withParameters:["objId": clickedFriend.fbId]) {
+                (result: AnyObject!, error: NSError!) -> Void in
+                if error == nil {
+                    
+                }
+            }
+            
+            
+        }))
+        
+        presentViewController(refreshAlert, animated: true, completion: nil)
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

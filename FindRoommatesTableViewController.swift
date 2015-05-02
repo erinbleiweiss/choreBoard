@@ -253,7 +253,7 @@ class FindRoommatesTableViewController: UITableViewController, UISearchBarDelega
                 refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
                 }))
                 
-                refreshAlert.addAction(UIAlertAction(title: "Add", style: .Default, handler: { (action: UIAlertAction!) in
+                refreshAlert.addAction(UIAlertAction(title: "Send", style: .Default, handler: { (action: UIAlertAction!) in
                     
                     PFCloud.callFunctionInBackground("addToGroupRequest", withParameters:["fbId": clickedFriend.fbId]) {
                         (result: AnyObject!, error: NSError!) -> Void in

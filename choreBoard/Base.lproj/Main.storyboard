@@ -161,10 +161,10 @@
             </objects>
             <point key="canvasLocation" x="5427" y="3210"/>
         </scene>
-        <!--Chore Board Blue Navigation Controller-->
+        <!--New User Nav View Controller-->
         <scene sceneID="QDy-Pv-paH">
             <objects>
-                <navigationController storyboardIdentifier="ManageGroups" id="1u3-q3-Buw" customClass="ChoreBoardBlueNavigationController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ManageGroups" id="1u3-q3-Buw" customClass="NewUserNavViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vAS-wh-r6W">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -267,61 +267,6 @@
             </objects>
             <point key="canvasLocation" x="2807" y="7141"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="as9-bh-rEz">
-            <objects>
-                <tabBarController id="cth-dj-cN3" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="2YN-AH-7xG">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="KId-xy-Ttw">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <segue destination="Rj5-fa-HBv" kind="unwind" unwindAction="cancelToNewUser:" id="DPN-PJ-hp3"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="KuY-he-ECz">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="6Lq-Kx-K63" kind="relationship" relationship="viewControllers" id="5Uk-g7-XWz"/>
-                        <segue destination="gZK-7B-xzX" kind="relationship" relationship="viewControllers" id="gmp-2n-BeO"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fE6-nS-3aD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Rj5-fa-HBv" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="3530" y="7130"/>
-        </scene>
-        <!--Add Requests Table View Controller-->
-        <scene sceneID="JBx-GV-MRr">
-            <objects>
-                <tableViewController id="6Lq-Kx-K63" customClass="AddRequestsTableViewController" customModule="choreBoard" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="k9z-4K-AhJ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="xxl-UM-f9X">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xxl-UM-f9X" id="fwF-LH-rEv">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="6Lq-Kx-K63" id="EaN-Su-NXD"/>
-                            <outlet property="delegate" destination="6Lq-Kx-K63" id="IvD-SF-jfO"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="9rX-iR-0Hc"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dtF-Bp-Xag" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3069" y="8003"/>
-        </scene>
         <!--New User Find Roommates Table View Controller-->
         <scene sceneID="0bw-qd-pjp">
             <objects>
@@ -352,11 +297,20 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="el1-92-xhu"/>
+                    <navigationItem key="navigationItem" id="eGT-G7-Q5Z">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="Izj-xA-5yl">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="Yid-85-UKz" kind="unwind" unwindAction="cancelToNewUser:" id="R5g-Ou-NFt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="fzn-eY-cQx" id="6Hl-be-rvQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mIy-Wm-Bdv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Yid-85-UKz" userLabel="Exit" sceneMemberID="exit"/>
                 <searchDisplayController id="fzn-eY-cQx">
                     <connections>
                         <outlet property="delegate" destination="gZK-7B-xzX" id="E0R-0N-gYf"/>
@@ -367,7 +321,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="3887" y="8003"/>
+            <point key="canvasLocation" x="3530" y="7141"/>
         </scene>
         <!--New User Nav View Controller-->
         <scene sceneID="Ov2-tv-E1V">
@@ -394,7 +348,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="cth-dj-cN3" kind="relationship" relationship="rootViewController" id="WAo-bH-RmJ"/>
+                        <segue destination="gZK-7B-xzX" kind="relationship" relationship="rootViewController" id="N5M-tQ-b1o"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c6A-d4-Jpf" userLabel="First Responder" sceneMemberID="firstResponder"/>

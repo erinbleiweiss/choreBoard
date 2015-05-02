@@ -14,7 +14,9 @@ class NewUserFindRoommatesTableViewController: UITableViewController, UISearchBa
     var friends = [FBUser]()
     var filteredFriends = [FBUser]()
     
-    
+    var fbIds = [String]()
+    var users = [FBUserPointer]()
+
     // MARK: - View Lifestyle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,55 @@ class NewUserFindRoommatesTableViewController: UITableViewController, UISearchBa
                 }
                 
                 self.tableView.reloadData()
+                
+                for i in self.friends{
+                    self.fbIds.append(i.fbId)
+                }
+                
+                PFCloud.callFunctionInBackground("getUserIds", withParameters:["allItems": self.fbIds]) {
+                    (result: AnyObject!, error: NSError!) -> Void in
+                    if error == nil {
+                        
+                        var count = 0
+                        for friend in self.friends {
+                            var theID = result[count] as String
+                            friend.setUserId(theID)
+                            count++
+                        }
+                        
+                        
+                        
+                        PFCloud.callFunctionInBackground("getAddToGroupRequests", withParameters:[:]) {
+                            (result: AnyObject!, error: NSError!) -> Void in
+                            if error == nil {
+                                
+                                for user in result as NSArray {
+                                    let name = user["fromUserName"] as String
+                                    let objId = user["fromUser"]!!.objectId as String
+                                    self.users.append(FBUserPointer(name: name, objId: objId))
+                                    
+                                    for friend in self.friends{
+                                        if friend.userId == objId{
+                                            friend.activeRequest = true
+                                        }
+                                    }
+                                    
+                                    
+                                }
+                                
+                                self.tableView.reloadData()
+                            }
+                        }
+                        
+                        
+                    }
+                }
+                
+                
+                
+                
+                
+                
             }
         }
         
@@ -107,7 +158,11 @@ class NewUserFindRoommatesTableViewController: UITableViewController, UISearchBa
         
         // Configure the cell
         cell!.textLabel!.text = user.name
-        //        cell!.detailTextLabel?.text = user.fbId
+
+        if user.activeRequest{
+            println(user.name)
+            cell!.textLabel!.font = UIFont.boldSystemFontOfSize(16.0)
+        }
         
         PFCloud.callFunctionInBackground("groupNameFromFBID", withParameters:["fbId": user.fbId]) {
             (result: AnyObject!, error: NSError!) -> Void in
@@ -137,24 +192,65 @@ class NewUserFindRoommatesTableViewController: UITableViewController, UISearchBa
         
         var clickedFriend: FBUser = friends[row]
         
-        var refreshAlert = UIAlertController(title: "Join Group", message: "Join " + clickedFriend.name + "\'s group?", preferredStyle: UIAlertControllerStyle.Alert)
+        if filteredFriends.count > 0 {
+            clickedFriend = filteredFriends[row]
+        }
+        else{
+            clickedFriend = friends[row]
+        }
         
-        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
-        }))
-        
-        refreshAlert.addAction(UIAlertAction(title: "Join", style: .Default, handler: { (action: UIAlertAction!) in
+        if clickedFriend.activeRequest{
+            var refreshAlert = UIAlertController(title: "Join Group", message: "Join " + clickedFriend.name + "\'s Group?", preferredStyle: UIAlertControllerStyle.Alert)
             
-            PFCloud.callFunctionInBackground("joinGroupRequest", withParameters:["objId": clickedFriend.fbId]) {
-                (result: AnyObject!, error: NSError!) -> Void in
-                if error == nil {
-                    
+            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+            }))
+            
+            refreshAlert.addAction(UIAlertAction(title: "Join", style: .Default, handler: { (action: UIAlertAction!) in
+                PFCloud.callFunctionInBackground("joinRoommatesGroup", withParameters:["fbId": clickedFriend.fbId]) {
+                    (result: AnyObject!, error: NSError!) -> Void in
+                    if error == nil {
+                        let pageVC = self.storyboard!.instantiateViewControllerWithIdentifier("ViewController1") as UIViewController
+                        self.presentViewController(pageVC, animated: true, completion: nil)
+                    }
                 }
-            }
+                
+                
+            }))
+            
+            presentViewController(refreshAlert, animated: true, completion: nil)
+            
+        }
             
             
-        }))
+        else{
+            var refreshAlert = UIAlertController(title: "Send Request", message: "Send " + clickedFriend.name + " a group request?", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in
+            }))
+            
+            refreshAlert.addAction(UIAlertAction(title: "Send", style: .Default, handler: { (action: UIAlertAction!) in
+                
+                PFCloud.callFunctionInBackground("joinGroupRequest", withParameters:["fbId": clickedFriend.fbId]) {
+                    (result: AnyObject!, error: NSError!) -> Void in
+                    if error == nil {
+                        
+                    }
+                }
+                
+                
+                let selectedCell : UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+                
+                let checkImage = UIImage(named: "checkmark")
+                let checkmark = UIImageView(image: checkImage)
+                checkmark.frame = CGRectMake(0, 0, 20.0, 20.0)
+                selectedCell.accessoryView = checkmark
+                
+            }))
+            
+            presentViewController(refreshAlert, animated: true, completion: nil)
+        }
         
-        presentViewController(refreshAlert, animated: true, completion: nil)
+        
         
     }
     

@@ -1216,6 +1216,30 @@ Parse.Cloud.define("getGroupRequests", function(request, response){
 });
 
 
+Parse.Cloud.define("getAddToGroupRequests", function(request, response){
+
+	var currentUser = Parse.User.current();
+	var groupPointer = currentUser.get("group");
+
+	var AddToGroupRequest = Parse.Object.extend("AddToGroupRequest");
+	var query = new Parse.Query(AddToGroupRequest);
+	query.equalTo("toUser", currentUser);
+	query.find({
+		success: function(result){
+			response.success(result);
+		},
+		error: function(error){
+			response.error(error);
+		}
+
+	});
+
+
+});
+
+
+
+
 
 Parse.Cloud.define('getUserIds', function(request, response) {
 
